@@ -1,16 +1,17 @@
 // IPA in -> per-scheme probabilities out. No audio or model dependencies.
 
 ///|
-let t_aligned : Double = 1.161
+// Untuned defaults: temperature 1 (plain Bayesian posterior), unit edit weight.
+let t_aligned : Double = 1.0
 
 ///|
-let t_free : Double = 0.872
+let t_free : Double = 1.0
 
 ///|
 let hit : Double = 0.8
 
 ///|
-let edit_w : Double = 2.0
+let edit_w : Double = 1.0
 
 ///|
 fn fold_map(p : String) -> String {
@@ -423,8 +424,8 @@ pub fn detect_text(ipa_s : String, text : String) -> Detection {
 }
 
 ///|
-/// P(recognizer hears `heard` | unit `tag` should sound `pred`): learned counts (tables fit on public Greek text corpora,
-/// conf_gen.mbt) with back-off tag+pred -> pred -> flat model.
+/// P(recognizer hears `heard` | unit `tag` should sound `pred`): counts in conf_gen.mbt
+/// (currently empty: no audio is used, so this is the identity prior) with back-off tag+pred -> pred -> flat model.
 fn p_heard(tag : String, pred : String, heard : String) -> Double {
   let a1 = 2.0
   let a2 = 4.0
@@ -445,7 +446,7 @@ fn p_heard(tag : String, pred : String, heard : String) -> Double {
 let nl_cache : Array[(Map[String, Double], Map[String, Double])] = []
 
 ///|
-/// Scheme bigram tables pushed through the learned phone confusions (what the recognizer would output).
+/// Scheme bigram tables pushed through the phone confusion prior (what the recognizer would output).
 fn noisy_lm(s : Int32) -> (Map[String, Double], Map[String, Double]) {
   if nl_cache.length() == 0 {
     let hit_lm = 0.7
@@ -521,7 +522,7 @@ pub fn detect_free(ipa_s : String) -> Detection {
       tot += @math.ln((cab + 0.5) / (ca + 0.5 * vs))
     }
     let n = if obs.length() - 1 > 1 { obs.length() - 1 } else { 1 }
-    ll[s] = tot / n.to_double() * 20.0
+    ll[s] = tot
   }
   {
     mode: "free",
