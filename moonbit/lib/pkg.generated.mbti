@@ -1,0 +1,75 @@
+// Generated using `moon info`, DON'T EDIT IT
+package "aaronshaf/greek-phonology/lib"
+
+// Values
+pub fn accent(String) -> (Int32, String)?
+
+pub fn accent_ok(String) -> Bool?
+
+pub fn detect(String, greek_text? : String) -> Detection
+
+pub fn detect_free(String) -> Detection
+
+pub fn detect_text(String, String) -> Detection
+
+pub fn fold(String) -> String
+
+pub fn g2p_index(String, Int32) -> Array[Phone]
+
+pub fn ipa(String, String) -> String
+
+pub fn lexicon_size() -> Int32
+
+pub fn load_lexicon(Array[Int32]) -> Int32
+
+pub fn lookup_json(String) -> String
+
+pub fn recessive_accent(String) -> (Int32, String)?
+
+pub let schemes : Array[String]
+
+pub fn softmax(Array[Double], Double) -> Array[Double]
+
+pub fn split_ws(String) -> Array[String]
+
+pub fn syllabify(String) -> Array[Array[String]]
+
+pub fn syllabify_json(String) -> String
+
+pub fn syllable_cuts(Array[GUnit]) -> Array[Int32]
+
+pub fn tokenize(String) -> Array[String]
+
+pub fn units(String) -> Array[GUnit]
+
+pub fn word_json(String) -> String
+
+// Errors
+
+// Types and methods
+pub(all) struct Detection {
+  mode : String
+  probs : Array[Double]
+  loglik : Array[Double]
+  evidence_tags : Array[Array[String]]
+  evidence_hits : Array[Array[Int32]]
+  evidence_total : Array[Array[Int32]]
+  phones : Int32
+}
+pub fn Detection::to_json_string(Self) -> String
+
+pub(all) struct GUnit {
+  u : String
+  marks : Array[Char]
+}
+
+pub(all) struct Phone {
+  p : String
+  tag : String
+  w : Int32
+  u : Int32
+}
+
+// Type aliases
+
+// Traits

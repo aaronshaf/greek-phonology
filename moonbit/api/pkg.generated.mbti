@@ -1,0 +1,31 @@
+// Generated using `moon info`, DON'T EDIT IT
+package "aaronshaf/greek-phonology/api"
+
+// Values
+pub fn detect_json(String, String) -> String
+
+pub fn in_clear() -> Unit
+
+pub fn in_push(Int32) -> Unit
+
+pub fn ipa(String, String) -> String
+
+pub fn lookup_json(String) -> String
+
+pub fn out_get(Int32) -> Int32
+
+pub fn out_len() -> Int32
+
+pub fn run(Int32) -> Int32
+
+pub fn run_str(Int32, String, String) -> String
+
+pub fn word_json(String) -> String
+
+// Errors
+
+// Types and methods
+
+// Type aliases
+
+// Traits

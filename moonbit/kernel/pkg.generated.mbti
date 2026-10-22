@@ -1,0 +1,19 @@
+// Generated using `moon info`, DON'T EDIT IT
+package "aaronshaf/greek-phonology/kernel"
+
+// Values
+pub fn law_ok(Int32, Int32, Bool, Bool, Bool) -> Bool
+
+pub fn recessive_circ(Int32, Bool, Bool) -> Bool
+
+pub fn recessive_pos(Int32, Bool) -> Int32
+
+pub fn syllable_cut(FixedArray[Int32], Int32, Int32, Int32) -> Int32
+
+// Errors
+
+// Types and methods
+
+// Type aliases
+
+// Traits

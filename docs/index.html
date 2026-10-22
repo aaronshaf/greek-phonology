@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>greek-phonology playground</title>
+<style>
+  :root { font-family: system-ui, sans-serif; color: #222; background: #fafafa; }
+  body { max-width: 860px; margin: 0 auto; padding: 1.5rem; }
+  h1 { font-size: 1.4rem; margin: 0 0 .25rem; }
+  p.sub { margin: 0 0 1rem; color: #666; }
+  label { display: block; font-weight: 600; margin: .8rem 0 .3rem; }
+  textarea { width: 100%; box-sizing: border-box; height: 4.2rem; font-size: 1.1rem; padding: .4rem; resize: vertical; }
+  .row { display: flex; gap: .5rem; flex-wrap: wrap; align-items: center; margin: .5rem 0; }
+  button, select { font-size: .95rem; padding: .3rem .7rem; }
+  section { background: #fff; border: 1px solid #ddd; border-radius: 6px; padding: .8rem 1rem; margin: 1rem 0; min-height: 3rem; }
+  h2 { font-size: 1rem; margin: 0 0 .5rem; }
+  .bar { display: grid; grid-template-columns: 9rem 1fr 4rem; gap: .5rem; align-items: center; margin: .2rem 0; }
+  .track { background: #eee; height: .9rem; border-radius: 3px; overflow: hidden; }
+  .fill { background: #3b6ea8; height: 100%; width: 0; transition: width .2s; }
+  table { border-collapse: collapse; width: 100%; font-size: .95rem; }
+  td, th { text-align: left; padding: .2rem .4rem; border-bottom: 1px solid #eee; vertical-align: top; }
+  .mono { font-family: ui-monospace, monospace; }
+  #status { color: #666; font-size: .85rem; }
+  .ok { color: #1a7f37; } .bad { color: #b42318; }
+</style>
+</head>
+<body>
+<h1>greek-phonology</h1>
+<p class="sub">Greek pronunciation tools that run entirely in your browser (formerly koine-lexer). Nothing is sent to a server.</p>
+
+<label for="greek">Greek text</label>
+<textarea id="greek">Ἐν ἀρχῇ ἦν ὁ λόγος</textarea>
+<div class="row">
+  <span>Read it as</span>
+  <select id="scheme">
+    <option value="koine">Koine (reconstructed)</option>
+    <option value="attic">Restored Attic</option>
+    <option value="erasmian">Erasmian</option>
+    <option value="modern">Modern Greek</option>
+    <option value="byzantine">Byzantine</option>
+  </select>
+  <button id="toipa">Greek → IPA ↓</button>
+</div>
+
+<label for="ipa">IPA (what was heard; separate phones with spaces, words with |)</label>
+<textarea id="ipa" class="mono"></textarea>
+<div class="row">
+  <span>Examples:</span>
+  <button data-ex="koine">Koine</button>
+  <button data-ex="attic">Restored Attic</button>
+  <button data-ex="erasmian">Erasmian</button>
+  <button data-ex="modern">Modern</button>
+  <button data-ex="byzantine">Byzantine</button>
+</div>
+
+<section><h2>Which pronunciation does the IPA sound like?</h2><div id="probs"></div><div id="mode" class="sub"></div></section>
+<section><h2>Words: syllables, accent, dictionary</h2><div id="words"></div></section>
+<p id="status">Loading…</p>
+
+<script src="app.js"></script>
+</body>
+</html>

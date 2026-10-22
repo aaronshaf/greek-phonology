@@ -1,0 +1,36 @@
+# Build the greek-phonology playground (MoonBit -> wasm + js) and deploy docs/ to GitHub Pages.
+# Not enabled yet: turn on Pages (source: GitHub Actions) in repo settings to use it.
+name: pages
+on:
+  workflow_dispatch:
+  push:
+    branches: [master]
+    paths: ["moonbit/**", "docs/**", ".github/workflows/pages.yml"]
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+concurrency: { group: pages, cancel-in-progress: true }
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install MoonBit
+        run: |
+          curl -fsSL https://cli.moonbitlang.com/install/unix.sh | bash
+          echo "$HOME/.moon/bin" >> "$GITHUB_PATH"
+      - name: Test and build
+        working-directory: moonbit
+        run: |
+          moon test
+          ./tools/build_pages.sh
+      - uses: actions/upload-pages-artifact@v3
+        with: { path: docs }
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment: { name: github-pages, url: "${{ steps.d.outputs.page_url }}" }
+    steps:
+      - id: d
+        uses: actions/deploy-pages@v4

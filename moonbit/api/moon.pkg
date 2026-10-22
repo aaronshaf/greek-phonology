@@ -1,0 +1,19 @@
+import {
+  "aaronshaf/greek-phonology/lib",
+}
+
+options(
+  link: {
+    "wasm": {
+      "exports": [ "in_clear", "in_push", "run", "out_len", "out_get" ],
+      "export-memory-name": "memory",
+    },
+    "wasm-gc": {
+      "exports": [ "in_clear", "in_push", "run", "out_len", "out_get" ],
+    },
+    "js": {
+      "exports": [ "detect_json", "ipa", "word_json", "lookup_json", "run_str", "in_clear", "in_push", "run", "out_len", "out_get" ],
+      "format": "cjs",
+    },
+  },
+)

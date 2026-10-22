@@ -28,3 +28,7 @@ pnpmfile.js
 # Log's files.
 *.log
 *.log.*
+
+# MoonBit
+moonbit/_build/
+moonbit/.mooncakes/

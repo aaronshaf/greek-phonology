@@ -1,0 +1,3 @@
+import {
+  "aaronshaf/greek-phonology/lib" @lib,
+}

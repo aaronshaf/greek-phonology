@@ -1,0 +1,59 @@
+/// Law of limitation for a written accent at syllable `pos` (1 = ultima) of an `nsyl`-syllable word.
+predicate law_of_limitation(nsyl : Int, pos : Int, circ : Bool, nuc_long : Bool, ult_long : Bool) {
+  (1 <= pos) && (pos <= nsyl) && (pos <= 3) &&
+  ((pos != 3) || (ult_long == false)) &&
+  ((circ == false) || (pos <= 2)) &&
+  ((circ == false) || (nuc_long == true)) &&
+  ((circ == false) || (pos != 2) || (ult_long == false))
+}
+
+/// Recessive accent position (1 = ultima), logic side.
+fn rpos_spec(nsyl : Int, ult_long : Bool) -> Int {
+  if nsyl <= 1 {
+    1
+  } else {
+    if ult_long || (nsyl == 2) {
+      2
+    } else {
+      3
+    }
+  }
+}
+
+/// kinds[i] == 1 marks a vowel nucleus unit, 0 a consonant unit.
+predicate consonant_gap(kinds : FixedArray[Int], a : Int, b : Int) {
+  ∀ i : Int, (i <= a) || (b <= i) || (kinds[i] == 0)
+}
+
+/// Units [lo, hi) contain exactly one nucleus, at index a.
+predicate one_nucleus(kinds : FixedArray[Int], lo : Int, hi : Int, a : Int) {
+  (lo <= a) && (a < hi) && (kinds[a] == 1) &&
+  (∀ i : Int, (i < lo) || (hi <= i) || (i == a) || (kinds[i] == 0))
+}
+
+/// Middle syllable: cut points cp (start) and c (end) around nucleus a, between nuclei p < a < b.
+lemma middle_syllable_one_nucleus(kinds : FixedArray[Int], p : Int, a : Int, b : Int, cp : Int, c : Int) where {
+  proof_require: 0 <= p,
+  proof_require: p < a,
+  proof_require: a < b,
+  proof_require: b < kinds.length(),
+  proof_require: kinds[a] == 1,
+  proof_require: consonant_gap(kinds, p, a),
+  proof_require: consonant_gap(kinds, a, b),
+  proof_require: p < cp,
+  proof_require: cp <= a,
+  proof_require: a < c,
+  proof_require: c <= b,
+  proof_ensure: one_nucleus(kinds, cp, c, a),
+} {}
+
+/// Consecutive cuts are strictly increasing, so syllables partition the word (concat == word).
+lemma cuts_strictly_increase(p : Int, a : Int, b : Int, c1 : Int, c2 : Int) where {
+  proof_require: p < a,
+  proof_require: a < b,
+  proof_require: p < c1,
+  proof_require: c1 <= a,
+  proof_require: a < c2,
+  proof_require: c2 <= b,
+  proof_ensure: c1 < c2,
+} {}
