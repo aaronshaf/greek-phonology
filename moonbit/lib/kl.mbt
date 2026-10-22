@@ -159,13 +159,54 @@ let contract_rules : Array[(String, String)] = [
 ]
 
 ///|
+let marker_ei : Int = 0x110000
+
+///|
+let marker_ou : Int = 0x110001
+
+///|
+/// contract_rules as token tables: (alternatives flattened, pattern length, replacement tokens).
+/// The proved kernel needs replacement length <= pattern length <= ... and at most 2 tokens.
+let contract_tables : Array[(FixedArray[Int], Int, FixedArray[Int])] = contract_rules.map(fn(r) {
+  let alts = expand(r.0)
+  let flat : Array[Int] = []
+  for a in alts {
+    for c in a {
+      flat.push(c.to_int())
+    }
+  }
+  let rep : Array[Int] = if r.1 == "[ει]" {
+    [marker_ei]
+  } else if r.1 == "[ου]" {
+    [marker_ou]
+  } else {
+    chars(r.1).map(fn(c) { c.to_int() })
+  }
+  (FixedArray::from_array(flat), char_count(alts[0]), FixedArray::from_array(rep))
+})
+
+///|
 /// Vowel contraction, same table and behaviour as the TS: the first rule that matches anywhere is
 /// applied to the whole string. Kept as-is, including its quirks ("[ει]"/"[ου]" mark spurious diphthongs).
 pub fn contract(s : String) -> String {
-  for r in contract_rules {
-    let alts = expand(r.0)
-    if has_alts(s, alts) {
-      return replace_alts(s, alts, r.1)
+  let cs = FixedArray::from_array(chars(s).map(fn(c) { c.to_int() }))
+  let out = FixedArray::make(cs.length(), 0)
+  for r in contract_tables {
+    let (alts, plen, rep) = r
+    let res = @kernel.contract_core(cs, alts, plen, rep, rep.length(), out)
+    if res % 2 == 1 {
+      let sb = StringBuilder()
+      for i in 0..<(res / 2) {
+        let t = out[i]
+        if t == marker_ei {
+          sb.write_string("[ει]")
+        } else if t == marker_ou {
+          sb.write_string("[ου]")
+        } else {
+          sb.write_char(Int::unsafe_to_char(t))
+        }
+      }
+      return sb.to_string()
     }
   }
   s

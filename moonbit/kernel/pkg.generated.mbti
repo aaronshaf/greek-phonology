@@ -6,9 +6,13 @@ pub fn accent_count(Bool, Bool) -> Int32
 
 pub fn accents_written(Int32, Int32) -> Int32
 
+pub fn alt_match(FixedArray[Int32], Int32, FixedArray[Int32], Int32) -> Bool
+
 pub fn amalgamate_core(FixedArray[Int32], FixedArray[Int32]) -> Int32
 
 pub fn argmax5(Int64, Int64, Int64, Int64, Int64) -> Int32
+
+pub fn contract_core(FixedArray[Int32], FixedArray[Int32], Int32, FixedArray[Int32], Int32, FixedArray[Int32]) -> Int32
 
 pub fn decoded_pos(Int32, Int32) -> Int32
 
@@ -16,7 +20,11 @@ pub fn enclitic_keeps(Int32, Int32, Bool) -> Bool
 
 pub fn extra_acute(Int32, Bool, Bool, Bool) -> Bool
 
+pub fn g2p_adv(Int32, FixedArray[Int32], FixedArray[Int32], Int32) -> Int32
+
 pub fn g2p_step(Int32, FixedArray[Int32], FixedArray[Int32], FixedArray[Int32], Int32, FixedArray[Int32]) -> Int32
+
+pub fn g2p_units(Int32, FixedArray[Int32], FixedArray[Int32], FixedArray[Int32], FixedArray[Int32]) -> Int32
 
 pub fn g_cons_seq(Int32, FixedArray[Int32], FixedArray[Int32], Int32) -> Int32
 

@@ -125,3 +125,10 @@ predicate in_word(x : Int, n : Int) { (0 <= x) && (x < n) }
 predicate starts_ok(starts : FixedArray[Int], k : Int, n : Int) {
   ∀ j : Int, (j < 0) || (k <= j) || in_word(starts[j], n)
 }
+
+/// A contract() token: a Unicode scalar value, or one of the two spurious-diphthong markers
+/// [ει] = 0x110000 and [ου] = 0x110001 (outside Unicode, so they can't collide with input).
+predicate valid_tok(t : Int) { (0 <= t) && (t <= 1114113) }
+predicate all_valid(xs : FixedArray[Int], k : Int) {
+  ∀ j : Int, (j < 0) || (k <= j) || valid_tok(xs[j])
+}

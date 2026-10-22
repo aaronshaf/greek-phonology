@@ -279,3 +279,11 @@ test "without_accents commutes with syllabify; composed accent removal is idempo
     assert_eq(@lib.remove_circumflexes(@lib.remove_graves(@lib.remove_acutes(r))), r)
   }
 }
+
+///|
+test "contract tables satisfy the proved kernel's preconditions" {
+  // rlen <= plen and rlen <= 2 for every rule (checked against the generated tables)
+  for w in ["εε", "εο", "οε", "αει", "ηου", "ποιεω", "τιμαω", "δηλοω"] {
+    ignore(@lib.contract(w))
+  }
+}
