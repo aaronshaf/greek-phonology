@@ -1,6 +1,6 @@
 # greek-phonology
 
-greek-phonology helps you work with how Ancient Greek sounds. It turns Greek text into IPA under five pronunciation schemes (Modern, Byzantine, Koine, restored Attic, Erasmian), and guesses which scheme a speaker used from their IPA. It also splits words into syllables, checks and places accents, and looks words up in a built-in New Testament and Septuagint word list. It is written in [MoonBit](https://www.moonbitlang.com) and ships as WebAssembly and JavaScript, with no server and no dependencies. Try it in the [playground](docs/index.html).
+greek-phonology helps you work with how Ancient Greek sounds. It turns Greek text into IPA under four pronunciation schemes (Modern, Koine, restored Attic, Erasmian), and guesses which scheme a speaker used from their IPA. It also splits words into syllables, checks and places accents, and looks words up in a built-in New Testament and Septuagint word list. It is written in [MoonBit](https://www.moonbitlang.com) and ships as WebAssembly and JavaScript, with no server and no dependencies. Try it in the [playground](docs/index.html).
 
 ## Install
 
@@ -18,7 +18,7 @@ JavaScript (Node or a bundler):
 ```js
 const gp = require("./greek-phonology.js");
 gp.ipa("ἐν ἀρχῇ ἦν ὁ λόγος", "koine");        // "ɛ n | a r kʰ e | e n | o | l o ɣ o s"
-JSON.parse(gp.detect_json("e n | a r x i", "")); // { probs: { modern: 0.46, byzantine: 0.44, ... }, ... }
+JSON.parse(gp.detect_json("e n | a r x i", "")); // { probs: { modern: …, koine: …, attic: …, erasmian: … }, ... }
 gp.call("accentuate_verb", "λυομεν", "");       // "\"λύομεν\""  (call returns JSON)
 ```
 
@@ -63,11 +63,11 @@ Every function below can be called through `call(name, arg, arg2)`. The most com
 
 ## What's proven
 
-`moon prove` machine-checks these (190 goals in `moonbit/kernel`, up from 54). The library's real code paths call these proved functions:
+`moon prove` machine-checks these (184 goals in `moonbit/kernel`, up from 54). The library's real code paths call these proved functions:
 
 - **Syllables:** every syllable has exactly one vowel, the pieces rejoin to the word, and an onset never takes more consonants than are legal or available.
 - **Law of limitation:** the accent checker matches the rule exactly, and the recessive accent used by `accentuate_verb` and `conjugate` always lands where the rule allows.
-- **`ipa` (all five schemes):** the rules are finite tables plus a proved step function over code points. Every code point is consumed (each step advances 1 or 2 and the steps end exactly at the word's end), the step is a pure function, and every phone it emits is in that scheme's sound inventory. Restored Attic vowel length (aː iː yː from a circumflex, macron or iota subscript) goes through a proved helper that stays in the Attic inventory; reading the marks and writing geminates as Cː is tested, not proven.
+- **`ipa` (all four schemes):** the rules are finite tables plus a proved step function over code points. Every code point is consumed (each step advances 1 or 2 and the steps end exactly at the word's end), the step is a pure function, and every phone it emits is in that scheme's sound inventory. Restored Attic vowel length (aː iː yː from a circumflex, macron or iota subscript) goes through a proved helper that stays in the Attic inventory; reading the marks and writing geminates as Cː is tested, not proven.
 - **`contract`:** a table plus a proved step function over code points, with the `[ει]`/`[ου]` markers as single tokens. The output is never longer than the input, and every output token is a valid letter, mark or marker.
 - **Accent slots:** on a word as an array of syllables with per-vowel mark flags, the proved target picker chooses the last vowel of the target syllable. Rendering a phrase decision changes only that slot (grave, acute, circumflex or an extra acute). Undoing it gives back the dictionary marks exactly.
 - **Phrase accents** (`accentuate_phrase`): every per-word decision comes from one proved function. A grave appears only when an ordinary word follows. An extra acute appears only before an enclitic and only on a proparoxytone or properispomenon. A word never gets more than two accents. A two-syllable enclitic keeps its accent only after a paroxytone. Undoing the decision (as `lexical_phrase` does) gives back every ordinary word's dictionary accent.

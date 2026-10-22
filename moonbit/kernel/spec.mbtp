@@ -98,18 +98,16 @@ predicate erasmian_extra(id : Int) {
   id == 17 || id == 23 || id == 40 || id == 33 || id == 18 || id == 21 || id == 22 || id == 30
 }
 predicate inv0(id : Int) { modern_inv(id) }
-predicate inv1(id : Int) { modern_inv(id) || id == 6 }
-predicate inv2(id : Int) { common_inv(id) || koine_extra(id) }
-predicate inv3(id : Int) { common_inv(id) || attic_extra(id) }
-predicate inv4(id : Int) { common_inv(id) || erasmian_extra(id) }
+predicate inv1(id : Int) { common_inv(id) || koine_extra(id) }
+predicate inv2(id : Int) { common_inv(id) || attic_extra(id) }
+predicate inv3(id : Int) { common_inv(id) || erasmian_extra(id) }
 predicate if0(s : Int, id : Int) { (s != 0) || inv0(id) }
 predicate if1(s : Int, id : Int) { (s != 1) || inv1(id) }
 predicate if2(s : Int, id : Int) { (s != 2) || inv2(id) }
 predicate if3(s : Int, id : Int) { (s != 3) || inv3(id) }
-predicate if4(s : Int, id : Int) { (s != 4) || inv4(id) }
-/// Phone id belongs to scheme s's inventory.
+/// Phone id belongs to scheme s's inventory (0 modern, 1 koine, 2 attic, 3 erasmian).
 predicate in_inv(s : Int, id : Int) {
-  (0 <= s) && (s <= 4) && if0(s, id) && if1(s, id) && if2(s, id) && if3(s, id) && if4(s, id)
+  (0 <= s) && (s <= 3) && if0(s, id) && if1(s, id) && if2(s, id) && if3(s, id)
 }
 predicate slot_ok(s : Int, p : Int) { (p == 0) || in_inv(s, p) }
 /// A packed phone sequence p1 + 64*p2 + 4096*p3 (0 = no phone) uses only scheme s's phones.

@@ -216,7 +216,7 @@ pub(all) struct Detection {
 
 ///|
 /// Softmax at temperature t. The exponentials are turned into integer weights (2^26 for the
-/// strongest scheme) and normalised by the proved kernel (`@kernel.normalize5`): every p >= 0 and
+/// strongest scheme) and normalised by the proved kernel (`@kernel.normalize4`): every p >= 0 and
 /// the integer shares sum to exactly 2^30, so sum(p) == 1 exactly. Rounding moves p by < 1e-7.
 pub fn softmax(ll : Array[Double], t : Double) -> Array[Double] {
   let mut m = ll[0]
@@ -226,11 +226,11 @@ pub fn softmax(ll : Array[Double], t : Double) -> Array[Double] {
     }
   }
   let e = ll.map(fn(x) { @math.exp((x - m) / t) })
-  if e.length() == 5 {
+  if e.length() == 4 {
     let w = e.map(fn(x) { (x * 67108864.0).round().to_int64() })
     let s = 1073741824L
-    let q = @kernel.normalize5(w[0], w[1], w[2], w[3], w[4], s)
-    return [q[0], q[1], q[2], q[3], q[4]].map(fn(v) { v.to_double() / 1073741824.0 })
+    let q = @kernel.normalize4(w[0], w[1], w[2], w[3], s)
+    return [q[0], q[1], q[2], q[3]].map(fn(v) { v.to_double() / 1073741824.0 })
   }
   let mut z = 0.0
   for x in e {
@@ -496,8 +496,7 @@ fn lm_tables(s : Int32) -> (Map[String, Int32], Map[String, Int32]) {
     0 => (lm_bigram_0, lm_unigram_0)
     1 => (lm_bigram_1, lm_unigram_1)
     2 => (lm_bigram_2, lm_unigram_2)
-    3 => (lm_bigram_3, lm_unigram_3)
-    _ => (lm_bigram_4, lm_unigram_4)
+    _ => (lm_bigram_3, lm_unigram_3)
   }
 }
 

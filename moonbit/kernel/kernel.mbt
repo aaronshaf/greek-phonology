@@ -237,15 +237,14 @@ pub fn share(w : Int64, s : Int64, t : Int64) -> Int64 where {
 }
 
 ///|
-/// Index of the largest of five weights (first one wins ties).
+/// Index of the largest of four weights (first one wins ties).
 /// Proved: in range and no weight is larger.
-pub fn argmax5(w0 : Int64, w1 : Int64, w2 : Int64, w3 : Int64, w4 : Int64) -> Int32 where {
-  proof_ensure: result => 0 <= result && result <= 4,
-  proof_ensure: result => result != 0 || (w0 >= w1 && w0 >= w2 && w0 >= w3 && w0 >= w4),
-  proof_ensure: result => result != 1 || (w1 >= w0 && w1 >= w2 && w1 >= w3 && w1 >= w4),
-  proof_ensure: result => result != 2 || (w2 >= w0 && w2 >= w1 && w2 >= w3 && w2 >= w4),
-  proof_ensure: result => result != 3 || (w3 >= w0 && w3 >= w1 && w3 >= w2 && w3 >= w4),
-  proof_ensure: result => result != 4 || (w4 >= w0 && w4 >= w1 && w4 >= w2 && w4 >= w3),
+pub fn argmax4(w0 : Int64, w1 : Int64, w2 : Int64, w3 : Int64) -> Int32 where {
+  proof_ensure: result => 0 <= result && result <= 3,
+  proof_ensure: result => result != 0 || (w0 >= w1 && w0 >= w2 && w0 >= w3),
+  proof_ensure: result => result != 1 || (w1 >= w0 && w1 >= w2 && w1 >= w3),
+  proof_ensure: result => result != 2 || (w2 >= w0 && w2 >= w1 && w2 >= w3),
+  proof_ensure: result => result != 3 || (w3 >= w0 && w3 >= w1 && w3 >= w2),
 } {
   let mut b = 0
   let mut bw = w0
@@ -259,49 +258,42 @@ pub fn argmax5(w0 : Int64, w1 : Int64, w2 : Int64, w3 : Int64, w4 : Int64) -> In
   }
   if w3 > bw {
     b = 3
-    bw = w3
-  }
-  if w4 > bw {
-    b = 4
   }
   b
 }
 
 ///|
-/// Turn five non-negative scheme weights into integer probabilities out of `s`
+/// Turn four non-negative scheme weights into integer probabilities out of `s`
 /// (the rounding remainder goes to the strongest scheme).
 /// Proved: every entry is >= 0 and the entries sum to exactly s.
-pub fn normalize5(
+pub fn normalize4(
   w0 : Int64,
   w1 : Int64,
   w2 : Int64,
   w3 : Int64,
-  w4 : Int64,
   s : Int64,
 ) -> FixedArray[Int64] where {
-  proof_require: 0L <= w0 && 0L <= w1 && 0L <= w2 && 0L <= w3 && 0L <= w4,
-  proof_require: 0L < w0 + w1 + w2 + w3 + w4,
+  proof_require: 0L <= w0 && 0L <= w1 && 0L <= w2 && 0L <= w3,
+  proof_require: 0L < w0 + w1 + w2 + w3,
   proof_require: 0L < s,
-  proof_ensure: result => result.length() == 5,
-  proof_ensure: result => 0L <= result[0] && 0L <= result[1] && 0L <= result[2] && 0L <= result[3] && 0L <= result[4],
-  proof_ensure: result => result[0] + result[1] + result[2] + result[3] + result[4] == s,
+  proof_ensure: result => result.length() == 4,
+  proof_ensure: result => 0L <= result[0] && 0L <= result[1] && 0L <= result[2] && 0L <= result[3],
+  proof_ensure: result => result[0] + result[1] + result[2] + result[3] == s,
 } {
-  let t = w0 + w1 + w2 + w3 + w4
+  let t = w0 + w1 + w2 + w3
   let q0 = share(w0, s, t)
   let q1 = share(w1, s, t)
   let q2 = share(w2, s, t)
   let q3 = share(w3, s, t)
-  let q4 = share(w4, s, t)
-  proof_assert (q0 + q1 + q2 + q3 + q4) * t <= s * t
-  let rem = s - (q0 + q1 + q2 + q3 + q4)
+  proof_assert (q0 + q1 + q2 + q3) * t <= s * t
+  let rem = s - (q0 + q1 + q2 + q3)
   proof_assert 0L <= rem
-  let top = argmax5(w0, w1, w2, w3, w4)
+  let top = argmax4(w0, w1, w2, w3)
   let r0 = if top == 0 { q0 + rem } else { q0 }
   let r1 = if top == 1 { q1 + rem } else { q1 }
   let r2 = if top == 2 { q2 + rem } else { q2 }
   let r3 = if top == 3 { q3 + rem } else { q3 }
-  let r4 = if top == 4 { q4 + rem } else { q4 }
-  [r0, r1, r2, r3, r4]
+  [r0, r1, r2, r3]
 }
 
 ///|

@@ -10,7 +10,7 @@ for line in open(decomp):
 L += ["    _ => c.to_string()", "  }", "}", ""]
 d = json.load(open(lm))
 L += ["///|", f"let lm_vocab_size : Int = {d['_vocab_size']}", ""]
-for i, s in enumerate(["modern", "byzantine", "koine", "attic", "erasmian"]):
+for i, s in enumerate(["modern", "koine", "attic", "erasmian"]):
     for kind in ("bigram", "unigram"):
         items = sorted(d[s][kind].items())
         L.append("///|")

@@ -12,7 +12,7 @@ pub fn alt_match(FixedArray[Int32], Int32, FixedArray[Int32], Int32) -> Bool
 
 pub fn amalgamate_core(FixedArray[Int32], FixedArray[Int32]) -> Int32
 
-pub fn argmax5(Int64, Int64, Int64, Int64, Int64) -> Int32
+pub fn argmax4(Int64, Int64, Int64, Int64) -> Int32
 
 pub fn contract_core(FixedArray[Int32], FixedArray[Int32], Int32, FixedArray[Int32], Int32, FixedArray[Int32]) -> Int32
 
@@ -48,7 +48,7 @@ pub fn law_ok(Int32, Int32, Bool, Bool, Bool) -> Bool
 
 pub fn lookup_stage(Bool, Bool, Bool) -> Int32
 
-pub fn normalize5(Int64, Int64, Int64, Int64, Int64, Int64) -> FixedArray[Int64]
+pub fn normalize4(Int64, Int64, Int64, Int64, Int64) -> FixedArray[Int64]
 
 pub fn phrase_decision(Int32, Int32, Bool, Bool, Bool, Bool, Bool, Bool, Bool, Bool) -> Int32
 

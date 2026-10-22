@@ -27,15 +27,13 @@ What the library does: η [eɪ], ω [oʊ], υ [u], ζ [dz], θ [θ], φ [f], χ 
   **Done (Oct 2026):** Erasmian χ is now [x].
 
 ### Byzantine
-What the library does: like Modern, except υ and οι are [y].
-- In Horrocks's usage, the period's defining feature is that υ and οι had merged as [y] and did not merge with [i] until about the 10th century. Every other Modern feature was already in place, and the Wikipedia page on Koine Greek phonology agrees. So the library models early-to-middle Byzantine Greek (about 6th–10th century).
-- **Proposal (definition only):** name that date range in the docs. "Byzantine" in church use often just means Modern Greek reading pronunciation, and Aaron should choose which meaning to use.
+Removed from the library (Oct 2026) pending a definition: "Byzantine" can mean a 6th–10th-century reconstruction (υ/οι = [y]) or simply Modern Greek reading pronunciation in church use.
 
 ### Modern
 What the library does: standard Athenian values, with μπ ντ γκ as digraphs and γ/χ palatalized before front vowels.
 - **Agrees** with Arvaniti, "Greek Phonetics: The State of the Art", *Journal of Greek Linguistics* 8 (2007), and with Holton, Mackridge & Philippaki-Warburton, *Greek: A Comprehensive Grammar*.
 - **Small gaps:** σ is not voiced to [z] before voiced consonants (κόσμος [ˈkozmos]). Medial μπ/ντ, which many speakers say as [mb]/[nd], is not prenasalized.
-  **Done (Oct 2026), Modern only:** σ/ς becomes [z] before β γ δ μ ν λ ρ (κόσμος [k o z m o s]). Byzantine is unchanged.
+  **Done (Oct 2026), Modern only:** σ/ς becomes [z] before β γ δ μ ν λ ρ (κόσμος [k o z m o s]).
 
 ## 2. Accent rules and sandhi
 - The law of limitation, recessive accent, grave before a following word, and the enclitic rules follow Smyth, *Greek Grammar* §§149–187 (rev. Messing, 1956; text at <https://www.perseus.tufts.edu/>), and Probert, *A New Short Guide to the Accentuation of Ancient Greek* (Bristol Classical Press, 2003). These cover: an extra acute on a proparoxytone or properispomenon before an enclitic, a two-syllable enclitic keeping its accent after a paroxytone, and the acute kept on an oxytone before an enclitic. **Agrees.**
@@ -58,7 +56,7 @@ What the library does: standard Athenian values, with μπ ντ γκ as digraphs
 ## Top divergences
 1. ~~Attic ου is [oː]~~ Done: [uː].
 2. ~~Erasmian χ is [k]~~ Done: [x].
-3. Byzantine needs a stated date range (about 6th–10th century, υ/οι = [y]). (Docs, open)
+3. Byzantine: removed pending a definition.
 4. ~~Modern doesn't voice σ before voiced consonants~~ Done: [z] before β γ δ μ ν λ ρ.
 5. Attic length: done where the spelling shows it (circumflex, macron, iota subscript, geminates). Open: α ι υ under an acute or unaccented.
 

@@ -1,8 +1,8 @@
-// Ancient Greek -> IPA for five reading schemes, syllables and accent.
+// Ancient Greek -> IPA for four reading schemes, syllables and accent.
 
 ///|
 pub let schemes : Array[String] = [
-  "modern", "byzantine", "koine", "attic", "erasmian",
+  "modern", "koine", "attic", "erasmian",
 ]
 
 ///|
@@ -533,7 +533,7 @@ let phone_names : Array[String] = [
 ]
 
 ///|
-/// Phones of one word in scheme s (0 modern, 1 byzantine, 2 koine, 3 attic, 4 erasmian).
+/// Phones of one word in scheme s (0 modern, 1 koine, 2 attic, 3 erasmian).
 /// The phones come from the proved step function
 /// @kernel.g2p_step (finite tables; every cluster consumed once; only the scheme's inventory).
 fn word_phones(word : String, s : Int, wi : Int) -> Array[Phone] {
@@ -566,14 +566,14 @@ fn word_phones(word : String, s : Int, wi : Int) -> Array[Phone] {
     // Restored Attic length (tested, not proven: it reads accents the kernel does not model)
     let mut gem = false
     let mut isub = false
-    if s == 3 && adv == 1 && is_gv(cl[i].b) {
+    if s == 2 && adv == 1 && is_gv(cl[i].b) {
       for k in 0..<cnt {
         if buf[k] != 17 && (cl[i].long || cl[i].isub) {
           buf[k] = @kernel.g_attic_long(buf[k])
         }
       }
       isub = cl[i].isub
-    } else if s == 3 && adv == 1 && cnt == 1 && !is_gv(cl[i].b) && cl[i].b != 'γ' &&
+    } else if s == 2 && adv == 1 && cnt == 1 && !is_gv(cl[i].b) && cl[i].b != 'γ' &&
       ui + 1 < nu && starts[ui + 1] == i + 1 && i + 1 < n && cl[i + 1].b == cl[i].b {
       gem = true
       skip = true
@@ -633,7 +633,7 @@ pub fn g2p_index(text : String, s : Int32) -> Array[Phone] {
 }
 
 ///|
-/// Space-separated IPA of `text` in `scheme` ("modern", "byzantine", "koine", "attic", "erasmian").
+/// Space-separated IPA of `text` in `scheme` ("modern", "koine", "attic", "erasmian").
 pub fn ipa(text : String, scheme : String) -> String {
   let s = scheme_index(scheme)
   if s < 0 {

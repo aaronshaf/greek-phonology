@@ -273,2084 +273,1656 @@ const _M0FP39aaronshaf17greek_2dphonology3lib11eimi__forms = ["εἰμι", "ἐ�
 const _M0FP39aaronshaf17greek_2dphonology3lib12su__triggers = ["ἐν", "εἰς", "ἐκ", "ἐξ", "προς", "περι", "ὑπερ", "παρα", "ἀπο", "δια", "δι’", "μετα", "μεθ’", "μετ’", "ἐπι", "ἐπ’", "ἐφ’", "κατα", "κατ’", "συν", "ὑπο", "ἀντι", "και", "ἠ"];
 const _M0FP39aaronshaf17greek_2dphonology3lib12lex__entries = [];
 const _M0FP39aaronshaf17greek_2dphonology3lib10lex__alpha = "́̈̓̔͂ͅΑΒΓΔΕΖΗΘΙΚΛΜΝΞΟΠΡΣΤΥΦΧΨΩαβγδεζηθικλμνξοπρςστυφχψωϛ";
-const _M0FP39aaronshaf17greek_2dphonology3lib15contract__rulesN5tupleS1529 = { _0: "α(α|ε|η)", _1: "α" };
-const _M0FP39aaronshaf17greek_2dphonology3lib15contract__rulesN5tupleS1530 = { _0: "αο", _1: "ω" };
-const _M0FP39aaronshaf17greek_2dphonology3lib15contract__rulesN5tupleS1531 = { _0: "αω", _1: "ω" };
-const _M0FP39aaronshaf17greek_2dphonology3lib15contract__rulesN5tupleS1532 = { _0: "εα", _1: "η" };
-const _M0FP39aaronshaf17greek_2dphonology3lib15contract__rulesN5tupleS1533 = { _0: "εε", _1: "[ει]" };
-const _M0FP39aaronshaf17greek_2dphonology3lib15contract__rulesN5tupleS1534 = { _0: "εη", _1: "η" };
-const _M0FP39aaronshaf17greek_2dphonology3lib15contract__rulesN5tupleS1535 = { _0: "εο", _1: "[ου]" };
-const _M0FP39aaronshaf17greek_2dphonology3lib15contract__rulesN5tupleS1536 = { _0: "εω", _1: "ω" };
-const _M0FP39aaronshaf17greek_2dphonology3lib15contract__rulesN5tupleS1537 = { _0: "η(α|ε|η)", _1: "η" };
-const _M0FP39aaronshaf17greek_2dphonology3lib15contract__rulesN5tupleS1538 = { _0: "ηι", _1: "ῃ" };
-const _M0FP39aaronshaf17greek_2dphonology3lib15contract__rulesN5tupleS1539 = { _0: "η(ο|ω)", _1: "ω" };
-const _M0FP39aaronshaf17greek_2dphonology3lib15contract__rulesN5tupleS1540 = { _0: "οα", _1: "ω" };
-const _M0FP39aaronshaf17greek_2dphonology3lib15contract__rulesN5tupleS1541 = { _0: "οε", _1: "[ου]" };
-const _M0FP39aaronshaf17greek_2dphonology3lib15contract__rulesN5tupleS1542 = { _0: "οη", _1: "ω" };
-const _M0FP39aaronshaf17greek_2dphonology3lib15contract__rulesN5tupleS1543 = { _0: "οο", _1: "[ου]" };
-const _M0FP39aaronshaf17greek_2dphonology3lib15contract__rulesN5tupleS1544 = { _0: "οω", _1: "ω" };
-const _M0FP39aaronshaf17greek_2dphonology3lib15contract__rulesN5tupleS1545 = { _0: "ω(α|ε|η)", _1: "ω" };
-const _M0FP39aaronshaf17greek_2dphonology3lib15contract__rulesN5tupleS1546 = { _0: "ωι", _1: "ῳ" };
-const _M0FP39aaronshaf17greek_2dphonology3lib15contract__rulesN5tupleS1547 = { _0: "ωο", _1: "ω" };
-const _M0FP39aaronshaf17greek_2dphonology3lib15contract__rulesN5tupleS1548 = { _0: "ωω", _1: "ω" };
-const _M0FP39aaronshaf17greek_2dphonology3lib15contract__rulesN5tupleS1549 = { _0: "αᾳαι", _1: "ᾳ" };
-const _M0FP39aaronshaf17greek_2dphonology3lib15contract__rulesN5tupleS1550 = { _0: "αει", _1: "ᾳ" };
-const _M0FP39aaronshaf17greek_2dphonology3lib15contract__rulesN5tupleS1551 = { _0: "α[ει]", _1: "α" };
-const _M0FP39aaronshaf17greek_2dphonology3lib15contract__rulesN5tupleS1552 = { _0: "αῃ", _1: "ᾳ" };
-const _M0FP39aaronshaf17greek_2dphonology3lib15contract__rulesN5tupleS1553 = { _0: "αοι", _1: "ῳ" };
-const _M0FP39aaronshaf17greek_2dphonology3lib15contract__rulesN5tupleS1554 = { _0: "α[ου]", _1: "ω" };
-const _M0FP39aaronshaf17greek_2dphonology3lib15contract__rulesN5tupleS1555 = { _0: "αῳ", _1: "ῳ" };
-const _M0FP39aaronshaf17greek_2dphonology3lib15contract__rulesN5tupleS1556 = { _0: "εᾳαι", _1: "ῃ" };
-const _M0FP39aaronshaf17greek_2dphonology3lib15contract__rulesN5tupleS1557 = { _0: "εει", _1: "[ει]" };
-const _M0FP39aaronshaf17greek_2dphonology3lib15contract__rulesN5tupleS1558 = { _0: "ε[ει]", _1: "[ει]" };
-const _M0FP39aaronshaf17greek_2dphonology3lib15contract__rulesN5tupleS1559 = { _0: "εῃ", _1: "ῃ" };
-const _M0FP39aaronshaf17greek_2dphonology3lib15contract__rulesN5tupleS1560 = { _0: "εοι", _1: "οι" };
-const _M0FP39aaronshaf17greek_2dphonology3lib15contract__rulesN5tupleS1561 = { _0: "ε[ου]", _1: "ου" };
-const _M0FP39aaronshaf17greek_2dphonology3lib15contract__rulesN5tupleS1562 = { _0: "εῳ", _1: "ῳ" };
-const _M0FP39aaronshaf17greek_2dphonology3lib15contract__rulesN5tupleS1563 = { _0: "ηᾳαι", _1: "ῃ" };
-const _M0FP39aaronshaf17greek_2dphonology3lib15contract__rulesN5tupleS1564 = { _0: "ηει", _1: "ῃ" };
-const _M0FP39aaronshaf17greek_2dphonology3lib15contract__rulesN5tupleS1565 = { _0: "η[ει]", _1: "η" };
-const _M0FP39aaronshaf17greek_2dphonology3lib15contract__rulesN5tupleS1566 = { _0: "ηῃ", _1: "ῃ" };
-const _M0FP39aaronshaf17greek_2dphonology3lib15contract__rulesN5tupleS1567 = { _0: "ηοι", _1: "ῳ" };
-const _M0FP39aaronshaf17greek_2dphonology3lib15contract__rulesN5tupleS1568 = { _0: "η[ου]", _1: "" };
-const _M0FP39aaronshaf17greek_2dphonology3lib15contract__rulesN5tupleS1569 = { _0: "ηῳ", _1: "ῳ" };
-const _M0FP39aaronshaf17greek_2dphonology3lib15contract__rulesN5tupleS1570 = { _0: "οᾳαι", _1: "ῳ" };
-const _M0FP39aaronshaf17greek_2dphonology3lib15contract__rulesN5tupleS1571 = { _0: "οει", _1: "οι" };
-const _M0FP39aaronshaf17greek_2dphonology3lib15contract__rulesN5tupleS1572 = { _0: "ο[ει]", _1: "ου" };
-const _M0FP39aaronshaf17greek_2dphonology3lib15contract__rulesN5tupleS1573 = { _0: "οῃ", _1: "οι" };
-const _M0FP39aaronshaf17greek_2dphonology3lib15contract__rulesN5tupleS1574 = { _0: "οοι", _1: "οι" };
-const _M0FP39aaronshaf17greek_2dphonology3lib15contract__rulesN5tupleS1575 = { _0: "ο[ου]", _1: "ου" };
-const _M0FP39aaronshaf17greek_2dphonology3lib15contract__rulesN5tupleS1576 = { _0: "οῳ", _1: "ῳ" };
-const _M0FP39aaronshaf17greek_2dphonology3lib15contract__rules = [_M0FP39aaronshaf17greek_2dphonology3lib15contract__rulesN5tupleS1529, _M0FP39aaronshaf17greek_2dphonology3lib15contract__rulesN5tupleS1530, _M0FP39aaronshaf17greek_2dphonology3lib15contract__rulesN5tupleS1531, _M0FP39aaronshaf17greek_2dphonology3lib15contract__rulesN5tupleS1532, _M0FP39aaronshaf17greek_2dphonology3lib15contract__rulesN5tupleS1533, _M0FP39aaronshaf17greek_2dphonology3lib15contract__rulesN5tupleS1534, _M0FP39aaronshaf17greek_2dphonology3lib15contract__rulesN5tupleS1535, _M0FP39aaronshaf17greek_2dphonology3lib15contract__rulesN5tupleS1536, _M0FP39aaronshaf17greek_2dphonology3lib15contract__rulesN5tupleS1537, _M0FP39aaronshaf17greek_2dphonology3lib15contract__rulesN5tupleS1538, _M0FP39aaronshaf17greek_2dphonology3lib15contract__rulesN5tupleS1539, _M0FP39aaronshaf17greek_2dphonology3lib15contract__rulesN5tupleS1540, _M0FP39aaronshaf17greek_2dphonology3lib15contract__rulesN5tupleS1541, _M0FP39aaronshaf17greek_2dphonology3lib15contract__rulesN5tupleS1542, _M0FP39aaronshaf17greek_2dphonology3lib15contract__rulesN5tupleS1543, _M0FP39aaronshaf17greek_2dphonology3lib15contract__rulesN5tupleS1544, _M0FP39aaronshaf17greek_2dphonology3lib15contract__rulesN5tupleS1545, _M0FP39aaronshaf17greek_2dphonology3lib15contract__rulesN5tupleS1546, _M0FP39aaronshaf17greek_2dphonology3lib15contract__rulesN5tupleS1547, _M0FP39aaronshaf17greek_2dphonology3lib15contract__rulesN5tupleS1548, _M0FP39aaronshaf17greek_2dphonology3lib15contract__rulesN5tupleS1549, _M0FP39aaronshaf17greek_2dphonology3lib15contract__rulesN5tupleS1550, _M0FP39aaronshaf17greek_2dphonology3lib15contract__rulesN5tupleS1551, _M0FP39aaronshaf17greek_2dphonology3lib15contract__rulesN5tupleS1552, _M0FP39aaronshaf17greek_2dphonology3lib15contract__rulesN5tupleS1553, _M0FP39aaronshaf17greek_2dphonology3lib15contract__rulesN5tupleS1554, _M0FP39aaronshaf17greek_2dphonology3lib15contract__rulesN5tupleS1555, _M0FP39aaronshaf17greek_2dphonology3lib15contract__rulesN5tupleS1556, _M0FP39aaronshaf17greek_2dphonology3lib15contract__rulesN5tupleS1557, _M0FP39aaronshaf17greek_2dphonology3lib15contract__rulesN5tupleS1558, _M0FP39aaronshaf17greek_2dphonology3lib15contract__rulesN5tupleS1559, _M0FP39aaronshaf17greek_2dphonology3lib15contract__rulesN5tupleS1560, _M0FP39aaronshaf17greek_2dphonology3lib15contract__rulesN5tupleS1561, _M0FP39aaronshaf17greek_2dphonology3lib15contract__rulesN5tupleS1562, _M0FP39aaronshaf17greek_2dphonology3lib15contract__rulesN5tupleS1563, _M0FP39aaronshaf17greek_2dphonology3lib15contract__rulesN5tupleS1564, _M0FP39aaronshaf17greek_2dphonology3lib15contract__rulesN5tupleS1565, _M0FP39aaronshaf17greek_2dphonology3lib15contract__rulesN5tupleS1566, _M0FP39aaronshaf17greek_2dphonology3lib15contract__rulesN5tupleS1567, _M0FP39aaronshaf17greek_2dphonology3lib15contract__rulesN5tupleS1568, _M0FP39aaronshaf17greek_2dphonology3lib15contract__rulesN5tupleS1569, _M0FP39aaronshaf17greek_2dphonology3lib15contract__rulesN5tupleS1570, _M0FP39aaronshaf17greek_2dphonology3lib15contract__rulesN5tupleS1571, _M0FP39aaronshaf17greek_2dphonology3lib15contract__rulesN5tupleS1572, _M0FP39aaronshaf17greek_2dphonology3lib15contract__rulesN5tupleS1573, _M0FP39aaronshaf17greek_2dphonology3lib15contract__rulesN5tupleS1574, _M0FP39aaronshaf17greek_2dphonology3lib15contract__rulesN5tupleS1575, _M0FP39aaronshaf17greek_2dphonology3lib15contract__rulesN5tupleS1576];
+const _M0FP39aaronshaf17greek_2dphonology3lib15contract__rulesN5tupleS1525 = { _0: "α(α|ε|η)", _1: "α" };
+const _M0FP39aaronshaf17greek_2dphonology3lib15contract__rulesN5tupleS1526 = { _0: "αο", _1: "ω" };
+const _M0FP39aaronshaf17greek_2dphonology3lib15contract__rulesN5tupleS1527 = { _0: "αω", _1: "ω" };
+const _M0FP39aaronshaf17greek_2dphonology3lib15contract__rulesN5tupleS1528 = { _0: "εα", _1: "η" };
+const _M0FP39aaronshaf17greek_2dphonology3lib15contract__rulesN5tupleS1529 = { _0: "εε", _1: "[ει]" };
+const _M0FP39aaronshaf17greek_2dphonology3lib15contract__rulesN5tupleS1530 = { _0: "εη", _1: "η" };
+const _M0FP39aaronshaf17greek_2dphonology3lib15contract__rulesN5tupleS1531 = { _0: "εο", _1: "[ου]" };
+const _M0FP39aaronshaf17greek_2dphonology3lib15contract__rulesN5tupleS1532 = { _0: "εω", _1: "ω" };
+const _M0FP39aaronshaf17greek_2dphonology3lib15contract__rulesN5tupleS1533 = { _0: "η(α|ε|η)", _1: "η" };
+const _M0FP39aaronshaf17greek_2dphonology3lib15contract__rulesN5tupleS1534 = { _0: "ηι", _1: "ῃ" };
+const _M0FP39aaronshaf17greek_2dphonology3lib15contract__rulesN5tupleS1535 = { _0: "η(ο|ω)", _1: "ω" };
+const _M0FP39aaronshaf17greek_2dphonology3lib15contract__rulesN5tupleS1536 = { _0: "οα", _1: "ω" };
+const _M0FP39aaronshaf17greek_2dphonology3lib15contract__rulesN5tupleS1537 = { _0: "οε", _1: "[ου]" };
+const _M0FP39aaronshaf17greek_2dphonology3lib15contract__rulesN5tupleS1538 = { _0: "οη", _1: "ω" };
+const _M0FP39aaronshaf17greek_2dphonology3lib15contract__rulesN5tupleS1539 = { _0: "οο", _1: "[ου]" };
+const _M0FP39aaronshaf17greek_2dphonology3lib15contract__rulesN5tupleS1540 = { _0: "οω", _1: "ω" };
+const _M0FP39aaronshaf17greek_2dphonology3lib15contract__rulesN5tupleS1541 = { _0: "ω(α|ε|η)", _1: "ω" };
+const _M0FP39aaronshaf17greek_2dphonology3lib15contract__rulesN5tupleS1542 = { _0: "ωι", _1: "ῳ" };
+const _M0FP39aaronshaf17greek_2dphonology3lib15contract__rulesN5tupleS1543 = { _0: "ωο", _1: "ω" };
+const _M0FP39aaronshaf17greek_2dphonology3lib15contract__rulesN5tupleS1544 = { _0: "ωω", _1: "ω" };
+const _M0FP39aaronshaf17greek_2dphonology3lib15contract__rulesN5tupleS1545 = { _0: "αᾳαι", _1: "ᾳ" };
+const _M0FP39aaronshaf17greek_2dphonology3lib15contract__rulesN5tupleS1546 = { _0: "αει", _1: "ᾳ" };
+const _M0FP39aaronshaf17greek_2dphonology3lib15contract__rulesN5tupleS1547 = { _0: "α[ει]", _1: "α" };
+const _M0FP39aaronshaf17greek_2dphonology3lib15contract__rulesN5tupleS1548 = { _0: "αῃ", _1: "ᾳ" };
+const _M0FP39aaronshaf17greek_2dphonology3lib15contract__rulesN5tupleS1549 = { _0: "αοι", _1: "ῳ" };
+const _M0FP39aaronshaf17greek_2dphonology3lib15contract__rulesN5tupleS1550 = { _0: "α[ου]", _1: "ω" };
+const _M0FP39aaronshaf17greek_2dphonology3lib15contract__rulesN5tupleS1551 = { _0: "αῳ", _1: "ῳ" };
+const _M0FP39aaronshaf17greek_2dphonology3lib15contract__rulesN5tupleS1552 = { _0: "εᾳαι", _1: "ῃ" };
+const _M0FP39aaronshaf17greek_2dphonology3lib15contract__rulesN5tupleS1553 = { _0: "εει", _1: "[ει]" };
+const _M0FP39aaronshaf17greek_2dphonology3lib15contract__rulesN5tupleS1554 = { _0: "ε[ει]", _1: "[ει]" };
+const _M0FP39aaronshaf17greek_2dphonology3lib15contract__rulesN5tupleS1555 = { _0: "εῃ", _1: "ῃ" };
+const _M0FP39aaronshaf17greek_2dphonology3lib15contract__rulesN5tupleS1556 = { _0: "εοι", _1: "οι" };
+const _M0FP39aaronshaf17greek_2dphonology3lib15contract__rulesN5tupleS1557 = { _0: "ε[ου]", _1: "ου" };
+const _M0FP39aaronshaf17greek_2dphonology3lib15contract__rulesN5tupleS1558 = { _0: "εῳ", _1: "ῳ" };
+const _M0FP39aaronshaf17greek_2dphonology3lib15contract__rulesN5tupleS1559 = { _0: "ηᾳαι", _1: "ῃ" };
+const _M0FP39aaronshaf17greek_2dphonology3lib15contract__rulesN5tupleS1560 = { _0: "ηει", _1: "ῃ" };
+const _M0FP39aaronshaf17greek_2dphonology3lib15contract__rulesN5tupleS1561 = { _0: "η[ει]", _1: "η" };
+const _M0FP39aaronshaf17greek_2dphonology3lib15contract__rulesN5tupleS1562 = { _0: "ηῃ", _1: "ῃ" };
+const _M0FP39aaronshaf17greek_2dphonology3lib15contract__rulesN5tupleS1563 = { _0: "ηοι", _1: "ῳ" };
+const _M0FP39aaronshaf17greek_2dphonology3lib15contract__rulesN5tupleS1564 = { _0: "η[ου]", _1: "" };
+const _M0FP39aaronshaf17greek_2dphonology3lib15contract__rulesN5tupleS1565 = { _0: "ηῳ", _1: "ῳ" };
+const _M0FP39aaronshaf17greek_2dphonology3lib15contract__rulesN5tupleS1566 = { _0: "οᾳαι", _1: "ῳ" };
+const _M0FP39aaronshaf17greek_2dphonology3lib15contract__rulesN5tupleS1567 = { _0: "οει", _1: "οι" };
+const _M0FP39aaronshaf17greek_2dphonology3lib15contract__rulesN5tupleS1568 = { _0: "ο[ει]", _1: "ου" };
+const _M0FP39aaronshaf17greek_2dphonology3lib15contract__rulesN5tupleS1569 = { _0: "οῃ", _1: "οι" };
+const _M0FP39aaronshaf17greek_2dphonology3lib15contract__rulesN5tupleS1570 = { _0: "οοι", _1: "οι" };
+const _M0FP39aaronshaf17greek_2dphonology3lib15contract__rulesN5tupleS1571 = { _0: "ο[ου]", _1: "ου" };
+const _M0FP39aaronshaf17greek_2dphonology3lib15contract__rulesN5tupleS1572 = { _0: "οῳ", _1: "ῳ" };
+const _M0FP39aaronshaf17greek_2dphonology3lib15contract__rules = [_M0FP39aaronshaf17greek_2dphonology3lib15contract__rulesN5tupleS1525, _M0FP39aaronshaf17greek_2dphonology3lib15contract__rulesN5tupleS1526, _M0FP39aaronshaf17greek_2dphonology3lib15contract__rulesN5tupleS1527, _M0FP39aaronshaf17greek_2dphonology3lib15contract__rulesN5tupleS1528, _M0FP39aaronshaf17greek_2dphonology3lib15contract__rulesN5tupleS1529, _M0FP39aaronshaf17greek_2dphonology3lib15contract__rulesN5tupleS1530, _M0FP39aaronshaf17greek_2dphonology3lib15contract__rulesN5tupleS1531, _M0FP39aaronshaf17greek_2dphonology3lib15contract__rulesN5tupleS1532, _M0FP39aaronshaf17greek_2dphonology3lib15contract__rulesN5tupleS1533, _M0FP39aaronshaf17greek_2dphonology3lib15contract__rulesN5tupleS1534, _M0FP39aaronshaf17greek_2dphonology3lib15contract__rulesN5tupleS1535, _M0FP39aaronshaf17greek_2dphonology3lib15contract__rulesN5tupleS1536, _M0FP39aaronshaf17greek_2dphonology3lib15contract__rulesN5tupleS1537, _M0FP39aaronshaf17greek_2dphonology3lib15contract__rulesN5tupleS1538, _M0FP39aaronshaf17greek_2dphonology3lib15contract__rulesN5tupleS1539, _M0FP39aaronshaf17greek_2dphonology3lib15contract__rulesN5tupleS1540, _M0FP39aaronshaf17greek_2dphonology3lib15contract__rulesN5tupleS1541, _M0FP39aaronshaf17greek_2dphonology3lib15contract__rulesN5tupleS1542, _M0FP39aaronshaf17greek_2dphonology3lib15contract__rulesN5tupleS1543, _M0FP39aaronshaf17greek_2dphonology3lib15contract__rulesN5tupleS1544, _M0FP39aaronshaf17greek_2dphonology3lib15contract__rulesN5tupleS1545, _M0FP39aaronshaf17greek_2dphonology3lib15contract__rulesN5tupleS1546, _M0FP39aaronshaf17greek_2dphonology3lib15contract__rulesN5tupleS1547, _M0FP39aaronshaf17greek_2dphonology3lib15contract__rulesN5tupleS1548, _M0FP39aaronshaf17greek_2dphonology3lib15contract__rulesN5tupleS1549, _M0FP39aaronshaf17greek_2dphonology3lib15contract__rulesN5tupleS1550, _M0FP39aaronshaf17greek_2dphonology3lib15contract__rulesN5tupleS1551, _M0FP39aaronshaf17greek_2dphonology3lib15contract__rulesN5tupleS1552, _M0FP39aaronshaf17greek_2dphonology3lib15contract__rulesN5tupleS1553, _M0FP39aaronshaf17greek_2dphonology3lib15contract__rulesN5tupleS1554, _M0FP39aaronshaf17greek_2dphonology3lib15contract__rulesN5tupleS1555, _M0FP39aaronshaf17greek_2dphonology3lib15contract__rulesN5tupleS1556, _M0FP39aaronshaf17greek_2dphonology3lib15contract__rulesN5tupleS1557, _M0FP39aaronshaf17greek_2dphonology3lib15contract__rulesN5tupleS1558, _M0FP39aaronshaf17greek_2dphonology3lib15contract__rulesN5tupleS1559, _M0FP39aaronshaf17greek_2dphonology3lib15contract__rulesN5tupleS1560, _M0FP39aaronshaf17greek_2dphonology3lib15contract__rulesN5tupleS1561, _M0FP39aaronshaf17greek_2dphonology3lib15contract__rulesN5tupleS1562, _M0FP39aaronshaf17greek_2dphonology3lib15contract__rulesN5tupleS1563, _M0FP39aaronshaf17greek_2dphonology3lib15contract__rulesN5tupleS1564, _M0FP39aaronshaf17greek_2dphonology3lib15contract__rulesN5tupleS1565, _M0FP39aaronshaf17greek_2dphonology3lib15contract__rulesN5tupleS1566, _M0FP39aaronshaf17greek_2dphonology3lib15contract__rulesN5tupleS1567, _M0FP39aaronshaf17greek_2dphonology3lib15contract__rulesN5tupleS1568, _M0FP39aaronshaf17greek_2dphonology3lib15contract__rulesN5tupleS1569, _M0FP39aaronshaf17greek_2dphonology3lib15contract__rulesN5tupleS1570, _M0FP39aaronshaf17greek_2dphonology3lib15contract__rulesN5tupleS1571, _M0FP39aaronshaf17greek_2dphonology3lib15contract__rulesN5tupleS1572];
 const _M0FP39aaronshaf17greek_2dphonology3lib17primary__suffixes = ["ω", "εις", "ει", "ομεν", "ετε", "ουσι"];
 const _M0FP39aaronshaf17greek_2dphonology3lib24middle__passive__endings = ["ομαι", "ῃ", "εται", "όμεθα", "εσθε", "ονται"];
 const _M0FP39aaronshaf17greek_2dphonology3lib18imperfect__endings = ["ον", "ες", "ε", "ομεν", "ετε", "ον"];
 const _M0FP39aaronshaf17greek_2dphonology3lib20subjunctive__endings = ["ω", "ῃς", "ῃ", "ωμεν", "ητε", "ωσι"];
 const _M0FP39aaronshaf17greek_2dphonology3lib9nl__vocab = ["a", "b", "d", "e", "f", "g", "h", "i", "k", "l", "m", "n", "o", "p", "r", "s", "t", "u", "v", "x", "y", "z", "ð", "ɣ", "θ"];
 const _M0FP39aaronshaf17greek_2dphonology3lib9nl__cache = [];
-const _M0FP39aaronshaf17greek_2dphonology3lib7schemes = ["modern", "byzantine", "koine", "attic", "erasmian"];
+const _M0FP39aaronshaf17greek_2dphonology3lib7schemes = ["modern", "koine", "attic", "erasmian"];
 const _M0FP39aaronshaf17greek_2dphonology3lib10non__alpha = [885, 888, 889, 894, 896, 897, 898, 899, 900, 901, 903, 907, 909, 930, 1014, 7958, 7959, 7966, 7967, 8006, 8007, 8014, 8015, 8024, 8026, 8028, 8030, 8062, 8063, 8117, 8125, 8127, 8128, 8129, 8133, 8141, 8142, 8143, 8148, 8149, 8156, 8157, 8158, 8159, 8173, 8174, 8175, 8176, 8177, 8181, 8189, 8190, 8191, 215, 247];
 const _M0FP39aaronshaf17greek_2dphonology3lib12phone__names = ["", "a", "e", "i", "o", "u", "y", "ɛ", "ɛː", "ɔː", "eː", "oː", "ɪ", "ʊ", "ɔ", "w", "j", "h", "f", "v", "β", "b", "d", "g", "m", "n", "ŋ", "ʝ", "ɣ", "ç", "x", "z", "ð", "θ", "k", "s", "p", "l", "r", "t", "d͡z", "tʰ", "pʰ", "kʰ", "uː", "aː", "iː", "yː"];
-const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3429 = 8122;
-const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3430 = 902;
-const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3431 = 8121;
-const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3432 = 8120;
-const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3433 = 7944;
-const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3434 = 7946;
-const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3435 = 8074;
-const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3436 = 7948;
-const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3437 = 8076;
-const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3438 = 7950;
-const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3439 = 8078;
-const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3440 = 8072;
-const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3441 = 7945;
-const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3442 = 7947;
-const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3443 = 8075;
-const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3444 = 7949;
-const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3445 = 8077;
-const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3446 = 7951;
-const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3447 = 8079;
-const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3448 = 8073;
-const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3449 = 8124;
-const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3450 = 8136;
-const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3451 = 904;
-const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3452 = 7960;
-const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3453 = 7962;
-const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3454 = 7964;
-const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3455 = 7961;
-const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3456 = 7963;
-const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3457 = 7965;
-const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3458 = 8138;
-const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3459 = 905;
-const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3460 = 7976;
-const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3461 = 7978;
-const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3462 = 8090;
-const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3463 = 7980;
-const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3464 = 8092;
-const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3465 = 7982;
-const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3466 = 8094;
-const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3467 = 8088;
-const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3468 = 7977;
-const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3469 = 7979;
-const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3470 = 8091;
-const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3471 = 7981;
-const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3472 = 8093;
-const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3473 = 7983;
-const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3474 = 8095;
-const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3475 = 8089;
-const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3476 = 8140;
-const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3477 = 8154;
-const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3478 = 906;
-const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3479 = 8153;
-const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3480 = 8152;
-const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3481 = 938;
-const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3482 = 7992;
-const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3483 = 7994;
-const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3484 = 7996;
-const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3485 = 7998;
-const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3486 = 7993;
-const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3487 = 7995;
-const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3488 = 7997;
-const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3489 = 7999;
-const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3490 = 8184;
-const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3491 = 908;
-const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3492 = 8008;
-const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3493 = 8010;
-const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3494 = 8012;
-const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3495 = 8009;
-const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3496 = 8011;
-const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3497 = 8013;
-const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3498 = 8172;
-const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3499 = 8170;
-const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3500 = 910;
-const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3501 = 8169;
-const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3502 = 8168;
-const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3503 = 939;
-const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3504 = 8025;
-const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3505 = 8027;
-const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3506 = 8029;
-const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3507 = 8031;
-const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3508 = 8186;
-const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3509 = 911;
-const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3510 = 8040;
-const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3511 = 8042;
-const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3512 = 8106;
-const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3513 = 8044;
-const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3514 = 8108;
-const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3515 = 8046;
-const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3516 = 8110;
-const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3517 = 8104;
-const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3518 = 8041;
-const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3519 = 8043;
-const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3520 = 8107;
-const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3521 = 8045;
-const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3522 = 8109;
-const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3523 = 8047;
-const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3524 = 8111;
-const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3525 = 8105;
-const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3526 = 8188;
-const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3527 = 8048;
-const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3528 = 8114;
-const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3529 = 940;
-const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3530 = 8116;
-const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3531 = 8113;
-const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3532 = 8112;
-const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3533 = 7936;
-const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3534 = 7938;
-const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3535 = 8066;
-const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3536 = 7940;
-const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3537 = 8068;
-const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3538 = 7942;
-const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3539 = 8070;
-const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3540 = 8064;
-const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3541 = 7937;
-const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3542 = 7939;
-const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3543 = 8067;
-const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3544 = 7941;
-const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3545 = 8069;
-const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3546 = 7943;
-const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3547 = 8071;
-const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3548 = 8065;
-const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3549 = 8118;
-const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3550 = 8119;
-const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3551 = 8115;
-const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3552 = 8050;
-const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3553 = 941;
-const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3554 = 7952;
-const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3555 = 7954;
-const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3556 = 7956;
-const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3557 = 7953;
-const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3558 = 7955;
-const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3559 = 7957;
-const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3560 = 8052;
-const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3561 = 8130;
-const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3562 = 942;
-const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3563 = 8132;
-const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3564 = 7968;
-const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3565 = 7970;
-const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3566 = 8082;
-const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3567 = 7972;
-const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3568 = 8084;
-const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3569 = 7974;
-const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3570 = 8086;
-const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3571 = 8080;
-const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3572 = 7969;
-const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3573 = 7971;
-const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3574 = 8083;
-const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3575 = 7973;
-const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3576 = 8085;
-const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3577 = 7975;
-const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3578 = 8087;
-const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3579 = 8081;
-const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3580 = 8134;
-const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3581 = 8135;
-const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3582 = 8131;
-const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3583 = 8054;
-const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3584 = 943;
-const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3585 = 8145;
-const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3586 = 8144;
-const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3587 = 970;
-const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3588 = 8146;
-const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3589 = 912;
-const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3590 = 8151;
-const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3591 = 7984;
-const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3592 = 7986;
-const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3593 = 7988;
-const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3594 = 7990;
-const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3595 = 7985;
-const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3596 = 7987;
-const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3597 = 7989;
-const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3598 = 7991;
-const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3599 = 8150;
-const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3600 = 8056;
-const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3601 = 972;
-const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3602 = 8000;
-const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3603 = 8002;
-const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3604 = 8004;
-const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3605 = 8001;
-const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3606 = 8003;
-const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3607 = 8005;
-const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3608 = 8164;
-const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3609 = 8165;
-const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3610 = 8058;
-const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3611 = 973;
-const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3612 = 8161;
-const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3613 = 8160;
-const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3614 = 971;
-const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3615 = 8162;
-const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3616 = 944;
-const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3617 = 8167;
-const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3618 = 8016;
-const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3619 = 8018;
-const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3620 = 8020;
-const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3621 = 8022;
-const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3622 = 8017;
-const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3623 = 8019;
-const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3624 = 8021;
-const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3625 = 8023;
-const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3626 = 8166;
-const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3627 = 8060;
-const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3628 = 8178;
-const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3629 = 974;
-const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3630 = 8180;
-const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3631 = 8032;
-const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3632 = 8034;
-const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3633 = 8098;
-const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3634 = 8036;
-const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3635 = 8100;
-const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3636 = 8038;
-const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3637 = 8102;
-const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3638 = 8096;
-const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3639 = 8033;
-const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3640 = 8035;
-const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3641 = 8099;
-const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3642 = 8037;
-const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3643 = 8101;
-const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3644 = 8039;
-const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3645 = 8103;
-const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3646 = 8097;
-const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3647 = 8182;
-const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3648 = 8183;
-const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3649 = 8179;
-const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3650 = 979;
-const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3651 = 980;
+const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS2999 = 8122;
+const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3000 = 902;
+const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3001 = 8121;
+const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3002 = 8120;
+const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3003 = 7944;
+const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3004 = 7946;
+const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3005 = 8074;
+const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3006 = 7948;
+const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3007 = 8076;
+const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3008 = 7950;
+const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3009 = 8078;
+const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3010 = 8072;
+const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3011 = 7945;
+const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3012 = 7947;
+const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3013 = 8075;
+const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3014 = 7949;
+const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3015 = 8077;
+const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3016 = 7951;
+const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3017 = 8079;
+const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3018 = 8073;
+const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3019 = 8124;
+const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3020 = 8136;
+const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3021 = 904;
+const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3022 = 7960;
+const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3023 = 7962;
+const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3024 = 7964;
+const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3025 = 7961;
+const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3026 = 7963;
+const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3027 = 7965;
+const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3028 = 8138;
+const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3029 = 905;
+const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3030 = 7976;
+const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3031 = 7978;
+const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3032 = 8090;
+const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3033 = 7980;
+const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3034 = 8092;
+const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3035 = 7982;
+const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3036 = 8094;
+const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3037 = 8088;
+const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3038 = 7977;
+const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3039 = 7979;
+const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3040 = 8091;
+const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3041 = 7981;
+const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3042 = 8093;
+const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3043 = 7983;
+const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3044 = 8095;
+const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3045 = 8089;
+const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3046 = 8140;
+const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3047 = 8154;
+const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3048 = 906;
+const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3049 = 8153;
+const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3050 = 8152;
+const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3051 = 938;
+const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3052 = 7992;
+const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3053 = 7994;
+const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3054 = 7996;
+const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3055 = 7998;
+const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3056 = 7993;
+const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3057 = 7995;
+const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3058 = 7997;
+const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3059 = 7999;
+const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3060 = 8184;
+const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3061 = 908;
+const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3062 = 8008;
+const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3063 = 8010;
+const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3064 = 8012;
+const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3065 = 8009;
+const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3066 = 8011;
+const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3067 = 8013;
+const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3068 = 8172;
+const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3069 = 8170;
+const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3070 = 910;
+const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3071 = 8169;
+const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3072 = 8168;
+const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3073 = 939;
+const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3074 = 8025;
+const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3075 = 8027;
+const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3076 = 8029;
+const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3077 = 8031;
+const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3078 = 8186;
+const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3079 = 911;
+const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3080 = 8040;
+const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3081 = 8042;
+const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3082 = 8106;
+const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3083 = 8044;
+const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3084 = 8108;
+const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3085 = 8046;
+const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3086 = 8110;
+const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3087 = 8104;
+const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3088 = 8041;
+const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3089 = 8043;
+const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3090 = 8107;
+const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3091 = 8045;
+const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3092 = 8109;
+const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3093 = 8047;
+const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3094 = 8111;
+const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3095 = 8105;
+const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3096 = 8188;
+const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3097 = 8048;
+const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3098 = 8114;
+const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3099 = 940;
+const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3100 = 8116;
+const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3101 = 8113;
+const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3102 = 8112;
+const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3103 = 7936;
+const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3104 = 7938;
+const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3105 = 8066;
+const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3106 = 7940;
+const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3107 = 8068;
+const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3108 = 7942;
+const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3109 = 8070;
+const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3110 = 8064;
+const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3111 = 7937;
+const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3112 = 7939;
+const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3113 = 8067;
+const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3114 = 7941;
+const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3115 = 8069;
+const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3116 = 7943;
+const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3117 = 8071;
+const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3118 = 8065;
+const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3119 = 8118;
+const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3120 = 8119;
+const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3121 = 8115;
+const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3122 = 8050;
+const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3123 = 941;
+const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3124 = 7952;
+const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3125 = 7954;
+const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3126 = 7956;
+const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3127 = 7953;
+const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3128 = 7955;
+const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3129 = 7957;
+const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3130 = 8052;
+const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3131 = 8130;
+const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3132 = 942;
+const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3133 = 8132;
+const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3134 = 7968;
+const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3135 = 7970;
+const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3136 = 8082;
+const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3137 = 7972;
+const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3138 = 8084;
+const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3139 = 7974;
+const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3140 = 8086;
+const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3141 = 8080;
+const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3142 = 7969;
+const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3143 = 7971;
+const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3144 = 8083;
+const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3145 = 7973;
+const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3146 = 8085;
+const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3147 = 7975;
+const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3148 = 8087;
+const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3149 = 8081;
+const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3150 = 8134;
+const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3151 = 8135;
+const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3152 = 8131;
+const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3153 = 8054;
+const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3154 = 943;
+const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3155 = 8145;
+const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3156 = 8144;
+const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3157 = 970;
+const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3158 = 8146;
+const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3159 = 912;
+const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3160 = 8151;
+const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3161 = 7984;
+const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3162 = 7986;
+const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3163 = 7988;
+const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3164 = 7990;
+const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3165 = 7985;
+const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3166 = 7987;
+const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3167 = 7989;
+const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3168 = 7991;
+const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3169 = 8150;
+const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3170 = 8056;
+const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3171 = 972;
+const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3172 = 8000;
+const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3173 = 8002;
+const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3174 = 8004;
+const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3175 = 8001;
+const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3176 = 8003;
+const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3177 = 8005;
+const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3178 = 8164;
+const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3179 = 8165;
+const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3180 = 8058;
+const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3181 = 973;
+const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3182 = 8161;
+const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3183 = 8160;
+const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3184 = 971;
+const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3185 = 8162;
+const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3186 = 944;
+const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3187 = 8167;
+const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3188 = 8016;
+const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3189 = 8018;
+const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3190 = 8020;
+const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3191 = 8022;
+const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3192 = 8017;
+const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3193 = 8019;
+const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3194 = 8021;
+const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3195 = 8023;
+const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3196 = 8166;
+const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3197 = 8060;
+const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3198 = 8178;
+const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3199 = 974;
+const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3200 = 8180;
+const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3201 = 8032;
+const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3202 = 8034;
+const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3203 = 8098;
+const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3204 = 8036;
+const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3205 = 8100;
+const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3206 = 8038;
+const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3207 = 8102;
+const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3208 = 8096;
+const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3209 = 8033;
+const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3210 = 8035;
+const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3211 = 8099;
+const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3212 = 8037;
+const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3213 = 8101;
+const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3214 = 8039;
+const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3215 = 8103;
+const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3216 = 8097;
+const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3217 = 8182;
+const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3218 = 8183;
+const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3219 = 8179;
+const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3220 = 979;
+const _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3221 = 980;
 const _M0FP39aaronshaf17greek_2dphonology3api5inbuf = [];
 const _M0FP39aaronshaf17greek_2dphonology3api6outbuf = [];
-const _M0FP39aaronshaf17greek_2dphonology3lib7softmaxN1sS4460 = 1073741824n;
+const _M0FP39aaronshaf17greek_2dphonology3lib7softmaxN1sS4030 = 1073741824n;
 const _M0FPB4seed = _M0FPB12random__seed();
 const _bind = [];
 const _M0FP39aaronshaf17greek_2dphonology3lib10ct__phones = _M0MPB3Map3MapGsiE(new _M0TPB9ArrayViewGUsiEE(_bind, 0, 0), undefined);
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2653 = { _0: "a a", _1: 1984 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2654 = { _0: "a b", _1: 6906 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2655 = { _0: "a d", _1: 5172 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2656 = { _0: "a e", _1: 3705 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2657 = { _0: "a g", _1: 8278 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2658 = { _0: "a i", _1: 115686 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2659 = { _0: "a k", _1: 13336 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2660 = { _0: "a l", _1: 17889 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2661 = { _0: "a m", _1: 9714 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2662 = { _0: "a n", _1: 49627 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2663 = { _0: "a o", _1: 2319 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2664 = { _0: "a p", _1: 19596 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2665 = { _0: "a r", _1: 23800 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2666 = { _0: "a s", _1: 42793 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2667 = { _0: "a t", _1: 33793 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2668 = { _0: "a u", _1: 44310 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2669 = { _0: "a y", _1: 33 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2670 = { _0: "a z", _1: 1675 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2671 = { _0: "b a", _1: 10476 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2672 = { _0: "b d", _1: 737 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2673 = { _0: "b e", _1: 5366 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2674 = { _0: "b i", _1: 1341 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2675 = { _0: "b k", _1: 1 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2676 = { _0: "b l", _1: 1171 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2677 = { _0: "b n", _1: 11 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2678 = { _0: "b o", _1: 3670 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2679 = { _0: "b r", _1: 1363 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2680 = { _0: "b s", _1: 5 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2681 = { _0: "b u", _1: 1554 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2682 = { _0: "b y", _1: 885 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2683 = { _0: "d a", _1: 8157 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2684 = { _0: "d b", _1: 2 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2685 = { _0: "d e", _1: 22558 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2686 = { _0: "d g", _1: 4 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2687 = { _0: "d i", _1: 13205 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2688 = { _0: "d k", _1: 1 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2689 = { _0: "d l", _1: 4 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2690 = { _0: "d m", _1: 18 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2691 = { _0: "d n", _1: 21 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2692 = { _0: "d o", _1: 13304 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2693 = { _0: "d r", _1: 3300 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2694 = { _0: "d s", _1: 38 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2695 = { _0: "d t", _1: 1 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2696 = { _0: "d u", _1: 3550 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2697 = { _0: "d y", _1: 3443 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2698 = { _0: "e a", _1: 8021 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2699 = { _0: "e b", _1: 3908 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2700 = { _0: "e d", _1: 6370 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2701 = { _0: "e e", _1: 1243 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2702 = { _0: "e g", _1: 12969 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2703 = { _0: "e i", _1: 14830 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2704 = { _0: "e k", _1: 32065 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2705 = { _0: "e l", _1: 25966 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2706 = { _0: "e m", _1: 20821 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2707 = { _0: "e n", _1: 93412 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2708 = { _0: "e o", _1: 11744 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2709 = { _0: "e p", _1: 32483 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2710 = { _0: "e r", _1: 32451 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2711 = { _0: "e s", _1: 85691 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2712 = { _0: "e t", _1: 34247 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2713 = { _0: "e u", _1: 18296 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2714 = { _0: "e z", _1: 972 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2715 = { _0: "g a", _1: 9693 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2716 = { _0: "g d", _1: 130 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2717 = { _0: "g e", _1: 16628 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2718 = { _0: "g i", _1: 3830 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2719 = { _0: "g l", _1: 444 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2720 = { _0: "g m", _1: 1124 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2721 = { _0: "g n", _1: 1670 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2722 = { _0: "g o", _1: 8947 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2723 = { _0: "g r", _1: 1430 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2724 = { _0: "g u", _1: 1263 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2725 = { _0: "g y", _1: 2982 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2726 = { _0: "h a", _1: 6874 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2727 = { _0: "h e", _1: 23251 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2728 = { _0: "h i", _1: 3517 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2729 = { _0: "h o", _1: 35474 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2730 = { _0: "h r", _1: 1714 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2731 = { _0: "h u", _1: 3069 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2732 = { _0: "h y", _1: 16607 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2733 = { _0: "i a", _1: 22866 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2734 = { _0: "i b", _1: 1734 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2735 = { _0: "i d", _1: 7929 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2736 = { _0: "i e", _1: 12777 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2737 = { _0: "i g", _1: 1785 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2738 = { _0: "i i", _1: 95 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2739 = { _0: "i k", _1: 11658 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2740 = { _0: "i l", _1: 7361 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2741 = { _0: "i m", _1: 4914 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2742 = { _0: "i n", _1: 21641 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2743 = { _0: "i o", _1: 27743 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2744 = { _0: "i p", _1: 2765 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2745 = { _0: "i r", _1: 2017 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2746 = { _0: "i s", _1: 34206 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2747 = { _0: "i t", _1: 5377 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2748 = { _0: "i u", _1: 8902 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2749 = { _0: "i y", _1: 3 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2750 = { _0: "i z", _1: 1531 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2751 = { _0: "k a", _1: 100084 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2752 = { _0: "k b", _1: 179 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2753 = { _0: "k d", _1: 309 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2754 = { _0: "k e", _1: 18955 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2755 = { _0: "k g", _1: 38 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2756 = { _0: "k i", _1: 5379 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2757 = { _0: "k k", _1: 186 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2758 = { _0: "k l", _1: 4114 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2759 = { _0: "k m", _1: 361 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2760 = { _0: "k n", _1: 911 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2761 = { _0: "k o", _1: 16224 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2762 = { _0: "k p", _1: 377 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2763 = { _0: "k r", _1: 7507 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2764 = { _0: "k s", _1: 14459 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2765 = { _0: "k t", _1: 4060 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2766 = { _0: "k u", _1: 4673 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2767 = { _0: "k y", _1: 12618 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2768 = { _0: "k z", _1: 110 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2769 = { _0: "l a", _1: 15835 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2770 = { _0: "l b", _1: 40 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2771 = { _0: "l d", _1: 124 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2772 = { _0: "l e", _1: 33523 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2773 = { _0: "l g", _1: 107 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2774 = { _0: "l i", _1: 7493 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2775 = { _0: "l k", _1: 554 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2776 = { _0: "l m", _1: 1148 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2777 = { _0: "l n", _1: 10 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2778 = { _0: "l o", _1: 15176 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2779 = { _0: "l p", _1: 2123 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2780 = { _0: "l r", _1: 1 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2781 = { _0: "l s", _1: 68 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2782 = { _0: "l t", _1: 3693 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2783 = { _0: "l u", _1: 2719 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2784 = { _0: "l y", _1: 2880 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2785 = { _0: "l z", _1: 8 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2786 = { _0: "m a", _1: 21986 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2787 = { _0: "m b", _1: 1129 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2788 = { _0: "m d", _1: 2 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2789 = { _0: "m e", _1: 36023 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2790 = { _0: "m i", _1: 7027 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2791 = { _0: "m k", _1: 1 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2792 = { _0: "m l", _1: 5 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2793 = { _0: "m n", _1: 1458 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2794 = { _0: "m o", _1: 16881 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2795 = { _0: "m p", _1: 2806 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2796 = { _0: "m r", _1: 11 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2797 = { _0: "m s", _1: 11 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2798 = { _0: "m t", _1: 2 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2799 = { _0: "m u", _1: 7919 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2800 = { _0: "m y", _1: 421 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2801 = { _0: "m z", _1: 2 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2802 = { _0: "n a", _1: 19025 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2803 = { _0: "n d", _1: 2572 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2804 = { _0: "n e", _1: 25378 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2805 = { _0: "n g", _1: 2346 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2806 = { _0: "n i", _1: 5049 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2807 = { _0: "n k", _1: 1715 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2808 = { _0: "n m", _1: 1 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2809 = { _0: "n o", _1: 21753 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2810 = { _0: "n p", _1: 4 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2811 = { _0: "n r", _1: 1 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2812 = { _0: "n s", _1: 20 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2813 = { _0: "n t", _1: 25334 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2814 = { _0: "n u", _1: 3467 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2815 = { _0: "n y", _1: 1914 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2816 = { _0: "n z", _1: 1 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2817 = { _0: "o a", _1: 1234 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2818 = { _0: "o b", _1: 2593 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2819 = { _0: "o d", _1: 4789 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2820 = { _0: "o e", _1: 1929 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2821 = { _0: "o g", _1: 4182 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2822 = { _0: "o i", _1: 64281 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2823 = { _0: "o k", _1: 7026 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2824 = { _0: "o l", _1: 10018 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2825 = { _0: "o m", _1: 15651 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2826 = { _0: "o n", _1: 102982 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2827 = { _0: "o o", _1: 343 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2828 = { _0: "o p", _1: 11739 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2829 = { _0: "o r", _1: 11081 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2830 = { _0: "o s", _1: 65118 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2831 = { _0: "o t", _1: 16628 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2832 = { _0: "o u", _1: 84 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2833 = { _0: "o y", _1: 923 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2834 = { _0: "o z", _1: 253 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2835 = { _0: "p a", _1: 27714 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2836 = { _0: "p e", _1: 25870 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2837 = { _0: "p i", _1: 14774 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2838 = { _0: "p l", _1: 3997 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2839 = { _0: "p n", _1: 1287 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2840 = { _0: "p o", _1: 34505 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2841 = { _0: "p p", _1: 46 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2842 = { _0: "p r", _1: 15509 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2843 = { _0: "p s", _1: 7454 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2844 = { _0: "p t", _1: 5188 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2845 = { _0: "p u", _1: 2502 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2846 = { _0: "p y", _1: 3943 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2847 = { _0: "p z", _1: 2 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2848 = { _0: "r a", _1: 27284 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2849 = { _0: "r b", _1: 85 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2850 = { _0: "r d", _1: 1520 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2851 = { _0: "r e", _1: 17123 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2852 = { _0: "r g", _1: 2849 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2853 = { _0: "r i", _1: 26768 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2854 = { _0: "r k", _1: 3547 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2855 = { _0: "r l", _1: 2 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2856 = { _0: "r m", _1: 1115 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2857 = { _0: "r n", _1: 653 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2858 = { _0: "r o", _1: 31460 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2859 = { _0: "r p", _1: 893 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2860 = { _0: "r s", _1: 753 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2861 = { _0: "r t", _1: 3895 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2862 = { _0: "r u", _1: 3765 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2863 = { _0: "r y", _1: 2622 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2864 = { _0: "r z", _1: 14 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2865 = { _0: "s a", _1: 30017 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2866 = { _0: "s b", _1: 493 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2867 = { _0: "s d", _1: 213 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2868 = { _0: "s e", _1: 35756 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2869 = { _0: "s g", _1: 32 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2870 = { _0: "s i", _1: 20610 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2871 = { _0: "s k", _1: 7029 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2872 = { _0: "s l", _1: 22 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2873 = { _0: "s m", _1: 2915 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2874 = { _0: "s n", _1: 11 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2875 = { _0: "s o", _1: 17371 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2876 = { _0: "s p", _1: 3430 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2877 = { _0: "s r", _1: 3072 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2878 = { _0: "s t", _1: 25995 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2879 = { _0: "s u", _1: 10592 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2880 = { _0: "s y", _1: 9593 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2881 = { _0: "t a", _1: 55364 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2882 = { _0: "t b", _1: 12 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2883 = { _0: "t d", _1: 3 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2884 = { _0: "t e", _1: 91458 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2885 = { _0: "t g", _1: 1 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2886 = { _0: "t i", _1: 22577 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2887 = { _0: "t k", _1: 3 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2888 = { _0: "t l", _1: 463 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2889 = { _0: "t m", _1: 573 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2890 = { _0: "t n", _1: 1444 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2891 = { _0: "t o", _1: 90205 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2892 = { _0: "t p", _1: 12 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2893 = { _0: "t r", _1: 11889 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2894 = { _0: "t s", _1: 70 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2895 = { _0: "t t", _1: 7 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2896 = { _0: "t u", _1: 37853 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2897 = { _0: "t y", _1: 5491 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2898 = { _0: "t z", _1: 3 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2899 = { _0: "u a", _1: 496 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2900 = { _0: "u b", _1: 251 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2901 = { _0: "u d", _1: 3521 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2902 = { _0: "u e", _1: 1943 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2903 = { _0: "u g", _1: 280 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2904 = { _0: "u i", _1: 1669 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2905 = { _0: "u k", _1: 6825 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2906 = { _0: "u l", _1: 3428 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2907 = { _0: "u m", _1: 2735 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2908 = { _0: "u n", _1: 3777 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2909 = { _0: "u o", _1: 1533 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2910 = { _0: "u p", _1: 639 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2911 = { _0: "u r", _1: 3080 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2912 = { _0: "u s", _1: 27920 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2913 = { _0: "u t", _1: 47306 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2914 = { _0: "u u", _1: 243 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2915 = { _0: "u z", _1: 36 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2916 = { _0: "y a", _1: 196 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2917 = { _0: "y b", _1: 259 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2918 = { _0: "y d", _1: 874 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2919 = { _0: "y e", _1: 419 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2920 = { _0: "y g", _1: 1596 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2921 = { _0: "y i", _1: 5805 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2922 = { _0: "y k", _1: 2911 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2923 = { _0: "y l", _1: 3593 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2924 = { _0: "y m", _1: 7938 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2925 = { _0: "y n", _1: 11032 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2926 = { _0: "y o", _1: 1247 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2927 = { _0: "y p", _1: 6908 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2928 = { _0: "y r", _1: 13415 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2929 = { _0: "y s", _1: 5126 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2930 = { _0: "y t", _1: 1326 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2931 = { _0: "y u", _1: 43 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2932 = { _0: "y z", _1: 61 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2933 = { _0: "z d", _1: 6913 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N7_2abindS2934 = [_M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2653, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2654, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2655, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2656, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2657, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2658, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2659, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2660, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2661, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2662, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2663, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2664, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2665, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2666, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2667, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2668, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2669, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2670, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2671, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2672, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2673, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2674, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2675, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2676, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2677, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2678, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2679, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2680, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2681, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2682, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2683, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2684, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2685, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2686, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2687, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2688, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2689, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2690, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2691, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2692, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2693, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2694, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2695, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2696, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2697, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2698, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2699, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2700, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2701, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2702, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2703, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2704, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2705, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2706, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2707, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2708, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2709, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2710, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2711, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2712, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2713, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2714, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2715, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2716, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2717, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2718, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2719, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2720, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2721, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2722, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2723, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2724, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2725, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2726, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2727, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2728, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2729, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2730, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2731, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2732, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2733, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2734, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2735, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2736, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2737, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2738, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2739, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2740, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2741, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2742, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2743, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2744, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2745, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2746, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2747, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2748, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2749, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2750, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2751, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2752, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2753, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2754, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2755, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2756, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2757, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2758, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2759, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2760, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2761, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2762, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2763, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2764, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2765, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2766, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2767, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2768, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2769, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2770, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2771, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2772, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2773, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2774, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2775, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2776, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2777, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2778, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2779, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2780, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2781, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2782, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2783, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2784, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2785, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2786, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2787, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2788, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2789, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2790, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2791, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2792, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2793, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2794, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2795, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2796, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2797, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2798, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2799, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2800, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2801, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2802, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2803, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2804, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2805, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2806, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2807, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2808, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2809, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2810, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2811, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2812, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2813, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2814, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2815, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2816, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2817, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2818, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2819, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2820, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2821, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2822, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2823, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2824, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2825, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2826, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2827, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2828, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2829, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2830, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2831, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2832, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2833, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2834, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2835, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2836, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2837, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2838, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2839, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2840, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2841, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2842, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2843, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2844, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2845, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2846, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2847, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2848, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2849, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2850, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2851, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2852, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2853, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2854, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2855, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2856, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2857, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2858, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2859, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2860, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2861, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2862, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2863, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2864, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2865, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2866, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2867, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2868, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2869, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2870, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2871, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2872, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2873, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2874, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2875, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2876, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2877, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2878, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2879, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2880, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2881, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2882, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2883, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2884, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2885, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2886, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2887, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2888, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2889, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2890, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2891, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2892, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2893, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2894, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2895, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2896, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2897, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2898, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2899, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2900, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2901, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2902, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2903, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2904, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2905, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2906, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2907, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2908, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2909, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2910, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2911, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2912, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2913, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2914, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2915, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2916, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2917, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2918, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2919, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2920, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2921, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2922, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2923, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2924, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2925, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2926, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2927, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2928, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2929, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2930, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2931, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2932, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2933];
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3 = _M0MPB3Map3MapGsiE(new _M0TPB9ArrayViewGUsiEE(_M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N7_2abindS2934, 0, 281), undefined);
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2352 = { _0: "a a", _1: 1982 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2353 = { _0: "a e", _1: 3673 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2354 = { _0: "a f", _1: 40265 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2355 = { _0: "a i", _1: 238 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2356 = { _0: "a k", _1: 13338 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2357 = { _0: "a l", _1: 17889 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2358 = { _0: "a m", _1: 9714 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2359 = { _0: "a n", _1: 49627 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2360 = { _0: "a o", _1: 2206 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2361 = { _0: "a p", _1: 19596 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2362 = { _0: "a r", _1: 23800 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2363 = { _0: "a s", _1: 42877 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2364 = { _0: "a t", _1: 33798 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2365 = { _0: "a u", _1: 1092 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2366 = { _0: "a v", _1: 9859 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2367 = { _0: "a y", _1: 146 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2368 = { _0: "a z", _1: 1675 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2369 = { _0: "a ð", _1: 5342 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2370 = { _0: "a ɣ", _1: 8278 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2371 = { _0: "e a", _1: 5930 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2372 = { _0: "e e", _1: 1210 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2373 = { _0: "e f", _1: 8502 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2374 = { _0: "e i", _1: 277 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2375 = { _0: "e k", _1: 32033 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2376 = { _0: "e l", _1: 23727 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2377 = { _0: "e m", _1: 20976 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2378 = { _0: "e n", _1: 88771 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2379 = { _0: "e o", _1: 14552 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2380 = { _0: "e p", _1: 26860 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2381 = { _0: "e r", _1: 30563 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2382 = { _0: "e s", _1: 72132 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2383 = { _0: "e t", _1: 33010 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2384 = { _0: "e u", _1: 2592 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2385 = { _0: "e v", _1: 11557 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2386 = { _0: "e y", _1: 620 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2387 = { _0: "e z", _1: 947 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2388 = { _0: "e ð", _1: 6428 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2389 = { _0: "e ɣ", _1: 13864 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2390 = { _0: "f k", _1: 1163 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2391 = { _0: "f p", _1: 553 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2392 = { _0: "f s", _1: 5615 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2393 = { _0: "f t", _1: 41436 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2394 = { _0: "i a", _1: 23223 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2395 = { _0: "i e", _1: 9286 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2396 = { _0: "i i", _1: 611 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2397 = { _0: "i k", _1: 6360 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2398 = { _0: "i l", _1: 9382 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2399 = { _0: "i m", _1: 3846 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2400 = { _0: "i n", _1: 25653 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2401 = { _0: "i o", _1: 17834 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2402 = { _0: "i p", _1: 8028 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2403 = { _0: "i r", _1: 3883 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2404 = { _0: "i s", _1: 36848 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2405 = { _0: "i t", _1: 6133 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2406 = { _0: "i u", _1: 7193 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2407 = { _0: "i v", _1: 1696 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2408 = { _0: "i y", _1: 1150 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2409 = { _0: "i z", _1: 1413 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2410 = { _0: "i ð", _1: 7106 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2411 = { _0: "i ɣ", _1: 795 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2412 = { _0: "k a", _1: 25752 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2413 = { _0: "k e", _1: 87020 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2414 = { _0: "k i", _1: 11646 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2415 = { _0: "k k", _1: 994 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2416 = { _0: "k l", _1: 4114 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2417 = { _0: "k m", _1: 361 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2418 = { _0: "k n", _1: 911 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2419 = { _0: "k o", _1: 14973 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2420 = { _0: "k p", _1: 377 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2421 = { _0: "k r", _1: 7507 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2422 = { _0: "k s", _1: 14459 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2423 = { _0: "k t", _1: 4060 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2424 = { _0: "k u", _1: 4673 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2425 = { _0: "k v", _1: 179 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2426 = { _0: "k y", _1: 13869 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2427 = { _0: "k z", _1: 110 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2428 = { _0: "k ð", _1: 309 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2429 = { _0: "k ɣ", _1: 38 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2430 = { _0: "l a", _1: 14487 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2431 = { _0: "l e", _1: 30235 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2432 = { _0: "l i", _1: 12129 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2433 = { _0: "l k", _1: 554 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2434 = { _0: "l l", _1: 5212 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2435 = { _0: "l m", _1: 1148 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2436 = { _0: "l n", _1: 10 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2437 = { _0: "l o", _1: 13363 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2438 = { _0: "l p", _1: 2123 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2439 = { _0: "l r", _1: 1 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2440 = { _0: "l s", _1: 68 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2441 = { _0: "l t", _1: 3693 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2442 = { _0: "l u", _1: 2719 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2443 = { _0: "l v", _1: 40 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2444 = { _0: "l y", _1: 4693 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2445 = { _0: "l z", _1: 8 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2446 = { _0: "l ð", _1: 124 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2447 = { _0: "l ɣ", _1: 107 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2448 = { _0: "m a", _1: 19991 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2449 = { _0: "m e", _1: 36157 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2450 = { _0: "m i", _1: 8888 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2451 = { _0: "m k", _1: 1 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2452 = { _0: "m l", _1: 5 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2453 = { _0: "m m", _1: 1421 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2454 = { _0: "m n", _1: 1458 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2455 = { _0: "m o", _1: 14031 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2456 = { _0: "m p", _1: 2806 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2457 = { _0: "m r", _1: 11 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2458 = { _0: "m s", _1: 11 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2459 = { _0: "m t", _1: 2 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2460 = { _0: "m u", _1: 7919 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2461 = { _0: "m v", _1: 1129 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2462 = { _0: "m y", _1: 3271 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2463 = { _0: "m z", _1: 2 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2464 = { _0: "m ð", _1: 2 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2465 = { _0: "n a", _1: 15338 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2466 = { _0: "n e", _1: 27007 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2467 = { _0: "n i", _1: 7107 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2468 = { _0: "n k", _1: 1715 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2469 = { _0: "n m", _1: 1 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2470 = { _0: "n n", _1: 1063 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2471 = { _0: "n o", _1: 19009 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2472 = { _0: "n p", _1: 4 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2473 = { _0: "n r", _1: 1 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2474 = { _0: "n s", _1: 20 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2475 = { _0: "n t", _1: 25334 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2476 = { _0: "n u", _1: 3467 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2477 = { _0: "n y", _1: 4658 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2478 = { _0: "n z", _1: 1 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2479 = { _0: "n ð", _1: 2572 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2480 = { _0: "n ɣ", _1: 2346 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2481 = { _0: "o a", _1: 1230 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2482 = { _0: "o e", _1: 1914 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2483 = { _0: "o i", _1: 418 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2484 = { _0: "o k", _1: 7576 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2485 = { _0: "o l", _1: 10018 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2486 = { _0: "o m", _1: 15654 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2487 = { _0: "o n", _1: 102982 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2488 = { _0: "o o", _1: 468 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2489 = { _0: "o p", _1: 11739 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2490 = { _0: "o r", _1: 11083 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2491 = { _0: "o s", _1: 65222 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2492 = { _0: "o t", _1: 16628 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2493 = { _0: "o u", _1: 114 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2494 = { _0: "o v", _1: 2593 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2495 = { _0: "o y", _1: 947 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2496 = { _0: "o z", _1: 378 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2497 = { _0: "o ð", _1: 4961 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2498 = { _0: "o ɣ", _1: 4209 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2499 = { _0: "p a", _1: 25604 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2500 = { _0: "p e", _1: 26176 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2501 = { _0: "p i", _1: 16578 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2502 = { _0: "p l", _1: 3997 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2503 = { _0: "p n", _1: 1287 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2504 = { _0: "p o", _1: 28557 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2505 = { _0: "p p", _1: 513 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2506 = { _0: "p r", _1: 15509 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2507 = { _0: "p s", _1: 7454 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2508 = { _0: "p t", _1: 5188 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2509 = { _0: "p u", _1: 2502 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2510 = { _0: "p y", _1: 9891 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2511 = { _0: "p z", _1: 2 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2512 = { _0: "r a", _1: 25638 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2513 = { _0: "r e", _1: 16303 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2514 = { _0: "r i", _1: 29234 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2515 = { _0: "r k", _1: 3547 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2516 = { _0: "r l", _1: 2 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2517 = { _0: "r m", _1: 1115 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2518 = { _0: "r n", _1: 653 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2519 = { _0: "r o", _1: 30378 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2520 = { _0: "r p", _1: 893 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2521 = { _0: "r r", _1: 1226 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2522 = { _0: "r s", _1: 753 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2523 = { _0: "r t", _1: 3895 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2524 = { _0: "r u", _1: 3765 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2525 = { _0: "r v", _1: 85 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2526 = { _0: "r y", _1: 3704 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2527 = { _0: "r z", _1: 14 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2528 = { _0: "r ð", _1: 1520 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2529 = { _0: "r ɣ", _1: 2849 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2530 = { _0: "s a", _1: 25871 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2531 = { _0: "s e", _1: 34428 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2532 = { _0: "s i", _1: 26084 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2533 = { _0: "s k", _1: 7029 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2534 = { _0: "s l", _1: 22 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2535 = { _0: "s m", _1: 2915 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2536 = { _0: "s n", _1: 11 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2537 = { _0: "s o", _1: 15349 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2538 = { _0: "s p", _1: 3430 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2539 = { _0: "s r", _1: 3072 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2540 = { _0: "s s", _1: 3237 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2541 = { _0: "s t", _1: 25995 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2542 = { _0: "s u", _1: 10592 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2543 = { _0: "s v", _1: 493 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2544 = { _0: "s y", _1: 11615 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2545 = { _0: "s ð", _1: 213 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2546 = { _0: "s ɣ", _1: 32 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2547 = { _0: "t a", _1: 41279 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2548 = { _0: "t e", _1: 100122 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2549 = { _0: "t i", _1: 27998 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2550 = { _0: "t k", _1: 3 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2551 = { _0: "t l", _1: 463 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2552 = { _0: "t m", _1: 573 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2553 = { _0: "t n", _1: 1444 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2554 = { _0: "t o", _1: 80990 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2555 = { _0: "t p", _1: 12 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2556 = { _0: "t r", _1: 11889 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2557 = { _0: "t s", _1: 70 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2558 = { _0: "t t", _1: 338 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2559 = { _0: "t u", _1: 37853 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2560 = { _0: "t v", _1: 12 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2561 = { _0: "t y", _1: 14706 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2562 = { _0: "t z", _1: 3 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2563 = { _0: "t ð", _1: 3 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2564 = { _0: "t ɣ", _1: 1 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2565 = { _0: "u a", _1: 62 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2566 = { _0: "u e", _1: 531 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2567 = { _0: "u i", _1: 196 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2568 = { _0: "u k", _1: 5662 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2569 = { _0: "u l", _1: 1971 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2570 = { _0: "u m", _1: 1322 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2571 = { _0: "u n", _1: 3585 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2572 = { _0: "u o", _1: 151 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2573 = { _0: "u p", _1: 86 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2574 = { _0: "u r", _1: 1586 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2575 = { _0: "u s", _1: 22305 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2576 = { _0: "u t", _1: 5870 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2577 = { _0: "u u", _1: 31 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2578 = { _0: "u v", _1: 250 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2579 = { _0: "u z", _1: 32 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2580 = { _0: "u ð", _1: 3068 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2581 = { _0: "u ɣ", _1: 7 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2582 = { _0: "v a", _1: 10048 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2583 = { _0: "v e", _1: 6736 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2584 = { _0: "v i", _1: 3718 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2585 = { _0: "v k", _1: 1 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2586 = { _0: "v l", _1: 2628 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2587 = { _0: "v m", _1: 1413 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2588 = { _0: "v n", _1: 203 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2589 = { _0: "v o", _1: 5008 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2590 = { _0: "v r", _1: 2857 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2591 = { _0: "v s", _1: 5 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2592 = { _0: "v u", _1: 1766 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2593 = { _0: "v v", _1: 297 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2594 = { _0: "v y", _1: 929 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2595 = { _0: "v z", _1: 4 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2596 = { _0: "v ð", _1: 1190 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2597 = { _0: "v ɣ", _1: 273 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2598 = { _0: "y a", _1: 675 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2599 = { _0: "y e", _1: 3941 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2600 = { _0: "y i", _1: 540 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2601 = { _0: "y k", _1: 7689 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2602 = { _0: "y l", _1: 3811 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2603 = { _0: "y m", _1: 8848 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2604 = { _0: "y n", _1: 11661 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2605 = { _0: "y o", _1: 4467 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2606 = { _0: "y p", _1: 7268 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2607 = { _0: "y r", _1: 13435 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2608 = { _0: "y s", _1: 15855 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2609 = { _0: "y t", _1: 1802 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2610 = { _0: "y u", _1: 1298 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2611 = { _0: "y v", _1: 274 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2612 = { _0: "y y", _1: 1965 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2613 = { _0: "y z", _1: 79 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2614 = { _0: "y ð", _1: 1297 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2615 = { _0: "y ɣ", _1: 1664 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2616 = { _0: "z a", _1: 851 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2617 = { _0: "z e", _1: 2387 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2618 = { _0: "z i", _1: 582 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2619 = { _0: "z k", _1: 1 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2620 = { _0: "z l", _1: 1 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2621 = { _0: "z m", _1: 3 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2622 = { _0: "z o", _1: 2489 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2623 = { _0: "z r", _1: 60 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2624 = { _0: "z u", _1: 229 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2625 = { _0: "z y", _1: 232 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2626 = { _0: "ð a", _1: 6287 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2627 = { _0: "ð e", _1: 19425 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2628 = { _0: "ð i", _1: 14388 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2629 = { _0: "ð l", _1: 3 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2630 = { _0: "ð m", _1: 15 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2631 = { _0: "ð n", _1: 21 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2632 = { _0: "ð o", _1: 10522 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2633 = { _0: "ð r", _1: 3240 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2634 = { _0: "ð s", _1: 38 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2635 = { _0: "ð t", _1: 1 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2636 = { _0: "ð u", _1: 3321 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2637 = { _0: "ð v", _1: 2 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2638 = { _0: "ð y", _1: 3504 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2639 = { _0: "ð ð", _1: 117 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2640 = { _0: "ð ɣ", _1: 4 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2641 = { _0: "ɣ a", _1: 9501 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2642 = { _0: "ɣ e", _1: 14112 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2643 = { _0: "ɣ i", _1: 6538 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2644 = { _0: "ɣ l", _1: 444 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2645 = { _0: "ɣ m", _1: 1124 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2646 = { _0: "ɣ n", _1: 1670 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2647 = { _0: "ɣ o", _1: 8502 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2648 = { _0: "ɣ r", _1: 1430 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2649 = { _0: "ɣ u", _1: 1263 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2650 = { _0: "ɣ y", _1: 3427 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2651 = { _0: "ɣ ð", _1: 130 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N7_2abindS2652 = [_M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2352, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2353, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2354, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2355, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2356, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2357, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2358, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2359, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2360, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2361, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2362, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2363, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2364, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2365, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2366, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2367, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2368, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2369, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2370, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2371, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2372, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2373, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2374, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2375, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2376, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2377, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2378, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2379, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2380, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2381, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2382, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2383, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2384, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2385, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2386, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2387, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2388, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2389, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2390, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2391, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2392, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2393, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2394, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2395, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2396, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2397, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2398, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2399, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2400, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2401, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2402, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2403, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2404, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2405, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2406, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2407, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2408, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2409, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2410, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2411, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2412, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2413, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2414, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2415, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2416, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2417, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2418, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2419, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2420, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2421, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2422, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2423, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2424, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2425, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2426, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2427, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2428, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2429, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2430, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2431, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2432, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2433, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2434, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2435, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2436, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2437, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2438, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2439, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2440, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2441, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2442, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2443, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2444, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2445, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2446, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2447, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2448, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2449, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2450, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2451, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2452, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2453, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2454, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2455, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2456, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2457, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2458, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2459, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2460, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2461, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2462, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2463, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2464, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2465, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2466, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2467, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2468, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2469, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2470, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2471, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2472, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2473, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2474, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2475, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2476, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2477, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2478, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2479, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2480, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2481, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2482, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2483, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2484, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2485, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2486, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2487, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2488, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2489, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2490, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2491, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2492, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2493, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2494, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2495, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2496, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2497, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2498, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2499, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2500, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2501, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2502, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2503, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2504, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2505, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2506, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2507, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2508, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2509, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2510, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2511, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2512, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2513, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2514, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2515, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2516, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2517, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2518, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2519, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2520, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2521, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2522, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2523, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2524, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2525, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2526, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2527, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2528, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2529, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2530, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2531, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2532, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2533, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2534, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2535, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2536, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2537, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2538, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2539, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2540, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2541, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2542, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2543, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2544, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2545, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2546, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2547, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2548, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2549, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2550, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2551, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2552, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2553, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2554, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2555, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2556, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2557, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2558, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2559, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2560, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2561, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2562, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2563, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2564, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2565, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2566, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2567, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2568, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2569, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2570, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2571, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2572, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2573, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2574, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2575, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2576, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2577, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2578, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2579, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2580, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2581, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2582, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2583, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2584, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2585, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2586, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2587, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2588, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2589, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2590, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2591, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2592, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2593, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2594, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2595, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2596, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2597, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2598, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2599, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2600, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2601, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2602, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2603, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2604, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2605, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2606, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2607, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2608, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2609, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2610, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2611, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2612, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2613, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2614, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2615, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2616, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2617, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2618, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2619, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2620, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2621, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2622, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2623, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2624, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2625, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2626, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2627, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2628, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2629, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2630, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2631, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2632, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2633, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2634, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2635, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2636, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2637, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2638, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2639, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2640, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2641, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2642, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2643, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2644, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2645, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2646, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2647, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2648, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2649, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2650, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2651];
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2 = _M0MPB3Map3MapGsiE(new _M0TPB9ArrayViewGUsiEE(_M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N7_2abindS2652, 0, 300), undefined);
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS1951 = { _0: "a a", _1: 1982 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS1952 = { _0: "a e", _1: 338 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS1953 = { _0: "a f", _1: 43734 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS1954 = { _0: "a i", _1: 3573 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS1955 = { _0: "a k", _1: 10848 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS1956 = { _0: "a l", _1: 17889 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS1957 = { _0: "a m", _1: 9714 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS1958 = { _0: "a n", _1: 49627 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS1959 = { _0: "a o", _1: 2206 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS1960 = { _0: "a p", _1: 16261 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS1961 = { _0: "a r", _1: 23800 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS1962 = { _0: "a s", _1: 42877 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS1963 = { _0: "a t", _1: 27497 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS1964 = { _0: "a u", _1: 1092 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS1965 = { _0: "a v", _1: 9725 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS1966 = { _0: "a x", _1: 2490 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS1967 = { _0: "a y", _1: 146 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS1968 = { _0: "a z", _1: 1675 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS1969 = { _0: "a ð", _1: 5342 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS1970 = { _0: "a ɣ", _1: 8278 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS1971 = { _0: "a θ", _1: 6301 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS1972 = { _0: "b a", _1: 124 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS1973 = { _0: "b e", _1: 346 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS1974 = { _0: "b i", _1: 69 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS1975 = { _0: "b l", _1: 118 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS1976 = { _0: "b n", _1: 18 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS1977 = { _0: "b o", _1: 132 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS1978 = { _0: "b r", _1: 261 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS1979 = { _0: "b t", _1: 158 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS1980 = { _0: "b u", _1: 2 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS1981 = { _0: "b y", _1: 24 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS1982 = { _0: "d a", _1: 5555 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS1983 = { _0: "d e", _1: 7787 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS1984 = { _0: "d i", _1: 3107 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS1985 = { _0: "d l", _1: 16 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS1986 = { _0: "d o", _1: 4739 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS1987 = { _0: "d r", _1: 277 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS1988 = { _0: "d u", _1: 16 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS1989 = { _0: "d y", _1: 43 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS1990 = { _0: "e a", _1: 5921 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS1991 = { _0: "e e", _1: 588 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS1992 = { _0: "e f", _1: 12225 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS1993 = { _0: "e i", _1: 824 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS1994 = { _0: "e k", _1: 24120 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS1995 = { _0: "e l", _1: 14973 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS1996 = { _0: "e m", _1: 7409 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS1997 = { _0: "e n", _1: 63555 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS1998 = { _0: "e o", _1: 14506 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS1999 = { _0: "e p", _1: 22128 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2000 = { _0: "e r", _1: 23040 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2001 = { _0: "e s", _1: 29752 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2002 = { _0: "e t", _1: 17734 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2003 = { _0: "e u", _1: 2589 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2004 = { _0: "e v", _1: 11166 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2005 = { _0: "e x", _1: 3319 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2006 = { _0: "e y", _1: 620 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2007 = { _0: "e z", _1: 936 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2008 = { _0: "e ð", _1: 5302 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2009 = { _0: "e ɣ", _1: 11469 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2010 = { _0: "e θ", _1: 5197 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2011 = { _0: "f a", _1: 3855 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2012 = { _0: "f e", _1: 2094 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2013 = { _0: "f f", _1: 504 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2014 = { _0: "f i", _1: 4117 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2015 = { _0: "f k", _1: 555 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2016 = { _0: "f l", _1: 227 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2017 = { _0: "f n", _1: 49 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2018 = { _0: "f o", _1: 4609 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2019 = { _0: "f p", _1: 69 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2020 = { _0: "f r", _1: 1683 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2021 = { _0: "f s", _1: 5615 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2022 = { _0: "f t", _1: 39832 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2023 = { _0: "f u", _1: 459 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2024 = { _0: "f x", _1: 608 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2025 = { _0: "f y", _1: 3072 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2026 = { _0: "f z", _1: 2 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2027 = { _0: "f θ", _1: 3421 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2028 = { _0: "g a", _1: 565 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2029 = { _0: "g e", _1: 309 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2030 = { _0: "g i", _1: 101 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2031 = { _0: "g l", _1: 62 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2032 = { _0: "g o", _1: 64 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2033 = { _0: "g r", _1: 122 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2034 = { _0: "g t", _1: 7 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2035 = { _0: "g y", _1: 40 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2036 = { _0: "i a", _1: 23232 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2037 = { _0: "i e", _1: 7084 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2038 = { _0: "i f", _1: 1240 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2039 = { _0: "i i", _1: 2888 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2040 = { _0: "i k", _1: 9411 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2041 = { _0: "i l", _1: 18136 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2042 = { _0: "i m", _1: 17413 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2043 = { _0: "i n", _1: 50869 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2044 = { _0: "i o", _1: 17880 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2045 = { _0: "i p", _1: 8042 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2046 = { _0: "i r", _1: 11406 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2047 = { _0: "i s", _1: 79228 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2048 = { _0: "i t", _1: 9644 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2049 = { _0: "i u", _1: 7196 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2050 = { _0: "i v", _1: 1842 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2051 = { _0: "i x", _1: 1543 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2052 = { _0: "i y", _1: 1150 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2053 = { _0: "i z", _1: 1424 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2054 = { _0: "i ð", _1: 8232 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2055 = { _0: "i ɣ", _1: 3190 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2056 = { _0: "i θ", _1: 6568 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2057 = { _0: "k a", _1: 22362 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2058 = { _0: "k e", _1: 78763 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2059 = { _0: "k f", _1: 84 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2060 = { _0: "k i", _1: 9134 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2061 = { _0: "k k", _1: 806 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2062 = { _0: "k l", _1: 3671 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2063 = { _0: "k m", _1: 65 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2064 = { _0: "k n", _1: 617 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2065 = { _0: "k o", _1: 10344 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2066 = { _0: "k p", _1: 293 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2067 = { _0: "k r", _1: 5083 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2068 = { _0: "k s", _1: 14456 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2069 = { _0: "k t", _1: 2656 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2070 = { _0: "k u", _1: 3911 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2071 = { _0: "k v", _1: 178 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2072 = { _0: "k x", _1: 186 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2073 = { _0: "k y", _1: 11908 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2074 = { _0: "k z", _1: 108 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2075 = { _0: "k ð", _1: 309 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2076 = { _0: "k ɣ", _1: 38 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2077 = { _0: "k θ", _1: 49 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2078 = { _0: "l a", _1: 14487 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2079 = { _0: "l e", _1: 18070 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2080 = { _0: "l f", _1: 1522 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2081 = { _0: "l i", _1: 24294 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2082 = { _0: "l k", _1: 469 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2083 = { _0: "l l", _1: 5212 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2084 = { _0: "l m", _1: 1148 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2085 = { _0: "l n", _1: 10 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2086 = { _0: "l o", _1: 13363 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2087 = { _0: "l p", _1: 601 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2088 = { _0: "l r", _1: 1 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2089 = { _0: "l s", _1: 68 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2090 = { _0: "l t", _1: 165 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2091 = { _0: "l u", _1: 2719 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2092 = { _0: "l v", _1: 40 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2093 = { _0: "l x", _1: 85 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2094 = { _0: "l y", _1: 4693 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2095 = { _0: "l z", _1: 8 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2096 = { _0: "l ð", _1: 124 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2097 = { _0: "l ɣ", _1: 107 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2098 = { _0: "l θ", _1: 3528 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2099 = { _0: "m a", _1: 19991 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2100 = { _0: "m b", _1: 1252 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2101 = { _0: "m e", _1: 26499 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2102 = { _0: "m f", _1: 839 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2103 = { _0: "m i", _1: 18546 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2104 = { _0: "m l", _1: 5 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2105 = { _0: "m m", _1: 1421 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2106 = { _0: "m n", _1: 1458 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2107 = { _0: "m o", _1: 14031 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2108 = { _0: "m p", _1: 715 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2109 = { _0: "m r", _1: 11 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2110 = { _0: "m s", _1: 11 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2111 = { _0: "m u", _1: 7919 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2112 = { _0: "m v", _1: 1129 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2113 = { _0: "m x", _1: 1 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2114 = { _0: "m y", _1: 3271 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2115 = { _0: "m z", _1: 2 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2116 = { _0: "m ð", _1: 2 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2117 = { _0: "m θ", _1: 2 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2118 = { _0: "n a", _1: 15338 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2119 = { _0: "n d", _1: 21646 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2120 = { _0: "n e", _1: 15044 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2121 = { _0: "n f", _1: 1 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2122 = { _0: "n g", _1: 1270 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2123 = { _0: "n i", _1: 19070 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2124 = { _0: "n k", _1: 146 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2125 = { _0: "n m", _1: 1 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2126 = { _0: "n n", _1: 1063 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2127 = { _0: "n o", _1: 19009 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2128 = { _0: "n p", _1: 3 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2129 = { _0: "n r", _1: 1 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2130 = { _0: "n s", _1: 20 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2131 = { _0: "n u", _1: 3467 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2132 = { _0: "n x", _1: 299 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2133 = { _0: "n y", _1: 4658 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2134 = { _0: "n z", _1: 1 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2135 = { _0: "n ð", _1: 2572 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2136 = { _0: "n ɣ", _1: 2346 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2137 = { _0: "n θ", _1: 3688 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2138 = { _0: "o a", _1: 1230 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2139 = { _0: "o e", _1: 342 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2140 = { _0: "o f", _1: 3502 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2141 = { _0: "o i", _1: 1990 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2142 = { _0: "o k", _1: 6051 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2143 = { _0: "o l", _1: 10018 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2144 = { _0: "o m", _1: 15654 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2145 = { _0: "o n", _1: 102982 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2146 = { _0: "o o", _1: 468 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2147 = { _0: "o p", _1: 8237 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2148 = { _0: "o r", _1: 11083 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2149 = { _0: "o s", _1: 65222 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2150 = { _0: "o t", _1: 13226 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2151 = { _0: "o u", _1: 114 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2152 = { _0: "o v", _1: 2593 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2153 = { _0: "o x", _1: 1525 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2154 = { _0: "o y", _1: 947 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2155 = { _0: "o z", _1: 378 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2156 = { _0: "o ð", _1: 4961 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2157 = { _0: "o ɣ", _1: 4209 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2158 = { _0: "o θ", _1: 3402 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2159 = { _0: "p a", _1: 21625 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2160 = { _0: "p e", _1: 18733 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2161 = { _0: "p f", _1: 46 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2162 = { _0: "p i", _1: 17395 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2163 = { _0: "p l", _1: 3652 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2164 = { _0: "p n", _1: 1220 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2165 = { _0: "p o", _1: 23816 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2166 = { _0: "p p", _1: 447 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2167 = { _0: "p r", _1: 13565 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2168 = { _0: "p s", _1: 7454 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2169 = { _0: "p t", _1: 3213 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2170 = { _0: "p u", _1: 2041 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2171 = { _0: "p y", _1: 6795 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2172 = { _0: "r a", _1: 25638 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2173 = { _0: "r e", _1: 11967 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2174 = { _0: "r f", _1: 203 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2175 = { _0: "r i", _1: 33570 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2176 = { _0: "r k", _1: 1002 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2177 = { _0: "r l", _1: 2 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2178 = { _0: "r m", _1: 1115 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2179 = { _0: "r n", _1: 653 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2180 = { _0: "r o", _1: 30378 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2181 = { _0: "r p", _1: 690 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2182 = { _0: "r r", _1: 1226 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2183 = { _0: "r s", _1: 753 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2184 = { _0: "r t", _1: 3298 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2185 = { _0: "r u", _1: 3765 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2186 = { _0: "r v", _1: 85 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2187 = { _0: "r x", _1: 2545 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2188 = { _0: "r y", _1: 3704 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2189 = { _0: "r z", _1: 14 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2190 = { _0: "r ð", _1: 1520 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2191 = { _0: "r ɣ", _1: 2849 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2192 = { _0: "r θ", _1: 597 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2193 = { _0: "s a", _1: 25871 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2194 = { _0: "s e", _1: 25388 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2195 = { _0: "s f", _1: 1162 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2196 = { _0: "s i", _1: 35124 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2197 = { _0: "s k", _1: 4455 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2198 = { _0: "s l", _1: 22 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2199 = { _0: "s m", _1: 2915 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2200 = { _0: "s n", _1: 11 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2201 = { _0: "s o", _1: 15349 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2202 = { _0: "s p", _1: 2268 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2203 = { _0: "s r", _1: 3072 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2204 = { _0: "s s", _1: 3237 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2205 = { _0: "s t", _1: 19555 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2206 = { _0: "s u", _1: 10592 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2207 = { _0: "s v", _1: 493 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2208 = { _0: "s x", _1: 2574 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2209 = { _0: "s y", _1: 11615 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2210 = { _0: "s ð", _1: 213 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2211 = { _0: "s ɣ", _1: 32 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2212 = { _0: "s θ", _1: 6440 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2213 = { _0: "t a", _1: 29472 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2214 = { _0: "t e", _1: 28500 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2215 = { _0: "t i", _1: 58110 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2216 = { _0: "t l", _1: 7 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2217 = { _0: "t m", _1: 89 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2218 = { _0: "t n", _1: 22 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2219 = { _0: "t o", _1: 71657 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2220 = { _0: "t r", _1: 7918 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2221 = { _0: "t t", _1: 270 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2222 = { _0: "t u", _1: 37240 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2223 = { _0: "t y", _1: 10510 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2224 = { _0: "t θ", _1: 7 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2225 = { _0: "u a", _1: 62 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2226 = { _0: "u e", _1: 268 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2227 = { _0: "u f", _1: 51 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2228 = { _0: "u i", _1: 459 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2229 = { _0: "u k", _1: 4610 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2230 = { _0: "u l", _1: 1971 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2231 = { _0: "u m", _1: 1322 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2232 = { _0: "u n", _1: 3585 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2233 = { _0: "u o", _1: 151 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2234 = { _0: "u p", _1: 35 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2235 = { _0: "u r", _1: 1586 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2236 = { _0: "u s", _1: 22305 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2237 = { _0: "u t", _1: 5471 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2238 = { _0: "u u", _1: 31 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2239 = { _0: "u v", _1: 250 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2240 = { _0: "u x", _1: 1052 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2241 = { _0: "u z", _1: 32 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2242 = { _0: "u ð", _1: 3068 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2243 = { _0: "u ɣ", _1: 7 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2244 = { _0: "u θ", _1: 399 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2245 = { _0: "v a", _1: 10048 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2246 = { _0: "v e", _1: 3779 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2247 = { _0: "v i", _1: 6675 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2248 = { _0: "v l", _1: 2628 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2249 = { _0: "v m", _1: 1413 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2250 = { _0: "v n", _1: 203 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2251 = { _0: "v o", _1: 5008 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2252 = { _0: "v r", _1: 2857 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2253 = { _0: "v s", _1: 5 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2254 = { _0: "v u", _1: 1766 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2255 = { _0: "v v", _1: 297 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2256 = { _0: "v x", _1: 1 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2257 = { _0: "v y", _1: 929 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2258 = { _0: "v z", _1: 4 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2259 = { _0: "v ð", _1: 1190 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2260 = { _0: "v ɣ", _1: 273 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2261 = { _0: "x a", _1: 2825 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2262 = { _0: "x e", _1: 2567 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2263 = { _0: "x i", _1: 7792 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2264 = { _0: "x l", _1: 381 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2265 = { _0: "x m", _1: 296 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2266 = { _0: "x n", _1: 294 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2267 = { _0: "x o", _1: 4565 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2268 = { _0: "x r", _1: 2302 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2269 = { _0: "x s", _1: 3 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2270 = { _0: "x u", _1: 762 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2271 = { _0: "x v", _1: 1 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2272 = { _0: "x x", _1: 2 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2273 = { _0: "x y", _1: 1921 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2274 = { _0: "x z", _1: 2 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2275 = { _0: "x θ", _1: 1348 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2276 = { _0: "y a", _1: 675 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2277 = { _0: "y e", _1: 436 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2278 = { _0: "y f", _1: 482 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2279 = { _0: "y i", _1: 4045 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2280 = { _0: "y k", _1: 5960 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2281 = { _0: "y l", _1: 3811 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2282 = { _0: "y m", _1: 8848 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2283 = { _0: "y n", _1: 11661 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2284 = { _0: "y o", _1: 4467 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2285 = { _0: "y p", _1: 6786 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2286 = { _0: "y r", _1: 13435 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2287 = { _0: "y s", _1: 15855 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2288 = { _0: "y t", _1: 1242 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2289 = { _0: "y u", _1: 1298 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2290 = { _0: "y v", _1: 274 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2291 = { _0: "y x", _1: 1729 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2292 = { _0: "y y", _1: 1965 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2293 = { _0: "y z", _1: 79 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2294 = { _0: "y ð", _1: 1297 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2295 = { _0: "y ɣ", _1: 1664 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2296 = { _0: "y θ", _1: 560 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2297 = { _0: "z a", _1: 851 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2298 = { _0: "z e", _1: 973 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2299 = { _0: "z i", _1: 1996 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2300 = { _0: "z k", _1: 1 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2301 = { _0: "z l", _1: 1 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2302 = { _0: "z m", _1: 3 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2303 = { _0: "z o", _1: 2489 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2304 = { _0: "z r", _1: 60 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2305 = { _0: "z u", _1: 229 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2306 = { _0: "z y", _1: 232 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2307 = { _0: "ð a", _1: 6287 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2308 = { _0: "ð e", _1: 17486 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2309 = { _0: "ð i", _1: 16327 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2310 = { _0: "ð l", _1: 3 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2311 = { _0: "ð m", _1: 15 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2312 = { _0: "ð n", _1: 21 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2313 = { _0: "ð o", _1: 10522 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2314 = { _0: "ð r", _1: 3240 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2315 = { _0: "ð s", _1: 38 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2316 = { _0: "ð t", _1: 1 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2317 = { _0: "ð u", _1: 3321 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2318 = { _0: "ð v", _1: 2 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2319 = { _0: "ð y", _1: 3504 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2320 = { _0: "ð ð", _1: 117 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2321 = { _0: "ð ɣ", _1: 4 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2322 = { _0: "ɣ a", _1: 9501 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2323 = { _0: "ɣ e", _1: 8208 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2324 = { _0: "ɣ i", _1: 12442 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2325 = { _0: "ɣ l", _1: 444 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2326 = { _0: "ɣ m", _1: 1124 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2327 = { _0: "ɣ n", _1: 1670 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2328 = { _0: "ɣ o", _1: 8502 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2329 = { _0: "ɣ r", _1: 1430 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2330 = { _0: "ɣ u", _1: 1263 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2331 = { _0: "ɣ y", _1: 3427 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2332 = { _0: "ɣ ð", _1: 130 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2333 = { _0: "θ a", _1: 6252 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2334 = { _0: "θ e", _1: 14887 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2335 = { _0: "θ f", _1: 12 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2336 = { _0: "θ i", _1: 15729 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2337 = { _0: "θ l", _1: 440 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2338 = { _0: "θ m", _1: 484 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2339 = { _0: "θ n", _1: 1422 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2340 = { _0: "θ o", _1: 4594 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2341 = { _0: "θ r", _1: 3694 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2342 = { _0: "θ s", _1: 70 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2343 = { _0: "θ u", _1: 597 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2344 = { _0: "θ v", _1: 12 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2345 = { _0: "θ x", _1: 3 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2346 = { _0: "θ y", _1: 4153 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2347 = { _0: "θ z", _1: 3 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2348 = { _0: "θ ð", _1: 3 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2349 = { _0: "θ ɣ", _1: 1 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2350 = { _0: "θ θ", _1: 61 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N7_2abindS2351 = [_M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS1951, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS1952, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS1953, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS1954, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS1955, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS1956, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS1957, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS1958, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS1959, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS1960, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS1961, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS1962, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS1963, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS1964, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS1965, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS1966, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS1967, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS1968, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS1969, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS1970, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS1971, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS1972, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS1973, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS1974, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS1975, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS1976, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS1977, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS1978, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS1979, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS1980, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS1981, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS1982, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS1983, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS1984, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS1985, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS1986, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS1987, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS1988, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS1989, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS1990, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS1991, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS1992, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS1993, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS1994, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS1995, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS1996, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS1997, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS1998, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS1999, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2000, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2001, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2002, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2003, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2004, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2005, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2006, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2007, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2008, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2009, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2010, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2011, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2012, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2013, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2014, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2015, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2016, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2017, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2018, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2019, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2020, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2021, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2022, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2023, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2024, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2025, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2026, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2027, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2028, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2029, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2030, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2031, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2032, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2033, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2034, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2035, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2036, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2037, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2038, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2039, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2040, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2041, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2042, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2043, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2044, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2045, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2046, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2047, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2048, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2049, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2050, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2051, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2052, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2053, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2054, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2055, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2056, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2057, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2058, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2059, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2060, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2061, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2062, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2063, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2064, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2065, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2066, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2067, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2068, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2069, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2070, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2071, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2072, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2073, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2074, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2075, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2076, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2077, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2078, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2079, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2080, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2081, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2082, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2083, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2084, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2085, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2086, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2087, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2088, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2089, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2090, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2091, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2092, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2093, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2094, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2095, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2096, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2097, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2098, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2099, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2100, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2101, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2102, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2103, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2104, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2105, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2106, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2107, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2108, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2109, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2110, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2111, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2112, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2113, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2114, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2115, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2116, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2117, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2118, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2119, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2120, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2121, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2122, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2123, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2124, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2125, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2126, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2127, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2128, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2129, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2130, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2131, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2132, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2133, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2134, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2135, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2136, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2137, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2138, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2139, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2140, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2141, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2142, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2143, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2144, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2145, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2146, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2147, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2148, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2149, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2150, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2151, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2152, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2153, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2154, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2155, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2156, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2157, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2158, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2159, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2160, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2161, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2162, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2163, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2164, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2165, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2166, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2167, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2168, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2169, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2170, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2171, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2172, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2173, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2174, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2175, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2176, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2177, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2178, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2179, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2180, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2181, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2182, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2183, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2184, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2185, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2186, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2187, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2188, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2189, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2190, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2191, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2192, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2193, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2194, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2195, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2196, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2197, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2198, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2199, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2200, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2201, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2202, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2203, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2204, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2205, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2206, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2207, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2208, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2209, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2210, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2211, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2212, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2213, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2214, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2215, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2216, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2217, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2218, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2219, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2220, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2221, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2222, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2223, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2224, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2225, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2226, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2227, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2228, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2229, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2230, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2231, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2232, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2233, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2234, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2235, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2236, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2237, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2238, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2239, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2240, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2241, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2242, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2243, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2244, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2245, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2246, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2247, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2248, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2249, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2250, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2251, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2252, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2253, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2254, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2255, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2256, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2257, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2258, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2259, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2260, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2261, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2262, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2263, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2264, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2265, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2266, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2267, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2268, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2269, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2270, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2271, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2272, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2273, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2274, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2275, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2276, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2277, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2278, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2279, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2280, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2281, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2282, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2283, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2284, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2285, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2286, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2287, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2288, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2289, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2290, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2291, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2292, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2293, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2294, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2295, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2296, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2297, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2298, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2299, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2300, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2301, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2302, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2303, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2304, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2305, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2306, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2307, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2308, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2309, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2310, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2311, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2312, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2313, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2314, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2315, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2316, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2317, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2318, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2319, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2320, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2321, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2322, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2323, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2324, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2325, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2326, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2327, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2328, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2329, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2330, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2331, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2332, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2333, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2334, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2335, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2336, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2337, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2338, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2339, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2340, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2341, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2342, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2343, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2344, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2345, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2346, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2347, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2348, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2349, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2350];
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1 = _M0MPB3Map3MapGsiE(new _M0TPB9ArrayViewGUsiEE(_M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N7_2abindS2351, 0, 400), undefined);
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS2935 = { _0: "a a", _1: 1984 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS2936 = { _0: "a b", _1: 6906 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS2937 = { _0: "a d", _1: 5342 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS2938 = { _0: "a e", _1: 3705 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS2939 = { _0: "a f", _1: 3335 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS2940 = { _0: "a g", _1: 8278 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS2941 = { _0: "a i", _1: 112181 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS2942 = { _0: "a k", _1: 10848 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS2943 = { _0: "a l", _1: 17889 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS2944 = { _0: "a m", _1: 9714 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS2945 = { _0: "a n", _1: 49627 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS2946 = { _0: "a o", _1: 2319 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS2947 = { _0: "a p", _1: 16261 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS2948 = { _0: "a r", _1: 23800 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS2949 = { _0: "a s", _1: 42877 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS2950 = { _0: "a t", _1: 27497 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS2951 = { _0: "a u", _1: 44343 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS2952 = { _0: "a x", _1: 2490 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS2953 = { _0: "a z", _1: 1675 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS2954 = { _0: "a θ", _1: 6301 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS2955 = { _0: "b a", _1: 10476 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS2956 = { _0: "b b", _1: 296 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS2957 = { _0: "b d", _1: 737 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS2958 = { _0: "b e", _1: 5349 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS2959 = { _0: "b i", _1: 1358 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS2960 = { _0: "b l", _1: 1171 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS2961 = { _0: "b n", _1: 11 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS2962 = { _0: "b o", _1: 3670 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS2963 = { _0: "b r", _1: 1363 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS2964 = { _0: "b s", _1: 5 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS2965 = { _0: "b u", _1: 2439 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS2966 = { _0: "b x", _1: 1 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS2967 = { _0: "d a", _1: 7245 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS2968 = { _0: "d b", _1: 2 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS2969 = { _0: "d d", _1: 117 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS2970 = { _0: "d e", _1: 19134 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS2971 = { _0: "d g", _1: 4 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS2972 = { _0: "d i", _1: 13721 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS2973 = { _0: "d l", _1: 3 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS2974 = { _0: "d m", _1: 15 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS2975 = { _0: "d n", _1: 21 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS2976 = { _0: "d o", _1: 10802 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS2977 = { _0: "d r", _1: 3240 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS2978 = { _0: "d s", _1: 38 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS2979 = { _0: "d t", _1: 1 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS2980 = { _0: "d u", _1: 6545 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS2981 = { _0: "e a", _1: 4780 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS2982 = { _0: "e b", _1: 3833 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS2983 = { _0: "e d", _1: 3918 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS2984 = { _0: "e e", _1: 1025 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS2985 = { _0: "e f", _1: 3584 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS2986 = { _0: "e g", _1: 10506 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS2987 = { _0: "e i", _1: 211462 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS2988 = { _0: "e k", _1: 23128 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS2989 = { _0: "e l", _1: 14817 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS2990 = { _0: "e m", _1: 6406 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS2991 = { _0: "e n", _1: 62259 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS2992 = { _0: "e o", _1: 10979 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS2993 = { _0: "e p", _1: 22040 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS2994 = { _0: "e r", _1: 21555 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS2995 = { _0: "e s", _1: 25822 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS2996 = { _0: "e t", _1: 17411 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS2997 = { _0: "e u", _1: 2039 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS2998 = { _0: "e x", _1: 3106 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS2999 = { _0: "e z", _1: 892 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3000 = { _0: "e θ", _1: 4868 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3001 = { _0: "f a", _1: 4339 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3002 = { _0: "f e", _1: 4089 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3003 = { _0: "f f", _1: 20 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3004 = { _0: "f i", _1: 1638 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3005 = { _0: "f l", _1: 227 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3006 = { _0: "f n", _1: 49 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3007 = { _0: "f o", _1: 5220 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3008 = { _0: "f r", _1: 1683 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3009 = { _0: "f u", _1: 2920 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3010 = { _0: "f z", _1: 2 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3011 = { _0: "f θ", _1: 1817 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3012 = { _0: "g a", _1: 9693 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3013 = { _0: "g d", _1: 130 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3014 = { _0: "g e", _1: 16574 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3015 = { _0: "g i", _1: 3884 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3016 = { _0: "g l", _1: 444 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3017 = { _0: "g m", _1: 1124 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3018 = { _0: "g n", _1: 1670 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3019 = { _0: "g o", _1: 8947 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3020 = { _0: "g r", _1: 1430 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3021 = { _0: "g u", _1: 4245 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3022 = { _0: "h a", _1: 6874 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3023 = { _0: "h e", _1: 22460 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3024 = { _0: "h i", _1: 4308 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3025 = { _0: "h o", _1: 35474 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3026 = { _0: "h r", _1: 1714 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3027 = { _0: "h u", _1: 19676 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3028 = { _0: "i a", _1: 26068 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3029 = { _0: "i b", _1: 1809 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3030 = { _0: "i d", _1: 10039 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3031 = { _0: "i e", _1: 12838 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3032 = { _0: "i f", _1: 1149 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3033 = { _0: "i g", _1: 4221 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3034 = { _0: "i i", _1: 250 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3035 = { _0: "i k", _1: 14989 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3036 = { _0: "i l", _1: 18510 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3037 = { _0: "i m", _1: 19326 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3038 = { _0: "i n", _1: 52794 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3039 = { _0: "i o", _1: 28359 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3040 = { _0: "i p", _1: 8475 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3041 = { _0: "i r", _1: 12911 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3042 = { _0: "i s", _1: 93887 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3043 = { _0: "i t", _1: 10269 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3044 = { _0: "i u", _1: 25132 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3045 = { _0: "i x", _1: 1948 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3046 = { _0: "i z", _1: 1486 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3047 = { _0: "i θ", _1: 7071 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3048 = { _0: "k a", _1: 96607 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3049 = { _0: "k b", _1: 178 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3050 = { _0: "k d", _1: 309 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3051 = { _0: "k e", _1: 11058 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3052 = { _0: "k f", _1: 84 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3053 = { _0: "k g", _1: 38 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3054 = { _0: "k i", _1: 3569 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3055 = { _0: "k k", _1: 806 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3056 = { _0: "k l", _1: 3733 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3057 = { _0: "k m", _1: 65 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3058 = { _0: "k n", _1: 617 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3059 = { _0: "k o", _1: 11402 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3060 = { _0: "k p", _1: 293 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3061 = { _0: "k r", _1: 5205 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3062 = { _0: "k s", _1: 14456 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3063 = { _0: "k t", _1: 2663 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3064 = { _0: "k u", _1: 14865 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3065 = { _0: "k x", _1: 186 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3066 = { _0: "k z", _1: 108 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3067 = { _0: "k θ", _1: 49 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3068 = { _0: "l a", _1: 15835 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3069 = { _0: "l b", _1: 40 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3070 = { _0: "l d", _1: 124 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3071 = { _0: "l e", _1: 29739 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3072 = { _0: "l f", _1: 1522 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3073 = { _0: "l g", _1: 107 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3074 = { _0: "l i", _1: 11277 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3075 = { _0: "l k", _1: 469 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3076 = { _0: "l l", _1: 5212 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3077 = { _0: "l m", _1: 1148 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3078 = { _0: "l n", _1: 10 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3079 = { _0: "l o", _1: 15176 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3080 = { _0: "l p", _1: 601 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3081 = { _0: "l r", _1: 1 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3082 = { _0: "l s", _1: 68 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3083 = { _0: "l t", _1: 165 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3084 = { _0: "l u", _1: 5599 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3085 = { _0: "l x", _1: 85 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3086 = { _0: "l z", _1: 8 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3087 = { _0: "l θ", _1: 3528 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3088 = { _0: "m a", _1: 21986 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3089 = { _0: "m b", _1: 1129 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3090 = { _0: "m d", _1: 2 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3091 = { _0: "m e", _1: 35949 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3092 = { _0: "m f", _1: 839 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3093 = { _0: "m i", _1: 7101 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3094 = { _0: "m l", _1: 5 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3095 = { _0: "m m", _1: 1421 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3096 = { _0: "m n", _1: 1458 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3097 = { _0: "m o", _1: 16881 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3098 = { _0: "m p", _1: 1967 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3099 = { _0: "m r", _1: 11 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3100 = { _0: "m s", _1: 11 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3101 = { _0: "m u", _1: 8340 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3102 = { _0: "m x", _1: 1 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3103 = { _0: "m z", _1: 2 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3104 = { _0: "m θ", _1: 2 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3105 = { _0: "n a", _1: 19025 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3106 = { _0: "n d", _1: 2572 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3107 = { _0: "n e", _1: 24010 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3108 = { _0: "n f", _1: 1 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3109 = { _0: "n g", _1: 2346 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3110 = { _0: "n i", _1: 6417 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3111 = { _0: "n k", _1: 1416 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3112 = { _0: "n m", _1: 1 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3113 = { _0: "n n", _1: 1063 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3114 = { _0: "n o", _1: 21753 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3115 = { _0: "n p", _1: 3 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3116 = { _0: "n r", _1: 1 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3117 = { _0: "n s", _1: 20 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3118 = { _0: "n t", _1: 21646 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3119 = { _0: "n u", _1: 5381 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3120 = { _0: "n x", _1: 299 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3121 = { _0: "n z", _1: 1 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3122 = { _0: "n θ", _1: 3688 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3123 = { _0: "o a", _1: 406 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3124 = { _0: "o b", _1: 1799 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3125 = { _0: "o d", _1: 4005 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3126 = { _0: "o e", _1: 1321 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3127 = { _0: "o f", _1: 3227 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3128 = { _0: "o g", _1: 3690 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3129 = { _0: "o i", _1: 42188 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3130 = { _0: "o k", _1: 3819 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3131 = { _0: "o l", _1: 8987 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3132 = { _0: "o m", _1: 11583 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3133 = { _0: "o n", _1: 57454 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3134 = { _0: "o o", _1: 313 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3135 = { _0: "o p", _1: 3922 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3136 = { _0: "o r", _1: 7899 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3137 = { _0: "o s", _1: 46414 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3138 = { _0: "o t", _1: 10385 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3139 = { _0: "o u", _1: 119405 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3140 = { _0: "o x", _1: 1152 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3141 = { _0: "o z", _1: 225 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3142 = { _0: "o θ", _1: 1534 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3143 = { _0: "p a", _1: 23375 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3144 = { _0: "p e", _1: 21399 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3145 = { _0: "p f", _1: 46 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3146 = { _0: "p i", _1: 13518 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3147 = { _0: "p l", _1: 3770 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3148 = { _0: "p n", _1: 1238 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3149 = { _0: "p o", _1: 29285 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3150 = { _0: "p p", _1: 447 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3151 = { _0: "p r", _1: 13826 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3152 = { _0: "p s", _1: 7454 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3153 = { _0: "p t", _1: 3371 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3154 = { _0: "p u", _1: 3525 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3155 = { _0: "r a", _1: 27284 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3156 = { _0: "r b", _1: 85 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3157 = { _0: "r d", _1: 1520 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3158 = { _0: "r e", _1: 14025 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3159 = { _0: "r f", _1: 203 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3160 = { _0: "r g", _1: 2849 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3161 = { _0: "r i", _1: 29866 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3162 = { _0: "r k", _1: 1002 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3163 = { _0: "r l", _1: 2 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3164 = { _0: "r m", _1: 1115 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3165 = { _0: "r n", _1: 653 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3166 = { _0: "r o", _1: 31460 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3167 = { _0: "r p", _1: 690 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3168 = { _0: "r r", _1: 1226 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3169 = { _0: "r s", _1: 753 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3170 = { _0: "r t", _1: 3298 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3171 = { _0: "r u", _1: 6387 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3172 = { _0: "r x", _1: 2545 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3173 = { _0: "r z", _1: 14 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3174 = { _0: "r θ", _1: 597 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3175 = { _0: "s a", _1: 30017 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3176 = { _0: "s b", _1: 493 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3177 = { _0: "s d", _1: 213 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3178 = { _0: "s e", _1: 35051 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3179 = { _0: "s f", _1: 1162 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3180 = { _0: "s g", _1: 32 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3181 = { _0: "s i", _1: 21315 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3182 = { _0: "s k", _1: 4455 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3183 = { _0: "s l", _1: 22 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3184 = { _0: "s m", _1: 2915 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3185 = { _0: "s n", _1: 11 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3186 = { _0: "s o", _1: 17371 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3187 = { _0: "s p", _1: 2268 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3188 = { _0: "s r", _1: 3072 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3189 = { _0: "s s", _1: 3237 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3190 = { _0: "s t", _1: 19555 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3191 = { _0: "s u", _1: 20185 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3192 = { _0: "s x", _1: 2574 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3193 = { _0: "s θ", _1: 6440 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3194 = { _0: "t a", _1: 47506 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3195 = { _0: "t e", _1: 62683 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3196 = { _0: "t i", _1: 22342 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3197 = { _0: "t l", _1: 23 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3198 = { _0: "t m", _1: 89 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3199 = { _0: "t n", _1: 22 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3200 = { _0: "t o", _1: 85418 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3201 = { _0: "t r", _1: 8195 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3202 = { _0: "t t", _1: 270 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3203 = { _0: "t u", _1: 38787 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3204 = { _0: "t θ", _1: 7 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3205 = { _0: "u a", _1: 1559 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3206 = { _0: "u b", _1: 1304 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3207 = { _0: "u d", _1: 5351 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3208 = { _0: "u e", _1: 3013 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3209 = { _0: "u f", _1: 1277 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3210 = { _0: "u g", _1: 2395 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3211 = { _0: "u i", _1: 7748 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3212 = { _0: "u k", _1: 8771 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3213 = { _0: "u l", _1: 8052 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3214 = { _0: "u m", _1: 14744 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3215 = { _0: "u n", _1: 60337 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3216 = { _0: "u o", _1: 2959 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3217 = { _0: "u p", _1: 10860 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3218 = { _0: "u r", _1: 19679 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3219 = { _0: "u s", _1: 51854 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3220 = { _0: "u t", _1: 49084 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3221 = { _0: "u u", _1: 1237 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3222 = { _0: "u x", _1: 3570 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3223 = { _0: "u z", _1: 250 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3224 = { _0: "u θ", _1: 4257 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3225 = { _0: "x a", _1: 3477 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3226 = { _0: "x b", _1: 1 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3227 = { _0: "x e", _1: 7363 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3228 = { _0: "x i", _1: 2344 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3229 = { _0: "x l", _1: 381 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3230 = { _0: "x m", _1: 296 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3231 = { _0: "x n", _1: 294 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3232 = { _0: "x o", _1: 4822 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3233 = { _0: "x r", _1: 2302 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3234 = { _0: "x s", _1: 3 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3235 = { _0: "x u", _1: 2426 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3236 = { _0: "x x", _1: 2 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3237 = { _0: "x z", _1: 2 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3238 = { _0: "x θ", _1: 1348 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3239 = { _0: "z a", _1: 912 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3240 = { _0: "z e", _1: 2638 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3241 = { _0: "z i", _1: 270 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3242 = { _0: "z k", _1: 1 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3243 = { _0: "z l", _1: 1 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3244 = { _0: "z m", _1: 3 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3245 = { _0: "z o", _1: 2502 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3246 = { _0: "z r", _1: 60 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3247 = { _0: "z u", _1: 448 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3248 = { _0: "θ a", _1: 7858 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3249 = { _0: "θ b", _1: 12 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3250 = { _0: "θ d", _1: 3 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3251 = { _0: "θ e", _1: 27569 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3252 = { _0: "θ f", _1: 12 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3253 = { _0: "θ g", _1: 1 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3254 = { _0: "θ i", _1: 1441 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3255 = { _0: "θ l", _1: 440 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3256 = { _0: "θ m", _1: 484 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3257 = { _0: "θ n", _1: 1422 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3258 = { _0: "θ o", _1: 4787 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3259 = { _0: "θ r", _1: 3694 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3260 = { _0: "θ s", _1: 70 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3261 = { _0: "θ u", _1: 4557 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3262 = { _0: "θ x", _1: 3 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3263 = { _0: "θ z", _1: 3 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3264 = { _0: "θ θ", _1: 61 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N7_2abindS3265 = [_M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS2935, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS2936, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS2937, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS2938, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS2939, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS2940, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS2941, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS2942, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS2943, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS2944, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS2945, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS2946, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS2947, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS2948, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS2949, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS2950, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS2951, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS2952, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS2953, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS2954, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS2955, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS2956, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS2957, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS2958, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS2959, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS2960, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS2961, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS2962, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS2963, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS2964, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS2965, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS2966, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS2967, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS2968, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS2969, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS2970, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS2971, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS2972, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS2973, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS2974, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS2975, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS2976, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS2977, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS2978, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS2979, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS2980, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS2981, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS2982, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS2983, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS2984, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS2985, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS2986, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS2987, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS2988, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS2989, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS2990, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS2991, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS2992, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS2993, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS2994, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS2995, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS2996, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS2997, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS2998, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS2999, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3000, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3001, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3002, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3003, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3004, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3005, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3006, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3007, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3008, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3009, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3010, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3011, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3012, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3013, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3014, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3015, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3016, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3017, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3018, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3019, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3020, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3021, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3022, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3023, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3024, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3025, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3026, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3027, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3028, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3029, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3030, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3031, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3032, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3033, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3034, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3035, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3036, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3037, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3038, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3039, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3040, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3041, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3042, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3043, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3044, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3045, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3046, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3047, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3048, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3049, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3050, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3051, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3052, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3053, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3054, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3055, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3056, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3057, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3058, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3059, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3060, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3061, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3062, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3063, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3064, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3065, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3066, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3067, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3068, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3069, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3070, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3071, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3072, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3073, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3074, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3075, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3076, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3077, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3078, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3079, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3080, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3081, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3082, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3083, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3084, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3085, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3086, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3087, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3088, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3089, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3090, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3091, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3092, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3093, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3094, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3095, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3096, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3097, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3098, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3099, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3100, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3101, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3102, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3103, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3104, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3105, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3106, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3107, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3108, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3109, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3110, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3111, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3112, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3113, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3114, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3115, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3116, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3117, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3118, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3119, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3120, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3121, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3122, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3123, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3124, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3125, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3126, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3127, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3128, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3129, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3130, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3131, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3132, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3133, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3134, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3135, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3136, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3137, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3138, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3139, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3140, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3141, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3142, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3143, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3144, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3145, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3146, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3147, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3148, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3149, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3150, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3151, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3152, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3153, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3154, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3155, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3156, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3157, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3158, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3159, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3160, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3161, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3162, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3163, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3164, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3165, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3166, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3167, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3168, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3169, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3170, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3171, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3172, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3173, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3174, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3175, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3176, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3177, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3178, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3179, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3180, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3181, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3182, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3183, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3184, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3185, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3186, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3187, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3188, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3189, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3190, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3191, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3192, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3193, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3194, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3195, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3196, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3197, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3198, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3199, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3200, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3201, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3202, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3203, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3204, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3205, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3206, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3207, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3208, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3209, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3210, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3211, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3212, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3213, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3214, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3215, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3216, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3217, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3218, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3219, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3220, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3221, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3222, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3223, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3224, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3225, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3226, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3227, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3228, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3229, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3230, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3231, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3232, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3233, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3234, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3235, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3236, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3237, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3238, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3239, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3240, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3241, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3242, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3243, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3244, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3245, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3246, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3247, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3248, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3249, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3250, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3251, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3252, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3253, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3254, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3255, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3256, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3257, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3258, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3259, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3260, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3261, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3262, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3263, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N5tupleS3264];
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4 = _M0MPB3Map3MapGsiE(new _M0TPB9ArrayViewGUsiEE(_M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4N7_2abindS3265, 0, 330), undefined);
-const _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__4N5tupleS3355 = { _0: "a", _1: 397372 };
-const _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__4N5tupleS3356 = { _0: "b", _1: 26876 };
-const _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__4N5tupleS3357 = { _0: "d", _1: 60888 };
-const _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__4N5tupleS3358 = { _0: "e", _1: 454430 };
-const _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__4N5tupleS3359 = { _0: "f", _1: 22004 };
-const _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__4N5tupleS3360 = { _0: "g", _1: 48141 };
-const _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__4N5tupleS3361 = { _0: "h", _1: 90506 };
-const _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__4N5tupleS3362 = { _0: "i", _1: 351531 };
-const _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__4N5tupleS3363 = { _0: "k", _1: 166291 };
-const _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__4N5tupleS3364 = { _0: "l", _1: 90714 };
-const _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__4N5tupleS3365 = { _0: "m", _1: 97105 };
-const _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__4N5tupleS3366 = { _0: "n", _1: 109643 };
-const _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__4N5tupleS3367 = { _0: "o", _1: 329728 };
-const _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__4N5tupleS3368 = { _0: "p", _1: 121254 };
-const _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__4N5tupleS3369 = { _0: "r", _1: 125574 };
-const _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__4N5tupleS3370 = { _0: "s", _1: 170388 };
-const _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__4N5tupleS3371 = { _0: "t", _1: 265342 };
-const _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__4N5tupleS3372 = { _0: "u", _1: 258301 };
-const _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__4N5tupleS3373 = { _0: "x", _1: 25061 };
-const _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__4N5tupleS3374 = { _0: "z", _1: 6835 };
-const _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__4N5tupleS3375 = { _0: "θ", _1: 52417 };
-const _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__4N7_2abindS3376 = [_M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__4N5tupleS3355, _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__4N5tupleS3356, _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__4N5tupleS3357, _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__4N5tupleS3358, _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__4N5tupleS3359, _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__4N5tupleS3360, _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__4N5tupleS3361, _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__4N5tupleS3362, _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__4N5tupleS3363, _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__4N5tupleS3364, _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__4N5tupleS3365, _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__4N5tupleS3366, _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__4N5tupleS3367, _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__4N5tupleS3368, _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__4N5tupleS3369, _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__4N5tupleS3370, _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__4N5tupleS3371, _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__4N5tupleS3372, _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__4N5tupleS3373, _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__4N5tupleS3374, _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__4N5tupleS3375];
-const _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__4 = _M0MPB3Map3MapGsiE(new _M0TPB9ArrayViewGUsiEE(_M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__4N7_2abindS3376, 0, 21), undefined);
-const _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__2N5tupleS3315 = { _0: "a", _1: 285395 };
-const _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__2N5tupleS3316 = { _0: "e", _1: 394551 };
-const _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__2N5tupleS3317 = { _0: "f", _1: 48767 };
-const _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__2N5tupleS3318 = { _0: "i", _1: 170440 };
-const _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__2N5tupleS3319 = { _0: "k", _1: 191352 };
-const _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__2N5tupleS3320 = { _0: "l", _1: 90714 };
-const _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__2N5tupleS3321 = { _0: "m", _1: 97105 };
-const _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__2N5tupleS3322 = { _0: "n", _1: 109643 };
-const _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__2N5tupleS3323 = { _0: "o", _1: 258134 };
-const _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__2N5tupleS3324 = { _0: "p", _1: 143258 };
-const _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__2N5tupleS3325 = { _0: "r", _1: 125574 };
-const _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__2N5tupleS3326 = { _0: "s", _1: 170388 };
-const _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__2N5tupleS3327 = { _0: "t", _1: 317759 };
-const _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__2N5tupleS3328 = { _0: "u", _1: 46715 };
-const _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__2N5tupleS3329 = { _0: "v", _1: 37076 };
-const _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__2N5tupleS3330 = { _0: "y", _1: 86569 };
-const _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__2N5tupleS3331 = { _0: "z", _1: 6835 };
-const _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__2N5tupleS3332 = { _0: "ð", _1: 60888 };
-const _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__2N5tupleS3333 = { _0: "ɣ", _1: 48141 };
-const _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__2N7_2abindS3334 = [_M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__2N5tupleS3315, _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__2N5tupleS3316, _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__2N5tupleS3317, _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__2N5tupleS3318, _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__2N5tupleS3319, _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__2N5tupleS3320, _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__2N5tupleS3321, _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__2N5tupleS3322, _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__2N5tupleS3323, _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__2N5tupleS3324, _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__2N5tupleS3325, _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__2N5tupleS3326, _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__2N5tupleS3327, _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__2N5tupleS3328, _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__2N5tupleS3329, _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__2N5tupleS3330, _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__2N5tupleS3331, _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__2N5tupleS3332, _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__2N5tupleS3333];
-const _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__2 = _M0MPB3Map3MapGsiE(new _M0TPB9ArrayViewGUsiEE(_M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__2N7_2abindS3334, 0, 19), undefined);
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1596 = { _0: "a a", _1: 1982 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1597 = { _0: "a e", _1: 338 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1598 = { _0: "a f", _1: 43734 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1599 = { _0: "a i", _1: 3719 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1600 = { _0: "a k", _1: 10848 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1601 = { _0: "a l", _1: 17889 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1602 = { _0: "a m", _1: 9714 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1603 = { _0: "a n", _1: 49627 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1604 = { _0: "a o", _1: 2206 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1605 = { _0: "a p", _1: 16261 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1606 = { _0: "a r", _1: 23800 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1607 = { _0: "a s", _1: 42265 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1608 = { _0: "a t", _1: 27497 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1609 = { _0: "a u", _1: 1092 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1610 = { _0: "a v", _1: 9725 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1611 = { _0: "a x", _1: 2490 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1612 = { _0: "a z", _1: 2287 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1613 = { _0: "a ð", _1: 5342 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1614 = { _0: "a ɣ", _1: 8278 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1615 = { _0: "a θ", _1: 6301 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1616 = { _0: "b a", _1: 124 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1617 = { _0: "b e", _1: 346 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1618 = { _0: "b i", _1: 93 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1619 = { _0: "b l", _1: 118 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1620 = { _0: "b n", _1: 18 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1621 = { _0: "b o", _1: 132 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1622 = { _0: "b r", _1: 261 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1623 = { _0: "b t", _1: 158 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1624 = { _0: "b u", _1: 2 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1625 = { _0: "d a", _1: 5555 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1626 = { _0: "d e", _1: 7787 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1627 = { _0: "d i", _1: 3150 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1628 = { _0: "d l", _1: 16 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1629 = { _0: "d o", _1: 4739 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1630 = { _0: "d r", _1: 277 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1631 = { _0: "d u", _1: 16 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1632 = { _0: "e a", _1: 5921 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1633 = { _0: "e e", _1: 588 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1634 = { _0: "e f", _1: 12225 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1635 = { _0: "e i", _1: 1444 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1636 = { _0: "e k", _1: 24120 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1637 = { _0: "e l", _1: 14973 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1638 = { _0: "e m", _1: 7409 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1639 = { _0: "e n", _1: 63555 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1640 = { _0: "e o", _1: 14506 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1641 = { _0: "e p", _1: 22128 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1642 = { _0: "e r", _1: 23040 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1643 = { _0: "e s", _1: 28944 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1644 = { _0: "e t", _1: 17734 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1645 = { _0: "e u", _1: 2589 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1646 = { _0: "e v", _1: 11166 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1647 = { _0: "e x", _1: 3319 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1648 = { _0: "e z", _1: 1744 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1649 = { _0: "e ð", _1: 5302 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1650 = { _0: "e ɣ", _1: 11469 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1651 = { _0: "e θ", _1: 5197 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1652 = { _0: "f a", _1: 3855 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1653 = { _0: "f e", _1: 2094 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1654 = { _0: "f f", _1: 504 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1655 = { _0: "f i", _1: 7189 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1656 = { _0: "f k", _1: 555 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1657 = { _0: "f l", _1: 227 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1658 = { _0: "f n", _1: 49 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1659 = { _0: "f o", _1: 4609 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1660 = { _0: "f p", _1: 69 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1661 = { _0: "f r", _1: 1683 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1662 = { _0: "f s", _1: 5588 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1663 = { _0: "f t", _1: 39832 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1664 = { _0: "f u", _1: 459 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1665 = { _0: "f x", _1: 608 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1666 = { _0: "f z", _1: 29 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1667 = { _0: "f θ", _1: 3421 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1668 = { _0: "g a", _1: 565 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1669 = { _0: "g e", _1: 309 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1670 = { _0: "g i", _1: 141 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1671 = { _0: "g l", _1: 62 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1672 = { _0: "g o", _1: 64 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1673 = { _0: "g r", _1: 122 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1674 = { _0: "g t", _1: 7 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1675 = { _0: "i a", _1: 23907 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1676 = { _0: "i e", _1: 7520 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1677 = { _0: "i f", _1: 1722 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1678 = { _0: "i i", _1: 10048 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1679 = { _0: "i k", _1: 15371 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1680 = { _0: "i l", _1: 21947 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1681 = { _0: "i m", _1: 26261 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1682 = { _0: "i n", _1: 62530 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1683 = { _0: "i o", _1: 22347 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1684 = { _0: "i p", _1: 14828 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1685 = { _0: "i r", _1: 24841 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1686 = { _0: "i s", _1: 90554 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1687 = { _0: "i t", _1: 10886 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1688 = { _0: "i u", _1: 8494 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1689 = { _0: "i v", _1: 2116 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1690 = { _0: "i x", _1: 3272 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1691 = { _0: "i z", _1: 6032 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1692 = { _0: "i ð", _1: 9529 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1693 = { _0: "i ɣ", _1: 4854 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1694 = { _0: "i θ", _1: 7128 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1695 = { _0: "k a", _1: 22362 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1696 = { _0: "k e", _1: 78763 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1697 = { _0: "k f", _1: 84 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1698 = { _0: "k i", _1: 21042 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1699 = { _0: "k k", _1: 806 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1700 = { _0: "k l", _1: 3671 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1701 = { _0: "k m", _1: 65 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1702 = { _0: "k n", _1: 617 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1703 = { _0: "k o", _1: 10344 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1704 = { _0: "k p", _1: 293 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1705 = { _0: "k r", _1: 5083 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1706 = { _0: "k s", _1: 14456 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1707 = { _0: "k t", _1: 2656 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1708 = { _0: "k u", _1: 3911 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1709 = { _0: "k v", _1: 178 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1710 = { _0: "k x", _1: 186 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1711 = { _0: "k z", _1: 108 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1712 = { _0: "k ð", _1: 309 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1713 = { _0: "k ɣ", _1: 38 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1714 = { _0: "k θ", _1: 49 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1715 = { _0: "l a", _1: 14487 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1716 = { _0: "l e", _1: 18070 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1717 = { _0: "l f", _1: 1522 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1718 = { _0: "l i", _1: 28987 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1719 = { _0: "l k", _1: 469 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1720 = { _0: "l l", _1: 5212 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1721 = { _0: "l m", _1: 1148 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1722 = { _0: "l n", _1: 10 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1723 = { _0: "l o", _1: 13363 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1724 = { _0: "l p", _1: 601 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1725 = { _0: "l r", _1: 1 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1726 = { _0: "l s", _1: 68 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1727 = { _0: "l t", _1: 165 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1728 = { _0: "l u", _1: 2719 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1729 = { _0: "l v", _1: 40 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1730 = { _0: "l x", _1: 85 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1731 = { _0: "l z", _1: 8 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1732 = { _0: "l ð", _1: 124 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1733 = { _0: "l ɣ", _1: 107 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1734 = { _0: "l θ", _1: 3528 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1735 = { _0: "m a", _1: 19991 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1736 = { _0: "m b", _1: 1252 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1737 = { _0: "m e", _1: 26499 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1738 = { _0: "m f", _1: 839 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1739 = { _0: "m i", _1: 21817 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1740 = { _0: "m l", _1: 5 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1741 = { _0: "m m", _1: 1421 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1742 = { _0: "m n", _1: 1458 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1743 = { _0: "m o", _1: 14031 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1744 = { _0: "m p", _1: 715 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1745 = { _0: "m r", _1: 11 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1746 = { _0: "m s", _1: 11 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1747 = { _0: "m u", _1: 7919 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1748 = { _0: "m v", _1: 1129 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1749 = { _0: "m x", _1: 1 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1750 = { _0: "m z", _1: 2 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1751 = { _0: "m ð", _1: 2 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1752 = { _0: "m θ", _1: 2 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1753 = { _0: "n a", _1: 15338 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1754 = { _0: "n d", _1: 21646 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1755 = { _0: "n e", _1: 15044 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1756 = { _0: "n f", _1: 1 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1757 = { _0: "n g", _1: 1270 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1758 = { _0: "n i", _1: 23728 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1759 = { _0: "n k", _1: 146 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1760 = { _0: "n m", _1: 1 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1761 = { _0: "n n", _1: 1063 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1762 = { _0: "n o", _1: 19009 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1763 = { _0: "n p", _1: 3 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1764 = { _0: "n r", _1: 1 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1765 = { _0: "n s", _1: 20 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1766 = { _0: "n u", _1: 3467 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1767 = { _0: "n x", _1: 299 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1768 = { _0: "n z", _1: 1 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1769 = { _0: "n ð", _1: 2572 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1770 = { _0: "n ɣ", _1: 2346 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1771 = { _0: "n θ", _1: 3688 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1772 = { _0: "o a", _1: 1230 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1773 = { _0: "o e", _1: 342 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1774 = { _0: "o f", _1: 3502 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1775 = { _0: "o i", _1: 2937 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1776 = { _0: "o k", _1: 6051 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1777 = { _0: "o l", _1: 10018 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1778 = { _0: "o m", _1: 15654 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1779 = { _0: "o n", _1: 102982 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1780 = { _0: "o o", _1: 468 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1781 = { _0: "o p", _1: 8237 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1782 = { _0: "o r", _1: 11083 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1783 = { _0: "o s", _1: 64528 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1784 = { _0: "o t", _1: 13226 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1785 = { _0: "o u", _1: 114 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1786 = { _0: "o v", _1: 2593 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1787 = { _0: "o x", _1: 1525 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1788 = { _0: "o z", _1: 1072 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1789 = { _0: "o ð", _1: 4961 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1790 = { _0: "o ɣ", _1: 4209 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1791 = { _0: "o θ", _1: 3402 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1792 = { _0: "p a", _1: 21625 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1793 = { _0: "p e", _1: 18733 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1794 = { _0: "p f", _1: 46 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1795 = { _0: "p i", _1: 24190 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1796 = { _0: "p l", _1: 3652 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1797 = { _0: "p n", _1: 1220 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1798 = { _0: "p o", _1: 23816 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1799 = { _0: "p p", _1: 447 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1800 = { _0: "p r", _1: 13565 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1801 = { _0: "p s", _1: 7454 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1802 = { _0: "p t", _1: 3213 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1803 = { _0: "p u", _1: 2041 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1804 = { _0: "r a", _1: 25638 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1805 = { _0: "r e", _1: 11967 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1806 = { _0: "r f", _1: 203 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1807 = { _0: "r i", _1: 37274 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1808 = { _0: "r k", _1: 1002 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1809 = { _0: "r l", _1: 2 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1810 = { _0: "r m", _1: 1115 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1811 = { _0: "r n", _1: 653 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1812 = { _0: "r o", _1: 30378 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1813 = { _0: "r p", _1: 690 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1814 = { _0: "r r", _1: 1226 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1815 = { _0: "r s", _1: 753 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1816 = { _0: "r t", _1: 3298 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1817 = { _0: "r u", _1: 3765 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1818 = { _0: "r v", _1: 85 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1819 = { _0: "r x", _1: 2545 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1820 = { _0: "r z", _1: 14 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1821 = { _0: "r ð", _1: 1520 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1822 = { _0: "r ɣ", _1: 2849 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1823 = { _0: "r θ", _1: 597 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1824 = { _0: "s a", _1: 25871 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1825 = { _0: "s e", _1: 25388 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1826 = { _0: "s f", _1: 1162 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1827 = { _0: "s i", _1: 46739 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1828 = { _0: "s k", _1: 4455 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1829 = { _0: "s o", _1: 15349 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1830 = { _0: "s p", _1: 2268 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1831 = { _0: "s s", _1: 3237 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1832 = { _0: "s t", _1: 19555 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1833 = { _0: "s u", _1: 10592 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1834 = { _0: "s x", _1: 2574 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1835 = { _0: "s θ", _1: 6440 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1836 = { _0: "t a", _1: 29472 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1837 = { _0: "t e", _1: 28500 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1838 = { _0: "t i", _1: 68620 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1839 = { _0: "t l", _1: 7 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1840 = { _0: "t m", _1: 89 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1841 = { _0: "t n", _1: 22 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1842 = { _0: "t o", _1: 71657 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1843 = { _0: "t r", _1: 7918 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1844 = { _0: "t t", _1: 270 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1845 = { _0: "t u", _1: 37240 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1846 = { _0: "t θ", _1: 7 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1847 = { _0: "u a", _1: 62 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1848 = { _0: "u e", _1: 268 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1849 = { _0: "u f", _1: 51 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1850 = { _0: "u i", _1: 459 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1851 = { _0: "u k", _1: 4610 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1852 = { _0: "u l", _1: 1971 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1853 = { _0: "u m", _1: 1322 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1854 = { _0: "u n", _1: 3585 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1855 = { _0: "u o", _1: 151 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1856 = { _0: "u p", _1: 35 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1857 = { _0: "u r", _1: 1586 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1858 = { _0: "u s", _1: 22301 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1859 = { _0: "u t", _1: 5471 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1860 = { _0: "u u", _1: 31 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1861 = { _0: "u v", _1: 250 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1862 = { _0: "u x", _1: 1052 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1863 = { _0: "u z", _1: 36 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1864 = { _0: "u ð", _1: 3068 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1865 = { _0: "u ɣ", _1: 7 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1866 = { _0: "u θ", _1: 399 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1867 = { _0: "v a", _1: 10048 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1868 = { _0: "v e", _1: 3779 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1869 = { _0: "v i", _1: 7604 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1870 = { _0: "v l", _1: 2628 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1871 = { _0: "v m", _1: 1413 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1872 = { _0: "v n", _1: 203 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1873 = { _0: "v o", _1: 5008 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1874 = { _0: "v r", _1: 2857 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1875 = { _0: "v s", _1: 5 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1876 = { _0: "v u", _1: 1766 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1877 = { _0: "v v", _1: 297 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1878 = { _0: "v x", _1: 1 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1879 = { _0: "v z", _1: 4 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1880 = { _0: "v ð", _1: 1190 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1881 = { _0: "v ɣ", _1: 273 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1882 = { _0: "x a", _1: 2825 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1883 = { _0: "x e", _1: 2567 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1884 = { _0: "x i", _1: 9713 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1885 = { _0: "x l", _1: 381 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1886 = { _0: "x m", _1: 296 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1887 = { _0: "x n", _1: 294 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1888 = { _0: "x o", _1: 4565 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1889 = { _0: "x r", _1: 2302 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1890 = { _0: "x s", _1: 3 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1891 = { _0: "x u", _1: 762 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1892 = { _0: "x v", _1: 1 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1893 = { _0: "x x", _1: 2 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1894 = { _0: "x z", _1: 2 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1895 = { _0: "x θ", _1: 1348 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1896 = { _0: "z a", _1: 851 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1897 = { _0: "z e", _1: 973 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1898 = { _0: "z i", _1: 2228 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1899 = { _0: "z k", _1: 1 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1900 = { _0: "z l", _1: 23 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1901 = { _0: "z m", _1: 2918 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1902 = { _0: "z n", _1: 11 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1903 = { _0: "z o", _1: 2489 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1904 = { _0: "z r", _1: 3132 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1905 = { _0: "z u", _1: 229 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1906 = { _0: "z v", _1: 493 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1907 = { _0: "z ð", _1: 213 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1908 = { _0: "z ɣ", _1: 32 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1909 = { _0: "ð a", _1: 6287 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1910 = { _0: "ð e", _1: 17486 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1911 = { _0: "ð i", _1: 19831 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1912 = { _0: "ð l", _1: 3 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1913 = { _0: "ð m", _1: 15 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1914 = { _0: "ð n", _1: 21 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1915 = { _0: "ð o", _1: 10522 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1916 = { _0: "ð r", _1: 3240 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1917 = { _0: "ð s", _1: 38 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1918 = { _0: "ð t", _1: 1 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1919 = { _0: "ð u", _1: 3321 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1920 = { _0: "ð v", _1: 2 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1921 = { _0: "ð ð", _1: 117 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1922 = { _0: "ð ɣ", _1: 4 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1923 = { _0: "ɣ a", _1: 9501 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1924 = { _0: "ɣ e", _1: 8208 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1925 = { _0: "ɣ i", _1: 15869 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1926 = { _0: "ɣ l", _1: 444 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1927 = { _0: "ɣ m", _1: 1124 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1928 = { _0: "ɣ n", _1: 1670 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1929 = { _0: "ɣ o", _1: 8502 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1930 = { _0: "ɣ r", _1: 1430 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1931 = { _0: "ɣ u", _1: 1263 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1932 = { _0: "ɣ ð", _1: 130 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1933 = { _0: "θ a", _1: 6252 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1934 = { _0: "θ e", _1: 14887 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1935 = { _0: "θ f", _1: 12 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1936 = { _0: "θ i", _1: 19882 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1937 = { _0: "θ l", _1: 440 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1938 = { _0: "θ m", _1: 484 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1939 = { _0: "θ n", _1: 1422 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1940 = { _0: "θ o", _1: 4594 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1941 = { _0: "θ r", _1: 3694 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1942 = { _0: "θ s", _1: 69 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1943 = { _0: "θ u", _1: 597 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1944 = { _0: "θ v", _1: 12 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1945 = { _0: "θ x", _1: 3 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1946 = { _0: "θ z", _1: 4 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1947 = { _0: "θ ð", _1: 3 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1948 = { _0: "θ ɣ", _1: 1 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1949 = { _0: "θ θ", _1: 61 };
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N7_2abindS1950 = [_M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1596, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1597, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1598, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1599, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1600, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1601, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1602, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1603, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1604, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1605, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1606, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1607, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1608, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1609, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1610, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1611, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1612, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1613, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1614, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1615, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1616, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1617, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1618, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1619, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1620, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1621, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1622, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1623, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1624, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1625, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1626, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1627, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1628, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1629, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1630, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1631, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1632, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1633, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1634, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1635, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1636, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1637, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1638, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1639, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1640, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1641, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1642, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1643, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1644, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1645, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1646, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1647, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1648, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1649, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1650, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1651, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1652, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1653, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1654, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1655, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1656, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1657, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1658, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1659, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1660, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1661, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1662, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1663, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1664, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1665, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1666, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1667, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1668, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1669, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1670, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1671, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1672, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1673, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1674, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1675, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1676, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1677, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1678, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1679, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1680, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1681, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1682, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1683, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1684, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1685, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1686, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1687, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1688, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1689, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1690, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1691, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1692, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1693, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1694, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1695, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1696, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1697, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1698, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1699, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1700, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1701, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1702, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1703, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1704, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1705, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1706, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1707, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1708, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1709, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1710, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1711, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1712, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1713, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1714, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1715, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1716, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1717, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1718, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1719, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1720, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1721, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1722, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1723, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1724, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1725, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1726, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1727, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1728, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1729, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1730, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1731, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1732, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1733, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1734, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1735, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1736, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1737, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1738, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1739, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1740, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1741, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1742, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1743, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1744, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1745, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1746, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1747, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1748, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1749, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1750, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1751, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1752, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1753, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1754, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1755, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1756, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1757, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1758, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1759, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1760, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1761, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1762, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1763, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1764, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1765, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1766, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1767, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1768, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1769, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1770, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1771, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1772, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1773, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1774, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1775, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1776, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1777, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1778, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1779, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1780, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1781, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1782, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1783, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1784, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1785, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1786, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1787, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1788, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1789, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1790, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1791, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1792, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1793, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1794, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1795, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1796, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1797, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1798, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1799, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1800, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1801, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1802, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1803, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1804, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1805, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1806, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1807, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1808, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1809, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1810, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1811, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1812, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1813, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1814, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1815, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1816, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1817, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1818, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1819, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1820, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1821, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1822, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1823, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1824, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1825, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1826, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1827, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1828, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1829, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1830, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1831, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1832, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1833, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1834, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1835, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1836, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1837, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1838, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1839, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1840, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1841, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1842, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1843, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1844, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1845, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1846, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1847, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1848, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1849, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1850, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1851, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1852, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1853, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1854, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1855, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1856, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1857, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1858, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1859, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1860, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1861, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1862, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1863, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1864, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1865, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1866, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1867, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1868, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1869, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1870, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1871, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1872, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1873, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1874, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1875, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1876, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1877, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1878, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1879, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1880, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1881, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1882, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1883, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1884, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1885, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1886, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1887, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1888, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1889, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1890, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1891, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1892, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1893, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1894, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1895, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1896, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1897, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1898, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1899, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1900, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1901, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1902, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1903, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1904, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1905, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1906, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1907, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1908, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1909, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1910, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1911, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1912, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1913, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1914, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1915, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1916, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1917, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1918, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1919, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1920, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1921, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1922, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1923, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1924, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1925, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1926, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1927, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1928, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1929, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1930, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1931, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1932, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1933, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1934, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1935, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1936, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1937, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1938, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1939, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1940, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1941, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1942, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1943, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1944, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1945, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1946, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1947, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1948, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1949];
-const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0 = _M0MPB3Map3MapGsiE(new _M0TPB9ArrayViewGUsiEE(_M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N7_2abindS1950, 0, 354), undefined);
-const _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__1N5tupleS3290 = { _0: "a", _1: 285395 };
-const _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__1N5tupleS3291 = { _0: "b", _1: 1252 };
-const _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__1N5tupleS3292 = { _0: "d", _1: 21540 };
-const _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__1N5tupleS3293 = { _0: "e", _1: 277373 };
-const _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__1N5tupleS3294 = { _0: "f", _1: 70771 };
-const _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__1N5tupleS3295 = { _0: "g", _1: 1270 };
-const _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__1N5tupleS3296 = { _0: "i", _1: 287618 };
-const _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__1N5tupleS3297 = { _0: "k", _1: 165021 };
-const _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__1N5tupleS3298 = { _0: "l", _1: 90714 };
-const _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__1N5tupleS3299 = { _0: "m", _1: 97105 };
-const _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__1N5tupleS3300 = { _0: "n", _1: 109643 };
-const _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__1N5tupleS3301 = { _0: "o", _1: 258134 };
-const _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__1N5tupleS3302 = { _0: "p", _1: 120002 };
-const _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__1N5tupleS3303 = { _0: "r", _1: 125574 };
-const _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__1N5tupleS3304 = { _0: "s", _1: 170388 };
-const _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__1N5tupleS3305 = { _0: "t", _1: 243802 };
-const _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__1N5tupleS3306 = { _0: "u", _1: 46715 };
-const _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__1N5tupleS3307 = { _0: "v", _1: 37076 };
-const _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__1N5tupleS3308 = { _0: "x", _1: 25061 };
-const _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__1N5tupleS3309 = { _0: "y", _1: 86569 };
-const _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__1N5tupleS3310 = { _0: "z", _1: 6835 };
-const _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__1N5tupleS3311 = { _0: "ð", _1: 60888 };
-const _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__1N5tupleS3312 = { _0: "ɣ", _1: 48141 };
-const _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__1N5tupleS3313 = { _0: "θ", _1: 52417 };
-const _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__1N7_2abindS3314 = [_M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__1N5tupleS3290, _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__1N5tupleS3291, _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__1N5tupleS3292, _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__1N5tupleS3293, _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__1N5tupleS3294, _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__1N5tupleS3295, _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__1N5tupleS3296, _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__1N5tupleS3297, _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__1N5tupleS3298, _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__1N5tupleS3299, _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__1N5tupleS3300, _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__1N5tupleS3301, _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__1N5tupleS3302, _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__1N5tupleS3303, _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__1N5tupleS3304, _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__1N5tupleS3305, _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__1N5tupleS3306, _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__1N5tupleS3307, _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__1N5tupleS3308, _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__1N5tupleS3309, _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__1N5tupleS3310, _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__1N5tupleS3311, _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__1N5tupleS3312, _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__1N5tupleS3313];
-const _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__1 = _M0MPB3Map3MapGsiE(new _M0TPB9ArrayViewGUsiEE(_M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__1N7_2abindS3314, 0, 24), undefined);
-const _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__3N5tupleS3335 = { _0: "a", _1: 400616 };
-const _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__3N5tupleS3336 = { _0: "b", _1: 26580 };
-const _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__3N5tupleS3337 = { _0: "d", _1: 67606 };
-const _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__3N5tupleS3338 = { _0: "e", _1: 435489 };
-const _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__3N5tupleS3339 = { _0: "g", _1: 48141 };
-const _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__3N5tupleS3340 = { _0: "h", _1: 90506 };
-const _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__3N5tupleS3341 = { _0: "i", _1: 175304 };
-const _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__3N5tupleS3342 = { _0: "k", _1: 190544 };
-const _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__3N5tupleS3343 = { _0: "l", _1: 85502 };
-const _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__3N5tupleS3344 = { _0: "m", _1: 95684 };
-const _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__3N5tupleS3345 = { _0: "n", _1: 108580 };
-const _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__3N5tupleS3346 = { _0: "o", _1: 320854 };
-const _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__3N5tupleS3347 = { _0: "p", _1: 142791 };
-const _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__3N5tupleS3348 = { _0: "r", _1: 124348 };
-const _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__3N5tupleS3349 = { _0: "s", _1: 167151 };
-const _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__3N5tupleS3350 = { _0: "t", _1: 317428 };
-const _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__3N5tupleS3351 = { _0: "u", _1: 105682 };
-const _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__3N5tupleS3352 = { _0: "y", _1: 62749 };
-const _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__3N5tupleS3353 = { _0: "z", _1: 6913 };
-const _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__3N7_2abindS3354 = [_M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__3N5tupleS3335, _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__3N5tupleS3336, _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__3N5tupleS3337, _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__3N5tupleS3338, _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__3N5tupleS3339, _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__3N5tupleS3340, _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__3N5tupleS3341, _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__3N5tupleS3342, _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__3N5tupleS3343, _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__3N5tupleS3344, _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__3N5tupleS3345, _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__3N5tupleS3346, _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__3N5tupleS3347, _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__3N5tupleS3348, _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__3N5tupleS3349, _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__3N5tupleS3350, _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__3N5tupleS3351, _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__3N5tupleS3352, _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__3N5tupleS3353];
-const _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__3 = _M0MPB3Map3MapGsiE(new _M0TPB9ArrayViewGUsiEE(_M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__3N7_2abindS3354, 0, 19), undefined);
-const _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__0N5tupleS3266 = { _0: "a", _1: 285395 };
-const _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__0N5tupleS3267 = { _0: "b", _1: 1252 };
-const _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__0N5tupleS3268 = { _0: "d", _1: 21540 };
-const _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__0N5tupleS3269 = { _0: "e", _1: 277373 };
-const _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__0N5tupleS3270 = { _0: "f", _1: 70771 };
-const _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__0N5tupleS3271 = { _0: "g", _1: 1270 };
-const _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__0N5tupleS3272 = { _0: "i", _1: 374187 };
-const _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__0N5tupleS3273 = { _0: "k", _1: 165021 };
-const _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__0N5tupleS3274 = { _0: "l", _1: 90714 };
-const _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__0N5tupleS3275 = { _0: "m", _1: 97105 };
-const _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__0N5tupleS3276 = { _0: "n", _1: 109643 };
-const _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__0N5tupleS3277 = { _0: "o", _1: 258134 };
-const _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__0N5tupleS3278 = { _0: "p", _1: 120002 };
-const _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__0N5tupleS3279 = { _0: "r", _1: 125574 };
-const _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__0N5tupleS3280 = { _0: "s", _1: 163630 };
-const _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__0N5tupleS3281 = { _0: "t", _1: 243802 };
-const _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__0N5tupleS3282 = { _0: "u", _1: 46715 };
-const _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__0N5tupleS3283 = { _0: "v", _1: 37076 };
-const _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__0N5tupleS3284 = { _0: "x", _1: 25061 };
-const _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__0N5tupleS3285 = { _0: "z", _1: 13593 };
-const _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__0N5tupleS3286 = { _0: "ð", _1: 60888 };
-const _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__0N5tupleS3287 = { _0: "ɣ", _1: 48141 };
-const _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__0N5tupleS3288 = { _0: "θ", _1: 52417 };
-const _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__0N7_2abindS3289 = [_M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__0N5tupleS3266, _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__0N5tupleS3267, _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__0N5tupleS3268, _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__0N5tupleS3269, _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__0N5tupleS3270, _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__0N5tupleS3271, _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__0N5tupleS3272, _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__0N5tupleS3273, _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__0N5tupleS3274, _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__0N5tupleS3275, _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__0N5tupleS3276, _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__0N5tupleS3277, _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__0N5tupleS3278, _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__0N5tupleS3279, _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__0N5tupleS3280, _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__0N5tupleS3281, _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__0N5tupleS3282, _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__0N5tupleS3283, _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__0N5tupleS3284, _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__0N5tupleS3285, _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__0N5tupleS3286, _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__0N5tupleS3287, _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__0N5tupleS3288];
-const _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__0 = _M0MPB3Map3MapGsiE(new _M0TPB9ArrayViewGUsiEE(_M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__0N7_2abindS3289, 0, 23), undefined);
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2530 = { _0: "a a", _1: 1984 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2531 = { _0: "a b", _1: 6906 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2532 = { _0: "a d", _1: 5342 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2533 = { _0: "a e", _1: 3705 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2534 = { _0: "a f", _1: 3335 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2535 = { _0: "a g", _1: 8278 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2536 = { _0: "a i", _1: 112181 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2537 = { _0: "a k", _1: 10848 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2538 = { _0: "a l", _1: 17889 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2539 = { _0: "a m", _1: 9714 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2540 = { _0: "a n", _1: 49627 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2541 = { _0: "a o", _1: 2319 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2542 = { _0: "a p", _1: 16261 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2543 = { _0: "a r", _1: 23800 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2544 = { _0: "a s", _1: 42877 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2545 = { _0: "a t", _1: 27497 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2546 = { _0: "a u", _1: 44343 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2547 = { _0: "a x", _1: 2490 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2548 = { _0: "a z", _1: 1675 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2549 = { _0: "a θ", _1: 6301 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2550 = { _0: "b a", _1: 10476 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2551 = { _0: "b b", _1: 296 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2552 = { _0: "b d", _1: 737 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2553 = { _0: "b e", _1: 5349 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2554 = { _0: "b i", _1: 1358 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2555 = { _0: "b l", _1: 1171 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2556 = { _0: "b n", _1: 11 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2557 = { _0: "b o", _1: 3670 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2558 = { _0: "b r", _1: 1363 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2559 = { _0: "b s", _1: 5 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2560 = { _0: "b u", _1: 2439 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2561 = { _0: "b x", _1: 1 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2562 = { _0: "d a", _1: 7245 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2563 = { _0: "d b", _1: 2 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2564 = { _0: "d d", _1: 117 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2565 = { _0: "d e", _1: 19134 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2566 = { _0: "d g", _1: 4 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2567 = { _0: "d i", _1: 13721 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2568 = { _0: "d l", _1: 3 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2569 = { _0: "d m", _1: 15 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2570 = { _0: "d n", _1: 21 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2571 = { _0: "d o", _1: 10802 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2572 = { _0: "d r", _1: 3240 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2573 = { _0: "d s", _1: 38 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2574 = { _0: "d t", _1: 1 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2575 = { _0: "d u", _1: 6545 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2576 = { _0: "e a", _1: 4780 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2577 = { _0: "e b", _1: 3833 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2578 = { _0: "e d", _1: 3918 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2579 = { _0: "e e", _1: 1025 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2580 = { _0: "e f", _1: 3584 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2581 = { _0: "e g", _1: 10506 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2582 = { _0: "e i", _1: 211462 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2583 = { _0: "e k", _1: 23128 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2584 = { _0: "e l", _1: 14817 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2585 = { _0: "e m", _1: 6406 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2586 = { _0: "e n", _1: 62259 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2587 = { _0: "e o", _1: 10979 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2588 = { _0: "e p", _1: 22040 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2589 = { _0: "e r", _1: 21555 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2590 = { _0: "e s", _1: 25822 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2591 = { _0: "e t", _1: 17411 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2592 = { _0: "e u", _1: 2039 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2593 = { _0: "e x", _1: 3106 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2594 = { _0: "e z", _1: 892 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2595 = { _0: "e θ", _1: 4868 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2596 = { _0: "f a", _1: 4339 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2597 = { _0: "f e", _1: 4089 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2598 = { _0: "f f", _1: 20 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2599 = { _0: "f i", _1: 1638 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2600 = { _0: "f l", _1: 227 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2601 = { _0: "f n", _1: 49 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2602 = { _0: "f o", _1: 5220 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2603 = { _0: "f r", _1: 1683 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2604 = { _0: "f u", _1: 2920 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2605 = { _0: "f z", _1: 2 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2606 = { _0: "f θ", _1: 1817 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2607 = { _0: "g a", _1: 9693 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2608 = { _0: "g d", _1: 130 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2609 = { _0: "g e", _1: 16574 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2610 = { _0: "g i", _1: 3884 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2611 = { _0: "g l", _1: 444 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2612 = { _0: "g m", _1: 1124 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2613 = { _0: "g n", _1: 1670 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2614 = { _0: "g o", _1: 8947 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2615 = { _0: "g r", _1: 1430 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2616 = { _0: "g u", _1: 4245 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2617 = { _0: "h a", _1: 6874 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2618 = { _0: "h e", _1: 22460 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2619 = { _0: "h i", _1: 4308 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2620 = { _0: "h o", _1: 35474 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2621 = { _0: "h r", _1: 1714 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2622 = { _0: "h u", _1: 19676 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2623 = { _0: "i a", _1: 26068 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2624 = { _0: "i b", _1: 1809 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2625 = { _0: "i d", _1: 10039 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2626 = { _0: "i e", _1: 12838 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2627 = { _0: "i f", _1: 1149 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2628 = { _0: "i g", _1: 4221 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2629 = { _0: "i i", _1: 250 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2630 = { _0: "i k", _1: 14989 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2631 = { _0: "i l", _1: 18510 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2632 = { _0: "i m", _1: 19326 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2633 = { _0: "i n", _1: 52794 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2634 = { _0: "i o", _1: 28359 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2635 = { _0: "i p", _1: 8475 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2636 = { _0: "i r", _1: 12911 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2637 = { _0: "i s", _1: 93887 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2638 = { _0: "i t", _1: 10269 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2639 = { _0: "i u", _1: 25132 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2640 = { _0: "i x", _1: 1948 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2641 = { _0: "i z", _1: 1486 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2642 = { _0: "i θ", _1: 7071 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2643 = { _0: "k a", _1: 96607 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2644 = { _0: "k b", _1: 178 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2645 = { _0: "k d", _1: 309 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2646 = { _0: "k e", _1: 11058 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2647 = { _0: "k f", _1: 84 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2648 = { _0: "k g", _1: 38 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2649 = { _0: "k i", _1: 3569 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2650 = { _0: "k k", _1: 806 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2651 = { _0: "k l", _1: 3733 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2652 = { _0: "k m", _1: 65 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2653 = { _0: "k n", _1: 617 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2654 = { _0: "k o", _1: 11402 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2655 = { _0: "k p", _1: 293 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2656 = { _0: "k r", _1: 5205 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2657 = { _0: "k s", _1: 14456 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2658 = { _0: "k t", _1: 2663 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2659 = { _0: "k u", _1: 14865 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2660 = { _0: "k x", _1: 186 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2661 = { _0: "k z", _1: 108 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2662 = { _0: "k θ", _1: 49 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2663 = { _0: "l a", _1: 15835 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2664 = { _0: "l b", _1: 40 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2665 = { _0: "l d", _1: 124 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2666 = { _0: "l e", _1: 29739 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2667 = { _0: "l f", _1: 1522 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2668 = { _0: "l g", _1: 107 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2669 = { _0: "l i", _1: 11277 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2670 = { _0: "l k", _1: 469 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2671 = { _0: "l l", _1: 5212 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2672 = { _0: "l m", _1: 1148 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2673 = { _0: "l n", _1: 10 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2674 = { _0: "l o", _1: 15176 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2675 = { _0: "l p", _1: 601 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2676 = { _0: "l r", _1: 1 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2677 = { _0: "l s", _1: 68 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2678 = { _0: "l t", _1: 165 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2679 = { _0: "l u", _1: 5599 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2680 = { _0: "l x", _1: 85 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2681 = { _0: "l z", _1: 8 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2682 = { _0: "l θ", _1: 3528 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2683 = { _0: "m a", _1: 21986 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2684 = { _0: "m b", _1: 1129 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2685 = { _0: "m d", _1: 2 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2686 = { _0: "m e", _1: 35949 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2687 = { _0: "m f", _1: 839 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2688 = { _0: "m i", _1: 7101 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2689 = { _0: "m l", _1: 5 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2690 = { _0: "m m", _1: 1421 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2691 = { _0: "m n", _1: 1458 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2692 = { _0: "m o", _1: 16881 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2693 = { _0: "m p", _1: 1967 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2694 = { _0: "m r", _1: 11 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2695 = { _0: "m s", _1: 11 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2696 = { _0: "m u", _1: 8340 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2697 = { _0: "m x", _1: 1 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2698 = { _0: "m z", _1: 2 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2699 = { _0: "m θ", _1: 2 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2700 = { _0: "n a", _1: 19025 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2701 = { _0: "n d", _1: 2572 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2702 = { _0: "n e", _1: 24010 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2703 = { _0: "n f", _1: 1 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2704 = { _0: "n g", _1: 2346 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2705 = { _0: "n i", _1: 6417 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2706 = { _0: "n k", _1: 1416 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2707 = { _0: "n m", _1: 1 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2708 = { _0: "n n", _1: 1063 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2709 = { _0: "n o", _1: 21753 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2710 = { _0: "n p", _1: 3 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2711 = { _0: "n r", _1: 1 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2712 = { _0: "n s", _1: 20 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2713 = { _0: "n t", _1: 21646 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2714 = { _0: "n u", _1: 5381 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2715 = { _0: "n x", _1: 299 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2716 = { _0: "n z", _1: 1 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2717 = { _0: "n θ", _1: 3688 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2718 = { _0: "o a", _1: 406 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2719 = { _0: "o b", _1: 1799 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2720 = { _0: "o d", _1: 4005 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2721 = { _0: "o e", _1: 1321 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2722 = { _0: "o f", _1: 3227 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2723 = { _0: "o g", _1: 3690 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2724 = { _0: "o i", _1: 42188 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2725 = { _0: "o k", _1: 3819 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2726 = { _0: "o l", _1: 8987 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2727 = { _0: "o m", _1: 11583 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2728 = { _0: "o n", _1: 57454 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2729 = { _0: "o o", _1: 313 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2730 = { _0: "o p", _1: 3922 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2731 = { _0: "o r", _1: 7899 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2732 = { _0: "o s", _1: 46414 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2733 = { _0: "o t", _1: 10385 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2734 = { _0: "o u", _1: 119405 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2735 = { _0: "o x", _1: 1152 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2736 = { _0: "o z", _1: 225 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2737 = { _0: "o θ", _1: 1534 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2738 = { _0: "p a", _1: 23375 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2739 = { _0: "p e", _1: 21399 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2740 = { _0: "p f", _1: 46 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2741 = { _0: "p i", _1: 13518 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2742 = { _0: "p l", _1: 3770 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2743 = { _0: "p n", _1: 1238 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2744 = { _0: "p o", _1: 29285 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2745 = { _0: "p p", _1: 447 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2746 = { _0: "p r", _1: 13826 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2747 = { _0: "p s", _1: 7454 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2748 = { _0: "p t", _1: 3371 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2749 = { _0: "p u", _1: 3525 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2750 = { _0: "r a", _1: 27284 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2751 = { _0: "r b", _1: 85 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2752 = { _0: "r d", _1: 1520 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2753 = { _0: "r e", _1: 14025 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2754 = { _0: "r f", _1: 203 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2755 = { _0: "r g", _1: 2849 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2756 = { _0: "r i", _1: 29866 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2757 = { _0: "r k", _1: 1002 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2758 = { _0: "r l", _1: 2 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2759 = { _0: "r m", _1: 1115 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2760 = { _0: "r n", _1: 653 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2761 = { _0: "r o", _1: 31460 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2762 = { _0: "r p", _1: 690 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2763 = { _0: "r r", _1: 1226 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2764 = { _0: "r s", _1: 753 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2765 = { _0: "r t", _1: 3298 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2766 = { _0: "r u", _1: 6387 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2767 = { _0: "r x", _1: 2545 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2768 = { _0: "r z", _1: 14 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2769 = { _0: "r θ", _1: 597 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2770 = { _0: "s a", _1: 30017 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2771 = { _0: "s b", _1: 493 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2772 = { _0: "s d", _1: 213 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2773 = { _0: "s e", _1: 35051 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2774 = { _0: "s f", _1: 1162 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2775 = { _0: "s g", _1: 32 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2776 = { _0: "s i", _1: 21315 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2777 = { _0: "s k", _1: 4455 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2778 = { _0: "s l", _1: 22 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2779 = { _0: "s m", _1: 2915 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2780 = { _0: "s n", _1: 11 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2781 = { _0: "s o", _1: 17371 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2782 = { _0: "s p", _1: 2268 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2783 = { _0: "s r", _1: 3072 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2784 = { _0: "s s", _1: 3237 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2785 = { _0: "s t", _1: 19555 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2786 = { _0: "s u", _1: 20185 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2787 = { _0: "s x", _1: 2574 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2788 = { _0: "s θ", _1: 6440 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2789 = { _0: "t a", _1: 47506 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2790 = { _0: "t e", _1: 62683 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2791 = { _0: "t i", _1: 22342 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2792 = { _0: "t l", _1: 23 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2793 = { _0: "t m", _1: 89 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2794 = { _0: "t n", _1: 22 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2795 = { _0: "t o", _1: 85418 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2796 = { _0: "t r", _1: 8195 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2797 = { _0: "t t", _1: 270 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2798 = { _0: "t u", _1: 38787 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2799 = { _0: "t θ", _1: 7 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2800 = { _0: "u a", _1: 1559 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2801 = { _0: "u b", _1: 1304 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2802 = { _0: "u d", _1: 5351 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2803 = { _0: "u e", _1: 3013 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2804 = { _0: "u f", _1: 1277 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2805 = { _0: "u g", _1: 2395 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2806 = { _0: "u i", _1: 7748 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2807 = { _0: "u k", _1: 8771 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2808 = { _0: "u l", _1: 8052 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2809 = { _0: "u m", _1: 14744 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2810 = { _0: "u n", _1: 60337 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2811 = { _0: "u o", _1: 2959 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2812 = { _0: "u p", _1: 10860 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2813 = { _0: "u r", _1: 19679 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2814 = { _0: "u s", _1: 51854 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2815 = { _0: "u t", _1: 49084 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2816 = { _0: "u u", _1: 1237 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2817 = { _0: "u x", _1: 3570 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2818 = { _0: "u z", _1: 250 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2819 = { _0: "u θ", _1: 4257 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2820 = { _0: "x a", _1: 3477 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2821 = { _0: "x b", _1: 1 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2822 = { _0: "x e", _1: 7363 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2823 = { _0: "x i", _1: 2344 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2824 = { _0: "x l", _1: 381 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2825 = { _0: "x m", _1: 296 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2826 = { _0: "x n", _1: 294 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2827 = { _0: "x o", _1: 4822 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2828 = { _0: "x r", _1: 2302 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2829 = { _0: "x s", _1: 3 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2830 = { _0: "x u", _1: 2426 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2831 = { _0: "x x", _1: 2 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2832 = { _0: "x z", _1: 2 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2833 = { _0: "x θ", _1: 1348 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2834 = { _0: "z a", _1: 912 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2835 = { _0: "z e", _1: 2638 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2836 = { _0: "z i", _1: 270 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2837 = { _0: "z k", _1: 1 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2838 = { _0: "z l", _1: 1 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2839 = { _0: "z m", _1: 3 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2840 = { _0: "z o", _1: 2502 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2841 = { _0: "z r", _1: 60 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2842 = { _0: "z u", _1: 448 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2843 = { _0: "θ a", _1: 7858 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2844 = { _0: "θ b", _1: 12 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2845 = { _0: "θ d", _1: 3 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2846 = { _0: "θ e", _1: 27569 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2847 = { _0: "θ f", _1: 12 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2848 = { _0: "θ g", _1: 1 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2849 = { _0: "θ i", _1: 1441 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2850 = { _0: "θ l", _1: 440 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2851 = { _0: "θ m", _1: 484 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2852 = { _0: "θ n", _1: 1422 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2853 = { _0: "θ o", _1: 4787 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2854 = { _0: "θ r", _1: 3694 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2855 = { _0: "θ s", _1: 70 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2856 = { _0: "θ u", _1: 4557 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2857 = { _0: "θ x", _1: 3 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2858 = { _0: "θ z", _1: 3 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2859 = { _0: "θ θ", _1: 61 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N7_2abindS2860 = [_M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2530, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2531, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2532, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2533, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2534, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2535, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2536, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2537, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2538, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2539, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2540, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2541, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2542, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2543, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2544, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2545, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2546, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2547, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2548, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2549, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2550, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2551, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2552, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2553, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2554, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2555, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2556, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2557, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2558, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2559, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2560, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2561, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2562, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2563, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2564, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2565, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2566, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2567, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2568, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2569, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2570, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2571, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2572, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2573, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2574, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2575, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2576, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2577, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2578, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2579, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2580, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2581, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2582, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2583, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2584, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2585, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2586, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2587, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2588, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2589, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2590, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2591, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2592, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2593, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2594, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2595, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2596, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2597, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2598, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2599, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2600, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2601, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2602, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2603, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2604, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2605, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2606, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2607, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2608, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2609, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2610, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2611, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2612, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2613, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2614, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2615, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2616, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2617, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2618, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2619, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2620, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2621, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2622, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2623, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2624, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2625, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2626, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2627, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2628, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2629, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2630, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2631, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2632, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2633, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2634, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2635, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2636, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2637, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2638, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2639, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2640, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2641, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2642, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2643, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2644, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2645, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2646, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2647, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2648, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2649, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2650, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2651, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2652, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2653, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2654, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2655, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2656, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2657, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2658, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2659, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2660, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2661, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2662, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2663, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2664, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2665, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2666, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2667, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2668, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2669, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2670, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2671, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2672, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2673, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2674, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2675, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2676, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2677, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2678, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2679, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2680, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2681, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2682, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2683, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2684, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2685, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2686, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2687, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2688, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2689, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2690, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2691, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2692, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2693, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2694, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2695, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2696, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2697, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2698, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2699, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2700, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2701, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2702, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2703, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2704, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2705, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2706, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2707, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2708, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2709, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2710, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2711, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2712, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2713, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2714, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2715, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2716, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2717, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2718, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2719, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2720, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2721, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2722, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2723, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2724, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2725, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2726, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2727, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2728, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2729, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2730, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2731, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2732, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2733, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2734, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2735, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2736, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2737, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2738, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2739, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2740, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2741, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2742, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2743, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2744, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2745, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2746, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2747, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2748, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2749, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2750, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2751, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2752, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2753, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2754, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2755, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2756, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2757, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2758, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2759, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2760, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2761, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2762, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2763, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2764, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2765, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2766, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2767, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2768, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2769, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2770, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2771, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2772, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2773, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2774, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2775, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2776, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2777, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2778, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2779, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2780, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2781, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2782, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2783, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2784, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2785, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2786, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2787, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2788, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2789, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2790, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2791, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2792, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2793, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2794, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2795, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2796, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2797, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2798, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2799, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2800, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2801, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2802, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2803, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2804, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2805, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2806, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2807, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2808, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2809, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2810, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2811, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2812, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2813, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2814, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2815, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2816, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2817, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2818, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2819, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2820, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2821, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2822, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2823, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2824, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2825, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2826, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2827, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2828, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2829, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2830, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2831, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2832, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2833, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2834, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2835, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2836, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2837, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2838, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2839, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2840, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2841, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2842, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2843, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2844, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2845, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2846, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2847, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2848, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2849, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2850, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2851, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2852, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2853, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2854, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2855, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2856, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2857, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2858, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N5tupleS2859];
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3 = _M0MPB3Map3MapGsiE(new _M0TPB9ArrayViewGUsiEE(_M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3N7_2abindS2860, 0, 330), undefined);
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2248 = { _0: "a a", _1: 1984 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2249 = { _0: "a b", _1: 6906 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2250 = { _0: "a d", _1: 5172 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2251 = { _0: "a e", _1: 3705 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2252 = { _0: "a g", _1: 8278 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2253 = { _0: "a i", _1: 115686 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2254 = { _0: "a k", _1: 13336 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2255 = { _0: "a l", _1: 17889 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2256 = { _0: "a m", _1: 9714 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2257 = { _0: "a n", _1: 49627 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2258 = { _0: "a o", _1: 2319 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2259 = { _0: "a p", _1: 19596 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2260 = { _0: "a r", _1: 23800 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2261 = { _0: "a s", _1: 42793 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2262 = { _0: "a t", _1: 33793 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2263 = { _0: "a u", _1: 44310 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2264 = { _0: "a y", _1: 33 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2265 = { _0: "a z", _1: 1675 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2266 = { _0: "b a", _1: 10476 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2267 = { _0: "b d", _1: 737 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2268 = { _0: "b e", _1: 5366 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2269 = { _0: "b i", _1: 1341 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2270 = { _0: "b k", _1: 1 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2271 = { _0: "b l", _1: 1171 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2272 = { _0: "b n", _1: 11 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2273 = { _0: "b o", _1: 3670 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2274 = { _0: "b r", _1: 1363 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2275 = { _0: "b s", _1: 5 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2276 = { _0: "b u", _1: 1554 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2277 = { _0: "b y", _1: 885 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2278 = { _0: "d a", _1: 8157 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2279 = { _0: "d b", _1: 2 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2280 = { _0: "d e", _1: 22558 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2281 = { _0: "d g", _1: 4 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2282 = { _0: "d i", _1: 13205 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2283 = { _0: "d k", _1: 1 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2284 = { _0: "d l", _1: 4 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2285 = { _0: "d m", _1: 18 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2286 = { _0: "d n", _1: 21 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2287 = { _0: "d o", _1: 13304 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2288 = { _0: "d r", _1: 3300 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2289 = { _0: "d s", _1: 38 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2290 = { _0: "d t", _1: 1 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2291 = { _0: "d u", _1: 3550 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2292 = { _0: "d y", _1: 3443 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2293 = { _0: "e a", _1: 8021 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2294 = { _0: "e b", _1: 3908 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2295 = { _0: "e d", _1: 6370 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2296 = { _0: "e e", _1: 1243 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2297 = { _0: "e g", _1: 12969 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2298 = { _0: "e i", _1: 14830 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2299 = { _0: "e k", _1: 32065 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2300 = { _0: "e l", _1: 25966 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2301 = { _0: "e m", _1: 20821 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2302 = { _0: "e n", _1: 93412 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2303 = { _0: "e o", _1: 11744 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2304 = { _0: "e p", _1: 32483 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2305 = { _0: "e r", _1: 32451 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2306 = { _0: "e s", _1: 85691 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2307 = { _0: "e t", _1: 34247 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2308 = { _0: "e u", _1: 18296 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2309 = { _0: "e z", _1: 972 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2310 = { _0: "g a", _1: 9693 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2311 = { _0: "g d", _1: 130 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2312 = { _0: "g e", _1: 16628 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2313 = { _0: "g i", _1: 3830 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2314 = { _0: "g l", _1: 444 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2315 = { _0: "g m", _1: 1124 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2316 = { _0: "g n", _1: 1670 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2317 = { _0: "g o", _1: 8947 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2318 = { _0: "g r", _1: 1430 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2319 = { _0: "g u", _1: 1263 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2320 = { _0: "g y", _1: 2982 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2321 = { _0: "h a", _1: 6874 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2322 = { _0: "h e", _1: 23251 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2323 = { _0: "h i", _1: 3517 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2324 = { _0: "h o", _1: 35474 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2325 = { _0: "h r", _1: 1714 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2326 = { _0: "h u", _1: 3069 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2327 = { _0: "h y", _1: 16607 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2328 = { _0: "i a", _1: 22866 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2329 = { _0: "i b", _1: 1734 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2330 = { _0: "i d", _1: 7929 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2331 = { _0: "i e", _1: 12777 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2332 = { _0: "i g", _1: 1785 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2333 = { _0: "i i", _1: 95 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2334 = { _0: "i k", _1: 11658 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2335 = { _0: "i l", _1: 7361 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2336 = { _0: "i m", _1: 4914 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2337 = { _0: "i n", _1: 21641 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2338 = { _0: "i o", _1: 27743 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2339 = { _0: "i p", _1: 2765 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2340 = { _0: "i r", _1: 2017 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2341 = { _0: "i s", _1: 34206 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2342 = { _0: "i t", _1: 5377 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2343 = { _0: "i u", _1: 8902 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2344 = { _0: "i y", _1: 3 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2345 = { _0: "i z", _1: 1531 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2346 = { _0: "k a", _1: 100084 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2347 = { _0: "k b", _1: 179 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2348 = { _0: "k d", _1: 309 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2349 = { _0: "k e", _1: 18955 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2350 = { _0: "k g", _1: 38 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2351 = { _0: "k i", _1: 5379 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2352 = { _0: "k k", _1: 186 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2353 = { _0: "k l", _1: 4114 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2354 = { _0: "k m", _1: 361 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2355 = { _0: "k n", _1: 911 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2356 = { _0: "k o", _1: 16224 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2357 = { _0: "k p", _1: 377 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2358 = { _0: "k r", _1: 7507 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2359 = { _0: "k s", _1: 14459 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2360 = { _0: "k t", _1: 4060 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2361 = { _0: "k u", _1: 4673 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2362 = { _0: "k y", _1: 12618 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2363 = { _0: "k z", _1: 110 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2364 = { _0: "l a", _1: 15835 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2365 = { _0: "l b", _1: 40 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2366 = { _0: "l d", _1: 124 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2367 = { _0: "l e", _1: 33523 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2368 = { _0: "l g", _1: 107 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2369 = { _0: "l i", _1: 7493 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2370 = { _0: "l k", _1: 554 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2371 = { _0: "l m", _1: 1148 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2372 = { _0: "l n", _1: 10 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2373 = { _0: "l o", _1: 15176 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2374 = { _0: "l p", _1: 2123 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2375 = { _0: "l r", _1: 1 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2376 = { _0: "l s", _1: 68 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2377 = { _0: "l t", _1: 3693 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2378 = { _0: "l u", _1: 2719 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2379 = { _0: "l y", _1: 2880 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2380 = { _0: "l z", _1: 8 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2381 = { _0: "m a", _1: 21986 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2382 = { _0: "m b", _1: 1129 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2383 = { _0: "m d", _1: 2 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2384 = { _0: "m e", _1: 36023 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2385 = { _0: "m i", _1: 7027 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2386 = { _0: "m k", _1: 1 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2387 = { _0: "m l", _1: 5 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2388 = { _0: "m n", _1: 1458 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2389 = { _0: "m o", _1: 16881 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2390 = { _0: "m p", _1: 2806 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2391 = { _0: "m r", _1: 11 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2392 = { _0: "m s", _1: 11 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2393 = { _0: "m t", _1: 2 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2394 = { _0: "m u", _1: 7919 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2395 = { _0: "m y", _1: 421 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2396 = { _0: "m z", _1: 2 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2397 = { _0: "n a", _1: 19025 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2398 = { _0: "n d", _1: 2572 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2399 = { _0: "n e", _1: 25378 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2400 = { _0: "n g", _1: 2346 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2401 = { _0: "n i", _1: 5049 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2402 = { _0: "n k", _1: 1715 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2403 = { _0: "n m", _1: 1 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2404 = { _0: "n o", _1: 21753 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2405 = { _0: "n p", _1: 4 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2406 = { _0: "n r", _1: 1 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2407 = { _0: "n s", _1: 20 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2408 = { _0: "n t", _1: 25334 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2409 = { _0: "n u", _1: 3467 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2410 = { _0: "n y", _1: 1914 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2411 = { _0: "n z", _1: 1 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2412 = { _0: "o a", _1: 1234 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2413 = { _0: "o b", _1: 2593 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2414 = { _0: "o d", _1: 4789 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2415 = { _0: "o e", _1: 1929 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2416 = { _0: "o g", _1: 4182 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2417 = { _0: "o i", _1: 64281 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2418 = { _0: "o k", _1: 7026 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2419 = { _0: "o l", _1: 10018 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2420 = { _0: "o m", _1: 15651 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2421 = { _0: "o n", _1: 102982 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2422 = { _0: "o o", _1: 343 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2423 = { _0: "o p", _1: 11739 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2424 = { _0: "o r", _1: 11081 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2425 = { _0: "o s", _1: 65118 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2426 = { _0: "o t", _1: 16628 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2427 = { _0: "o u", _1: 84 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2428 = { _0: "o y", _1: 923 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2429 = { _0: "o z", _1: 253 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2430 = { _0: "p a", _1: 27714 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2431 = { _0: "p e", _1: 25870 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2432 = { _0: "p i", _1: 14774 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2433 = { _0: "p l", _1: 3997 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2434 = { _0: "p n", _1: 1287 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2435 = { _0: "p o", _1: 34505 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2436 = { _0: "p p", _1: 46 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2437 = { _0: "p r", _1: 15509 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2438 = { _0: "p s", _1: 7454 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2439 = { _0: "p t", _1: 5188 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2440 = { _0: "p u", _1: 2502 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2441 = { _0: "p y", _1: 3943 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2442 = { _0: "p z", _1: 2 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2443 = { _0: "r a", _1: 27284 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2444 = { _0: "r b", _1: 85 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2445 = { _0: "r d", _1: 1520 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2446 = { _0: "r e", _1: 17123 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2447 = { _0: "r g", _1: 2849 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2448 = { _0: "r i", _1: 26768 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2449 = { _0: "r k", _1: 3547 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2450 = { _0: "r l", _1: 2 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2451 = { _0: "r m", _1: 1115 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2452 = { _0: "r n", _1: 653 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2453 = { _0: "r o", _1: 31460 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2454 = { _0: "r p", _1: 893 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2455 = { _0: "r s", _1: 753 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2456 = { _0: "r t", _1: 3895 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2457 = { _0: "r u", _1: 3765 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2458 = { _0: "r y", _1: 2622 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2459 = { _0: "r z", _1: 14 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2460 = { _0: "s a", _1: 30017 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2461 = { _0: "s b", _1: 493 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2462 = { _0: "s d", _1: 213 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2463 = { _0: "s e", _1: 35756 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2464 = { _0: "s g", _1: 32 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2465 = { _0: "s i", _1: 20610 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2466 = { _0: "s k", _1: 7029 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2467 = { _0: "s l", _1: 22 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2468 = { _0: "s m", _1: 2915 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2469 = { _0: "s n", _1: 11 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2470 = { _0: "s o", _1: 17371 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2471 = { _0: "s p", _1: 3430 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2472 = { _0: "s r", _1: 3072 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2473 = { _0: "s t", _1: 25995 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2474 = { _0: "s u", _1: 10592 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2475 = { _0: "s y", _1: 9593 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2476 = { _0: "t a", _1: 55364 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2477 = { _0: "t b", _1: 12 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2478 = { _0: "t d", _1: 3 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2479 = { _0: "t e", _1: 91458 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2480 = { _0: "t g", _1: 1 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2481 = { _0: "t i", _1: 22577 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2482 = { _0: "t k", _1: 3 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2483 = { _0: "t l", _1: 463 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2484 = { _0: "t m", _1: 573 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2485 = { _0: "t n", _1: 1444 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2486 = { _0: "t o", _1: 90205 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2487 = { _0: "t p", _1: 12 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2488 = { _0: "t r", _1: 11889 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2489 = { _0: "t s", _1: 70 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2490 = { _0: "t t", _1: 7 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2491 = { _0: "t u", _1: 37853 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2492 = { _0: "t y", _1: 5491 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2493 = { _0: "t z", _1: 3 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2494 = { _0: "u a", _1: 496 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2495 = { _0: "u b", _1: 251 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2496 = { _0: "u d", _1: 3521 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2497 = { _0: "u e", _1: 1943 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2498 = { _0: "u g", _1: 280 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2499 = { _0: "u i", _1: 1669 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2500 = { _0: "u k", _1: 6825 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2501 = { _0: "u l", _1: 3428 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2502 = { _0: "u m", _1: 2735 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2503 = { _0: "u n", _1: 3777 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2504 = { _0: "u o", _1: 1533 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2505 = { _0: "u p", _1: 639 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2506 = { _0: "u r", _1: 3080 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2507 = { _0: "u s", _1: 27920 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2508 = { _0: "u t", _1: 47306 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2509 = { _0: "u u", _1: 243 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2510 = { _0: "u z", _1: 36 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2511 = { _0: "y a", _1: 196 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2512 = { _0: "y b", _1: 259 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2513 = { _0: "y d", _1: 874 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2514 = { _0: "y e", _1: 419 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2515 = { _0: "y g", _1: 1596 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2516 = { _0: "y i", _1: 5805 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2517 = { _0: "y k", _1: 2911 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2518 = { _0: "y l", _1: 3593 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2519 = { _0: "y m", _1: 7938 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2520 = { _0: "y n", _1: 11032 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2521 = { _0: "y o", _1: 1247 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2522 = { _0: "y p", _1: 6908 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2523 = { _0: "y r", _1: 13415 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2524 = { _0: "y s", _1: 5126 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2525 = { _0: "y t", _1: 1326 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2526 = { _0: "y u", _1: 43 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2527 = { _0: "y z", _1: 61 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2528 = { _0: "z d", _1: 6913 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N7_2abindS2529 = [_M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2248, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2249, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2250, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2251, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2252, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2253, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2254, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2255, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2256, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2257, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2258, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2259, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2260, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2261, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2262, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2263, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2264, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2265, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2266, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2267, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2268, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2269, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2270, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2271, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2272, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2273, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2274, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2275, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2276, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2277, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2278, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2279, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2280, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2281, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2282, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2283, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2284, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2285, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2286, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2287, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2288, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2289, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2290, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2291, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2292, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2293, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2294, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2295, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2296, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2297, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2298, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2299, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2300, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2301, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2302, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2303, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2304, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2305, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2306, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2307, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2308, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2309, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2310, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2311, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2312, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2313, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2314, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2315, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2316, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2317, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2318, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2319, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2320, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2321, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2322, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2323, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2324, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2325, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2326, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2327, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2328, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2329, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2330, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2331, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2332, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2333, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2334, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2335, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2336, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2337, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2338, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2339, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2340, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2341, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2342, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2343, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2344, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2345, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2346, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2347, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2348, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2349, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2350, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2351, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2352, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2353, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2354, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2355, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2356, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2357, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2358, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2359, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2360, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2361, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2362, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2363, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2364, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2365, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2366, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2367, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2368, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2369, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2370, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2371, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2372, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2373, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2374, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2375, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2376, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2377, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2378, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2379, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2380, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2381, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2382, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2383, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2384, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2385, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2386, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2387, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2388, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2389, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2390, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2391, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2392, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2393, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2394, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2395, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2396, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2397, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2398, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2399, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2400, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2401, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2402, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2403, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2404, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2405, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2406, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2407, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2408, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2409, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2410, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2411, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2412, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2413, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2414, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2415, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2416, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2417, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2418, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2419, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2420, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2421, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2422, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2423, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2424, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2425, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2426, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2427, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2428, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2429, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2430, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2431, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2432, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2433, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2434, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2435, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2436, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2437, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2438, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2439, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2440, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2441, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2442, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2443, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2444, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2445, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2446, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2447, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2448, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2449, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2450, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2451, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2452, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2453, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2454, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2455, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2456, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2457, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2458, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2459, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2460, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2461, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2462, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2463, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2464, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2465, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2466, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2467, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2468, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2469, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2470, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2471, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2472, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2473, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2474, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2475, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2476, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2477, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2478, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2479, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2480, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2481, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2482, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2483, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2484, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2485, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2486, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2487, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2488, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2489, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2490, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2491, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2492, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2493, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2494, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2495, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2496, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2497, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2498, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2499, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2500, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2501, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2502, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2503, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2504, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2505, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2506, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2507, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2508, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2509, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2510, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2511, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2512, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2513, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2514, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2515, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2516, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2517, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2518, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2519, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2520, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2521, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2522, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2523, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2524, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2525, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2526, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2527, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N5tupleS2528];
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2 = _M0MPB3Map3MapGsiE(new _M0TPB9ArrayViewGUsiEE(_M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2N7_2abindS2529, 0, 281), undefined);
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS1947 = { _0: "a a", _1: 1982 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS1948 = { _0: "a e", _1: 3673 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS1949 = { _0: "a f", _1: 40265 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS1950 = { _0: "a i", _1: 238 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS1951 = { _0: "a k", _1: 13338 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS1952 = { _0: "a l", _1: 17889 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS1953 = { _0: "a m", _1: 9714 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS1954 = { _0: "a n", _1: 49627 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS1955 = { _0: "a o", _1: 2206 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS1956 = { _0: "a p", _1: 19596 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS1957 = { _0: "a r", _1: 23800 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS1958 = { _0: "a s", _1: 42877 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS1959 = { _0: "a t", _1: 33798 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS1960 = { _0: "a u", _1: 1092 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS1961 = { _0: "a v", _1: 9859 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS1962 = { _0: "a y", _1: 146 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS1963 = { _0: "a z", _1: 1675 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS1964 = { _0: "a ð", _1: 5342 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS1965 = { _0: "a ɣ", _1: 8278 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS1966 = { _0: "e a", _1: 5930 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS1967 = { _0: "e e", _1: 1210 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS1968 = { _0: "e f", _1: 8502 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS1969 = { _0: "e i", _1: 277 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS1970 = { _0: "e k", _1: 32033 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS1971 = { _0: "e l", _1: 23727 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS1972 = { _0: "e m", _1: 20976 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS1973 = { _0: "e n", _1: 88771 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS1974 = { _0: "e o", _1: 14552 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS1975 = { _0: "e p", _1: 26860 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS1976 = { _0: "e r", _1: 30563 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS1977 = { _0: "e s", _1: 72132 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS1978 = { _0: "e t", _1: 33010 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS1979 = { _0: "e u", _1: 2592 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS1980 = { _0: "e v", _1: 11557 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS1981 = { _0: "e y", _1: 620 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS1982 = { _0: "e z", _1: 947 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS1983 = { _0: "e ð", _1: 6428 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS1984 = { _0: "e ɣ", _1: 13864 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS1985 = { _0: "f k", _1: 1163 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS1986 = { _0: "f p", _1: 553 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS1987 = { _0: "f s", _1: 5615 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS1988 = { _0: "f t", _1: 41436 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS1989 = { _0: "i a", _1: 23223 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS1990 = { _0: "i e", _1: 9286 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS1991 = { _0: "i i", _1: 611 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS1992 = { _0: "i k", _1: 6360 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS1993 = { _0: "i l", _1: 9382 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS1994 = { _0: "i m", _1: 3846 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS1995 = { _0: "i n", _1: 25653 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS1996 = { _0: "i o", _1: 17834 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS1997 = { _0: "i p", _1: 8028 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS1998 = { _0: "i r", _1: 3883 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS1999 = { _0: "i s", _1: 36848 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2000 = { _0: "i t", _1: 6133 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2001 = { _0: "i u", _1: 7193 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2002 = { _0: "i v", _1: 1696 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2003 = { _0: "i y", _1: 1150 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2004 = { _0: "i z", _1: 1413 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2005 = { _0: "i ð", _1: 7106 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2006 = { _0: "i ɣ", _1: 795 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2007 = { _0: "k a", _1: 25752 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2008 = { _0: "k e", _1: 87020 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2009 = { _0: "k i", _1: 11646 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2010 = { _0: "k k", _1: 994 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2011 = { _0: "k l", _1: 4114 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2012 = { _0: "k m", _1: 361 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2013 = { _0: "k n", _1: 911 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2014 = { _0: "k o", _1: 14973 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2015 = { _0: "k p", _1: 377 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2016 = { _0: "k r", _1: 7507 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2017 = { _0: "k s", _1: 14459 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2018 = { _0: "k t", _1: 4060 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2019 = { _0: "k u", _1: 4673 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2020 = { _0: "k v", _1: 179 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2021 = { _0: "k y", _1: 13869 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2022 = { _0: "k z", _1: 110 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2023 = { _0: "k ð", _1: 309 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2024 = { _0: "k ɣ", _1: 38 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2025 = { _0: "l a", _1: 14487 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2026 = { _0: "l e", _1: 30235 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2027 = { _0: "l i", _1: 12129 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2028 = { _0: "l k", _1: 554 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2029 = { _0: "l l", _1: 5212 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2030 = { _0: "l m", _1: 1148 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2031 = { _0: "l n", _1: 10 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2032 = { _0: "l o", _1: 13363 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2033 = { _0: "l p", _1: 2123 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2034 = { _0: "l r", _1: 1 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2035 = { _0: "l s", _1: 68 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2036 = { _0: "l t", _1: 3693 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2037 = { _0: "l u", _1: 2719 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2038 = { _0: "l v", _1: 40 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2039 = { _0: "l y", _1: 4693 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2040 = { _0: "l z", _1: 8 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2041 = { _0: "l ð", _1: 124 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2042 = { _0: "l ɣ", _1: 107 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2043 = { _0: "m a", _1: 19991 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2044 = { _0: "m e", _1: 36157 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2045 = { _0: "m i", _1: 8888 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2046 = { _0: "m k", _1: 1 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2047 = { _0: "m l", _1: 5 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2048 = { _0: "m m", _1: 1421 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2049 = { _0: "m n", _1: 1458 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2050 = { _0: "m o", _1: 14031 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2051 = { _0: "m p", _1: 2806 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2052 = { _0: "m r", _1: 11 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2053 = { _0: "m s", _1: 11 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2054 = { _0: "m t", _1: 2 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2055 = { _0: "m u", _1: 7919 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2056 = { _0: "m v", _1: 1129 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2057 = { _0: "m y", _1: 3271 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2058 = { _0: "m z", _1: 2 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2059 = { _0: "m ð", _1: 2 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2060 = { _0: "n a", _1: 15338 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2061 = { _0: "n e", _1: 27007 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2062 = { _0: "n i", _1: 7107 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2063 = { _0: "n k", _1: 1715 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2064 = { _0: "n m", _1: 1 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2065 = { _0: "n n", _1: 1063 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2066 = { _0: "n o", _1: 19009 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2067 = { _0: "n p", _1: 4 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2068 = { _0: "n r", _1: 1 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2069 = { _0: "n s", _1: 20 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2070 = { _0: "n t", _1: 25334 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2071 = { _0: "n u", _1: 3467 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2072 = { _0: "n y", _1: 4658 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2073 = { _0: "n z", _1: 1 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2074 = { _0: "n ð", _1: 2572 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2075 = { _0: "n ɣ", _1: 2346 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2076 = { _0: "o a", _1: 1230 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2077 = { _0: "o e", _1: 1914 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2078 = { _0: "o i", _1: 418 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2079 = { _0: "o k", _1: 7576 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2080 = { _0: "o l", _1: 10018 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2081 = { _0: "o m", _1: 15654 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2082 = { _0: "o n", _1: 102982 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2083 = { _0: "o o", _1: 468 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2084 = { _0: "o p", _1: 11739 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2085 = { _0: "o r", _1: 11083 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2086 = { _0: "o s", _1: 65222 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2087 = { _0: "o t", _1: 16628 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2088 = { _0: "o u", _1: 114 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2089 = { _0: "o v", _1: 2593 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2090 = { _0: "o y", _1: 947 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2091 = { _0: "o z", _1: 378 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2092 = { _0: "o ð", _1: 4961 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2093 = { _0: "o ɣ", _1: 4209 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2094 = { _0: "p a", _1: 25604 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2095 = { _0: "p e", _1: 26176 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2096 = { _0: "p i", _1: 16578 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2097 = { _0: "p l", _1: 3997 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2098 = { _0: "p n", _1: 1287 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2099 = { _0: "p o", _1: 28557 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2100 = { _0: "p p", _1: 513 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2101 = { _0: "p r", _1: 15509 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2102 = { _0: "p s", _1: 7454 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2103 = { _0: "p t", _1: 5188 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2104 = { _0: "p u", _1: 2502 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2105 = { _0: "p y", _1: 9891 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2106 = { _0: "p z", _1: 2 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2107 = { _0: "r a", _1: 25638 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2108 = { _0: "r e", _1: 16303 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2109 = { _0: "r i", _1: 29234 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2110 = { _0: "r k", _1: 3547 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2111 = { _0: "r l", _1: 2 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2112 = { _0: "r m", _1: 1115 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2113 = { _0: "r n", _1: 653 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2114 = { _0: "r o", _1: 30378 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2115 = { _0: "r p", _1: 893 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2116 = { _0: "r r", _1: 1226 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2117 = { _0: "r s", _1: 753 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2118 = { _0: "r t", _1: 3895 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2119 = { _0: "r u", _1: 3765 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2120 = { _0: "r v", _1: 85 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2121 = { _0: "r y", _1: 3704 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2122 = { _0: "r z", _1: 14 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2123 = { _0: "r ð", _1: 1520 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2124 = { _0: "r ɣ", _1: 2849 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2125 = { _0: "s a", _1: 25871 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2126 = { _0: "s e", _1: 34428 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2127 = { _0: "s i", _1: 26084 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2128 = { _0: "s k", _1: 7029 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2129 = { _0: "s l", _1: 22 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2130 = { _0: "s m", _1: 2915 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2131 = { _0: "s n", _1: 11 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2132 = { _0: "s o", _1: 15349 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2133 = { _0: "s p", _1: 3430 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2134 = { _0: "s r", _1: 3072 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2135 = { _0: "s s", _1: 3237 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2136 = { _0: "s t", _1: 25995 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2137 = { _0: "s u", _1: 10592 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2138 = { _0: "s v", _1: 493 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2139 = { _0: "s y", _1: 11615 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2140 = { _0: "s ð", _1: 213 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2141 = { _0: "s ɣ", _1: 32 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2142 = { _0: "t a", _1: 41279 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2143 = { _0: "t e", _1: 100122 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2144 = { _0: "t i", _1: 27998 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2145 = { _0: "t k", _1: 3 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2146 = { _0: "t l", _1: 463 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2147 = { _0: "t m", _1: 573 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2148 = { _0: "t n", _1: 1444 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2149 = { _0: "t o", _1: 80990 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2150 = { _0: "t p", _1: 12 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2151 = { _0: "t r", _1: 11889 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2152 = { _0: "t s", _1: 70 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2153 = { _0: "t t", _1: 338 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2154 = { _0: "t u", _1: 37853 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2155 = { _0: "t v", _1: 12 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2156 = { _0: "t y", _1: 14706 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2157 = { _0: "t z", _1: 3 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2158 = { _0: "t ð", _1: 3 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2159 = { _0: "t ɣ", _1: 1 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2160 = { _0: "u a", _1: 62 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2161 = { _0: "u e", _1: 531 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2162 = { _0: "u i", _1: 196 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2163 = { _0: "u k", _1: 5662 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2164 = { _0: "u l", _1: 1971 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2165 = { _0: "u m", _1: 1322 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2166 = { _0: "u n", _1: 3585 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2167 = { _0: "u o", _1: 151 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2168 = { _0: "u p", _1: 86 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2169 = { _0: "u r", _1: 1586 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2170 = { _0: "u s", _1: 22305 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2171 = { _0: "u t", _1: 5870 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2172 = { _0: "u u", _1: 31 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2173 = { _0: "u v", _1: 250 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2174 = { _0: "u z", _1: 32 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2175 = { _0: "u ð", _1: 3068 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2176 = { _0: "u ɣ", _1: 7 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2177 = { _0: "v a", _1: 10048 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2178 = { _0: "v e", _1: 6736 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2179 = { _0: "v i", _1: 3718 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2180 = { _0: "v k", _1: 1 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2181 = { _0: "v l", _1: 2628 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2182 = { _0: "v m", _1: 1413 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2183 = { _0: "v n", _1: 203 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2184 = { _0: "v o", _1: 5008 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2185 = { _0: "v r", _1: 2857 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2186 = { _0: "v s", _1: 5 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2187 = { _0: "v u", _1: 1766 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2188 = { _0: "v v", _1: 297 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2189 = { _0: "v y", _1: 929 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2190 = { _0: "v z", _1: 4 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2191 = { _0: "v ð", _1: 1190 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2192 = { _0: "v ɣ", _1: 273 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2193 = { _0: "y a", _1: 675 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2194 = { _0: "y e", _1: 3941 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2195 = { _0: "y i", _1: 540 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2196 = { _0: "y k", _1: 7689 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2197 = { _0: "y l", _1: 3811 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2198 = { _0: "y m", _1: 8848 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2199 = { _0: "y n", _1: 11661 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2200 = { _0: "y o", _1: 4467 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2201 = { _0: "y p", _1: 7268 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2202 = { _0: "y r", _1: 13435 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2203 = { _0: "y s", _1: 15855 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2204 = { _0: "y t", _1: 1802 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2205 = { _0: "y u", _1: 1298 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2206 = { _0: "y v", _1: 274 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2207 = { _0: "y y", _1: 1965 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2208 = { _0: "y z", _1: 79 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2209 = { _0: "y ð", _1: 1297 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2210 = { _0: "y ɣ", _1: 1664 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2211 = { _0: "z a", _1: 851 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2212 = { _0: "z e", _1: 2387 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2213 = { _0: "z i", _1: 582 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2214 = { _0: "z k", _1: 1 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2215 = { _0: "z l", _1: 1 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2216 = { _0: "z m", _1: 3 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2217 = { _0: "z o", _1: 2489 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2218 = { _0: "z r", _1: 60 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2219 = { _0: "z u", _1: 229 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2220 = { _0: "z y", _1: 232 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2221 = { _0: "ð a", _1: 6287 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2222 = { _0: "ð e", _1: 19425 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2223 = { _0: "ð i", _1: 14388 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2224 = { _0: "ð l", _1: 3 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2225 = { _0: "ð m", _1: 15 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2226 = { _0: "ð n", _1: 21 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2227 = { _0: "ð o", _1: 10522 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2228 = { _0: "ð r", _1: 3240 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2229 = { _0: "ð s", _1: 38 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2230 = { _0: "ð t", _1: 1 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2231 = { _0: "ð u", _1: 3321 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2232 = { _0: "ð v", _1: 2 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2233 = { _0: "ð y", _1: 3504 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2234 = { _0: "ð ð", _1: 117 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2235 = { _0: "ð ɣ", _1: 4 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2236 = { _0: "ɣ a", _1: 9501 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2237 = { _0: "ɣ e", _1: 14112 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2238 = { _0: "ɣ i", _1: 6538 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2239 = { _0: "ɣ l", _1: 444 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2240 = { _0: "ɣ m", _1: 1124 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2241 = { _0: "ɣ n", _1: 1670 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2242 = { _0: "ɣ o", _1: 8502 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2243 = { _0: "ɣ r", _1: 1430 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2244 = { _0: "ɣ u", _1: 1263 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2245 = { _0: "ɣ y", _1: 3427 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2246 = { _0: "ɣ ð", _1: 130 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N7_2abindS2247 = [_M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS1947, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS1948, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS1949, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS1950, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS1951, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS1952, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS1953, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS1954, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS1955, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS1956, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS1957, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS1958, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS1959, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS1960, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS1961, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS1962, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS1963, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS1964, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS1965, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS1966, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS1967, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS1968, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS1969, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS1970, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS1971, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS1972, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS1973, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS1974, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS1975, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS1976, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS1977, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS1978, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS1979, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS1980, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS1981, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS1982, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS1983, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS1984, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS1985, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS1986, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS1987, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS1988, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS1989, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS1990, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS1991, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS1992, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS1993, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS1994, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS1995, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS1996, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS1997, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS1998, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS1999, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2000, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2001, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2002, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2003, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2004, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2005, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2006, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2007, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2008, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2009, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2010, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2011, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2012, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2013, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2014, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2015, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2016, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2017, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2018, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2019, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2020, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2021, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2022, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2023, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2024, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2025, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2026, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2027, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2028, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2029, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2030, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2031, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2032, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2033, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2034, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2035, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2036, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2037, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2038, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2039, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2040, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2041, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2042, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2043, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2044, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2045, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2046, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2047, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2048, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2049, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2050, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2051, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2052, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2053, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2054, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2055, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2056, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2057, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2058, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2059, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2060, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2061, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2062, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2063, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2064, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2065, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2066, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2067, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2068, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2069, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2070, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2071, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2072, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2073, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2074, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2075, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2076, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2077, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2078, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2079, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2080, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2081, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2082, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2083, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2084, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2085, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2086, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2087, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2088, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2089, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2090, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2091, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2092, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2093, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2094, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2095, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2096, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2097, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2098, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2099, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2100, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2101, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2102, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2103, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2104, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2105, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2106, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2107, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2108, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2109, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2110, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2111, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2112, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2113, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2114, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2115, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2116, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2117, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2118, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2119, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2120, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2121, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2122, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2123, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2124, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2125, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2126, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2127, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2128, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2129, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2130, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2131, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2132, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2133, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2134, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2135, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2136, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2137, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2138, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2139, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2140, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2141, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2142, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2143, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2144, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2145, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2146, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2147, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2148, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2149, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2150, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2151, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2152, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2153, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2154, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2155, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2156, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2157, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2158, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2159, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2160, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2161, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2162, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2163, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2164, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2165, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2166, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2167, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2168, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2169, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2170, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2171, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2172, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2173, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2174, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2175, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2176, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2177, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2178, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2179, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2180, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2181, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2182, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2183, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2184, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2185, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2186, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2187, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2188, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2189, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2190, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2191, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2192, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2193, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2194, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2195, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2196, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2197, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2198, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2199, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2200, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2201, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2202, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2203, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2204, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2205, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2206, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2207, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2208, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2209, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2210, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2211, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2212, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2213, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2214, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2215, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2216, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2217, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2218, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2219, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2220, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2221, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2222, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2223, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2224, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2225, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2226, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2227, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2228, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2229, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2230, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2231, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2232, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2233, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2234, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2235, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2236, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2237, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2238, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2239, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2240, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2241, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2242, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2243, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2244, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2245, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N5tupleS2246];
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1 = _M0MPB3Map3MapGsiE(new _M0TPB9ArrayViewGUsiEE(_M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__1N7_2abindS2247, 0, 300), undefined);
+const _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__2N5tupleS2905 = { _0: "a", _1: 400616 };
+const _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__2N5tupleS2906 = { _0: "b", _1: 26580 };
+const _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__2N5tupleS2907 = { _0: "d", _1: 67606 };
+const _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__2N5tupleS2908 = { _0: "e", _1: 435489 };
+const _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__2N5tupleS2909 = { _0: "g", _1: 48141 };
+const _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__2N5tupleS2910 = { _0: "h", _1: 90506 };
+const _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__2N5tupleS2911 = { _0: "i", _1: 175304 };
+const _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__2N5tupleS2912 = { _0: "k", _1: 190544 };
+const _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__2N5tupleS2913 = { _0: "l", _1: 85502 };
+const _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__2N5tupleS2914 = { _0: "m", _1: 95684 };
+const _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__2N5tupleS2915 = { _0: "n", _1: 108580 };
+const _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__2N5tupleS2916 = { _0: "o", _1: 320854 };
+const _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__2N5tupleS2917 = { _0: "p", _1: 142791 };
+const _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__2N5tupleS2918 = { _0: "r", _1: 124348 };
+const _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__2N5tupleS2919 = { _0: "s", _1: 167151 };
+const _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__2N5tupleS2920 = { _0: "t", _1: 317428 };
+const _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__2N5tupleS2921 = { _0: "u", _1: 105682 };
+const _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__2N5tupleS2922 = { _0: "y", _1: 62749 };
+const _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__2N5tupleS2923 = { _0: "z", _1: 6913 };
+const _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__2N7_2abindS2924 = [_M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__2N5tupleS2905, _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__2N5tupleS2906, _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__2N5tupleS2907, _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__2N5tupleS2908, _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__2N5tupleS2909, _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__2N5tupleS2910, _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__2N5tupleS2911, _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__2N5tupleS2912, _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__2N5tupleS2913, _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__2N5tupleS2914, _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__2N5tupleS2915, _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__2N5tupleS2916, _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__2N5tupleS2917, _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__2N5tupleS2918, _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__2N5tupleS2919, _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__2N5tupleS2920, _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__2N5tupleS2921, _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__2N5tupleS2922, _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__2N5tupleS2923];
+const _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__2 = _M0MPB3Map3MapGsiE(new _M0TPB9ArrayViewGUsiEE(_M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__2N7_2abindS2924, 0, 19), undefined);
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1592 = { _0: "a a", _1: 1982 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1593 = { _0: "a e", _1: 338 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1594 = { _0: "a f", _1: 43734 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1595 = { _0: "a i", _1: 3719 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1596 = { _0: "a k", _1: 10848 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1597 = { _0: "a l", _1: 17889 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1598 = { _0: "a m", _1: 9714 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1599 = { _0: "a n", _1: 49627 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1600 = { _0: "a o", _1: 2206 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1601 = { _0: "a p", _1: 16261 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1602 = { _0: "a r", _1: 23800 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1603 = { _0: "a s", _1: 42265 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1604 = { _0: "a t", _1: 27497 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1605 = { _0: "a u", _1: 1092 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1606 = { _0: "a v", _1: 9725 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1607 = { _0: "a x", _1: 2490 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1608 = { _0: "a z", _1: 2287 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1609 = { _0: "a ð", _1: 5342 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1610 = { _0: "a ɣ", _1: 8278 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1611 = { _0: "a θ", _1: 6301 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1612 = { _0: "b a", _1: 124 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1613 = { _0: "b e", _1: 346 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1614 = { _0: "b i", _1: 93 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1615 = { _0: "b l", _1: 118 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1616 = { _0: "b n", _1: 18 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1617 = { _0: "b o", _1: 132 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1618 = { _0: "b r", _1: 261 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1619 = { _0: "b t", _1: 158 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1620 = { _0: "b u", _1: 2 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1621 = { _0: "d a", _1: 5555 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1622 = { _0: "d e", _1: 7787 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1623 = { _0: "d i", _1: 3150 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1624 = { _0: "d l", _1: 16 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1625 = { _0: "d o", _1: 4739 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1626 = { _0: "d r", _1: 277 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1627 = { _0: "d u", _1: 16 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1628 = { _0: "e a", _1: 5921 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1629 = { _0: "e e", _1: 588 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1630 = { _0: "e f", _1: 12225 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1631 = { _0: "e i", _1: 1444 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1632 = { _0: "e k", _1: 24120 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1633 = { _0: "e l", _1: 14973 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1634 = { _0: "e m", _1: 7409 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1635 = { _0: "e n", _1: 63555 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1636 = { _0: "e o", _1: 14506 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1637 = { _0: "e p", _1: 22128 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1638 = { _0: "e r", _1: 23040 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1639 = { _0: "e s", _1: 28944 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1640 = { _0: "e t", _1: 17734 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1641 = { _0: "e u", _1: 2589 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1642 = { _0: "e v", _1: 11166 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1643 = { _0: "e x", _1: 3319 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1644 = { _0: "e z", _1: 1744 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1645 = { _0: "e ð", _1: 5302 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1646 = { _0: "e ɣ", _1: 11469 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1647 = { _0: "e θ", _1: 5197 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1648 = { _0: "f a", _1: 3855 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1649 = { _0: "f e", _1: 2094 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1650 = { _0: "f f", _1: 504 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1651 = { _0: "f i", _1: 7189 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1652 = { _0: "f k", _1: 555 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1653 = { _0: "f l", _1: 227 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1654 = { _0: "f n", _1: 49 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1655 = { _0: "f o", _1: 4609 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1656 = { _0: "f p", _1: 69 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1657 = { _0: "f r", _1: 1683 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1658 = { _0: "f s", _1: 5588 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1659 = { _0: "f t", _1: 39832 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1660 = { _0: "f u", _1: 459 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1661 = { _0: "f x", _1: 608 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1662 = { _0: "f z", _1: 29 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1663 = { _0: "f θ", _1: 3421 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1664 = { _0: "g a", _1: 565 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1665 = { _0: "g e", _1: 309 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1666 = { _0: "g i", _1: 141 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1667 = { _0: "g l", _1: 62 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1668 = { _0: "g o", _1: 64 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1669 = { _0: "g r", _1: 122 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1670 = { _0: "g t", _1: 7 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1671 = { _0: "i a", _1: 23907 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1672 = { _0: "i e", _1: 7520 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1673 = { _0: "i f", _1: 1722 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1674 = { _0: "i i", _1: 10048 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1675 = { _0: "i k", _1: 15371 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1676 = { _0: "i l", _1: 21947 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1677 = { _0: "i m", _1: 26261 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1678 = { _0: "i n", _1: 62530 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1679 = { _0: "i o", _1: 22347 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1680 = { _0: "i p", _1: 14828 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1681 = { _0: "i r", _1: 24841 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1682 = { _0: "i s", _1: 90554 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1683 = { _0: "i t", _1: 10886 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1684 = { _0: "i u", _1: 8494 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1685 = { _0: "i v", _1: 2116 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1686 = { _0: "i x", _1: 3272 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1687 = { _0: "i z", _1: 6032 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1688 = { _0: "i ð", _1: 9529 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1689 = { _0: "i ɣ", _1: 4854 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1690 = { _0: "i θ", _1: 7128 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1691 = { _0: "k a", _1: 22362 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1692 = { _0: "k e", _1: 78763 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1693 = { _0: "k f", _1: 84 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1694 = { _0: "k i", _1: 21042 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1695 = { _0: "k k", _1: 806 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1696 = { _0: "k l", _1: 3671 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1697 = { _0: "k m", _1: 65 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1698 = { _0: "k n", _1: 617 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1699 = { _0: "k o", _1: 10344 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1700 = { _0: "k p", _1: 293 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1701 = { _0: "k r", _1: 5083 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1702 = { _0: "k s", _1: 14456 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1703 = { _0: "k t", _1: 2656 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1704 = { _0: "k u", _1: 3911 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1705 = { _0: "k v", _1: 178 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1706 = { _0: "k x", _1: 186 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1707 = { _0: "k z", _1: 108 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1708 = { _0: "k ð", _1: 309 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1709 = { _0: "k ɣ", _1: 38 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1710 = { _0: "k θ", _1: 49 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1711 = { _0: "l a", _1: 14487 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1712 = { _0: "l e", _1: 18070 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1713 = { _0: "l f", _1: 1522 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1714 = { _0: "l i", _1: 28987 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1715 = { _0: "l k", _1: 469 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1716 = { _0: "l l", _1: 5212 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1717 = { _0: "l m", _1: 1148 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1718 = { _0: "l n", _1: 10 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1719 = { _0: "l o", _1: 13363 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1720 = { _0: "l p", _1: 601 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1721 = { _0: "l r", _1: 1 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1722 = { _0: "l s", _1: 68 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1723 = { _0: "l t", _1: 165 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1724 = { _0: "l u", _1: 2719 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1725 = { _0: "l v", _1: 40 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1726 = { _0: "l x", _1: 85 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1727 = { _0: "l z", _1: 8 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1728 = { _0: "l ð", _1: 124 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1729 = { _0: "l ɣ", _1: 107 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1730 = { _0: "l θ", _1: 3528 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1731 = { _0: "m a", _1: 19991 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1732 = { _0: "m b", _1: 1252 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1733 = { _0: "m e", _1: 26499 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1734 = { _0: "m f", _1: 839 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1735 = { _0: "m i", _1: 21817 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1736 = { _0: "m l", _1: 5 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1737 = { _0: "m m", _1: 1421 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1738 = { _0: "m n", _1: 1458 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1739 = { _0: "m o", _1: 14031 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1740 = { _0: "m p", _1: 715 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1741 = { _0: "m r", _1: 11 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1742 = { _0: "m s", _1: 11 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1743 = { _0: "m u", _1: 7919 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1744 = { _0: "m v", _1: 1129 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1745 = { _0: "m x", _1: 1 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1746 = { _0: "m z", _1: 2 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1747 = { _0: "m ð", _1: 2 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1748 = { _0: "m θ", _1: 2 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1749 = { _0: "n a", _1: 15338 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1750 = { _0: "n d", _1: 21646 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1751 = { _0: "n e", _1: 15044 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1752 = { _0: "n f", _1: 1 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1753 = { _0: "n g", _1: 1270 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1754 = { _0: "n i", _1: 23728 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1755 = { _0: "n k", _1: 146 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1756 = { _0: "n m", _1: 1 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1757 = { _0: "n n", _1: 1063 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1758 = { _0: "n o", _1: 19009 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1759 = { _0: "n p", _1: 3 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1760 = { _0: "n r", _1: 1 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1761 = { _0: "n s", _1: 20 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1762 = { _0: "n u", _1: 3467 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1763 = { _0: "n x", _1: 299 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1764 = { _0: "n z", _1: 1 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1765 = { _0: "n ð", _1: 2572 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1766 = { _0: "n ɣ", _1: 2346 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1767 = { _0: "n θ", _1: 3688 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1768 = { _0: "o a", _1: 1230 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1769 = { _0: "o e", _1: 342 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1770 = { _0: "o f", _1: 3502 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1771 = { _0: "o i", _1: 2937 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1772 = { _0: "o k", _1: 6051 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1773 = { _0: "o l", _1: 10018 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1774 = { _0: "o m", _1: 15654 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1775 = { _0: "o n", _1: 102982 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1776 = { _0: "o o", _1: 468 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1777 = { _0: "o p", _1: 8237 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1778 = { _0: "o r", _1: 11083 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1779 = { _0: "o s", _1: 64528 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1780 = { _0: "o t", _1: 13226 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1781 = { _0: "o u", _1: 114 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1782 = { _0: "o v", _1: 2593 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1783 = { _0: "o x", _1: 1525 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1784 = { _0: "o z", _1: 1072 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1785 = { _0: "o ð", _1: 4961 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1786 = { _0: "o ɣ", _1: 4209 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1787 = { _0: "o θ", _1: 3402 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1788 = { _0: "p a", _1: 21625 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1789 = { _0: "p e", _1: 18733 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1790 = { _0: "p f", _1: 46 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1791 = { _0: "p i", _1: 24190 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1792 = { _0: "p l", _1: 3652 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1793 = { _0: "p n", _1: 1220 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1794 = { _0: "p o", _1: 23816 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1795 = { _0: "p p", _1: 447 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1796 = { _0: "p r", _1: 13565 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1797 = { _0: "p s", _1: 7454 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1798 = { _0: "p t", _1: 3213 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1799 = { _0: "p u", _1: 2041 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1800 = { _0: "r a", _1: 25638 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1801 = { _0: "r e", _1: 11967 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1802 = { _0: "r f", _1: 203 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1803 = { _0: "r i", _1: 37274 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1804 = { _0: "r k", _1: 1002 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1805 = { _0: "r l", _1: 2 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1806 = { _0: "r m", _1: 1115 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1807 = { _0: "r n", _1: 653 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1808 = { _0: "r o", _1: 30378 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1809 = { _0: "r p", _1: 690 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1810 = { _0: "r r", _1: 1226 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1811 = { _0: "r s", _1: 753 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1812 = { _0: "r t", _1: 3298 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1813 = { _0: "r u", _1: 3765 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1814 = { _0: "r v", _1: 85 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1815 = { _0: "r x", _1: 2545 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1816 = { _0: "r z", _1: 14 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1817 = { _0: "r ð", _1: 1520 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1818 = { _0: "r ɣ", _1: 2849 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1819 = { _0: "r θ", _1: 597 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1820 = { _0: "s a", _1: 25871 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1821 = { _0: "s e", _1: 25388 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1822 = { _0: "s f", _1: 1162 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1823 = { _0: "s i", _1: 46739 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1824 = { _0: "s k", _1: 4455 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1825 = { _0: "s o", _1: 15349 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1826 = { _0: "s p", _1: 2268 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1827 = { _0: "s s", _1: 3237 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1828 = { _0: "s t", _1: 19555 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1829 = { _0: "s u", _1: 10592 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1830 = { _0: "s x", _1: 2574 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1831 = { _0: "s θ", _1: 6440 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1832 = { _0: "t a", _1: 29472 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1833 = { _0: "t e", _1: 28500 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1834 = { _0: "t i", _1: 68620 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1835 = { _0: "t l", _1: 7 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1836 = { _0: "t m", _1: 89 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1837 = { _0: "t n", _1: 22 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1838 = { _0: "t o", _1: 71657 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1839 = { _0: "t r", _1: 7918 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1840 = { _0: "t t", _1: 270 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1841 = { _0: "t u", _1: 37240 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1842 = { _0: "t θ", _1: 7 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1843 = { _0: "u a", _1: 62 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1844 = { _0: "u e", _1: 268 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1845 = { _0: "u f", _1: 51 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1846 = { _0: "u i", _1: 459 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1847 = { _0: "u k", _1: 4610 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1848 = { _0: "u l", _1: 1971 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1849 = { _0: "u m", _1: 1322 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1850 = { _0: "u n", _1: 3585 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1851 = { _0: "u o", _1: 151 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1852 = { _0: "u p", _1: 35 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1853 = { _0: "u r", _1: 1586 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1854 = { _0: "u s", _1: 22301 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1855 = { _0: "u t", _1: 5471 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1856 = { _0: "u u", _1: 31 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1857 = { _0: "u v", _1: 250 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1858 = { _0: "u x", _1: 1052 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1859 = { _0: "u z", _1: 36 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1860 = { _0: "u ð", _1: 3068 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1861 = { _0: "u ɣ", _1: 7 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1862 = { _0: "u θ", _1: 399 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1863 = { _0: "v a", _1: 10048 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1864 = { _0: "v e", _1: 3779 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1865 = { _0: "v i", _1: 7604 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1866 = { _0: "v l", _1: 2628 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1867 = { _0: "v m", _1: 1413 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1868 = { _0: "v n", _1: 203 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1869 = { _0: "v o", _1: 5008 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1870 = { _0: "v r", _1: 2857 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1871 = { _0: "v s", _1: 5 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1872 = { _0: "v u", _1: 1766 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1873 = { _0: "v v", _1: 297 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1874 = { _0: "v x", _1: 1 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1875 = { _0: "v z", _1: 4 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1876 = { _0: "v ð", _1: 1190 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1877 = { _0: "v ɣ", _1: 273 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1878 = { _0: "x a", _1: 2825 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1879 = { _0: "x e", _1: 2567 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1880 = { _0: "x i", _1: 9713 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1881 = { _0: "x l", _1: 381 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1882 = { _0: "x m", _1: 296 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1883 = { _0: "x n", _1: 294 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1884 = { _0: "x o", _1: 4565 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1885 = { _0: "x r", _1: 2302 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1886 = { _0: "x s", _1: 3 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1887 = { _0: "x u", _1: 762 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1888 = { _0: "x v", _1: 1 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1889 = { _0: "x x", _1: 2 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1890 = { _0: "x z", _1: 2 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1891 = { _0: "x θ", _1: 1348 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1892 = { _0: "z a", _1: 851 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1893 = { _0: "z e", _1: 973 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1894 = { _0: "z i", _1: 2228 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1895 = { _0: "z k", _1: 1 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1896 = { _0: "z l", _1: 23 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1897 = { _0: "z m", _1: 2918 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1898 = { _0: "z n", _1: 11 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1899 = { _0: "z o", _1: 2489 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1900 = { _0: "z r", _1: 3132 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1901 = { _0: "z u", _1: 229 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1902 = { _0: "z v", _1: 493 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1903 = { _0: "z ð", _1: 213 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1904 = { _0: "z ɣ", _1: 32 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1905 = { _0: "ð a", _1: 6287 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1906 = { _0: "ð e", _1: 17486 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1907 = { _0: "ð i", _1: 19831 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1908 = { _0: "ð l", _1: 3 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1909 = { _0: "ð m", _1: 15 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1910 = { _0: "ð n", _1: 21 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1911 = { _0: "ð o", _1: 10522 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1912 = { _0: "ð r", _1: 3240 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1913 = { _0: "ð s", _1: 38 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1914 = { _0: "ð t", _1: 1 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1915 = { _0: "ð u", _1: 3321 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1916 = { _0: "ð v", _1: 2 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1917 = { _0: "ð ð", _1: 117 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1918 = { _0: "ð ɣ", _1: 4 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1919 = { _0: "ɣ a", _1: 9501 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1920 = { _0: "ɣ e", _1: 8208 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1921 = { _0: "ɣ i", _1: 15869 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1922 = { _0: "ɣ l", _1: 444 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1923 = { _0: "ɣ m", _1: 1124 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1924 = { _0: "ɣ n", _1: 1670 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1925 = { _0: "ɣ o", _1: 8502 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1926 = { _0: "ɣ r", _1: 1430 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1927 = { _0: "ɣ u", _1: 1263 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1928 = { _0: "ɣ ð", _1: 130 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1929 = { _0: "θ a", _1: 6252 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1930 = { _0: "θ e", _1: 14887 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1931 = { _0: "θ f", _1: 12 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1932 = { _0: "θ i", _1: 19882 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1933 = { _0: "θ l", _1: 440 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1934 = { _0: "θ m", _1: 484 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1935 = { _0: "θ n", _1: 1422 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1936 = { _0: "θ o", _1: 4594 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1937 = { _0: "θ r", _1: 3694 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1938 = { _0: "θ s", _1: 69 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1939 = { _0: "θ u", _1: 597 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1940 = { _0: "θ v", _1: 12 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1941 = { _0: "θ x", _1: 3 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1942 = { _0: "θ z", _1: 4 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1943 = { _0: "θ ð", _1: 3 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1944 = { _0: "θ ɣ", _1: 1 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1945 = { _0: "θ θ", _1: 61 };
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N7_2abindS1946 = [_M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1592, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1593, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1594, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1595, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1596, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1597, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1598, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1599, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1600, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1601, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1602, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1603, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1604, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1605, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1606, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1607, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1608, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1609, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1610, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1611, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1612, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1613, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1614, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1615, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1616, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1617, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1618, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1619, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1620, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1621, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1622, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1623, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1624, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1625, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1626, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1627, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1628, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1629, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1630, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1631, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1632, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1633, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1634, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1635, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1636, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1637, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1638, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1639, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1640, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1641, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1642, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1643, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1644, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1645, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1646, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1647, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1648, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1649, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1650, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1651, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1652, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1653, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1654, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1655, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1656, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1657, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1658, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1659, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1660, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1661, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1662, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1663, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1664, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1665, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1666, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1667, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1668, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1669, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1670, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1671, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1672, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1673, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1674, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1675, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1676, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1677, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1678, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1679, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1680, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1681, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1682, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1683, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1684, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1685, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1686, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1687, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1688, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1689, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1690, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1691, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1692, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1693, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1694, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1695, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1696, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1697, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1698, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1699, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1700, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1701, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1702, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1703, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1704, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1705, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1706, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1707, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1708, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1709, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1710, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1711, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1712, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1713, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1714, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1715, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1716, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1717, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1718, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1719, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1720, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1721, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1722, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1723, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1724, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1725, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1726, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1727, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1728, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1729, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1730, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1731, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1732, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1733, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1734, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1735, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1736, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1737, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1738, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1739, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1740, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1741, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1742, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1743, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1744, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1745, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1746, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1747, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1748, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1749, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1750, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1751, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1752, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1753, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1754, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1755, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1756, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1757, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1758, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1759, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1760, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1761, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1762, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1763, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1764, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1765, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1766, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1767, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1768, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1769, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1770, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1771, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1772, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1773, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1774, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1775, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1776, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1777, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1778, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1779, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1780, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1781, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1782, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1783, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1784, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1785, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1786, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1787, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1788, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1789, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1790, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1791, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1792, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1793, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1794, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1795, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1796, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1797, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1798, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1799, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1800, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1801, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1802, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1803, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1804, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1805, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1806, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1807, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1808, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1809, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1810, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1811, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1812, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1813, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1814, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1815, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1816, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1817, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1818, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1819, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1820, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1821, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1822, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1823, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1824, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1825, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1826, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1827, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1828, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1829, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1830, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1831, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1832, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1833, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1834, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1835, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1836, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1837, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1838, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1839, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1840, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1841, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1842, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1843, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1844, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1845, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1846, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1847, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1848, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1849, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1850, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1851, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1852, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1853, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1854, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1855, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1856, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1857, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1858, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1859, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1860, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1861, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1862, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1863, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1864, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1865, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1866, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1867, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1868, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1869, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1870, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1871, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1872, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1873, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1874, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1875, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1876, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1877, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1878, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1879, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1880, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1881, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1882, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1883, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1884, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1885, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1886, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1887, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1888, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1889, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1890, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1891, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1892, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1893, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1894, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1895, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1896, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1897, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1898, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1899, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1900, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1901, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1902, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1903, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1904, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1905, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1906, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1907, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1908, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1909, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1910, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1911, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1912, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1913, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1914, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1915, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1916, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1917, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1918, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1919, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1920, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1921, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1922, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1923, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1924, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1925, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1926, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1927, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1928, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1929, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1930, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1931, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1932, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1933, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1934, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1935, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1936, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1937, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1938, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1939, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1940, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1941, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1942, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1943, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1944, _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N5tupleS1945];
+const _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0 = _M0MPB3Map3MapGsiE(new _M0TPB9ArrayViewGUsiEE(_M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__0N7_2abindS1946, 0, 354), undefined);
+const _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__1N5tupleS2885 = { _0: "a", _1: 285395 };
+const _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__1N5tupleS2886 = { _0: "e", _1: 394551 };
+const _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__1N5tupleS2887 = { _0: "f", _1: 48767 };
+const _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__1N5tupleS2888 = { _0: "i", _1: 170440 };
+const _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__1N5tupleS2889 = { _0: "k", _1: 191352 };
+const _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__1N5tupleS2890 = { _0: "l", _1: 90714 };
+const _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__1N5tupleS2891 = { _0: "m", _1: 97105 };
+const _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__1N5tupleS2892 = { _0: "n", _1: 109643 };
+const _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__1N5tupleS2893 = { _0: "o", _1: 258134 };
+const _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__1N5tupleS2894 = { _0: "p", _1: 143258 };
+const _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__1N5tupleS2895 = { _0: "r", _1: 125574 };
+const _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__1N5tupleS2896 = { _0: "s", _1: 170388 };
+const _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__1N5tupleS2897 = { _0: "t", _1: 317759 };
+const _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__1N5tupleS2898 = { _0: "u", _1: 46715 };
+const _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__1N5tupleS2899 = { _0: "v", _1: 37076 };
+const _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__1N5tupleS2900 = { _0: "y", _1: 86569 };
+const _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__1N5tupleS2901 = { _0: "z", _1: 6835 };
+const _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__1N5tupleS2902 = { _0: "ð", _1: 60888 };
+const _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__1N5tupleS2903 = { _0: "ɣ", _1: 48141 };
+const _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__1N7_2abindS2904 = [_M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__1N5tupleS2885, _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__1N5tupleS2886, _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__1N5tupleS2887, _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__1N5tupleS2888, _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__1N5tupleS2889, _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__1N5tupleS2890, _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__1N5tupleS2891, _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__1N5tupleS2892, _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__1N5tupleS2893, _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__1N5tupleS2894, _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__1N5tupleS2895, _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__1N5tupleS2896, _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__1N5tupleS2897, _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__1N5tupleS2898, _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__1N5tupleS2899, _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__1N5tupleS2900, _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__1N5tupleS2901, _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__1N5tupleS2902, _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__1N5tupleS2903];
+const _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__1 = _M0MPB3Map3MapGsiE(new _M0TPB9ArrayViewGUsiEE(_M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__1N7_2abindS2904, 0, 19), undefined);
+const _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__3N5tupleS2925 = { _0: "a", _1: 397372 };
+const _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__3N5tupleS2926 = { _0: "b", _1: 26876 };
+const _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__3N5tupleS2927 = { _0: "d", _1: 60888 };
+const _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__3N5tupleS2928 = { _0: "e", _1: 454430 };
+const _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__3N5tupleS2929 = { _0: "f", _1: 22004 };
+const _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__3N5tupleS2930 = { _0: "g", _1: 48141 };
+const _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__3N5tupleS2931 = { _0: "h", _1: 90506 };
+const _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__3N5tupleS2932 = { _0: "i", _1: 351531 };
+const _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__3N5tupleS2933 = { _0: "k", _1: 166291 };
+const _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__3N5tupleS2934 = { _0: "l", _1: 90714 };
+const _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__3N5tupleS2935 = { _0: "m", _1: 97105 };
+const _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__3N5tupleS2936 = { _0: "n", _1: 109643 };
+const _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__3N5tupleS2937 = { _0: "o", _1: 329728 };
+const _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__3N5tupleS2938 = { _0: "p", _1: 121254 };
+const _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__3N5tupleS2939 = { _0: "r", _1: 125574 };
+const _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__3N5tupleS2940 = { _0: "s", _1: 170388 };
+const _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__3N5tupleS2941 = { _0: "t", _1: 265342 };
+const _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__3N5tupleS2942 = { _0: "u", _1: 258301 };
+const _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__3N5tupleS2943 = { _0: "x", _1: 25061 };
+const _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__3N5tupleS2944 = { _0: "z", _1: 6835 };
+const _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__3N5tupleS2945 = { _0: "θ", _1: 52417 };
+const _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__3N7_2abindS2946 = [_M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__3N5tupleS2925, _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__3N5tupleS2926, _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__3N5tupleS2927, _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__3N5tupleS2928, _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__3N5tupleS2929, _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__3N5tupleS2930, _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__3N5tupleS2931, _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__3N5tupleS2932, _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__3N5tupleS2933, _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__3N5tupleS2934, _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__3N5tupleS2935, _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__3N5tupleS2936, _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__3N5tupleS2937, _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__3N5tupleS2938, _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__3N5tupleS2939, _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__3N5tupleS2940, _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__3N5tupleS2941, _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__3N5tupleS2942, _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__3N5tupleS2943, _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__3N5tupleS2944, _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__3N5tupleS2945];
+const _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__3 = _M0MPB3Map3MapGsiE(new _M0TPB9ArrayViewGUsiEE(_M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__3N7_2abindS2946, 0, 21), undefined);
+const _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__0N5tupleS2861 = { _0: "a", _1: 285395 };
+const _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__0N5tupleS2862 = { _0: "b", _1: 1252 };
+const _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__0N5tupleS2863 = { _0: "d", _1: 21540 };
+const _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__0N5tupleS2864 = { _0: "e", _1: 277373 };
+const _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__0N5tupleS2865 = { _0: "f", _1: 70771 };
+const _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__0N5tupleS2866 = { _0: "g", _1: 1270 };
+const _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__0N5tupleS2867 = { _0: "i", _1: 374187 };
+const _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__0N5tupleS2868 = { _0: "k", _1: 165021 };
+const _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__0N5tupleS2869 = { _0: "l", _1: 90714 };
+const _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__0N5tupleS2870 = { _0: "m", _1: 97105 };
+const _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__0N5tupleS2871 = { _0: "n", _1: 109643 };
+const _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__0N5tupleS2872 = { _0: "o", _1: 258134 };
+const _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__0N5tupleS2873 = { _0: "p", _1: 120002 };
+const _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__0N5tupleS2874 = { _0: "r", _1: 125574 };
+const _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__0N5tupleS2875 = { _0: "s", _1: 163630 };
+const _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__0N5tupleS2876 = { _0: "t", _1: 243802 };
+const _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__0N5tupleS2877 = { _0: "u", _1: 46715 };
+const _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__0N5tupleS2878 = { _0: "v", _1: 37076 };
+const _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__0N5tupleS2879 = { _0: "x", _1: 25061 };
+const _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__0N5tupleS2880 = { _0: "z", _1: 13593 };
+const _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__0N5tupleS2881 = { _0: "ð", _1: 60888 };
+const _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__0N5tupleS2882 = { _0: "ɣ", _1: 48141 };
+const _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__0N5tupleS2883 = { _0: "θ", _1: 52417 };
+const _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__0N7_2abindS2884 = [_M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__0N5tupleS2861, _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__0N5tupleS2862, _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__0N5tupleS2863, _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__0N5tupleS2864, _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__0N5tupleS2865, _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__0N5tupleS2866, _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__0N5tupleS2867, _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__0N5tupleS2868, _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__0N5tupleS2869, _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__0N5tupleS2870, _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__0N5tupleS2871, _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__0N5tupleS2872, _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__0N5tupleS2873, _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__0N5tupleS2874, _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__0N5tupleS2875, _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__0N5tupleS2876, _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__0N5tupleS2877, _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__0N5tupleS2878, _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__0N5tupleS2879, _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__0N5tupleS2880, _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__0N5tupleS2881, _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__0N5tupleS2882, _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__0N5tupleS2883];
+const _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__0 = _M0MPB3Map3MapGsiE(new _M0TPB9ArrayViewGUsiEE(_M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__0N7_2abindS2884, 0, 23), undefined);
 const _bind$2 = [];
 const _M0FP39aaronshaf17greek_2dphonology3lib17ct__phones__total = _M0MPB3Map3MapGsiE(new _M0TPB9ArrayViewGUsiEE(_bind$2, 0, 0), undefined);
 const _bind$3 = [];
@@ -2359,7 +1931,7 @@ const _bind$4 = [];
 const _M0FP39aaronshaf17greek_2dphonology3lib9lex__bare = _M0MPB3Map3MapGsiE(new _M0TPB9ArrayViewGUsiEE(_bind$4, 0, 0), undefined);
 const _bind$5 = [];
 const _M0FP39aaronshaf17greek_2dphonology3lib9lex__fold = _M0MPB3Map3MapGsiE(new _M0TPB9ArrayViewGUsiEE(_bind$5, 0, 0), undefined);
-const _M0FP39aaronshaf17greek_2dphonology3lib10g2p__indexN6recordS4639 = new _M0TP39aaronshaf17greek_2dphonology3lib5Phone("|", "", -2, 0);
+const _M0FP39aaronshaf17greek_2dphonology3lib10g2p__indexN6recordS4209 = new _M0TP39aaronshaf17greek_2dphonology3lib5Phone("|", "", -2, 0);
 const _bind$6 = [];
 const _M0FP39aaronshaf17greek_2dphonology3lib9ct__preds = _M0MPB3Map3MapGsiE(new _M0TPB9ArrayViewGUsiEE(_bind$6, 0, 0), undefined);
 const _bind$7 = [];
@@ -2368,16 +1940,16 @@ const _bind$8 = [];
 const _M0FP39aaronshaf17greek_2dphonology3lib9ct__units = _M0MPB3Map3MapGsiE(new _M0TPB9ArrayViewGUsiEE(_bind$8, 0, 0), undefined);
 const _bind$9 = [];
 const _M0FP39aaronshaf17greek_2dphonology3lib16ct__preds__total = _M0MPB3Map3MapGsiE(new _M0TPB9ArrayViewGUsiEE(_bind$9, 0, 0), undefined);
-const _M0FP39aaronshaf17greek_2dphonology3lib11lex__accentN5tupleS3877 = { _0: 0, _1: false };
+const _M0FP39aaronshaf17greek_2dphonology3lib11lex__accentN5tupleS3447 = { _0: 0, _1: false };
 const _M0MPC16string10StringView4findN6constrS249 = 0;
-const _M0FP39aaronshaf17greek_2dphonology3lib28extract__consonant__clustersN6recordS4287 = new _M0TPC16string10StringView(" ", 0, 1);
-const _M0FP39aaronshaf17greek_2dphonology3lib15lexical__phraseN6recordS4029 = new _M0TPC16string10StringView(" ", 0, 1);
-const _M0FP39aaronshaf17greek_2dphonology3lib15lexical__phraseN6recordS4030 = new _M0TPC16string10StringView(" ", 0, 1);
-const _M0FP39aaronshaf17greek_2dphonology3lib18accentuate__phraseN6recordS3970 = new _M0TPC16string10StringView(" ", 0, 1);
-const _M0FP39aaronshaf17greek_2dphonology3lib18accentuate__phraseN6recordS3971 = new _M0TPC16string10StringView(" ", 0, 1);
-const _M0FP39aaronshaf17greek_2dphonology3lib22check__phrase__accentsN6recordS4060 = new _M0TPC16string10StringView(" ", 0, 1);
-const _M0FP39aaronshaf17greek_2dphonology3lib22check__phrase__accentsN6recordS4061 = new _M0TPC16string10StringView(" ", 0, 1);
-const _M0FP39aaronshaf17greek_2dphonology3lib22check__phrase__accentsN6recordS4062 = new _M0TPC16string10StringView(",", 0, 1);
+const _M0FP39aaronshaf17greek_2dphonology3lib28extract__consonant__clustersN6recordS3857 = new _M0TPC16string10StringView(" ", 0, 1);
+const _M0FP39aaronshaf17greek_2dphonology3lib15lexical__phraseN6recordS3599 = new _M0TPC16string10StringView(" ", 0, 1);
+const _M0FP39aaronshaf17greek_2dphonology3lib15lexical__phraseN6recordS3600 = new _M0TPC16string10StringView(" ", 0, 1);
+const _M0FP39aaronshaf17greek_2dphonology3lib18accentuate__phraseN6recordS3540 = new _M0TPC16string10StringView(" ", 0, 1);
+const _M0FP39aaronshaf17greek_2dphonology3lib18accentuate__phraseN6recordS3541 = new _M0TPC16string10StringView(" ", 0, 1);
+const _M0FP39aaronshaf17greek_2dphonology3lib22check__phrase__accentsN6recordS3630 = new _M0TPC16string10StringView(" ", 0, 1);
+const _M0FP39aaronshaf17greek_2dphonology3lib22check__phrase__accentsN6recordS3631 = new _M0TPC16string10StringView(" ", 0, 1);
+const _M0FP39aaronshaf17greek_2dphonology3lib22check__phrase__accentsN6recordS3632 = new _M0TPC16string10StringView(",", 0, 1);
 const _p = new Array(_M0FP39aaronshaf17greek_2dphonology3lib15contract__rules.length);
 const _p$2 = _M0FP39aaronshaf17greek_2dphonology3lib15contract__rules.length;
 let _tmp = 0;
@@ -2471,9 +2043,9 @@ while (true) {
   }
 }
 const _M0FP39aaronshaf17greek_2dphonology3lib16contract__tables = _p;
-const _M0FP39aaronshaf17greek_2dphonology3lib4jarrN6recordS4386 = new _M0TPC16string10StringView(",", 0, 1);
+const _M0FP39aaronshaf17greek_2dphonology3lib4jarrN6recordS3956 = new _M0TPC16string10StringView(",", 0, 1);
 const _M0MPC16string6String4trimN6recordS399 = new _M0TPC16string10StringView("\t\n\r ", 0, 4);
-const _M0FP39aaronshaf17greek_2dphonology3api8run__strN6recordS4881 = new _M0TPC16string10StringView("\u0001", 0, 1);
+const _M0FP39aaronshaf17greek_2dphonology3api8run__strN6recordS4451 = new _M0TPC16string10StringView("\u0001", 0, 1);
 function _M0FPB13consume4__acc(acc, input) {
   const _p$3 = (acc >>> 0) + ((Math.imul(input, -1028477379) | 0) >>> 0) | 0;
   const _p$4 = 17;
@@ -5209,7 +4781,7 @@ function _M0FP39aaronshaf17greek_2dphonology6kernel7law__ok(nsyl, pos, circ, nuc
 function _M0FP39aaronshaf17greek_2dphonology6kernel12extra__acute(lex_pos, lex_circ, proclitic, next_enclitic) {
   return next_enclitic ? (proclitic ? true : lex_pos === 3 ? true : lex_pos === 2 ? lex_circ : false) : false;
 }
-function _M0FP39aaronshaf17greek_2dphonology6kernel7argmax5(w0, w1, w2, w3, w4) {
+function _M0FP39aaronshaf17greek_2dphonology6kernel7argmax4(w0, w1, w2, w3) {
   let b = 0;
   let bw = w0;
   if (BigInt.asIntN(64, w1) > BigInt.asIntN(64, bw)) {
@@ -5222,15 +4794,11 @@ function _M0FP39aaronshaf17greek_2dphonology6kernel7argmax5(w0, w1, w2, w3, w4) 
   }
   if (BigInt.asIntN(64, w3) > BigInt.asIntN(64, bw)) {
     b = 3;
-    bw = w3;
-  }
-  if (BigInt.asIntN(64, w4) > BigInt.asIntN(64, bw)) {
-    b = 4;
   }
   return b;
 }
-function _M0FP39aaronshaf17greek_2dphonology6kernel10normalize5(w0, w1, w2, w3, w4, s) {
-  const t = BigInt.asUintN(64, BigInt.asUintN(64, BigInt.asUintN(64, BigInt.asUintN(64, w0 + w1) + w2) + w3) + w4);
+function _M0FP39aaronshaf17greek_2dphonology6kernel10normalize4(w0, w1, w2, w3, s) {
+  const t = BigInt.asUintN(64, BigInt.asUintN(64, BigInt.asUintN(64, w0 + w1) + w2) + w3);
   if (t === 0n) {
     $panic();
   }
@@ -5247,18 +4815,13 @@ function _M0FP39aaronshaf17greek_2dphonology6kernel10normalize5(w0, w1, w2, w3, 
     $panic();
   }
   const q3 = BigInt.asUintN(64, BigInt.asIntN(64, BigInt.asUintN(64, w3 * s)) / BigInt.asIntN(64, t));
-  if (t === 0n) {
-    $panic();
-  }
-  const q4 = BigInt.asUintN(64, BigInt.asIntN(64, BigInt.asUintN(64, w4 * s)) / BigInt.asIntN(64, t));
-  const rem = BigInt.asUintN(64, s - BigInt.asUintN(64, BigInt.asUintN(64, BigInt.asUintN(64, BigInt.asUintN(64, q0 + q1) + q2) + q3) + q4));
-  const top = _M0FP39aaronshaf17greek_2dphonology6kernel7argmax5(w0, w1, w2, w3, w4);
+  const rem = BigInt.asUintN(64, s - BigInt.asUintN(64, BigInt.asUintN(64, BigInt.asUintN(64, q0 + q1) + q2) + q3));
+  const top = _M0FP39aaronshaf17greek_2dphonology6kernel7argmax4(w0, w1, w2, w3);
   const r0 = top === 0 ? BigInt.asUintN(64, q0 + rem) : q0;
   const r1 = top === 1 ? BigInt.asUintN(64, q1 + rem) : q1;
   const r2 = top === 2 ? BigInt.asUintN(64, q2 + rem) : q2;
   const r3 = top === 3 ? BigInt.asUintN(64, q3 + rem) : q3;
-  const r4 = top === 4 ? BigInt.asUintN(64, q4 + rem) : q4;
-  return [r0, r1, r2, r3, r4];
+  return [r0, r1, r2, r3];
 }
 function _M0FP39aaronshaf17greek_2dphonology6kernel11stop__class(c) {
   return c === 960 || (c === 946 || c === 966) ? 1 : c === 954 || (c === 947 || c === 967) ? 2 : c === 964 || (c === 948 || c === 952) ? 3 : 0;
@@ -5515,7 +5078,7 @@ function _M0FP39aaronshaf17greek_2dphonology6kernel12g__koine__vl(bs, f) {
   return f >= bs.length ? true : _M0FP39aaronshaf17greek_2dphonology6kernel8g__vowel(f >>> 0 < bs.length ? bs[f] : $oob()) ? false : _M0FP39aaronshaf17greek_2dphonology6kernel12g__voiceless(f >>> 0 < bs.length ? bs[f] : $oob());
 }
 function _M0FP39aaronshaf17greek_2dphonology6kernel13g__vowel__seq(s, c) {
-  return c === 945 ? 1 : c === 953 ? 3 : c === 959 ? 4 : c === 949 ? (s === 2 ? 7 : 2) : c === 951 ? (s <= 1 ? 3 : s === 2 ? 2 : s === 3 ? 8 : 770) : c === 965 ? (s === 0 ? 3 : s === 4 ? 5 : 6) : c === 969 ? (s === 3 ? 9 : s === 4 ? 836 : 4) : 0;
+  return c === 945 ? 1 : c === 953 ? 3 : c === 959 ? 4 : c === 949 ? (s === 1 ? 7 : 2) : c === 951 ? (s === 0 ? 3 : s === 1 ? 2 : s === 2 ? 8 : 770) : c === 965 ? (s === 0 ? 3 : s === 3 ? 5 : 6) : c === 969 ? (s === 2 ? 9 : s === 3 ? 836 : 4) : 0;
 }
 function _M0FP39aaronshaf17greek_2dphonology6kernel12g__diph__seq(s, bs, i) {
   const a = i >>> 0 < bs.length ? bs[i] : $oob();
@@ -5528,13 +5091,13 @@ function _M0FP39aaronshaf17greek_2dphonology6kernel12g__diph__seq(s, bs, i) {
   const ou = a === 959 && b === 965;
   const au = a === 945 && b === 965;
   const eu = a === 949 && b === 965;
-  if (s === 3) {
+  if (s === 2) {
     return ai ? 193 : ei ? 10 : oi ? 196 : yi ? 198 : ou ? 44 : au ? 321 : eu ? 322 : 328;
   } else {
-    if (s === 4) {
+    if (s === 3) {
       return ai ? 769 : ei ? 770 : oi ? 782 : yi ? 207 : ou ? 5 : au ? 833 : eu ? 336 : 21250;
     } else {
-      if (s <= 1) {
+      if (s === 0) {
         if (ai) {
           return 2;
         } else {
@@ -5542,7 +5105,7 @@ function _M0FP39aaronshaf17greek_2dphonology6kernel12g__diph__seq(s, bs, i) {
             return 3;
           } else {
             if (oi || yi) {
-              return s === 1 ? 6 : 3;
+              return 3;
             } else {
               if (ou) {
                 return 5;
@@ -5601,7 +5164,7 @@ function _M0FP39aaronshaf17greek_2dphonology6kernel12g__cons__seq(s, bs, dd, i) 
     if (c === 968) {
       return 2276;
     } else {
-      if (s <= 1) {
+      if (s === 0) {
         if (c === 947) {
           return nas ? 26 : _M0FP39aaronshaf17greek_2dphonology6kernel8g__front(bs, dd, i + 1 | 0) ? 27 : 28;
         } else {
@@ -5655,10 +5218,10 @@ function _M0FP39aaronshaf17greek_2dphonology6kernel12g__cons__seq(s, bs, dd, i) 
           }
         }
       } else {
-        if (s === 4) {
+        if (s === 3) {
           return c === 947 ? (nas ? 26 : 23) : c === 950 ? 40 : c === 952 ? 33 : c === 966 ? 18 : c === 967 ? 30 : _M0FP39aaronshaf17greek_2dphonology6kernel9g__simple(c);
         } else {
-          const koine = s === 2;
+          const koine = s === 1;
           return c === 947 ? (nas ? 26 : koine ? (_M0FP39aaronshaf17greek_2dphonology6kernel8g__front(bs, dd, i + 1 | 0) ? 27 : 28) : 23) : c === 946 ? (koine ? 19 : 21) : c === 948 ? (koine ? 32 : 22) : c === 950 ? (koine ? 31 : 1439) : c === 952 ? 41 : c === 966 ? 42 : c === 967 ? 43 : _M0FP39aaronshaf17greek_2dphonology6kernel9g__simple(c);
         }
       }
@@ -5726,7 +5289,7 @@ function _M0FP39aaronshaf17greek_2dphonology6kernel8g2p__adv(s, bs, dd, i) {
     if (_tmp$3) {
       return 2;
     } else {
-      return s <= 1 && (c === 956 && d === 960 || (c === 957 && d === 964 || c === 947 && d === 954)) ? 2 : 1;
+      return s === 0 && (c === 956 && d === 960 || (c === 957 && d === 964 || c === 947 && d === 954)) ? 2 : 1;
     }
   } else {
     return 1;
@@ -5736,7 +5299,7 @@ function _M0FP39aaronshaf17greek_2dphonology6kernel9g2p__step(s, bs, rf, dd, i, 
   const n = bs.length;
   const c = i >>> 0 < bs.length ? bs[i] : $oob();
   const has_nxt = (i + 1 | 0) < n;
-  const att = s === 3 || s === 4;
+  const att = s === 2 || s === 3;
   let is_d;
   if (has_nxt) {
     let _tmp$2;
@@ -5791,7 +5354,7 @@ function _M0FP39aaronshaf17greek_2dphonology6kernel9g2p__step(s, bs, rf, dd, i, 
     k = 1;
   }
   let mp;
-  if (s <= 1) {
+  if (s === 0) {
     let _tmp$2;
     if (has_nxt) {
       let _tmp$3;
@@ -5810,7 +5373,7 @@ function _M0FP39aaronshaf17greek_2dphonology6kernel9g2p__step(s, bs, rf, dd, i, 
     mp = false;
   }
   let nt;
-  if (s <= 1) {
+  if (s === 0) {
     let _tmp$2;
     if (has_nxt) {
       let _tmp$3;
@@ -5829,7 +5392,7 @@ function _M0FP39aaronshaf17greek_2dphonology6kernel9g2p__step(s, bs, rf, dd, i, 
     nt = false;
   }
   let gk;
-  if (s <= 1) {
+  if (s === 0) {
     let _tmp$2;
     if (has_nxt) {
       let _tmp$3;
@@ -7021,673 +6584,673 @@ function _M0FP39aaronshaf17greek_2dphonology3lib11fold__lower(c) {
 function _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookup(s) {
   switch (s) {
     case "Ὰ": {
-      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3429;
+      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS2999;
     }
     case "Ά": {
-      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3430;
+      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3000;
     }
     case "Ᾱ": {
-      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3431;
+      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3001;
     }
     case "Ᾰ": {
-      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3432;
+      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3002;
     }
     case "Ἀ": {
-      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3433;
+      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3003;
     }
     case "Ἂ": {
-      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3434;
+      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3004;
     }
     case "ᾊ": {
-      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3435;
+      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3005;
     }
     case "Ἄ": {
-      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3436;
+      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3006;
     }
     case "ᾌ": {
-      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3437;
+      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3007;
     }
     case "Ἆ": {
-      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3438;
+      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3008;
     }
     case "ᾎ": {
-      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3439;
+      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3009;
     }
     case "ᾈ": {
-      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3440;
+      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3010;
     }
     case "Ἁ": {
-      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3441;
+      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3011;
     }
     case "Ἃ": {
-      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3442;
+      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3012;
     }
     case "ᾋ": {
-      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3443;
+      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3013;
     }
     case "Ἅ": {
-      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3444;
+      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3014;
     }
     case "ᾍ": {
-      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3445;
+      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3015;
     }
     case "Ἇ": {
-      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3446;
+      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3016;
     }
     case "ᾏ": {
-      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3447;
+      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3017;
     }
     case "ᾉ": {
-      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3448;
+      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3018;
     }
     case "ᾼ": {
-      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3449;
+      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3019;
     }
     case "Ὲ": {
-      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3450;
+      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3020;
     }
     case "Έ": {
-      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3451;
+      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3021;
     }
     case "Ἐ": {
-      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3452;
+      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3022;
     }
     case "Ἒ": {
-      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3453;
+      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3023;
     }
     case "Ἔ": {
-      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3454;
+      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3024;
     }
     case "Ἑ": {
-      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3455;
+      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3025;
     }
     case "Ἓ": {
-      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3456;
+      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3026;
     }
     case "Ἕ": {
-      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3457;
+      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3027;
     }
     case "Ὴ": {
-      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3458;
+      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3028;
     }
     case "Ή": {
-      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3459;
+      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3029;
     }
     case "Ἠ": {
-      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3460;
+      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3030;
     }
     case "Ἢ": {
-      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3461;
+      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3031;
     }
     case "ᾚ": {
-      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3462;
+      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3032;
     }
     case "Ἤ": {
-      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3463;
+      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3033;
     }
     case "ᾜ": {
-      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3464;
+      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3034;
     }
     case "Ἦ": {
-      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3465;
+      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3035;
     }
     case "ᾞ": {
-      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3466;
+      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3036;
     }
     case "ᾘ": {
-      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3467;
+      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3037;
     }
     case "Ἡ": {
-      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3468;
+      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3038;
     }
     case "Ἣ": {
-      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3469;
+      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3039;
     }
     case "ᾛ": {
-      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3470;
+      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3040;
     }
     case "Ἥ": {
-      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3471;
+      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3041;
     }
     case "ᾝ": {
-      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3472;
+      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3042;
     }
     case "Ἧ": {
-      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3473;
+      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3043;
     }
     case "ᾟ": {
-      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3474;
+      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3044;
     }
     case "ᾙ": {
-      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3475;
+      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3045;
     }
     case "ῌ": {
-      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3476;
+      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3046;
     }
     case "Ὶ": {
-      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3477;
+      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3047;
     }
     case "Ί": {
-      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3478;
+      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3048;
     }
     case "Ῑ": {
-      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3479;
+      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3049;
     }
     case "Ῐ": {
-      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3480;
+      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3050;
     }
     case "Ϊ": {
-      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3481;
+      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3051;
     }
     case "Ἰ": {
-      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3482;
+      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3052;
     }
     case "Ἲ": {
-      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3483;
+      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3053;
     }
     case "Ἴ": {
-      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3484;
+      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3054;
     }
     case "Ἶ": {
-      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3485;
+      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3055;
     }
     case "Ἱ": {
-      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3486;
+      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3056;
     }
     case "Ἳ": {
-      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3487;
+      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3057;
     }
     case "Ἵ": {
-      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3488;
+      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3058;
     }
     case "Ἷ": {
-      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3489;
+      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3059;
     }
     case "Ὸ": {
-      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3490;
+      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3060;
     }
     case "Ό": {
-      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3491;
+      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3061;
     }
     case "Ὀ": {
-      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3492;
+      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3062;
     }
     case "Ὂ": {
-      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3493;
+      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3063;
     }
     case "Ὄ": {
-      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3494;
+      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3064;
     }
     case "Ὁ": {
-      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3495;
+      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3065;
     }
     case "Ὃ": {
-      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3496;
+      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3066;
     }
     case "Ὅ": {
-      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3497;
+      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3067;
     }
     case "Ῥ": {
-      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3498;
+      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3068;
     }
     case "Ὺ": {
-      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3499;
+      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3069;
     }
     case "Ύ": {
-      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3500;
+      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3070;
     }
     case "Ῡ": {
-      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3501;
+      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3071;
     }
     case "Ῠ": {
-      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3502;
+      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3072;
     }
     case "Ϋ": {
-      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3503;
+      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3073;
     }
     case "Ὑ": {
-      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3504;
+      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3074;
     }
     case "Ὓ": {
-      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3505;
+      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3075;
     }
     case "Ὕ": {
-      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3506;
+      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3076;
     }
     case "Ὗ": {
-      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3507;
+      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3077;
     }
     case "Ὼ": {
-      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3508;
+      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3078;
     }
     case "Ώ": {
-      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3509;
+      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3079;
     }
     case "Ὠ": {
-      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3510;
+      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3080;
     }
     case "Ὢ": {
-      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3511;
+      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3081;
     }
     case "ᾪ": {
-      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3512;
+      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3082;
     }
     case "Ὤ": {
-      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3513;
+      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3083;
     }
     case "ᾬ": {
-      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3514;
+      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3084;
     }
     case "Ὦ": {
-      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3515;
+      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3085;
     }
     case "ᾮ": {
-      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3516;
+      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3086;
     }
     case "ᾨ": {
-      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3517;
+      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3087;
     }
     case "Ὡ": {
-      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3518;
+      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3088;
     }
     case "Ὣ": {
-      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3519;
+      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3089;
     }
     case "ᾫ": {
-      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3520;
+      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3090;
     }
     case "Ὥ": {
-      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3521;
+      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3091;
     }
     case "ᾭ": {
-      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3522;
+      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3092;
     }
     case "Ὧ": {
-      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3523;
+      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3093;
     }
     case "ᾯ": {
-      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3524;
+      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3094;
     }
     case "ᾩ": {
-      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3525;
+      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3095;
     }
     case "ῼ": {
-      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3526;
+      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3096;
     }
     case "ὰ": {
-      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3527;
+      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3097;
     }
     case "ᾲ": {
-      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3528;
+      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3098;
     }
     case "ά": {
-      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3529;
+      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3099;
     }
     case "ᾴ": {
-      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3530;
+      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3100;
     }
     case "ᾱ": {
-      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3531;
+      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3101;
     }
     case "ᾰ": {
-      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3532;
+      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3102;
     }
     case "ἀ": {
-      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3533;
+      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3103;
     }
     case "ἂ": {
-      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3534;
+      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3104;
     }
     case "ᾂ": {
-      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3535;
+      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3105;
     }
     case "ἄ": {
-      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3536;
+      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3106;
     }
     case "ᾄ": {
-      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3537;
+      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3107;
     }
     case "ἆ": {
-      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3538;
+      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3108;
     }
     case "ᾆ": {
-      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3539;
+      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3109;
     }
     case "ᾀ": {
-      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3540;
+      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3110;
     }
     case "ἁ": {
-      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3541;
+      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3111;
     }
     case "ἃ": {
-      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3542;
+      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3112;
     }
     case "ᾃ": {
-      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3543;
+      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3113;
     }
     case "ἅ": {
-      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3544;
+      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3114;
     }
     case "ᾅ": {
-      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3545;
+      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3115;
     }
     case "ἇ": {
-      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3546;
+      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3116;
     }
     case "ᾇ": {
-      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3547;
+      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3117;
     }
     case "ᾁ": {
-      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3548;
+      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3118;
     }
     case "ᾶ": {
-      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3549;
+      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3119;
     }
     case "ᾷ": {
-      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3550;
+      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3120;
     }
     case "ᾳ": {
-      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3551;
+      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3121;
     }
     case "ὲ": {
-      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3552;
+      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3122;
     }
     case "έ": {
-      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3553;
+      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3123;
     }
     case "ἐ": {
-      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3554;
+      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3124;
     }
     case "ἒ": {
-      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3555;
+      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3125;
     }
     case "ἔ": {
-      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3556;
+      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3126;
     }
     case "ἑ": {
-      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3557;
+      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3127;
     }
     case "ἓ": {
-      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3558;
+      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3128;
     }
     case "ἕ": {
-      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3559;
+      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3129;
     }
     case "ὴ": {
-      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3560;
+      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3130;
     }
     case "ῂ": {
-      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3561;
+      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3131;
     }
     case "ή": {
-      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3562;
+      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3132;
     }
     case "ῄ": {
-      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3563;
+      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3133;
     }
     case "ἠ": {
-      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3564;
+      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3134;
     }
     case "ἢ": {
-      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3565;
+      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3135;
     }
     case "ᾒ": {
-      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3566;
+      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3136;
     }
     case "ἤ": {
-      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3567;
+      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3137;
     }
     case "ᾔ": {
-      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3568;
+      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3138;
     }
     case "ἦ": {
-      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3569;
+      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3139;
     }
     case "ᾖ": {
-      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3570;
+      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3140;
     }
     case "ᾐ": {
-      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3571;
+      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3141;
     }
     case "ἡ": {
-      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3572;
+      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3142;
     }
     case "ἣ": {
-      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3573;
+      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3143;
     }
     case "ᾓ": {
-      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3574;
+      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3144;
     }
     case "ἥ": {
-      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3575;
+      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3145;
     }
     case "ᾕ": {
-      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3576;
+      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3146;
     }
     case "ἧ": {
-      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3577;
+      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3147;
     }
     case "ᾗ": {
-      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3578;
+      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3148;
     }
     case "ᾑ": {
-      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3579;
+      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3149;
     }
     case "ῆ": {
-      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3580;
+      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3150;
     }
     case "ῇ": {
-      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3581;
+      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3151;
     }
     case "ῃ": {
-      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3582;
+      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3152;
     }
     case "ὶ": {
-      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3583;
+      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3153;
     }
     case "ί": {
-      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3584;
+      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3154;
     }
     case "ῑ": {
-      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3585;
+      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3155;
     }
     case "ῐ": {
-      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3586;
+      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3156;
     }
     case "ϊ": {
-      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3587;
+      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3157;
     }
     case "ῒ": {
-      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3588;
+      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3158;
     }
     case "ΐ": {
-      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3589;
+      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3159;
     }
     case "ῗ": {
-      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3590;
+      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3160;
     }
     case "ἰ": {
-      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3591;
+      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3161;
     }
     case "ἲ": {
-      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3592;
+      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3162;
     }
     case "ἴ": {
-      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3593;
+      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3163;
     }
     case "ἶ": {
-      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3594;
+      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3164;
     }
     case "ἱ": {
-      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3595;
+      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3165;
     }
     case "ἳ": {
-      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3596;
+      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3166;
     }
     case "ἵ": {
-      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3597;
+      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3167;
     }
     case "ἷ": {
-      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3598;
+      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3168;
     }
     case "ῖ": {
-      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3599;
+      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3169;
     }
     case "ὸ": {
-      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3600;
+      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3170;
     }
     case "ό": {
-      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3601;
+      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3171;
     }
     case "ὀ": {
-      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3602;
+      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3172;
     }
     case "ὂ": {
-      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3603;
+      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3173;
     }
     case "ὄ": {
-      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3604;
+      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3174;
     }
     case "ὁ": {
-      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3605;
+      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3175;
     }
     case "ὃ": {
-      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3606;
+      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3176;
     }
     case "ὅ": {
-      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3607;
+      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3177;
     }
     case "ῤ": {
-      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3608;
+      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3178;
     }
     case "ῥ": {
-      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3609;
+      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3179;
     }
     case "ὺ": {
-      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3610;
+      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3180;
     }
     case "ύ": {
-      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3611;
+      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3181;
     }
     case "ῡ": {
-      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3612;
+      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3182;
     }
     case "ῠ": {
-      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3613;
+      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3183;
     }
     case "ϋ": {
-      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3614;
+      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3184;
     }
     case "ῢ": {
-      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3615;
+      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3185;
     }
     case "ΰ": {
-      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3616;
+      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3186;
     }
     case "ῧ": {
-      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3617;
+      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3187;
     }
     case "ὐ": {
-      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3618;
+      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3188;
     }
     case "ὒ": {
-      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3619;
+      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3189;
     }
     case "ὔ": {
-      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3620;
+      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3190;
     }
     case "ὖ": {
-      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3621;
+      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3191;
     }
     case "ὑ": {
-      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3622;
+      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3192;
     }
     case "ὓ": {
-      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3623;
+      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3193;
     }
     case "ὕ": {
-      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3624;
+      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3194;
     }
     case "ὗ": {
-      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3625;
+      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3195;
     }
     case "ῦ": {
-      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3626;
+      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3196;
     }
     case "ὼ": {
-      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3627;
+      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3197;
     }
     case "ῲ": {
-      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3628;
+      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3198;
     }
     case "ώ": {
-      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3629;
+      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3199;
     }
     case "ῴ": {
-      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3630;
+      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3200;
     }
     case "ὠ": {
-      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3631;
+      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3201;
     }
     case "ὢ": {
-      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3632;
+      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3202;
     }
     case "ᾢ": {
-      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3633;
+      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3203;
     }
     case "ὤ": {
-      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3634;
+      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3204;
     }
     case "ᾤ": {
-      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3635;
+      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3205;
     }
     case "ὦ": {
-      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3636;
+      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3206;
     }
     case "ᾦ": {
-      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3637;
+      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3207;
     }
     case "ᾠ": {
-      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3638;
+      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3208;
     }
     case "ὡ": {
-      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3639;
+      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3209;
     }
     case "ὣ": {
-      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3640;
+      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3210;
     }
     case "ᾣ": {
-      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3641;
+      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3211;
     }
     case "ὥ": {
-      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3642;
+      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3212;
     }
     case "ᾥ": {
-      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3643;
+      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3213;
     }
     case "ὧ": {
-      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3644;
+      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3214;
     }
     case "ᾧ": {
-      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3645;
+      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3215;
     }
     case "ᾡ": {
-      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3646;
+      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3216;
     }
     case "ῶ": {
-      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3647;
+      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3217;
     }
     case "ῷ": {
-      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3648;
+      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3218;
     }
     case "ῳ": {
-      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3649;
+      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3219;
     }
     case "ϓ": {
-      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3650;
+      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3220;
     }
     case "ϔ": {
-      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3651;
+      return _M0FP39aaronshaf17greek_2dphonology3lib11nfc__lookupN6constrS3221;
     }
     default: {
       return -1;
@@ -9410,7 +8973,7 @@ function _M0FP39aaronshaf17greek_2dphonology3lib6accent(word) {
 function _M0FP39aaronshaf17greek_2dphonology3lib11lex__accent(w) {
   const _bind$10 = _M0FP39aaronshaf17greek_2dphonology3lib6accent(w);
   if (_bind$10 === undefined) {
-    return _M0FP39aaronshaf17greek_2dphonology3lib11lex__accentN5tupleS3877;
+    return _M0FP39aaronshaf17greek_2dphonology3lib11lex__accentN5tupleS3447;
   } else {
     const _Some = _bind$10;
     const _x = _Some;
@@ -9765,7 +9328,7 @@ function _M0FP39aaronshaf17greek_2dphonology3lib16render__decision(code, w, base
   }
 }
 function _M0FP39aaronshaf17greek_2dphonology3lib18accentuate__phrase(text) {
-  const raw = _M0MPB4Iter9to__arrayGsE(_M0MPB4Iter6filterGsE(_M0MPB4Iter3mapGRPC16string10StringViewsE(_M0MPC16string6String5split(text, _M0FP39aaronshaf17greek_2dphonology3lib18accentuate__phraseN6recordS3970), (v) => _M0MPC16string10StringView9to__owned(v)), (v) => {
+  const raw = _M0MPB4Iter9to__arrayGsE(_M0MPB4Iter6filterGsE(_M0MPB4Iter3mapGRPC16string10StringViewsE(_M0MPC16string6String5split(text, _M0FP39aaronshaf17greek_2dphonology3lib18accentuate__phraseN6recordS3540), (v) => _M0MPC16string10StringView9to__owned(v)), (v) => {
     const _p$3 = "";
     return !(v === _p$3);
   }));
@@ -9954,7 +9517,7 @@ function _M0FP39aaronshaf17greek_2dphonology3lib18accentuate__phrase(text) {
       break;
     }
   }
-  return _M0MPC15array5Array4joinGsE(out, _M0FP39aaronshaf17greek_2dphonology3lib18accentuate__phraseN6recordS3971);
+  return _M0MPC15array5Array4joinGsE(out, _M0FP39aaronshaf17greek_2dphonology3lib18accentuate__phraseN6recordS3541);
 }
 function _M0FP39aaronshaf17greek_2dphonology3lib16written__accents(w) {
   const sm = _M0FP39aaronshaf17greek_2dphonology3lib10syl__marks(w);
@@ -9990,7 +9553,7 @@ function _M0FP39aaronshaf17greek_2dphonology3lib16written__accents(w) {
   return out;
 }
 function _M0FP39aaronshaf17greek_2dphonology3lib15lexical__phrase(text) {
-  const raw = _M0MPB4Iter9to__arrayGsE(_M0MPB4Iter6filterGsE(_M0MPB4Iter3mapGRPC16string10StringViewsE(_M0MPC16string6String5split(text, _M0FP39aaronshaf17greek_2dphonology3lib15lexical__phraseN6recordS4029), (v) => _M0MPC16string10StringView9to__owned(v)), (v) => {
+  const raw = _M0MPB4Iter9to__arrayGsE(_M0MPB4Iter6filterGsE(_M0MPB4Iter3mapGRPC16string10StringViewsE(_M0MPC16string6String5split(text, _M0FP39aaronshaf17greek_2dphonology3lib15lexical__phraseN6recordS3599), (v) => _M0MPC16string10StringView9to__owned(v)), (v) => {
     const _p$3 = "";
     return !(v === _p$3);
   }));
@@ -10073,7 +9636,7 @@ function _M0FP39aaronshaf17greek_2dphonology3lib15lexical__phrase(text) {
       break;
     }
   }
-  return _M0MPC15array5Array4joinGsE(out, _M0FP39aaronshaf17greek_2dphonology3lib15lexical__phraseN6recordS4030);
+  return _M0MPC15array5Array4joinGsE(out, _M0FP39aaronshaf17greek_2dphonology3lib15lexical__phraseN6recordS3600);
 }
 function _M0FP39aaronshaf17greek_2dphonology3lib4jstr(s) {
   const sb = _M0MPB13StringBuilder21StringBuilder_2einner(0);
@@ -10138,11 +9701,11 @@ function _M0FP39aaronshaf17greek_2dphonology3lib4jstr(s) {
 }
 function _M0FP39aaronshaf17greek_2dphonology3lib22check__phrase__accents(text) {
   const pred = _M0FP39aaronshaf17greek_2dphonology3lib18accentuate__phrase(_M0FP39aaronshaf17greek_2dphonology3lib15lexical__phrase(text));
-  const a = _M0MPB4Iter9to__arrayGsE(_M0MPB4Iter6filterGsE(_M0MPB4Iter3mapGRPC16string10StringViewsE(_M0MPC16string6String5split(text, _M0FP39aaronshaf17greek_2dphonology3lib22check__phrase__accentsN6recordS4060), (v) => _M0MPC16string10StringView9to__owned(v)), (v) => {
+  const a = _M0MPB4Iter9to__arrayGsE(_M0MPB4Iter6filterGsE(_M0MPB4Iter3mapGRPC16string10StringViewsE(_M0MPC16string6String5split(text, _M0FP39aaronshaf17greek_2dphonology3lib22check__phrase__accentsN6recordS3630), (v) => _M0MPC16string10StringView9to__owned(v)), (v) => {
     const _p$3 = "";
     return !(v === _p$3);
   }));
-  const b = _M0MPB4Iter9to__arrayGsE(_M0MPB4Iter3mapGRPC16string10StringViewsE(_M0MPC16string6String5split(pred, _M0FP39aaronshaf17greek_2dphonology3lib22check__phrase__accentsN6recordS4061), (v) => _M0MPC16string10StringView9to__owned(v)));
+  const b = _M0MPB4Iter9to__arrayGsE(_M0MPB4Iter3mapGRPC16string10StringViewsE(_M0MPC16string6String5split(pred, _M0FP39aaronshaf17greek_2dphonology3lib22check__phrase__accentsN6recordS3631), (v) => _M0MPC16string10StringView9to__owned(v)));
   const items = [];
   const _bind$10 = a.length;
   let _tmp$2 = 0;
@@ -10159,7 +9722,7 @@ function _M0FP39aaronshaf17greek_2dphonology3lib22check__phrase__accents(text) {
       break;
     }
   }
-  return `[${_M0MPC15array5Array4joinGsE(items, _M0FP39aaronshaf17greek_2dphonology3lib22check__phrase__accentsN6recordS4062)}]`;
+  return `[${_M0MPC15array5Array4joinGsE(items, _M0FP39aaronshaf17greek_2dphonology3lib22check__phrase__accentsN6recordS3632)}]`;
 }
 function _M0FP39aaronshaf17greek_2dphonology3lib9nfc__join(cs) {
   const sb = _M0MPB13StringBuilder21StringBuilder_2einner(0);
@@ -11032,7 +10595,7 @@ function _M0FP39aaronshaf17greek_2dphonology3lib9kl__lower(s) {
 function _M0FP39aaronshaf17greek_2dphonology3lib28extract__consonant__clusters(text) {
   const out = [];
   const t = _M0FP39aaronshaf17greek_2dphonology3lib15remove__numbers(_M0FP39aaronshaf17greek_2dphonology3lib19remove__punctuation(_M0FP39aaronshaf17greek_2dphonology3lib9kl__lower(text)));
-  const _it = _M0MPC16string6String5split(t, _M0FP39aaronshaf17greek_2dphonology3lib28extract__consonant__clustersN6recordS4287);
+  const _it = _M0MPC16string6String5split(t, _M0FP39aaronshaf17greek_2dphonology3lib28extract__consonant__clustersN6recordS3857);
   while (true) {
     const _bind$10 = _M0MPB4Iter4nextGsE(_it);
     if (_bind$10 === undefined) {
@@ -11466,7 +11029,7 @@ function _M0FP39aaronshaf17greek_2dphonology3lib4jarr(xs) {
       break;
     }
   }
-  return `[${_M0MPC15array5Array4joinGsE(_p$3, _M0FP39aaronshaf17greek_2dphonology3lib4jarrN6recordS4386)}]`;
+  return `[${_M0MPC15array5Array4joinGsE(_p$3, _M0FP39aaronshaf17greek_2dphonology3lib4jarrN6recordS3956)}]`;
 }
 function _M0FP39aaronshaf17greek_2dphonology3lib9fold__map(p) {
   switch (p) {
@@ -11602,11 +11165,8 @@ function _M0FP39aaronshaf17greek_2dphonology3lib10lm__tables(s) {
     case 2: {
       return { _0: _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__2, _1: _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__2 };
     }
-    case 3: {
-      return { _0: _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3, _1: _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__3 };
-    }
     default: {
-      return { _0: _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__4, _1: _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__4 };
+      return { _0: _M0FP39aaronshaf17greek_2dphonology3lib13lm__bigram__3, _1: _M0FP39aaronshaf17greek_2dphonology3lib14lm__unigram__3 };
     }
   }
 }
@@ -11803,7 +11363,7 @@ function _M0FP39aaronshaf17greek_2dphonology3lib7softmax(ll, t) {
     }
   }
   const e = _p$3;
-  if (e.length === 5) {
+  if (e.length === 4) {
     const _p$5 = new Array(e.length);
     const _p$6 = e.length;
     let _tmp$4 = 0;
@@ -11819,8 +11379,8 @@ function _M0FP39aaronshaf17greek_2dphonology3lib7softmax(ll, t) {
       }
     }
     const w = _p$5;
-    const q = _M0FP39aaronshaf17greek_2dphonology6kernel10normalize5(_M0MPC15array5Array2atGsE(w, 0), _M0MPC15array5Array2atGsE(w, 1), _M0MPC15array5Array2atGsE(w, 2), _M0MPC15array5Array2atGsE(w, 3), _M0MPC15array5Array2atGsE(w, 4), _M0FP39aaronshaf17greek_2dphonology3lib7softmaxN1sS4460);
-    const _p$7 = [0 >>> 0 < q.length ? q[0] : $oob(), 1 >>> 0 < q.length ? q[1] : $oob(), 2 >>> 0 < q.length ? q[2] : $oob(), 3 >>> 0 < q.length ? q[3] : $oob(), 4 >>> 0 < q.length ? q[4] : $oob()];
+    const q = _M0FP39aaronshaf17greek_2dphonology6kernel10normalize4(_M0MPC15array5Array2atGsE(w, 0), _M0MPC15array5Array2atGsE(w, 1), _M0MPC15array5Array2atGsE(w, 2), _M0MPC15array5Array2atGsE(w, 3), _M0FP39aaronshaf17greek_2dphonology3lib7softmaxN1sS4030);
+    const _p$7 = [0 >>> 0 < q.length ? q[0] : $oob(), 1 >>> 0 < q.length ? q[1] : $oob(), 2 >>> 0 < q.length ? q[2] : $oob(), 3 >>> 0 < q.length ? q[3] : $oob()];
     const _p$8 = new Array(_p$7.length);
     const _p$9 = _p$7.length;
     let _tmp$5 = 0;
@@ -11871,7 +11431,7 @@ function _M0FP39aaronshaf17greek_2dphonology3lib8is__base(c) {
   const i = c;
   return c >= 97 && c <= 122 || (c >= 65 && c <= 90 || (i >= 592 && i <= 687 || (c === 946 || (c === 952 || (c === 231 || (c === 240 || (c === 331 || (c === 611 || (c === 967 || (c === 248 || (c === 603 || (c === 596 || (c === 618 || (c === 650 || c === 655))))))))))))));
 }
-function _M0FP39aaronshaf17greek_2dphonology3lib8tokenizeN5flushS4482(_env) {
+function _M0FP39aaronshaf17greek_2dphonology3lib8tokenizeN5flushS4052(_env) {
   const out = _env._1;
   const cur = _env._0;
   if (out.length > 0 && cur.length > 0) {
@@ -11943,7 +11503,7 @@ function _M0FP39aaronshaf17greek_2dphonology3lib8tokenize(s) {
     if (i < cs.length) {
       const c = _M0MPC15array5Array2atGcE(cs, i);
       if (c === 124) {
-        _M0FP39aaronshaf17greek_2dphonology3lib8tokenizeN5flushS4482(_env);
+        _M0FP39aaronshaf17greek_2dphonology3lib8tokenizeN5flushS4052(_env);
         i = i + 1 | 0;
         continue;
       }
@@ -11973,7 +11533,7 @@ function _M0FP39aaronshaf17greek_2dphonology3lib8tokenize(s) {
       break;
     }
   }
-  _M0FP39aaronshaf17greek_2dphonology3lib8tokenizeN5flushS4482(_env);
+  _M0FP39aaronshaf17greek_2dphonology3lib8tokenizeN5flushS4052(_env);
   return out;
 }
 function _M0FP39aaronshaf17greek_2dphonology3lib12detect__free(ipa_s) {
@@ -12486,7 +12046,7 @@ function _M0FP39aaronshaf17greek_2dphonology3lib12word__phones(word, s, wi) {
           }
           let gem = false;
           let isub = false;
-          if (s === 3 && (adv === 1 && _M0FP39aaronshaf17greek_2dphonology3lib6is__gv(_M0MPC15array5Array2atGsE(_cl, i).b))) {
+          if (s === 2 && (adv === 1 && _M0FP39aaronshaf17greek_2dphonology3lib6is__gv(_M0MPC15array5Array2atGsE(_cl, i).b))) {
             let _tmp$4 = 0;
             while (true) {
               const k = _tmp$4;
@@ -12507,7 +12067,7 @@ function _M0FP39aaronshaf17greek_2dphonology3lib12word__phones(word, s, wi) {
             isub = _M0MPC15array5Array2atGsE(_cl, i).isub;
           } else {
             let _tmp$4;
-            if (s === 3) {
+            if (s === 2) {
               let _tmp$5;
               if (adv === 1) {
                 let _tmp$6;
@@ -12640,7 +12200,7 @@ function _M0FP39aaronshaf17greek_2dphonology3lib10g2p__index(text, s) {
       const p = _M0FP39aaronshaf17greek_2dphonology3lib12word__phones(_M0FP39aaronshaf17greek_2dphonology3lib9lex__form(w), s, wi);
       if (p.length > 0) {
         if (out.length > 0) {
-          _M0MPC15array5Array4pushGsE(out, _M0FP39aaronshaf17greek_2dphonology3lib10g2p__indexN6recordS4639);
+          _M0MPC15array5Array4pushGsE(out, _M0FP39aaronshaf17greek_2dphonology3lib10g2p__indexN6recordS4209);
         }
         const _bind$12 = p.length;
         let _tmp$3 = 0;
@@ -13606,7 +13166,7 @@ function _M0FP39aaronshaf17greek_2dphonology3api8run__str(cmd, a0, a1) {
       return _M0FP39aaronshaf17greek_2dphonology3lib12lookup__json(a0);
     }
     case 5: {
-      const parts = _M0MPB4Iter9to__arrayGsE(_M0MPB4Iter3mapGRPC16string10StringViewsE(_M0MPC16string6String5split(a1, _M0FP39aaronshaf17greek_2dphonology3api8run__strN6recordS4881), (v) => _M0MPC16string10StringView9to__owned(v)));
+      const parts = _M0MPB4Iter9to__arrayGsE(_M0MPB4Iter3mapGRPC16string10StringViewsE(_M0MPC16string6String5split(a1, _M0FP39aaronshaf17greek_2dphonology3api8run__strN6recordS4451), (v) => _M0MPC16string10StringView9to__owned(v)));
       return _M0FP39aaronshaf17greek_2dphonology3lib10call__json(a0, _M0MPC15array5Array2atGsE(parts, 0), parts.length > 1 ? _M0MPC15array5Array2atGsE(parts, 1) : "");
     }
     default: {

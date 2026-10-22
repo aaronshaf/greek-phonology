@@ -52,7 +52,7 @@ test "detect: output probabilities are a distribution (aligned and free modes)" 
   let seed = Ref(7)
   for _ in 0..<300 {
     let w = random_word(seed) + " " + random_word(seed)
-    let s = @lib.schemes[lcg(seed) % 5]
+    let s = @lib.schemes[lcg(seed) % 4]
     for d in [@lib.detect(@lib.ipa(w, s), greek_text=w), @lib.detect(@lib.ipa(w, s))] {
       let mut z = 0.0
       for x in d.probs {
@@ -118,13 +118,13 @@ test "examples" {
   assert_eq(@lib.accent_ok("ἄνθρωπου"), Some(false))
   assert_eq(@lib.ipa("θεός", "attic"), "tʰ e o s")
   assert_eq(@lib.ipa("θεός", "modern"), "θ e o s")
-  assert_eq(@lib.ipa("οἱ", "byzantine"), "y")
+  assert_eq(@lib.ipa("οἱ", "koine"), "y")
   assert_eq(@lib.ipa("αὐτός", "modern"), "a f t o s")
   let t = "Ἐν ἀρχῇ ἦν ὁ λόγος, καὶ ὁ λόγος ἦν πρὸς τὸν θεόν, οἱ υἱοὶ τῆς γῆς εὐαγγέλιον ἔχουσιν, δι αὐτοῦ πάντα ἐγένετο."
   for i, s in @lib.schemes {
     let d = @lib.detect(@lib.ipa(t, s), greek_text=t)
     let mut best = 0
-    for j in 0..<5 {
+    for j in 0..<4 {
       if d.probs[j] > d.probs[best] {
         best = j
       }
@@ -205,7 +205,7 @@ test "accentuate_phrase: at most two accents per word, a second accent only befo
 ///|
 test "g2p: deterministic, total, and each scheme only uses phones it can produce" {
   // inventory per scheme = phones seen over a large random sample with a different seed
-  let inv : Array[Map[String, Bool]] = [{}, {}, {}, {}, {}]
+  let inv : Array[Map[String, Bool]] = [{}, {}, {}, {}]
   let s1 = Ref(101)
   for _ in 0..<4000 {
     let w = random_word(s1)
@@ -228,7 +228,7 @@ test "g2p: deterministic, total, and each scheme only uses phones it can produce
       }
     }
   }
-  // Byzantine keeps y for upsilon; Modern never produces y
+  // Koine keeps y for upsilon; Modern never produces y
   assert_false(inv[@lib.schemes.search("modern").unwrap()].contains("y"))
 }
 
@@ -237,7 +237,7 @@ test "detect: evidence hits never exceed totals" {
   let seed = Ref(9)
   for _ in 0..<300 {
     let w = random_word(seed) + " " + random_word(seed)
-    let s = @lib.schemes[lcg(seed) % 5]
+    let s = @lib.schemes[lcg(seed) % 4]
     let d = @lib.detect(@lib.ipa(w, s), greek_text=w)
     for i, hs in d.evidence_hits {
       assert_eq(hs.length(), d.evidence_total[i].length())
@@ -294,7 +294,7 @@ test "approved G2P changes (RESEARCH.md items 1, 2, 4, 5)" {
   inspect(@lib.ipa("χάρις", "erasmian"), content="x a r i s")
   inspect(@lib.ipa("κόσμος", "modern"), content="k o z m o s")
   inspect(@lib.ipa("Ἰσραήλ", "modern"), content="i z r a i l")
-  inspect(@lib.ipa("κόσμος", "byzantine"), content="k o s m o s")
+  inspect(@lib.ipa("κόσμος", "koine"), content="k o s m o s")
   inspect(@lib.ipa("πᾶς", "attic"), content="p aː s")
   inspect(@lib.ipa("τῇ", "attic"), content="t ɛː i")
   inspect(@lib.ipa("θάλασσα", "attic"), content="tʰ a l a sː a")

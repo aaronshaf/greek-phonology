@@ -1,13 +1,12 @@
 // greek-phonology playground. Loads the wasm build (byte-buffer ABI); falls back to the JS build.
-const SCHEMES = [["koine", "Koine"], ["attic", "Restored Attic"], ["erasmian", "Erasmian"], ["modern", "Modern Greek"], ["byzantine", "Byzantine"]];
+const SCHEMES = [["koine", "Koine"], ["attic", "Restored Attic"], ["erasmian", "Erasmian"], ["modern", "Modern Greek"]];
 const EXAMPLES = {
   koine: "Ἐν ἀρχῇ ἦν ὁ λόγος, καὶ ὁ λόγος ἦν πρὸς τὸν θεόν",
   attic: "ἄνδρα μοι ἔννεπε, μοῦσα, πολύτροπον, θάλασσα",
   erasmian: "Μακάριοι οἱ πτωχοὶ τῷ πνεύματι, ἡ χάρις",
   modern: "Πάτερ ἡμῶν ὁ ἐν τοῖς οὐρανοῖς, ὁ κόσμος",
-  byzantine: "οἱ υἱοὶ τῆς γῆς εὐλογοῦσιν",
 };
-const V = "13";
+const V = "14";
 const $ = (id) => document.getElementById(id);
 let lib = null;
 
@@ -96,7 +95,7 @@ $("scheme").addEventListener("sl-change", schemeChanged);
 $("greek").addEventListener("sl-input", render);
 $("ipa").addEventListener("sl-input", render);
 
-const SCHEME_OPTS = ["koine", "attic", "erasmian", "modern", "byzantine"];
+const SCHEME_OPTS = ["koine", "attic", "erasmian", "modern"];
 const PARADIGMS = ["present-active-indicative", "imperfect-active-indicative", "future-active-indicative", "future-middle-indicative", "middle-passive-indicative", "present-active-subjunctive"];
 const TOOLS = [
   ["accentuate_phrase", "Accents in context: enclitics, proclitics, acute → grave. Type words with their dictionary accents.", "ἄνθρωπος τις ἦλθεν καί εἰ τις θέλει"],
