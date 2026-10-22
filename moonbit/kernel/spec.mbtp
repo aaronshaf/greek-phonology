@@ -1,10 +1,15 @@
 /// Law of limitation for a written accent at syllable `pos` (1 = ultima) of an `nsyl`-syllable word.
+// NOTE: the proof frontend drops parentheses around a disjunction that is an operand of &&
+// (A && (B || C) is read as A && B || C). Every disjunction therefore lives in its own predicate,
+// and predicates combine them with && only.
+predicate lol_antepenult(pos : Int, ult_long : Bool) { (pos != 3) || (ult_long == false) }
+predicate lol_circ_pos(pos : Int, circ : Bool) { (circ == false) || (pos <= 2) }
+predicate lol_circ_long(circ : Bool, nuc_long : Bool) { (circ == false) || (nuc_long == true) }
+predicate lol_circ_penult(pos : Int, circ : Bool, ult_long : Bool) { (circ == false) || (pos != 2) || (ult_long == false) }
 predicate law_of_limitation(nsyl : Int, pos : Int, circ : Bool, nuc_long : Bool, ult_long : Bool) {
   (1 <= pos) && (pos <= nsyl) && (pos <= 3) &&
-  ((pos != 3) || (ult_long == false)) &&
-  ((circ == false) || (pos <= 2)) &&
-  ((circ == false) || (nuc_long == true)) &&
-  ((circ == false) || (pos != 2) || (ult_long == false))
+  lol_antepenult(pos, ult_long) && lol_circ_pos(pos, circ) &&
+  lol_circ_long(circ, nuc_long) && lol_circ_penult(pos, circ, ult_long)
 }
 
 /// Recessive accent position (1 = ultima), logic side.
@@ -67,4 +72,56 @@ fn accents_spec(code : Int, lex_pos : Int) -> Int {
 /// Accent position read back by lexical_phrase from a decision code (logic side).
 fn decoded_spec(code : Int, lex_pos : Int) -> Int {
   if code == 1 || code == 4 { lex_pos } else { if code == 0 { 0 } else { 1 } }
+}
+
+/// Phone ids (see lib/g2p_tables.mbt): 1 a 2 e 3 i 4 o 5 u 6 y 7 ɛ 8 ɛː 9 ɔː 10 eː 11 oː 12 ɪ 13 ʊ 14 ɔ
+/// 15 w 16 j 17 h 18 f 19 v 20 β 21 b 22 d 23 g 24 m 25 n 26 ŋ 27 ʝ 28 ɣ 29 ç 30 x 31 z 32 ð 33 θ
+/// 34 k 35 s 36 p 37 l 38 r 39 t 40 d͡z 41 tʰ 42 pʰ 43 kʰ.
+predicate common_inv(id : Int) {
+  id == 1 || id == 3 || id == 4 || id == 34 || id == 35 || id == 36 || id == 37 || id == 24 || id == 25 || id == 38 || id == 39 || id == 26
+}
+predicate modern_inv(id : Int) {
+  common_inv(id) || id == 2 || id == 5 || id == 18 || id == 19 || id == 21 || id == 22 || id == 23 ||
+  id == 27 || id == 28 || id == 29 || id == 30 || id == 31 || id == 32 || id == 33
+}
+predicate koine_extra(id : Int) {
+  id == 7 || id == 2 || id == 6 || id == 5 || id == 18 || id == 20 || id == 27 ||
+  id == 28 || id == 19 || id == 32 || id == 31 || id == 41 || id == 42 || id == 43
+}
+predicate attic_extra(id : Int) {
+  id == 2 || id == 8 || id == 6 || id == 9 || id == 10 || id == 11 || id == 5 ||
+  id == 17 || id == 23 || id == 21 || id == 22 || id == 31 || id == 41 || id == 42 || id == 43
+}
+predicate erasmian_extra(id : Int) {
+  id == 2 || id == 12 || id == 5 || id == 13 || id == 14 || id == 15 || id == 16 ||
+  id == 17 || id == 23 || id == 40 || id == 33 || id == 18 || id == 21 || id == 22
+}
+predicate inv0(id : Int) { modern_inv(id) }
+predicate inv1(id : Int) { modern_inv(id) || id == 6 }
+predicate inv2(id : Int) { common_inv(id) || koine_extra(id) }
+predicate inv3(id : Int) { common_inv(id) || attic_extra(id) }
+predicate inv4(id : Int) { common_inv(id) || erasmian_extra(id) }
+predicate if0(s : Int, id : Int) { (s != 0) || inv0(id) }
+predicate if1(s : Int, id : Int) { (s != 1) || inv1(id) }
+predicate if2(s : Int, id : Int) { (s != 2) || inv2(id) }
+predicate if3(s : Int, id : Int) { (s != 3) || inv3(id) }
+predicate if4(s : Int, id : Int) { (s != 4) || inv4(id) }
+/// Phone id belongs to scheme s's inventory.
+predicate in_inv(s : Int, id : Int) {
+  (0 <= s) && (s <= 4) && if0(s, id) && if1(s, id) && if2(s, id) && if3(s, id) && if4(s, id)
+}
+predicate slot_ok(s : Int, p : Int) { (p == 0) || in_inv(s, p) }
+/// A packed phone sequence p1 + 64*p2 + 4096*p3 (0 = no phone) uses only scheme s's phones.
+predicate seq_ok(s : Int, q : Int) {
+  (0 <= q) && (q < 262144) && slot_ok(s, q % 64) && slot_ok(s, (q / 64) % 64) && slot_ok(s, q / 4096)
+}
+/// out[0..k) are all phones of scheme s.
+predicate all_in(s : Int, out : FixedArray[Int], k : Int) {
+  ∀ j : Int, (j < 0) || (k <= j) || in_inv(s, out[j])
+}
+
+/// starts[0..k) are strictly increasing positions inside [0, n).
+predicate in_word(x : Int, n : Int) { (0 <= x) && (x < n) }
+predicate starts_ok(starts : FixedArray[Int], k : Int, n : Int) {
+  ∀ j : Int, (j < 0) || (k <= j) || in_word(starts[j], n)
 }
