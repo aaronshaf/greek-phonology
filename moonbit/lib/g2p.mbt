@@ -468,6 +468,8 @@ priv struct GCl {
   b : Char
   rough : Bool
   dia : Bool
+  long : Bool // circumflex or macron: the vowel is long (used for Restored Attic length)
+  isub : Bool // iota subscript: a long diphthong (Restored Attic)
 }
 
 ///|
@@ -478,6 +480,7 @@ fn g2p_clusters(word : String) -> Array[GCl]? {
   for c in word {
     for ch in nfd_char(c) {
       if ch == '\u{0345}' || ch == '\u{1FBE}' {
+        t.push('\u{0345}')
         continue
       }
       t.push(if is_comb(ch) { ch } else { fold_lower(ch) })
@@ -487,15 +490,21 @@ fn g2p_clusters(word : String) -> Array[GCl]? {
   let mut i = 0
   while i < t.length() {
     let ch = t[i]
-    if is_comb(ch) {
+    if is_comb(ch) || ch == '\u{0345}' {
       i += 1
       continue
     }
     i += 1
     let mut rough = false
     let mut dia = false
-    while i < t.length() && is_comb(t[i]) {
-      if t[i] == rough_mark {
+    let mut long = false
+    let mut isub = false
+    while i < t.length() && (is_comb(t[i]) || t[i] == '\u{0345}') {
+      if t[i] == '\u{0345}' {
+        isub = true
+      } else if t[i] == circ || t[i] == '\u{0304}' {
+        long = true
+      } else if t[i] == rough_mark {
         rough = true
       } else if t[i] == diaer {
         dia = true
@@ -503,7 +512,7 @@ fn g2p_clusters(word : String) -> Array[GCl]? {
       i += 1
     }
     if is_gv(ch) || is_gc(ch) {
-      out.push({ b: ch, rough, dia })
+      out.push({ b: ch, rough, dia, long, isub })
     } else if is_alpha_like(ch) {
       return None
     }
@@ -520,7 +529,7 @@ fn g2p_clusters(word : String) -> Array[GCl]? {
 let phone_names : Array[String] = [
   "", "a", "e", "i", "o", "u", "y", "ɛ", "ɛː", "ɔː", "eː", "oː", "ɪ", "ʊ", "ɔ", "w", "j", "h", "f",
   "v", "β", "b", "d", "g", "m", "n", "ŋ", "ʝ", "ɣ", "ç", "x", "z", "ð", "θ", "k", "s", "p", "l", "r",
-  "t", "d͡z", "tʰ", "pʰ", "kʰ",
+  "t", "d͡z", "tʰ", "pʰ", "kʰ", "uː", "aː", "iː", "yː",
 ]
 
 ///|
@@ -543,11 +552,32 @@ fn word_phones(word : String, s : Int, wi : Int) -> Array[Phone] {
   // unit boundaries from the proved segmenter: every cluster consumed exactly once
   let starts = FixedArray::make(n + 1, 0)
   let nu = @kernel.g2p_units(s, bs, rf, dd, starts)
+  let mut skip = false
   for ui in 0..<nu {
     let i = starts[ui]
     let r = @kernel.g2p_step(s, bs, rf, dd, i, buf)
     let cnt = r % 8
     let adv = r / 8
+    if skip {
+      // second letter of a Restored Attic geminate, already written as Cː
+      skip = false
+      continue
+    }
+    // Restored Attic length (tested, not proven: it reads accents the kernel does not model)
+    let mut gem = false
+    let mut isub = false
+    if s == 3 && adv == 1 && is_gv(cl[i].b) {
+      for k in 0..<cnt {
+        if buf[k] != 17 && (cl[i].long || cl[i].isub) {
+          buf[k] = @kernel.g_attic_long(buf[k])
+        }
+      }
+      isub = cl[i].isub
+    } else if s == 3 && adv == 1 && cnt == 1 && !is_gv(cl[i].b) && cl[i].b != 'γ' &&
+      ui + 1 < nu && starts[ui + 1] == i + 1 && i + 1 < n && cl[i + 1].b == cl[i].b {
+      gem = true
+      skip = true
+    }
     let base = cl[i].b
     let tag = if adv == 2 {
       base.to_string() + cl[i + 1].b.to_string()
@@ -564,8 +594,11 @@ fn word_phones(word : String, s : Int, wi : Int) -> Array[Phone] {
       if id == 17 {
         out.push({ p: "h", tag: "h", w: wi, u: -1 })
       } else {
-        out.push({ p: phone_names[id], tag, w: wi, u: ui })
+        out.push({ p: phone_names[id] + (if gem { "ː" } else { "" }), tag, w: wi, u: ui })
       }
+    }
+    if isub {
+      out.push({ p: "i", tag, w: wi, u: ui })
     }
   }
   out

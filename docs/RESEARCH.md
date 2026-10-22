@@ -5,11 +5,11 @@ A short check of greek-phonology's rules against the standard references. Nothin
 ## 1. Pronunciation schemes (`ipa`)
 
 ### Restored Attic
-What the library does: η [ɛː], ει [eː], ου [oː], ω [ɔː], υ [y], ζ [zd], φ θ χ [pʰ tʰ kʰ], αι [ai], αυ [au], and β δ γ as stops.
+What the library does: η [ɛː], ει [eː], ου [uː], ω [ɔː], υ [y], ζ [zd], φ θ χ [pʰ tʰ kʰ], αι [ai], αυ [au], and β δ γ as stops.
 - **Agrees** with Allen, *Vox Graeca* (3rd ed., CUP 1987) on the aspirated stops, ζ as [zd], η and ω as open long vowels, υ as [y] and the spurious diphthong ει as [eː].
 - **Diverges:** Allen dates the change of ου from [oː] to [uː] to before the mid-4th century BC, so [uː] fits the usual target of classical Attic. Teodorsson, *The Phonemic System of the Attic Dialect 400–340 BC* (1974), dates many changes even earlier.
-  **Proposal:** Attic ου → [uː].
-- **Gap:** spelling doesn't show the length of α ι υ, so these are always short. Allen also treats ᾳ ῃ ῳ as long diphthongs and doubled consonants as geminates. The scheme should document this, or model it from a length-marked source.
+  **Done (Oct 2026):** Attic ου → [uː].
+- **Length (done, Oct 2026, partly):** α ι υ are written long [aː iː yː] when the spelling shows it: a circumflex, a macron, or an iota subscript. ᾳ ῃ ῳ are long diphthongs [aːi ɛːi ɔːi]. Doubled consonants are geminates written with ː (θάλασσα [tʰ a l a sː a]); γγ is still [ŋg], and aspirate pairs (κχ πφ τθ) are left as two phones. Not modeled: α ι υ under an acute or with no accent, whose length the spelling doesn't show and the bundled SBLGNT/Rahlfs word list doesn't mark; these stay short.
 - **Gap:** no pitch accent is shown. That is fine for segmental IPA but worth stating.
 
 ### Koine
@@ -21,10 +21,10 @@ What the library does: η [e], ε/αι [ɛ], ει [i], οι/υ [y], ω [o], β [
 - **Minor:** some sources write β as bilabial [β] rather than [v] for this period. Optional.
 
 ### Erasmian
-What the library does: η [eɪ], ω [oʊ], υ [u], ζ [dz], θ [θ], φ [f], χ [k], ει [eɪ], οι [ɔɪ], αυ [aʊ], ευ [ju].
+What the library does: η [eɪ], ω [oʊ], υ [u], ζ [dz], θ [θ], φ [f], χ [x], ει [eɪ], οι [ɔɪ], αυ [aʊ], ευ [ju].
 - There is no single standard. Erasmian is a family of classroom practices; the Ohio State "Greek Ancient and Modern" page discusses them (<https://u.osu.edu/greek/phonology/>). The library follows common North American seminary practice.
 - **Diverges** from many university courses, which say χ as [x] or [kʰ], not [k]. Buth also notes that Erasmian f/th/ch were borrowed from Modern Greek.
-  **Proposal:** document χ = [k] as a US-seminary variant, or add an option for [x].
+  **Done (Oct 2026):** Erasmian χ is now [x].
 
 ### Byzantine
 What the library does: like Modern, except υ and οι are [y].
@@ -35,7 +35,7 @@ What the library does: like Modern, except υ and οι are [y].
 What the library does: standard Athenian values, with μπ ντ γκ as digraphs and γ/χ palatalized before front vowels.
 - **Agrees** with Arvaniti, "Greek Phonetics: The State of the Art", *Journal of Greek Linguistics* 8 (2007), and with Holton, Mackridge & Philippaki-Warburton, *Greek: A Comprehensive Grammar*.
 - **Small gaps:** σ is not voiced to [z] before voiced consonants (κόσμος [ˈkozmos]). Medial μπ/ντ, which many speakers say as [mb]/[nd], is not prenasalized.
-  **Proposal:** voice σ before a voiced consonant in Modern (and Byzantine).
+  **Done (Oct 2026), Modern only:** σ/ς becomes [z] before β γ δ μ ν λ ρ (κόσμος [k o z m o s]). Byzantine is unchanged.
 
 ## 2. Accent rules and sandhi
 - The law of limitation, recessive accent, grave before a following word, and the enclitic rules follow Smyth, *Greek Grammar* §§149–187 (rev. Messing, 1956; text at <https://www.perseus.tufts.edu/>), and Probert, *A New Short Guide to the Accentuation of Ancient Greek* (Bristol Classical Press, 2003). These cover: an extra acute on a proparoxytone or properispomenon before an enclitic, a two-syllable enclitic keeping its accent after a paroxytone, and the acute kept on an oxytone before an enclitic. **Agrees.**
@@ -56,8 +56,10 @@ What the library does: standard Athenian values, with μπ ντ γκ as digraphs
 - So `detect` appears to be new. The README should describe it as a heuristic likelihood model, not an established method.
 
 ## Top divergences
-1. Attic ου is [oː]; Allen's 4th-century target is [uː]. (Proposal)
-2. Erasmian χ is [k]; many academic courses use [x] or [kʰ]. (Document or add an option.)
-3. Byzantine needs a stated date range (about 6th–10th century, υ/οι = [y]). (Docs)
-4. Modern doesn't voice σ before voiced consonants. (Proposal)
-5. Attic doesn't show vowel length for α ι υ or geminates. (Document)
+1. ~~Attic ου is [oː]~~ Done: [uː].
+2. ~~Erasmian χ is [k]~~ Done: [x].
+3. Byzantine needs a stated date range (about 6th–10th century, υ/οι = [y]). (Docs, open)
+4. ~~Modern doesn't voice σ before voiced consonants~~ Done: [z] before β γ δ μ ν λ ρ.
+5. Attic length: done where the spelling shows it (circumflex, macron, iota subscript, geminates). Open: α ι υ under an acute or unaccented.
+
+After items 1, 2, 4 and 5 the detector's phone-bigram tables were rebuilt from the SBLGNT and Rahlfs LXX word counts.

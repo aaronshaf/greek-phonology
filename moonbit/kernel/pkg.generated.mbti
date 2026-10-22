@@ -4,6 +4,8 @@ package "aaronshaf/greek-phonology/kernel"
 // Values
 pub fn accent_count(Bool, Bool) -> Int32
 
+pub fn accent_target(FixedArray[Int32], FixedArray[Int32], Int32) -> Int32
+
 pub fn accents_written(Int32, Int32) -> Int32
 
 pub fn alt_match(FixedArray[Int32], Int32, FixedArray[Int32], Int32) -> Bool
@@ -25,6 +27,8 @@ pub fn g2p_adv(Int32, FixedArray[Int32], FixedArray[Int32], Int32) -> Int32
 pub fn g2p_step(Int32, FixedArray[Int32], FixedArray[Int32], FixedArray[Int32], Int32, FixedArray[Int32]) -> Int32
 
 pub fn g2p_units(Int32, FixedArray[Int32], FixedArray[Int32], FixedArray[Int32], FixedArray[Int32]) -> Int32
+
+pub fn g_attic_long(Int32) -> Int32
 
 pub fn g_cons_seq(Int32, FixedArray[Int32], FixedArray[Int32], Int32) -> Int32
 
@@ -52,6 +56,10 @@ pub fn recessive_circ(Int32, Bool, Bool) -> Bool
 
 pub fn recessive_pos(Int32, Bool) -> Int32
 
+pub fn render_marks(FixedArray[Int32], Int32, Int32, FixedArray[Int32]) -> Int32
+
+pub fn round_trip_ordinary(FixedArray[Int32], Int32, Int32, Int32, FixedArray[Int32], FixedArray[Int32]) -> Int32
+
 pub fn share(Int64, Int64, Int64) -> Int64
 
 pub fn stop_class(Int32) -> Int32
@@ -61,6 +69,8 @@ pub fn syllable_cut(FixedArray[Int32], Int32, Int32, Int32) -> Int32
 pub fn tally_hit(Int32, Int32, Bool) -> Int32
 
 pub fn to_grave(Int32, Bool, Bool) -> Bool
+
+pub fn unrender_marks(FixedArray[Int32], Int32, Bool, FixedArray[Int32]) -> Int32
 
 // Errors
 

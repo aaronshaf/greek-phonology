@@ -287,3 +287,15 @@ test "contract tables satisfy the proved kernel's preconditions" {
     ignore(@lib.contract(w))
   }
 }
+
+///|
+test "approved G2P changes (RESEARCH.md items 1, 2, 4, 5)" {
+  inspect(@lib.ipa("οὐρανός", "attic"), content="uː r a n o s")
+  inspect(@lib.ipa("χάρις", "erasmian"), content="x a r i s")
+  inspect(@lib.ipa("κόσμος", "modern"), content="k o z m o s")
+  inspect(@lib.ipa("Ἰσραήλ", "modern"), content="i z r a i l")
+  inspect(@lib.ipa("κόσμος", "byzantine"), content="k o s m o s")
+  inspect(@lib.ipa("πᾶς", "attic"), content="p aː s")
+  inspect(@lib.ipa("τῇ", "attic"), content="t ɛː i")
+  inspect(@lib.ipa("θάλασσα", "attic"), content="tʰ a l a sː a")
+}

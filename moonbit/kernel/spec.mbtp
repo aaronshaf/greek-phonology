@@ -76,7 +76,7 @@ fn decoded_spec(code : Int, lex_pos : Int) -> Int {
 
 /// Phone ids (see lib/g2p_tables.mbt): 1 a 2 e 3 i 4 o 5 u 6 y 7 ɛ 8 ɛː 9 ɔː 10 eː 11 oː 12 ɪ 13 ʊ 14 ɔ
 /// 15 w 16 j 17 h 18 f 19 v 20 β 21 b 22 d 23 g 24 m 25 n 26 ŋ 27 ʝ 28 ɣ 29 ç 30 x 31 z 32 ð 33 θ
-/// 34 k 35 s 36 p 37 l 38 r 39 t 40 d͡z 41 tʰ 42 pʰ 43 kʰ.
+/// 34 k 35 s 36 p 37 l 38 r 39 t 40 d͡z 41 tʰ 42 pʰ 43 kʰ 44 uː 45 aː 46 iː 47 yː.
 predicate common_inv(id : Int) {
   id == 1 || id == 3 || id == 4 || id == 34 || id == 35 || id == 36 || id == 37 || id == 24 || id == 25 || id == 38 || id == 39 || id == 26
 }
@@ -90,11 +90,12 @@ predicate koine_extra(id : Int) {
 }
 predicate attic_extra(id : Int) {
   id == 2 || id == 8 || id == 6 || id == 9 || id == 10 || id == 11 || id == 5 ||
-  id == 17 || id == 23 || id == 21 || id == 22 || id == 31 || id == 41 || id == 42 || id == 43
+  id == 17 || id == 23 || id == 21 || id == 22 || id == 31 || id == 41 || id == 42 || id == 43 ||
+  id == 44 || id == 45 || id == 46 || id == 47
 }
 predicate erasmian_extra(id : Int) {
   id == 2 || id == 12 || id == 5 || id == 13 || id == 14 || id == 15 || id == 16 ||
-  id == 17 || id == 23 || id == 40 || id == 33 || id == 18 || id == 21 || id == 22
+  id == 17 || id == 23 || id == 40 || id == 33 || id == 18 || id == 21 || id == 22 || id == 30
 }
 predicate inv0(id : Int) { modern_inv(id) }
 predicate inv1(id : Int) { modern_inv(id) || id == 6 }

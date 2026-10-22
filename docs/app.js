@@ -2,12 +2,12 @@
 const SCHEMES = [["koine", "Koine"], ["attic", "Restored Attic"], ["erasmian", "Erasmian"], ["modern", "Modern Greek"], ["byzantine", "Byzantine"]];
 const EXAMPLES = {
   koine: "Ἐν ἀρχῇ ἦν ὁ λόγος, καὶ ὁ λόγος ἦν πρὸς τὸν θεόν",
-  attic: "ἄνδρα μοι ἔννεπε, μοῦσα, πολύτροπον",
-  erasmian: "Μακάριοι οἱ πτωχοὶ τῷ πνεύματι",
-  modern: "Πάτερ ἡμῶν ὁ ἐν τοῖς οὐρανοῖς",
+  attic: "ἄνδρα μοι ἔννεπε, μοῦσα, πολύτροπον, θάλασσα",
+  erasmian: "Μακάριοι οἱ πτωχοὶ τῷ πνεύματι, ἡ χάρις",
+  modern: "Πάτερ ἡμῶν ὁ ἐν τοῖς οὐρανοῖς, ὁ κόσμος",
   byzantine: "οἱ υἱοὶ τῆς γῆς εὐλογοῦσιν",
 };
-const V = "9";
+const V = "10";
 const $ = (id) => document.getElementById(id);
 let lib = null;
 

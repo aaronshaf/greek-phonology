@@ -39,7 +39,7 @@ The word list (`greek-phonology-lexicon.bin`, 168 KB gzipped) is optional. Load 
 Every function below can be called through `call(name, arg, arg2)`. The most common ones also have their own JS functions.
 
 **Pronunciation**
-- `ipa(text, scheme)`: Greek to IPA. Phones are separated by spaces and words by `|`. `ipa("θεός", "attic")` → `tʰ e o s`
+- `ipa(text, scheme)`: Greek to IPA. Phones are separated by spaces and words by `|`. `ipa("θεός", "attic")` → `tʰ e o s`. Restored Attic follows Allen's 4th-century target (ου [uː], length shown where the spelling marks it, geminates as Cː), Erasmian χ is [x], and Modern voices σ to [z] before β γ δ μ ν λ ρ. See [docs/RESEARCH.md](docs/RESEARCH.md).
 - `detect(ipa, greek_text?)`: scheme probabilities, plus the evidence behind them. It is more reliable when you pass the Greek text. It allows for typical phone-recognizer mistakes, using a simple prior over recognizer confusions (see `moonbit/lib/conf_gen.mbt`).
 - `lookup(word)`: finds a word in the NT/LXX list, ignoring case or accents if needed. `lookup("λογος")` → `{form: "λόγος", nt: true, lxx: true, ...}`
 
@@ -65,11 +65,11 @@ Every function below can be called through `call(name, arg, arg2)`. The most com
 
 ## What's proven
 
-`moon prove` machine-checks these (188 goals in `moonbit/kernel`, up from 54). The library's real code paths call these proved functions:
+`moon prove` machine-checks these (190 goals in `moonbit/kernel`, up from 54). The library's real code paths call these proved functions:
 
 - **Syllables:** every syllable has exactly one vowel, the pieces rejoin to the word, and an onset never takes more consonants than are legal or available.
 - **Law of limitation:** the accent checker matches the rule exactly, and the recessive accent used by `accentuate_verb` and `conjugate` always lands where the rule allows.
-- **`ipa` (all five schemes):** the rules are finite tables plus a proved step function over code points. Every code point is consumed (each step advances 1 or 2 and the steps end exactly at the word's end), the step is a pure function, and every phone it emits is in that scheme's sound inventory.
+- **`ipa` (all five schemes):** the rules are finite tables plus a proved step function over code points. Every code point is consumed (each step advances 1 or 2 and the steps end exactly at the word's end), the step is a pure function, and every phone it emits is in that scheme's sound inventory. Restored Attic vowel length (aː iː yː from a circumflex, macron or iota subscript) goes through a proved helper that stays in the Attic inventory; reading the marks and writing geminates as Cː is tested, not proven.
 - **`contract`:** a table plus a proved step function over code points, with the `[ει]`/`[ου]` markers as single tokens. The output is never longer than the input, and every output token is a valid letter, mark or marker.
 - **Accent slots:** on a word as an array of syllables with per-vowel mark flags, the proved target picker chooses the last vowel of the target syllable. Rendering a phrase decision changes only that slot (grave, acute, circumflex or an extra acute). Undoing it gives back the dictionary marks exactly.
 - **Phrase accents** (`accentuate_phrase`): every per-word decision comes from one proved function. A grave appears only when an ordinary word follows. An extra acute appears only before an enclitic and only on a proparoxytone or properispomenon. A word never gets more than two accents. A two-syllable enclitic keeps its accent only after a paroxytone. Undoing the decision (as `lexical_phrase` does) gives back every ordinary word's dictionary accent.

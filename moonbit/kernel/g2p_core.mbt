@@ -33,6 +33,14 @@ fn g_voiceless(c : Int32) -> Bool where {
 }
 
 ///|
+/// β γ δ μ ν λ ρ: voiced consonants that voice a preceding σ in Modern Greek.
+fn g_voiced_cons(c : Int32) -> Bool where {
+  proof_ensure: result => result == true || result == false,
+} {
+  c == 0x3B2 || c == 0x3B3 || c == 0x3B4 || c == 0x3BC || c == 0x3BD || c == 0x3BB || c == 0x3C1
+}
+
+///|
 fn g_velar(c : Int32) -> Bool where {
   proof_ensure: result => result == true || result == false,
 } {
@@ -118,7 +126,7 @@ pub fn g_diph_seq(s : Int32, bs : FixedArray[Int32], i : Int32) -> Int32 where {
   let eu = a == 0x3B5 && b == 0x3C5
   if s == 3 {
     if ai { 1 + 64 * 3 } else if ei { 10 } else if oi { 4 + 64 * 3 } else if yi { 6 + 64 * 3 }
-    else if ou { 11 } else if au { 1 + 64 * 5 } else if eu { 2 + 64 * 5 } else { 8 + 64 * 5 }
+    else if ou { 44 } else if au { 1 + 64 * 5 } else if eu { 2 + 64 * 5 } else { 8 + 64 * 5 }
   } else if s == 4 {
     if ai { 1 + 64 * 12 } else if ei { 2 + 64 * 12 } else if oi { 14 + 64 * 12 } else if yi { 15 + 64 * 3 }
     else if ou { 5 } else if au { 1 + 64 * 13 } else if eu { 16 + 64 * 5 } else { 2 + 64 * 12 + 4096 * 5 }
@@ -174,10 +182,12 @@ pub fn g_cons_seq(s : Int32, bs : FixedArray[Int32], dd : FixedArray[Int32], i :
     } else if c == 0x3C7 {
       if g_front(bs, dd, i + 1) { 29 } else { 30 }
     } else if c == 0x3B2 { 19 } else if c == 0x3B4 { 32 } else if c == 0x3B6 { 31 }
-    else if c == 0x3B8 { 33 } else if c == 0x3C6 { 18 } else { g_simple(c) }
+    else if c == 0x3B8 { 33 } else if c == 0x3C6 { 18 }
+    else if s == 0 && (c == 0x3C3 || c == 0x3C2) && i + 1 < bs.length() && g_voiced_cons(bs[i + 1]) { 31 }
+    else { g_simple(c) }
   } else if s == 4 {
     if c == 0x3B3 { if nas { 26 } else { 23 } } else if c == 0x3B6 { 40 } else if c == 0x3B8 { 33 }
-    else if c == 0x3C6 { 18 } else if c == 0x3C7 { 34 } else { g_simple(c) }
+    else if c == 0x3C6 { 18 } else if c == 0x3C7 { 30 } else { g_simple(c) }
   } else {
     let koine = s == 2
     if c == 0x3B3 {
@@ -351,4 +361,14 @@ pub fn g2p_units(
   }
   starts[k] = pos
   k
+}
+
+///|
+/// Restored Attic vowel length: a, i, y become aː, iː, yː when the spelling shows the vowel is long
+/// (circumflex, macron, iota subscript). Proved: stays inside the Attic inventory.
+pub fn g_attic_long(id : Int32) -> Int32 where {
+  proof_require: in_inv(3, id),
+  proof_ensure: result => in_inv(3, result),
+} {
+  if id == 1 { 45 } else if id == 3 { 46 } else if id == 6 { 47 } else { id }
 }
