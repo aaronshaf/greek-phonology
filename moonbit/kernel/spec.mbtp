@@ -132,3 +132,25 @@ predicate valid_tok(t : Int) { (0 <= t) && (t <= 1114113) }
 predicate all_valid(xs : FixedArray[Int], k : Int) {
   ∀ j : Int, (j < 0) || (k <= j) || valid_tok(xs[j])
 }
+
+/// Accent rendering on a word as slots (one per base letter): marks[k] is 0 none, 1 acute,
+/// 2 grave, 3 circumflex; syl[k] is the syllable of slot k counted from the end (1 = ultima);
+/// vow[k] is 1 for a vowel letter.
+predicate is_target(syl : FixedArray[Int], vow : FixedArray[Int], pos : Int, k : Int) {
+  (syl[k] == pos) && (vow[k] == 1)
+}
+predicate not_target_after(syl : FixedArray[Int], vow : FixedArray[Int], pos : Int, r : Int, n : Int) {
+  ∀ j : Int, (j <= r) || (n <= j) || (syl[j] != pos) || (vow[j] != 1)
+}
+predicate found_ok(syl : FixedArray[Int], vow : FixedArray[Int], pos : Int, r : Int, n : Int) {
+  (r == -1) || ((0 <= r) && (r < n) && is_target(syl, vow, pos, r))
+}
+predicate same_except(a : FixedArray[Int], b : FixedArray[Int], u : Int, n : Int) {
+  ∀ j : Int, (j < 0) || (n <= j) || (j == u) || (a[j] == b[j])
+}
+predicate zero_except(a : FixedArray[Int], u : Int, n : Int) {
+  ∀ j : Int, (j < 0) || (n <= j) || (j == u) || (a[j] == 0)
+}
+predicate same_all(a : FixedArray[Int], b : FixedArray[Int], n : Int) {
+  ∀ j : Int, (j < 0) || (n <= j) || (a[j] == b[j])
+}

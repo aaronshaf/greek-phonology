@@ -555,3 +555,123 @@ pub fn contract_core(
   }
   2 * j + hit_any
 }
+
+// ---------------------------------------------------------------- accent rendering on slots
+
+///|
+/// Slot that carries the accent of syllable pos: the last vowel letter in it (so a diphthong
+/// takes the mark on its second vowel), or -1 if the syllable has no vowel.
+/// Proved: the slot is a vowel of syllable pos and no later slot is.
+pub fn accent_target(syl : FixedArray[Int32], vow : FixedArray[Int32], pos : Int32) -> Int32 where {
+  proof_require: vow.length() == syl.length(),
+  proof_ensure: result => found_ok(syl, vow, pos, result, syl.length()),
+  proof_ensure: result => not_target_after(syl, vow, pos, result, syl.length()),
+} {
+  let n = syl.length()
+  let mut r = -1
+  for k = 0; k < n; k = k + 1 {
+    if syl[k] == pos && vow[k] == 1 {
+      r = k
+    }
+  } where {
+    proof_invariant: 0 <= k && k <= n,
+    proof_invariant: found_ok(syl, vow, pos, r, n),
+    proof_invariant: r < k,
+    proof_invariant: not_target_after(syl, vow, pos, r, k),
+  }
+  r
+}
+
+///|
+/// Write a phrase_decision code onto the slot marks of a word. ult is the ultima's accent slot
+/// (accent_target(.., 1)) or -1. Proved: code 1 keeps every mark; code 4 keeps every mark and
+/// puts an acute on the ultima; codes 0, 2, 3, 5 clear every mark except the ultima, which gets
+/// nothing / acute / grave / circumflex. So no other syllable is ever touched.
+pub fn render_marks(marks : FixedArray[Int32], ult : Int32, code : Int32, out : FixedArray[Int32]) -> Int32 where {
+  proof_require: out.length() == marks.length(),
+  proof_require: -1 <= ult && ult < marks.length(),
+  proof_ensure: _result => code != 1 || same_all(out, marks, marks.length()),
+  proof_ensure: _result => code != 4 || same_except(out, marks, ult, marks.length()),
+  proof_ensure: _result => code != 4 || ult < 0 || out[ult] == 1,
+  proof_ensure: _result => code == 1 || code == 4 || zero_except(out, ult, marks.length()),
+  proof_ensure: _result => code != 2 || ult < 0 || out[ult] == 1,
+  proof_ensure: _result => code != 3 || ult < 0 || out[ult] == 2,
+  proof_ensure: _result => code != 5 || ult < 0 || out[ult] == 3,
+  proof_ensure: _result => code != 0 || ult < 0 || out[ult] == 0,
+} {
+  let n = marks.length()
+  let keep = code == 1 || code == 4
+  for k = 0; k < n; k = k + 1 {
+    out[k] = if keep { marks[k] } else { 0 }
+  } where {
+    proof_invariant: 0 <= k && k <= n,
+    proof_invariant: keep == false || same_all(out, marks, k),
+    proof_invariant: keep == true || zero_except(out, -1, k),
+  }
+  if ult >= 0 {
+    if code == 2 || code == 4 {
+      out[ult] = 1
+    } else if code == 3 {
+      out[ult] = 2
+    } else if code == 5 {
+      out[ult] = 3
+    }
+  }
+  0
+}
+
+///|
+/// lexical_phrase on slot marks: a grave on the ultima becomes an acute, and when the word carries
+/// two accents (an extra acute from an enclitic) the ultima's mark is dropped.
+pub fn unrender_marks(out : FixedArray[Int32], ult : Int32, two : Bool, res : FixedArray[Int32]) -> Int32 where {
+  proof_require: res.length() == out.length(),
+  proof_require: -1 <= ult && ult < out.length(),
+  proof_ensure: _result => same_except(res, out, ult, out.length()),
+  proof_ensure: _result => ult < 0 || two == false || res[ult] == 0,
+  proof_ensure: _result => ult < 0 || two == true || out[ult] != 2 || res[ult] == 1,
+  proof_ensure: _result => ult < 0 || two == true || out[ult] == 2 || res[ult] == out[ult],
+} {
+  let n = out.length()
+  for k = 0; k < n; k = k + 1 {
+    res[k] = out[k]
+  } where {
+    proof_invariant: 0 <= k && k <= n,
+    proof_invariant: same_all(res, out, k),
+  }
+  if ult >= 0 {
+    if two {
+      res[ult] = 0
+    } else if out[ult] == 2 {
+      res[ult] = 1
+    }
+  }
+  0
+}
+
+///|
+/// Round trip on the slot representation for an ordinary word: its dictionary marks are a single
+/// accent at slot lex (none elsewhere), on the ultima exactly when lex_pos == 1. Rendering any
+/// decision for it and undoing gives the dictionary marks back.
+/// Proved: res == marks at every slot.
+pub fn round_trip_ordinary(
+  marks : FixedArray[Int32],
+  lex : Int32,
+  ult : Int32,
+  code : Int32,
+  out : FixedArray[Int32],
+  res : FixedArray[Int32],
+) -> Int32 where {
+  proof_require: out.length() == marks.length() && res.length() == marks.length(),
+  proof_require: 0 <= ult && ult < marks.length(),
+  proof_require: 0 <= lex && lex < marks.length(),
+  proof_require: zero_except(marks, lex, marks.length()),
+  proof_require: code == 1 || code == 2 || code == 3 || code == 4,
+  proof_require: code == 1 || code == 4 || (lex == ult && marks[lex] == 1),
+  proof_require: code != 4 || lex != ult,
+  proof_require: code != 1 || lex != ult || marks[ult] != 2,
+  proof_ensure: _result => same_all(res, marks, marks.length()),
+} {
+  let a = render_marks(marks, ult, code, out)
+  let b = unrender_marks(out, ult, code == 4, res)
+  a + b
+}
