@@ -128,17 +128,16 @@ pub fn lexicon_size() -> Int {
 /// JSON: {"form","match","nt","lxx","freq_band"} or null.
 pub fn lookup_json(word : String) -> String {
   let w = word.trim().to_string()
-  let (hit, how) = match lex_exact.get(key_fold_exact(w)) {
-    Some(j) => (j, "exact")
-    None =>
-      match lex_fold.get(key_fold(w)) {
-        Some(j) => (j, "fold")
-        None =>
-          match lex_bare.get(key_bare(w)) {
-            Some(j) => (j, "bare")
-            None => (-1, "")
-          }
-      }
+  let e0 = lex_exact.get(key_fold_exact(w))
+  let e1 = lex_fold.get(key_fold(w))
+  let e2 = lex_bare.get(key_bare(w))
+  // Fallback order decided by the proved kernel: exact, then folded, then bare.
+  let (hit, how) = match
+    @kernel.lookup_stage(e0 is Some(_), e1 is Some(_), e2 is Some(_)) {
+    0 => (e0.unwrap(), "exact")
+    1 => (e1.unwrap(), "fold")
+    2 => (e2.unwrap(), "bare")
+    _ => (-1, "")
   }
   if hit < 0 {
     return "null"

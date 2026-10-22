@@ -201,3 +201,64 @@ test "accentuate_phrase: at most two accents per word, a second accent only befo
     }
   }
 }
+
+///|
+test "g2p: deterministic, total, and each scheme only uses phones it can produce" {
+  // inventory per scheme = phones seen over a large random sample with a different seed
+  let inv : Array[Map[String, Bool]] = [{}, {}, {}, {}, {}]
+  let s1 = Ref(101)
+  for _ in 0..<4000 {
+    let w = random_word(s1)
+    for si, s in @lib.schemes {
+      for p in @lib.tokenize(@lib.ipa(w, s)) {
+        inv[si][p] = true
+      }
+    }
+  }
+  let s2 = Ref(202)
+  for _ in 0..<2000 {
+    let w = random_word(s2)
+    for si, s in @lib.schemes {
+      let a = @lib.ipa(w, s)
+      assert_eq(a, @lib.ipa(w, s))
+      for p in @lib.tokenize(a) {
+        if !inv[si].contains(p) {
+          fail("scheme " + s + " produced unexpected phone " + p + " for " + w)
+        }
+      }
+    }
+  }
+  // Byzantine keeps y for upsilon; Modern never produces y
+  assert_false(inv[@lib.schemes.search("modern").unwrap()].contains("y"))
+}
+
+///|
+test "detect: evidence hits never exceed totals" {
+  let seed = Ref(9)
+  for _ in 0..<300 {
+    let w = random_word(seed) + " " + random_word(seed)
+    let s = @lib.schemes[lcg(seed) % 5]
+    let d = @lib.detect(@lib.ipa(w, s), greek_text=w)
+    for i, hs in d.evidence_hits {
+      assert_eq(hs.length(), d.evidence_total[i].length())
+      for j, h in hs {
+        assert_true(0 <= h && h <= d.evidence_total[i][j])
+      }
+    }
+  }
+}
+
+///|
+test "contract never lengthens; without_accents keeps base letters" {
+  let seed = Ref(11)
+  for _ in 0..<3000 {
+    let w = random_word(seed)
+    // "[ει]"/"[ου]" brackets are TS-compatible spurious-diphthong markers, not letters
+    let c = @lib.contract(w).replace_all(old="[", new="").replace_all(old="]", new="")
+    if ncount(c) > ncount(w) {
+      fail("contract lengthened: " + w + " -> " + c)
+    }
+    assert_eq(@lib.without_accents(@lib.without_accents(w)), @lib.without_accents(w))
+    assert_eq(ncount(@lib.without_accents(@lib.remove_acutes(w))), ncount(@lib.without_accents(w)))
+  }
+}

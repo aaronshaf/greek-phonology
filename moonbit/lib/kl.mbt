@@ -170,7 +170,7 @@ fn filter_mark(s : String, m : Char) -> String {
   let sb = StringBuilder()
   for c0 in s {
     for c in nfd_char(c0) {
-      if c != m {
+      if @kernel.keep_char(c.to_int(), m.to_int()) {
         sb.write_char(c)
       }
     }
@@ -221,7 +221,16 @@ pub fn without_accents(s : String) -> String {
   let sb = StringBuilder()
   for c in s {
     let d = nfd_char(c)
-    sb.write_char(if d == "" { c } else { first_char(d) })
+    if d == "" {
+      sb.write_char(c)
+    } else {
+      // keep only base letters of the decomposition (proved: marks dropped, letters kept)
+      for x in d {
+        if @kernel.is_base_char(x.to_int()) {
+          sb.write_char(x)
+        }
+      }
+    }
   }
   sb.to_string()
 }

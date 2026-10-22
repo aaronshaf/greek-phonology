@@ -57,3 +57,4 @@ lemma cuts_strictly_increase(p : Int, a : Int, b : Int, c1 : Int, c2 : Int) wher
   proof_require: c2 <= b,
   proof_ensure: c1 < c2,
 } {}
+

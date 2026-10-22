@@ -63,9 +63,18 @@ Every function below can be called through `call(name, arg, arg2)`. The most com
 **Text**
 - `remove_punctuation(s)`, `remove_numbers(s)`, `extract_consonant_clusters(text)`: `extract_consonant_clusters("στρατος κτισις")` → `["στρ","κτ"]`
 
-## Checked by proof and tests
+## What's proven
 
-`moon prove` machine-checks the syllable split, the law of limitation and the recessive-accent rule. Property tests cover the rest: probabilities sum to 1, syllables rejoin to the word, `accentuate_verb` output always obeys the law of limitation. Parity tests compare the library with the original TypeScript and with the reference G2P.
+`moon prove` machine-checks these (13 goals in `moonbit/kernel`):
+
+- **Syllables:** every syllable has exactly one vowel, the pieces rejoin to the word, and an onset never takes more consonants than are legal or available.
+- **Law of limitation:** the accent checker matches the rule exactly. An acute sits within the last three syllables, a circumflex within the last two and only on a long vowel.
+- **Recessive accent** (`accentuate_verb`, `conjugate`): always lands where the law of limitation allows.
+- **Sandhi** (`accentuate_phrase`): at most two accents per word. A second accent only appears before an enclitic. An acute turns grave only on the last syllable. A two-syllable enclitic keeps its accent only after a paroxytone.
+- **Removing accents** (`remove_acutes`, `remove_graves`, `remove_circumflexes`, `without_accents`): only the target marks are dropped, and base letters are never touched.
+- **Lookup:** tries an exact match first, then ignores case, then ignores accents.
+
+Tested, not proven: probabilities fall between 0 and 1 and sum to 1, and evidence hits never exceed totals (`detect`; floating point is beyond the prover). Also tested: `ipa` is deterministic and stays within each scheme's sounds, `amalgamate`/`contract` never lengthen a word, and removing accents twice changes nothing. Parity tests compare the library with the original TypeScript and the reference G2P.
 
 ## Data
 
