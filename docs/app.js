@@ -82,6 +82,57 @@ $("scheme").addEventListener("change", toIpa);
 $("greek").addEventListener("input", render);
 $("ipa").addEventListener("input", render);
 
+const SCHEME_OPTS = ["koine", "attic", "erasmian", "modern", "byzantine"];
+const PARADIGMS = ["present-active-indicative", "imperfect-active-indicative", "future-active-indicative", "future-middle-indicative", "middle-passive-indicative", "present-active-subjunctive"];
+const TOOLS = [
+  ["accentuate_phrase", "Accents in context: enclitics, proclitics, acute → grave. Type words with their dictionary accents.", "ἄνθρωπος τις ἦλθεν καί εἰ τις θέλει"],
+  ["check_phrase_accents", "Checks the accents of a written phrase word by word against the rules.", "ἄνθρωπός τις ἦλθεν καὶ εἴ τις θέλει"],
+  ["lexical_phrase", "Undoes context changes: graves back to acutes, extra enclitic accents removed.", "ἄνθρωπός τις ἦλθεν καὶ εἴ τις θέλει"],
+  ["accentuate_verb", "Puts the recessive accent on a verb form.", "ἐλυομεν"],
+  ["syllabify", "Splits a word into syllables.", "ἄνθρωπος"],
+  ["add_acute", "Adds an acute to a letter.", "ε"],
+  ["add_circumflex", "Adds a circumflex to a letter.", "ω"],
+  ["remove_acutes", "Removes acute accents.", "ἄνθρωπός"],
+  ["remove_graves", "Removes grave accents.", "καὶ τὸν λόγον"],
+  ["remove_circumflexes", "Removes circumflex accents.", "τοῦ θεοῦ"],
+  ["without_accents", "Strips every accent, breathing and iota subscript.", "ἐν ἀρχῇ ἦν ὁ λόγος"],
+  ["contract", "Contracts adjacent vowels (Black's table).", "ποιεω"],
+  ["amalgamate", "Combines consonant + σ (πσ → ψ, κσ → ξ, τσ → σ).", "γραφσω"],
+  ["augmentize", "Adds the past-time prefix ἐ-.", "λυον"],
+  ["conjugate", "Six forms of a verb stem (1st–3rd singular, then plural).", "λυ", PARADIGMS],
+  ["extract_consonant_clusters", "Consonant clusters at the start of words in a text.", "στρατος κτισις πλοιον"],
+  ["lookup", "Looks a word up in the NT/LXX word list (ignores case and accents if needed).", "λογος"],
+  ["ipa", "Greek text → IPA in a chosen pronunciation.", "εὐαγγέλιον τοῦ θεοῦ", SCHEME_OPTS],
+  ["detect", "Which pronunciation does this IPA sound like? (without the Greek text)", "e v a ŋ ɟ e l i o n"],
+];
+function pretty(v) {
+  if (Array.isArray(v) && v.length && typeof v[0] === "object" && v[0] && "word" in v[0])
+    return v.map((x) => `${x.word}  ${x.ok ? "✓" : "→ expected " + x.expected}`).join("\n");
+  if (Array.isArray(v)) return v.map((x) => (Array.isArray(x) ? x.join("") : x)).join(Array.isArray(v[0]) ? " · " : "\n");
+  if (v && typeof v === "object" && v.probs) return Object.entries(v.probs).sort((a, b) => b[1] - a[1]).map(([k, p]) => `${k.padEnd(10)} ${(100 * p).toFixed(1)}%`).join("\n");
+  if (v && typeof v === "object") return Object.entries(v).map(([k, x]) => `${k}: ${x}`).join("\n");
+  if (v === null) return "not found";
+  return String(v);
+}
+function runTool() {
+  if (!lib) return;
+  const t = TOOLS[$("fn").selectedIndex];
+  try { $("fnout").textContent = pretty(JSON.parse(lib.call(t[0], $("fnarg").value.trim(), t[3] ? $("fnarg2").value : ""))); }
+  catch (e) { $("fnout").textContent = "error: " + e.message; }
+}
+function pickTool() {
+  const t = TOOLS[$("fn").selectedIndex];
+  $("fndesc").textContent = t[1]; $("fnarg").value = t[2];
+  $("fnarg2wrap").hidden = !t[3];
+  if (t[3]) $("fnarg2").innerHTML = t[3].map((o) => `<option>${o}</option>`).join("");
+  runTool();
+}
+$("fn").innerHTML = TOOLS.map((t) => `<option>${t[0]}</option>`).join("");
+$("fn").addEventListener("change", pickTool);
+$("fnarg").addEventListener("input", runTool);
+$("fnarg2").addEventListener("change", runTool);
+$("fndesc").textContent = TOOLS[0][1]; $("fnarg").value = TOOLS[0][2];
+
 (async () => {
   $("probs").innerHTML = bars({}); // same layout before the wasm arrives: no shift
   try { lib = await loadWasm(); } catch (e) { console.warn("wasm failed, using JS build", e); lib = await loadJs(); }
@@ -91,4 +142,5 @@ $("ipa").addEventListener("input", render);
   lib.loadBytes(bytes);
   $("status").textContent = `Running on ${lib.kind}, fully in your browser. Word list: SBLGNT (CC BY 4.0) + Rahlfs LXX forms.`;
   render();
+  pickTool();
 })();

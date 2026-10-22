@@ -19,6 +19,7 @@
             --accent: #5b9be0; --track: #262c36; --ok: #3fb950; --bad: #f47067; --btn: #21262d; }
   }
   *, *::before, *::after { box-sizing: border-box; }
+  [hidden] { display: none !important; }
   body { max-width: 880px; margin: 0 auto; padding: 1.5rem 1.25rem 3rem; line-height: 1.45; }
   h1 { font-size: 1.5rem; margin: 0 0 .25rem; }
   p.sub { margin: 0 0 1rem; color: var(--muted); }
@@ -49,6 +50,11 @@
   #status { color: var(--muted); font-size: .9rem; min-height: 2.6em; }
   .ok { color: var(--ok); } .bad { color: var(--bad); }
   .skel { color: var(--muted); }
+  #tools select { width: 100%; }
+  #fndesc { min-height: 1.5em; margin: .5rem 0 0; }
+  pre.out { margin: 0; min-height: 3.2rem; padding: .6rem .7rem; background: var(--bg); border: 1px solid var(--line);
+            border-radius: 8px; white-space: pre-wrap; word-break: break-word; font-size: 1.05rem;
+            font-family: "Gentium Plus", "Noto Serif", Georgia, serif; }
   @media (max-width: 640px) {
     body { padding: 1rem .9rem 2.5rem; }
     h1 { font-size: 1.35rem; }
@@ -97,6 +103,16 @@
 
 <section><h2>Which pronunciation does the IPA sound like?</h2><div id="probs" aria-live="polite"></div><p id="mode" class="sub skel">Loading the library…</p></section>
 <section><h2>Words: syllables, accent, dictionary</h2><div id="words"><p class="skel">Word details appear here once the library has loaded.</p></div></section>
+<section id="tools"><h2>Tools</h2>
+  <label for="fn">Function</label>
+  <select id="fn"></select>
+  <p id="fndesc" class="sub"></p>
+  <label for="fnarg">Input</label>
+  <textarea id="fnarg" rows="2"></textarea>
+  <div id="fnarg2wrap" class="row" hidden><label for="fnarg2" style="margin:0">Option</label><select id="fnarg2"></select></div>
+  <label>Output</label>
+  <pre id="fnout" class="out"></pre>
+</section>
 <p id="status">Loading…</p>
 
 <script src="app.js"></script>
