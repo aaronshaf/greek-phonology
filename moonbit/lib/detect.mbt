@@ -214,7 +214,9 @@ pub(all) struct Detection {
 }
 
 ///|
-/// Softmax at temperature t. Property-tested: every p >= 0 and sum(p) == 1 (within 1e-12).
+/// Softmax at temperature t. The exponentials are turned into integer weights (2^26 for the
+/// strongest scheme) and normalised by the proved kernel (`@kernel.normalize5`): every p >= 0 and
+/// the integer shares sum to exactly 2^30, so sum(p) == 1 exactly. Rounding moves p by < 1e-7.
 pub fn softmax(ll : Array[Double], t : Double) -> Array[Double] {
   let mut m = ll[0]
   for x in ll {
@@ -223,6 +225,12 @@ pub fn softmax(ll : Array[Double], t : Double) -> Array[Double] {
     }
   }
   let e = ll.map(fn(x) { @math.exp((x - m) / t) })
+  if e.length() == 5 {
+    let w = e.map(fn(x) { (x * 67108864.0).round().to_int64() })
+    let s = 1073741824L
+    let q = @kernel.normalize5(w[0], w[1], w[2], w[3], w[4], s)
+    return [q[0], q[1], q[2], q[3], q[4]].map(fn(v) { v.to_double() / 1073741824.0 })
+  }
   let mut z = 0.0
   for x in e {
     z += x
@@ -394,9 +402,7 @@ pub fn detect_text(ipa_s : String, text : String) -> Detection {
         tots[s].push(0)
         idx = tags[s].length() - 1
       }
-      if ok {
-        hits[s][idx] += 1
-      }
+      hits[s][idx] = @kernel.tally_hit(hits[s][idx], tots[s][idx], ok) // proved: hits <= totals
       tots[s][idx] += 1
       ll[s] += @math.ln(p_heard(tag, preds[s], heard))
     }

@@ -228,6 +228,20 @@ fn orthotone(base : String, p : String) -> String {
 
 ///|
 /// Accentuate a phrase in context. Each word should carry its dictionary accent.
+///|
+/// Write a phrase_decision code onto a word (see kernel/phrase_decision).
+fn render_decision(code : Int, w : String, base : String) -> String {
+  match code {
+    0 => base
+    1 => w
+    2 => place_accent(base, 1, acute)
+    3 => place_accent(base, 1, grave)
+    4 => place_accent(w, 1, acute)
+    _ => place_accent(base, 1, circ)
+  }
+}
+
+///|
 pub fn accentuate_phrase(text : String) -> String {
   let raw = text.split(" ").map(fn(v) { v.to_string() }).filter(fn(v) { v != "" }).collect()
   let toks = raw.map(split_tok)
@@ -280,44 +294,22 @@ pub fn accentuate_phrase(text : String) -> String {
           res = place_accent(res, 1, acute)
         }
       }
-    } else if enc[i] {
-      let p = plain(w)
-      let host = toks[i - 1].core
-      let (hp, hc) = lex_accent(host)
-      let host_enc = enc[i - 1]
-      if !host_enc && !is_proclitic(host) && !ends_elided(host) &&
-        @kernel.enclitic_keeps(nsyl(base), hp, hc) {
-        let kind = if p == "τινων" { circ } else { acute }
-        res = place_accent(base, 1, kind)
-        if @kernel.to_grave(1, kind == acute, word_follows) {
-          res = place_accent(base, 1, grave)
-        }
-      } else if next_enc {
-        res = place_accent(base, 1, acute) // chain: takes the accent of the next enclitic
-      } else {
-        res = base
-      }
-    } else if is_proclitic(w) {
-      if next_enc {
-        res = place_accent(base, 1, acute)
-      } else if stop_after && (plain(w) == "οὐ" || plain(w) == "οὐκ" || plain(w) == "οὐχ") {
-        res = place_accent(base, 1, acute) // clause-final οὔ
-      } else {
-        res = base
-      }
     } else {
-      let extra = @kernel.extra_acute(lp, lc, false, next_enc)
-      ignore(@kernel.accent_count(lp > 0, extra))
-      if extra && lp >= 2 {
-        res = place_accent(w, 1, acute)
-      } else if lp == 1 && !lc {
-        let interrog = plain(w) == "τις" || plain(w) == "τι" || plain(w) == "ἱνατι" || plain(w) == "διατι"
-        if !interrog && @kernel.to_grave(1, true, word_follows) {
-          res = place_accent(base, 1, grave)
-        } else {
-          res = place_accent(base, 1, acute)
-        }
+      // Decision made by the proved kernel; this step only renders it.
+      let kind = if enc[i] { 2 } else if is_proclitic(w) { 1 } else { 0 }
+      let p = plain(w)
+      let keeps = kind == 2 && {
+        let host = toks[i - 1].core
+        let (hp, hc) = lex_accent(host)
+        !enc[i - 1] && !is_proclitic(host) && !ends_elided(host) &&
+        @kernel.enclitic_keeps(nsyl(base), hp, hc)
       }
+      let interrog = p == "τις" || p == "τι" || p == "ἱνατι" || p == "διατι"
+      let is_ou = p == "οὐ" || p == "οὐκ" || p == "οὐχ"
+      let code = @kernel.phrase_decision(
+        kind, lp, lc, next_enc, word_follows, stop_after, interrog, is_ou, keeps, p == "τινων",
+      )
+      res = render_decision(code, w, base)
     }
     out.push(t.pre + res + t.post)
   }

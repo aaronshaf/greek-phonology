@@ -65,16 +65,23 @@ Every function below can be called through `call(name, arg, arg2)`. The most com
 
 ## What's proven
 
-`moon prove` machine-checks these (13 goals in `moonbit/kernel`):
+`moon prove` machine-checks these (54 goals in `moonbit/kernel`). The library's real code paths call these proved functions:
 
 - **Syllables:** every syllable has exactly one vowel, the pieces rejoin to the word, and an onset never takes more consonants than are legal or available.
-- **Law of limitation:** the accent checker matches the rule exactly. An acute sits within the last three syllables, a circumflex within the last two and only on a long vowel.
-- **Recessive accent** (`accentuate_verb`, `conjugate`): always lands where the law of limitation allows.
-- **Sandhi** (`accentuate_phrase`): at most two accents per word. A second accent only appears before an enclitic. An acute turns grave only on the last syllable. A two-syllable enclitic keeps its accent only after a paroxytone.
-- **Removing accents** (`remove_acutes`, `remove_graves`, `remove_circumflexes`, `without_accents`): only the target marks are dropped, and base letters are never touched.
+- **Law of limitation:** the accent checker matches the rule exactly, and the recessive accent used by `accentuate_verb` and `conjugate` always lands where the rule allows.
+- **Phrase accents** (`accentuate_phrase`): every per-word decision comes from one proved function. A grave appears only when an ordinary word follows. An extra acute appears only before an enclitic and only on a proparoxytone or properispomenon. A word never gets more than two accents. A two-syllable enclitic keeps its accent only after a paroxytone. Undoing the decision (as `lexical_phrase` does) gives back every ordinary word's dictionary accent.
+- **`detect` probabilities:** every probability is at least 0 and they add up to exactly 1. Internally they are integer shares of 2^30, and the rounding remainder goes to the provably strongest scheme. Evidence hits never exceed totals.
+- **`amalgamate`:** the output is never longer than the input, and each step either copies a letter or merges a stop+σ into ψ, ξ or σ.
+- **Removing accents:** only the target mark is dropped and base letters are kept, so running it again changes nothing.
 - **Lookup:** tries an exact match first, then ignores case, then ignores accents.
 
-Tested, not proven: probabilities fall between 0 and 1 and sum to 1, and evidence hits never exceed totals (`detect`; floating point is beyond the prover). Also tested: `ipa` is deterministic and stays within each scheme's sounds, `amalgamate`/`contract` never lengthen a word, and removing accents twice changes nothing. Parity tests compare the library with the original TypeScript and the reference G2P.
+Tested, not proven:
+- `ipa` stays within each pronunciation's sounds and is deterministic. The rules are string rewrites over Unicode, which the prover can't reason about.
+- `contract` never lengthens a word. Its table matches the original TypeScript, including `[ει]` markers.
+- Accent marks land on the right letter when written into the string.
+- `without_accents` and `syllabify` give the same syllables in either order. The exception is diaeresis, which marks a syllable break, so removing it rightly changes the split.
+
+Parity tests compare the library with the original TypeScript and with the reference G2P.
 
 ## Data
 

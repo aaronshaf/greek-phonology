@@ -95,9 +95,15 @@ fn expand(pat : String) -> Array[String] {
 ///|
 /// Consonant + σ amalgamation (Black): π β φ + σ → ψ; κ γ χ + σ → ξ; τ δ θ drop before σ.
 pub fn amalgamate(s : String) -> String {
-  let a = replace_alts(s, ["πσ", "βσ", "φσ"], "ψ")
-  let b = replace_alts(a, ["κσ", "γσ", "χσ"], "ξ")
-  replace_alts(b, ["τσ", "δσ", "θσ"], "σ")
+  // one left-to-right pass on code points; proved never longer than the input
+  let cs = FixedArray::from_array(chars(s).map(fn(c) { c.to_int() }))
+  let out = FixedArray::make(cs.length(), 0)
+  let n = @kernel.amalgamate_core(cs, out)
+  let sb = StringBuilder()
+  for i in 0..<n {
+    sb.write_char(Int::unsafe_to_char(out[i]))
+  }
+  sb.to_string()
 }
 
 ///|

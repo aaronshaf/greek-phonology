@@ -262,3 +262,20 @@ test "contract never lengthens; without_accents keeps base letters" {
     assert_eq(ncount(@lib.without_accents(@lib.remove_acutes(w))), ncount(@lib.without_accents(w)))
   }
 }
+
+///|
+test "without_accents commutes with syllabify; composed accent removal is idempotent" {
+  let seed = Ref(13)
+  for _ in 0..<3000 {
+    // Orthographic words: accent on the last vowel (the second vowel of a diphthong). Diaeresis and an
+    // accent on the first vowel of a pair mark hiatus, so stripping them legitimately changes syllables;
+    // on all 56,760 NT/LXX forms the only exceptions are diaeresis words (checked in tools).
+    let w = @lib.accentuate_last_vowel(@lib.without_accents(random_word(seed)))
+    let a = @lib.syllabify(@lib.without_accents(w)).map(fn(s) { s.join("") })
+    let b = @lib.syllabify(w).map(fn(s) { @lib.without_accents(s.join("")) })
+    assert_eq(a, b)
+    let w = random_word(seed)
+    let r = @lib.remove_circumflexes(@lib.remove_graves(@lib.remove_acutes(w)))
+    assert_eq(@lib.remove_circumflexes(@lib.remove_graves(@lib.remove_acutes(r))), r)
+  }
+}

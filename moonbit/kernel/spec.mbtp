@@ -58,3 +58,13 @@ lemma cuts_strictly_increase(p : Int, a : Int, b : Int, c1 : Int, c2 : Int) wher
   proof_ensure: c1 < c2,
 } {}
 
+
+/// Accent marks written by a phrase decision code (logic side).
+fn accents_spec(code : Int, lex_pos : Int) -> Int {
+  if code == 0 { 0 } else { if code == 1 { if lex_pos > 0 { 1 } else { 0 } } else { if code == 4 { 2 } else { 1 } } }
+}
+
+/// Accent position read back by lexical_phrase from a decision code (logic side).
+fn decoded_spec(code : Int, lex_pos : Int) -> Int {
+  if code == 1 || code == 4 { lex_pos } else { if code == 0 { 0 } else { 1 } }
+}

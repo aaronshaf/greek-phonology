@@ -4,17 +4,41 @@ package "aaronshaf/greek-phonology/kernel"
 // Values
 pub fn accent_count(Bool, Bool) -> Int32
 
+pub fn accents_written(Int32, Int32) -> Int32
+
+pub fn amalgamate_core(FixedArray[Int32], FixedArray[Int32]) -> Int32
+
+pub fn argmax5(Int64, Int64, Int64, Int64, Int64) -> Int32
+
+pub fn decoded_pos(Int32, Int32) -> Int32
+
 pub fn enclitic_keeps(Int32, Int32, Bool) -> Bool
 
 pub fn extra_acute(Int32, Bool, Bool, Bool) -> Bool
 
+pub fn is_base_char(Int32) -> Bool
+
+pub fn keep_char(Int32, Int32) -> Bool
+
 pub fn law_ok(Int32, Int32, Bool, Bool, Bool) -> Bool
+
+pub fn lookup_stage(Bool, Bool, Bool) -> Int32
+
+pub fn normalize5(Int64, Int64, Int64, Int64, Int64, Int64) -> FixedArray[Int64]
+
+pub fn phrase_decision(Int32, Int32, Bool, Bool, Bool, Bool, Bool, Bool, Bool, Bool) -> Int32
 
 pub fn recessive_circ(Int32, Bool, Bool) -> Bool
 
 pub fn recessive_pos(Int32, Bool) -> Int32
 
+pub fn share(Int64, Int64, Int64) -> Int64
+
+pub fn stop_class(Int32) -> Int32
+
 pub fn syllable_cut(FixedArray[Int32], Int32, Int32, Int32) -> Int32
+
+pub fn tally_hit(Int32, Int32, Bool) -> Int32
 
 pub fn to_grave(Int32, Bool, Bool) -> Bool
 
