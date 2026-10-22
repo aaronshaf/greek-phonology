@@ -473,7 +473,7 @@ priv struct GCl {
 }
 
 ///|
-/// Letter clusters as the reference G2P reads them (iota subscript dropped, casefolded).
+/// Letter clusters for G2P (iota subscript kept as a length flag, casefolded).
 /// None if the word contains a letter the G2P cannot read.
 fn g2p_clusters(word : String) -> Array[GCl]? {
   let t : Array[Char] = []
@@ -534,7 +534,7 @@ let phone_names : Array[String] = [
 
 ///|
 /// Phones of one word in scheme s (0 modern, 1 byzantine, 2 koine, 3 attic, 4 erasmian).
-/// Port of the reference G2P. The phones come from the proved step function
+/// The phones come from the proved step function
 /// @kernel.g2p_step (finite tables; every cluster consumed once; only the scheme's inventory).
 fn word_phones(word : String, s : Int, wi : Int) -> Array[Phone] {
   let out : Array[Phone] = []

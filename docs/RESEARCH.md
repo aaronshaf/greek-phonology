@@ -62,4 +62,4 @@ What the library does: standard Athenian values, with μπ ντ γκ as digraphs
 4. ~~Modern doesn't voice σ before voiced consonants~~ Done: [z] before β γ δ μ ν λ ρ.
 5. Attic length: done where the spelling shows it (circumflex, macron, iota subscript, geminates). Open: α ι υ under an acute or unaccented.
 
-After items 1, 2, 4 and 5 the detector's phone-bigram tables were rebuilt from the SBLGNT and Rahlfs LXX word counts.
+After items 1, 2, 4 and 5 the detector's tables were refit (tables fit on public Greek text corpora).

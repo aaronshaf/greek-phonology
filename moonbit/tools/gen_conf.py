@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Generate lib/conf_gen.mbt from conf_tables.json (recognizer confusion counts)
+"""Generate lib/conf_gen.mbt from conf_tables.json (recognizer confusion counts; tables fit on public Greek text corpora)
 and phone_bigrams.json (for the noisy-LM vocabulary)."""
 import json, sys
 ct, lm, out = json.load(open(sys.argv[1])), json.load(open(sys.argv[2])), sys.argv[3]

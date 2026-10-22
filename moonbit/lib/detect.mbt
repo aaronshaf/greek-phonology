@@ -423,7 +423,7 @@ pub fn detect_text(ipa_s : String, text : String) -> Detection {
 }
 
 ///|
-/// P(recognizer hears `heard` | unit `tag` should sound `pred`): counts (
+/// P(recognizer hears `heard` | unit `tag` should sound `pred`): learned counts (tables fit on public Greek text corpora,
 /// conf_gen.mbt) with back-off tag+pred -> pred -> flat model.
 fn p_heard(tag : String, pred : String, heard : String) -> Double {
   let a1 = 2.0

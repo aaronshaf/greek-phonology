@@ -38,7 +38,7 @@ Every function below can be called through `call(name, arg, arg2)`. The most com
 
 **Pronunciation**
 - `ipa(text, scheme)`: Greek to IPA. Phones are separated by spaces and words by `|`. `ipa("θεός", "attic")` → `tʰ e o s`. Restored Attic follows Allen's 4th-century target (ου [uː], length shown where the spelling marks it, geminates as Cː), Erasmian χ is [x], and Modern voices σ to [z] before β γ δ μ ν λ ρ. See [docs/RESEARCH.md](docs/RESEARCH.md).
-- `detect(ipa, greek_text?)`: scheme probabilities, plus the evidence behind them. It is more reliable when you pass the Greek text. It allows for typical phone-recognizer mistakes, using a simple prior over recognizer confusions (see `moonbit/lib/conf_gen.mbt`).
+- `detect(ipa, greek_text?)`: scheme probabilities, plus the evidence behind them. It is more reliable when you pass the Greek text. It allows for typical phone-recognizer mistakes, using small tables fit on public Greek text corpora (see `moonbit/lib/conf_gen.mbt`).
 - `lookup(word)`: finds a word in the NT/LXX list, ignoring case or accents if needed. `lookup("λογος")` → `{form: "λόγος", nt: true, lxx: true, ...}`
 
 **Syllables and accent**
@@ -81,7 +81,7 @@ Tested, not proven:
 - Writing the accent mark back into the NFC string (before an iota subscript, then NFC). The slot logic is proved; the string step is checked on the whole SBLGNT.
 - `without_accents` and `syllabify` give the same syllables in either order. The exception is diaeresis, which marks a syllable break, so removing it rightly changes the split.
 
-Parity tests compare the library with the original TypeScript (its outputs are frozen in `moonbit/tests/kl_golden.json.gz`; run `node moonbit/tools/kl_parity.cjs`) and with the reference G2P.
+Parity tests compare the library with the original TypeScript (its outputs are frozen in `moonbit/tests/kl_golden.json.gz`; run `node moonbit/tools/kl_parity.cjs`).
 
 ## Data
 
