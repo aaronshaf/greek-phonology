@@ -6,9 +6,16 @@ const EXAMPLES = {
   erasmian: "Μακάριοι οἱ πτωχοὶ τῷ πνεύματι, ἡ χάρις",
   modern: "Πάτερ ἡμῶν ὁ ἐν τοῖς οὐρανοῖς, ὁ κόσμος",
 };
-const V = "14";
+const V = "15";
 const $ = (id) => document.getElementById(id);
-let lib = null;
+const scheme = () => $("scheme").value || $("scheme").getAttribute("value") || "koine";
+let lib = null, ready = false;
+// Prerendered initial HTML (index.html, written by moonbit/tools/prerender.py). put() only touches the
+// DOM when the HTML actually changes, so the first live render after loading changes nothing on screen.
+const H = JSON.parse(document.getElementById("pre")?.textContent || "{}");
+window.__H = H;
+window.__render = () => { render(); runTool(); };
+const put = (id, html) => { if (H[id] !== html) { $(id).innerHTML = html; H[id] = html; } };
 
 async function loadWasm() {
   const imports = { spectest: { print_char: () => {} } };
@@ -52,20 +59,20 @@ const ipaHtml = (s) => `<span class="ipaw">${ipaWords(s).map((w) => `<span>${esc
 const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
 
 function render() {
-  if (!lib) return;
+  if (!ready) return;
   const ipa = $("ipa").value.trim(), text = $("greek").value.trim();
   if (ipa) {
     const d = lib.detect(ipa, text);
-    $("probs").innerHTML = bars(d.probs);
-    $("mode").textContent = d.mode === "aligned" ? "Compared phone by phone against the Greek text." : "No Greek text given: judged from typical sound patterns only (less certain).";
+    put("probs", bars(d.probs));
+    put("mode", d.mode === "aligned" ? "Aligned to the Greek text." : "No Greek text: sound patterns only (less certain).");
   } else {
-    $("probs").innerHTML = bars({}, true);
-    $("mode").innerHTML = '<span class="empty">No IPA yet: type some above, or press Greek → IPA.</span>';
+    put("probs", bars({}, true));
+    put("mode", '<span class="empty">No IPA yet.</span>');
   }
   const words = text.split(/[\s,.;·:!?()\[\]"“”]+/).filter(Boolean).slice(0, 40);
   const ctx = lib.call ? JSON.parse(lib.call("check_phrase_accents", text)) : [];
   const ctxFor = (i) => { const c = ctx[i]; if (!c) return "–"; return c.ok ? '<span class="ok">as expected</span>' : `<span class="bad">expected ${esc(c.expected)}</span>`; };
-  const sc = $("scheme").value;
+  const sc = scheme();
   const cards = words.map((w, i) => {
     const info = lib.word(w), lx = lib.lookup(w);
     const syl = (info.syllables || []).map((x) => x.join("")).join(" · ");
@@ -78,16 +85,16 @@ function render() {
 <div class="ln"><span class="k">In context</span>${ctxFor(i)}</div>
 <div class="ln">${badges}</div></div>`;
   });
-  $("words").innerHTML = cards.length ? cards.join("") : '<p class="empty">Type some Greek above to see each word here.</p>';
-  $("ipaview").innerHTML = ipaHtml(ipa);
+  put("words", cards.length ? cards.join("") : '<p class="empty">No Greek text.</p>');
+  put("ipaview", ipaHtml(ipa));
 }
 
-function toIpa() { if (lib) { $("ipa").value = lib.ipa($("greek").value, $("scheme").value); render(); } }
+function toIpa() { if (ready) { $("ipa").value = lib.ipa($("greek").value, scheme()); render(); } }
 
 // Scheme change keeps the Greek text and regenerates the IPA from it; an empty Greek box gets
 // that scheme's sample.
 function schemeChanged() {
-  if (!$("greek").value.trim()) $("greek").value = EXAMPLES[$("scheme").value] || EXAMPLES.koine;
+  if (!$("greek").value.trim()) $("greek").value = EXAMPLES[scheme()] || EXAMPLES.koine;
   toIpa();
 }
 $("toipa").addEventListener("click", toIpa);
@@ -132,17 +139,17 @@ function pretty(name, v) {
   return item("", esc(v));
 }
 function runTool() {
-  if (!lib) return;
+  if (!ready) return;
   const t = TOOLS[toolIdx()];
   $("fnerr").innerHTML = "";
   try {
     const arg = String($("fnarg").value).trim();
-    if (!arg) { $("fnout").innerHTML = '<p class="empty">Type something in Input to see the result.</p>'; $("copy").value = ""; return; }
-    $("fnout").innerHTML = pretty(t[0], JSON.parse(lib.call(t[0], arg, t[3] ? $("fnarg2").value : "")));
+    if (!arg) { put("fnout", '<p class="empty">No input.</p>'); $("copy").value = ""; return; }
+    put("fnout", pretty(t[0], JSON.parse(lib.call(t[0], arg, t[3] ? $("fnarg2").value : ""))));
     $("copy").value = [...$("fnout").querySelectorAll(".it")].map((d) => d.innerText.replace(/\s+/g, " ").trim()).join("\n");
   } catch (e) {
-    $("fnout").innerHTML = "";
-    $("fnerr").innerHTML = `<sl-alert variant="danger" open><sl-icon slot="icon" name="exclamation-octagon"></sl-icon>That input could not be processed: ${esc(e.message)}</sl-alert>`;
+    put("fnout", "");
+    $("fnerr").innerHTML = `<sl-alert variant="danger" open>Can't process that input: ${esc(e.message)}</sl-alert>`;
   }
 }
 function pickTool() {
@@ -152,32 +159,29 @@ function pickTool() {
   if (t[3]) { $("fnarg2").innerHTML = t[3].map((o) => `<sl-option value="${o}">${o.replace(/-/g, " ")}</sl-option>`).join(""); $("fnarg2").value = t[3][0]; }
   runTool();
 }
-$("fn").innerHTML = TOOLS.map((t, i) => `<sl-option value="t${i}">${t[0].replace(/_/g, " ")}</sl-option>`).join("");
-$("fn").value = "t0";
+put("fn", TOOLS.map((t, i) => `<sl-option value="t${i}">${t[0].replace(/_/g, " ")}</sl-option>`).join(""));
 const toolIdx = () => +String($("fn").value || "t0").slice(1);
 $("fn").addEventListener("sl-change", pickTool);
 $("fnarg").addEventListener("sl-input", runTool);
 $("fnarg2").addEventListener("sl-change", runTool);
-function pickToolText() { $("fndesc").textContent = TOOLS[0][1]; $("fnarg").value = TOOLS[0][2]; }
 
 matchMedia("(prefers-color-scheme: dark)").addEventListener("change", (e) => document.documentElement.classList.toggle("sl-theme-dark", e.matches));
-const setStatus = (html, busy) => { $("status").innerHTML = (busy ? "<sl-spinner></sl-spinner>" : "") + `<span>${html}</span>`; };
+// Loading indicator: a thin top bar that index.html shows only if loading takes longer than ~500 ms.
+const fail = (msg) => { document.documentElement.dataset.ready = "error"; $("loadbar").hidden = true; $("err").innerHTML = `<sl-alert variant="danger" open>${esc(msg)}</sl-alert>`; };
 
 (async () => {
-  $("probs").innerHTML = bars({}, true);
-  await Promise.race([Promise.all(["sl-select", "sl-textarea", "sl-button"].map((t) => customElements.whenDefined(t))), new Promise((r) => setTimeout(r, 4000))]);
-  pickToolText();
-  try { lib = await loadWasm(); } catch (e) { console.warn("wasm failed, using JS build", e); lib = await loadJs(); }
-  $("toipa").loading = false; $("toipa").disabled = false;
-  schemeChanged();
-  setStatus(`Running on ${lib.kind}. Loading NT + LXX word list…`, true);
-  try {
-    const bytes = new Uint8Array(await (await fetch("greek-phonology-lexicon.bin?v=" + V)).arrayBuffer());
-    lib.loadBytes(bytes);
-    setStatus(`Running on ${lib.kind}, fully in your browser. Word list: SBLGNT (CC BY 4.0) + Rahlfs LXX forms.`);
-  } catch (e) {
-    setStatus(`<sl-alert variant="warning" open>Word list failed to load; lookups are off. ${esc(e.message)}</sl-alert>`);
-  }
+  const wasm = loadWasm().catch((e) => { console.warn("wasm failed, using JS build", e); return loadJs(); });
+  const lex = fetch("greek-phonology-lexicon.bin?v=" + V).then((r) => (r.ok ? r.arrayBuffer() : Promise.reject(new Error("HTTP " + r.status))));
+  await Promise.race([Promise.all(["sl-select", "sl-textarea", "sl-input"].map((t) => customElements.whenDefined(t))), new Promise((r) => setTimeout(r, 8000))]);
+  await Promise.all(["greek", "scheme", "ipa", "fn", "fnarg"].map((id) => $(id).updateComplete));
+  lib = await wasm;
+  try { lib.loadBytes(new Uint8Array(await lex)); } catch (e) { console.warn("word list failed", e); }
+  ready = true;
+  if (!$("fnarg").value) { $("fndesc").textContent = TOOLS[0][1]; $("fnarg").value = TOOLS[0][2]; }
+  $("loadbar").hidden = true;
+  if (!$("greek").value.trim()) $("greek").value = EXAMPLES[scheme()] || EXAMPLES.koine;
+  if (!$("ipa").value.trim()) $("ipa").value = lib.ipa($("greek").value, scheme());
   render();
-  pickTool();
-})().catch((e) => setStatus(`<sl-alert variant="danger" open>The library failed to load: ${esc(e.message)}</sl-alert>`));
+  runTool();
+  document.documentElement.dataset.ready = "1";
+})().catch((e) => fail("The library failed to load: " + e.message));

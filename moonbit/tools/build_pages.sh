@@ -8,3 +8,4 @@ cp _build/wasm/release/build/api/api.wasm ../docs/greek-phonology.wasm
 cp _build/js/release/build/api/api.js ../docs/greek-phonology.js
 cp data/greek-phonology-lexicon.bin ../docs/greek-phonology-lexicon.bin
 ls -la ../docs
+# The playground HTML (docs/index.html) is prerendered from tools/index.template.html by tools/prerender.py.

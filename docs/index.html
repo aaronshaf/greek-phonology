@@ -31,11 +31,13 @@
   .row > sl-select { flex: 1 1 14rem; }
   .gktext::part(textarea), .gk { font-family: var(--gk); font-size: 1.25rem; }
   .ipatext::part(input) { font-family: var(--ipa); font-size: 1rem; letter-spacing: -0.02em; word-spacing: -0.12em; padding-inline: .5rem; }
-  sl-input:not(:defined) { display: block; min-height: 6rem; }
-  /* reserve space before the components upgrade: no layout shift */
-  sl-textarea:not(:defined) { display: block; min-height: 6.4rem; }
-  sl-select:not(:defined), sl-button:not(:defined) { display: inline-block; min-height: 4.4rem; min-width: 8rem; }
-  sl-button:not(:defined) { min-height: 2.5rem; }
+  /* reserve the exact upgraded sizes so nothing moves when Shoelace defines the components */
+  sl-input:not(:defined), sl-textarea:not(:defined), sl-select:not(:defined), sl-button:not(:defined) { display: block; overflow: hidden; visibility: hidden; }
+  sl-input:not(:defined) { height: 96.3px; }
+  sl-textarea:not(:defined) { height: 103.2px; }
+  sl-select:not(:defined) { height: 65.2px; }
+  sl-button:not(:defined) { display: inline-block; height: 40px; min-width: 8rem; }
+  @media (max-width: 640px) { sl-button#toipa:not(:defined) { display: block; height: 44px; } }
   .ipaw { white-space: normal; overflow-wrap: anywhere; font-family: var(--ipa); }
   .ipaw span { display: inline-block; margin-right: .55em; }
   #ipaview { min-height: 1.6em; font-size: 1.1rem; color: var(--sl-color-neutral-700); }
@@ -44,6 +46,7 @@
   .prob .lbl { display: flex; justify-content: space-between; font-size: .95rem; margin-bottom: .2rem; }
   .prob .pct { font-variant-numeric: tabular-nums; }
   .prob sl-progress-bar { --height: .7rem; }
+  sl-progress-bar:not(:defined) { display: block; height: .7rem; }
   #mode { min-height: 1.5em; margin: .5rem 0 0; }
   #words { min-height: 8rem; display: grid; grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr)); gap: .6rem; }
   .wcard { border: 1px solid var(--sl-panel-border-color); border-radius: var(--sl-border-radius-medium); padding: .6rem .75rem; min-width: 0; }
@@ -59,8 +62,11 @@
   .out .it { display: flex; flex-wrap: wrap; gap: .1rem .6rem; padding: .15rem 0; border-bottom: 1px dashed var(--sl-panel-border-color); }
   .out .it:last-child { border-bottom: 0; }
   .out .lab { color: var(--sl-color-neutral-600); font-family: var(--sl-font-sans); font-size: .85rem; min-width: 4.5rem; align-self: center; }
-  #status { color: var(--sl-color-neutral-600); font-size: .9rem; min-height: 2.6em; display: flex; gap: .5rem; align-items: center; }
-  sl-skeleton { --border-radius: 6px; height: 1.1rem; margin: .45rem 0; }
+  .foot { color: var(--muted); font-size: .8rem; margin: 1.5rem 0 0; }
+  #loadbar { position: fixed; top: 0; left: 0; right: 0; height: 2px; z-index: 20; overflow: hidden; background: transparent; }
+  #loadbar::after { content: ""; position: absolute; top: 0; bottom: 0; left: 0; width: 30%; background: var(--pri, #1F4E8C); opacity: .7; animation: lb 1.1s ease-in-out infinite; will-change: transform; }
+  @keyframes lb { from { transform: translateX(-100%); } to { transform: translateX(340%); } }
+  @media (prefers-reduced-motion: reduce) { #loadbar::after { animation: none; width: 100%; opacity: .35; } }
   sl-alert { margin: .5rem 0 0; }
   :focus-visible { outline: 2px solid var(--sl-color-primary-600); outline-offset: 2px; }
   @media (max-width: 640px) {
@@ -107,7 +113,7 @@
     --sl-input-background-color: #0f1a2b;
   }
   body { background: var(--bg) !important; color: var(--text); }
-  .sub, .k, .empty, #status, .prob .lbl, .out .lab { color: var(--muted) !important; }
+  .sub, .k, .empty, .prob .lbl, .out .lab { color: var(--muted) !important; }
   a { color: var(--pri); }
   .ok { color: var(--olive) !important; } .bad { color: var(--terra-text) !important; }
   h1 { color: var(--text); }
@@ -129,12 +135,14 @@
 </style>
 </head>
 <body>
+<div id="loadbar" hidden aria-hidden="true"></div>
+<script>setTimeout(() => { if (!document.documentElement.dataset.ready) document.getElementById("loadbar").hidden = false; }, 500);</script>
 <a href="https://github.com/aaronshaf/greek-phonology" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z" class="gc-bg"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" class="octo-arm gc-fg" style="transform-origin: 130px 106px;"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" class="gc-fg"></path></svg></a>
 <h1>greek-phonology</h1>
-<p class="sub">Greek pronunciation tools that run entirely in your browser.</p>
+<p class="sub">Ancient Greek pronunciation, in your browser.</p>
 
 <div class="card stack">
-  <sl-textarea id="greek" class="gktext" label="Greek text" rows="2" resize="auto" value="Ἐν ἀρχῇ ἦν ὁ λόγος"></sl-textarea>
+  <sl-textarea id="greek" class="gktext" label="Greek text" rows="2" resize="auto" value="Ἐν ἀρχῇ ἦν ὁ λόγος, καὶ ὁ λόγος ἦν πρὸς τὸν θεόν"></sl-textarea>
   <div class="row">
     <sl-select id="scheme" label="Read it as" value="koine">
       <sl-option value="koine">Koine (reconstructed)</sl-option>
@@ -142,33 +150,95 @@
       <sl-option value="erasmian">Erasmian</sl-option>
       <sl-option value="modern">Modern Greek</sl-option>
     </sl-select>
-    <sl-button id="toipa" variant="primary" loading disabled>Greek → IPA</sl-button>
+    <sl-button id="toipa" variant="primary">Greek → IPA</sl-button>
   </div>
-  <sl-input id="ipa" class="ipatext" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" help-text="Phones separated by spaces, words by |" aria-label="IPA (what was heard)">
+  <sl-input id="ipa" class="ipatext" value="ɛ n | a r kʰ e | e n | o | l o ɣ o s | k ɛ | o | l o ɣ o s | e n | p r o s | t o n | tʰ ɛ o n" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" help-text="Phones separated by spaces, words by |" aria-label="IPA (what was heard)">
     <span slot="label">IPA (what was heard)
-      <sl-tooltip content="Type or paste a transcription, or press Greek → IPA. The detector compares it with each pronunciation."><sl-icon-button name="info-circle" label="About the IPA box"></sl-icon-button></sl-tooltip>
+      <sl-tooltip content="Type or paste a transcription, or press Greek → IPA."><sl-icon-button name="info-circle" label="About the IPA box"></sl-icon-button></sl-tooltip>
     </span>
   </sl-input>
-  <div id="ipaview" class="ipaw" aria-label="IPA by word"></div>
+  <div id="ipaview" class="ipaw" aria-label="IPA by word"><span class="ipaw"><span>ɛn</span> <span>arkʰe</span> <span>en</span> <span>o</span> <span>loɣos</span> <span>kɛ</span> <span>o</span> <span>loɣos</span> <span>en</span> <span>pros</span> <span>ton</span> <span>tʰɛon</span></span></div>
 </div>
 
-<section class="card"><h2>Which pronunciation does the IPA sound like?</h2>
-  <div id="probs" aria-live="polite"></div><p id="mode" class="sub"></p></section>
-<section class="card"><h2>Words: syllables, accent, dictionary</h2>
-  <div id="words"><div><sl-skeleton effect="pulse"></sl-skeleton><sl-skeleton effect="pulse"></sl-skeleton><sl-skeleton effect="pulse"></sl-skeleton></div></div></section>
+<section class="card"><h2>Closest pronunciation</h2>
+  <div id="probs" aria-live="polite"><div class="prob top"><div class="lbl"><span>Koine</span><span class="pct">100.0%</span></div><sl-progress-bar value="100.0" label="Koine: 100.0 percent"></sl-progress-bar></div><div class="prob"><div class="lbl"><span>Restored Attic</span><span class="pct">0.0%</span></div><sl-progress-bar value="0.0" label="Restored Attic: 0.0 percent"></sl-progress-bar></div><div class="prob"><div class="lbl"><span>Erasmian</span><span class="pct">0.0%</span></div><sl-progress-bar value="0.0" label="Erasmian: 0.0 percent"></sl-progress-bar></div><div class="prob"><div class="lbl"><span>Modern Greek</span><span class="pct">0.0%</span></div><sl-progress-bar value="0.0" label="Modern Greek: 0.0 percent"></sl-progress-bar></div></div><p id="mode" class="sub">Aligned to the Greek text.</p></section>
+<section class="card"><h2>Words</h2>
+  <div id="words"><div class="wcard"><div class="w">Ἐν</div>
+<div class="ln"><span class="k">IPA</span><span class="ipaw"><span>ɛn</span></span></div>
+<div class="ln"><span class="k">Syllables</span><span class="gk">εν</span></div>
+<div class="ln"><span class="k">Accent</span>–</div>
+<div class="ln"><span class="k">In context</span><span class="ok">as expected</span></div>
+<div class="ln"><sl-badge class="found" pill>NT</sl-badge> <sl-badge class="found" pill>LXX</sl-badge>  <span class="gk">ἐν</span></div></div><div class="wcard"><div class="w">ἀρχῇ</div>
+<div class="ln"><span class="k">IPA</span><span class="ipaw"><span>arkʰe</span></span></div>
+<div class="ln"><span class="k">Syllables</span><span class="gk">αρ · χη</span></div>
+<div class="ln"><span class="k">Accent</span><span class="ok">follows the rules</span></div>
+<div class="ln"><span class="k">In context</span><span class="ok">as expected</span></div>
+<div class="ln"><sl-badge class="found" pill>NT</sl-badge> <sl-badge class="found" pill>LXX</sl-badge> </div></div><div class="wcard"><div class="w">ἦν</div>
+<div class="ln"><span class="k">IPA</span><span class="ipaw"><span>en</span></span></div>
+<div class="ln"><span class="k">Syllables</span><span class="gk">ην</span></div>
+<div class="ln"><span class="k">Accent</span><span class="ok">follows the rules</span></div>
+<div class="ln"><span class="k">In context</span><span class="ok">as expected</span></div>
+<div class="ln"><sl-badge class="found" pill>NT</sl-badge> <sl-badge class="found" pill>LXX</sl-badge> </div></div><div class="wcard"><div class="w">ὁ</div>
+<div class="ln"><span class="k">IPA</span><span class="ipaw"><span>o</span></span></div>
+<div class="ln"><span class="k">Syllables</span><span class="gk">ο</span></div>
+<div class="ln"><span class="k">Accent</span>–</div>
+<div class="ln"><span class="k">In context</span><span class="ok">as expected</span></div>
+<div class="ln"><sl-badge class="found" pill>NT</sl-badge> <sl-badge class="found" pill>LXX</sl-badge> </div></div><div class="wcard"><div class="w">λόγος</div>
+<div class="ln"><span class="k">IPA</span><span class="ipaw"><span>loɣos</span></span></div>
+<div class="ln"><span class="k">Syllables</span><span class="gk">λο · γος</span></div>
+<div class="ln"><span class="k">Accent</span><span class="ok">follows the rules</span></div>
+<div class="ln"><span class="k">In context</span><span class="ok">as expected</span></div>
+<div class="ln"><sl-badge class="found" pill>NT</sl-badge> <sl-badge class="found" pill>LXX</sl-badge> </div></div><div class="wcard"><div class="w">καὶ</div>
+<div class="ln"><span class="k">IPA</span><span class="ipaw"><span>kɛ</span></span></div>
+<div class="ln"><span class="k">Syllables</span><span class="gk">και</span></div>
+<div class="ln"><span class="k">Accent</span><span class="ok">follows the rules</span></div>
+<div class="ln"><span class="k">In context</span><span class="ok">as expected</span></div>
+<div class="ln"><sl-badge class="found" pill>NT</sl-badge> <sl-badge class="found" pill>LXX</sl-badge>  <span class="gk">καί</span></div></div><div class="wcard"><div class="w">ὁ</div>
+<div class="ln"><span class="k">IPA</span><span class="ipaw"><span>o</span></span></div>
+<div class="ln"><span class="k">Syllables</span><span class="gk">ο</span></div>
+<div class="ln"><span class="k">Accent</span>–</div>
+<div class="ln"><span class="k">In context</span><span class="ok">as expected</span></div>
+<div class="ln"><sl-badge class="found" pill>NT</sl-badge> <sl-badge class="found" pill>LXX</sl-badge> </div></div><div class="wcard"><div class="w">λόγος</div>
+<div class="ln"><span class="k">IPA</span><span class="ipaw"><span>loɣos</span></span></div>
+<div class="ln"><span class="k">Syllables</span><span class="gk">λο · γος</span></div>
+<div class="ln"><span class="k">Accent</span><span class="ok">follows the rules</span></div>
+<div class="ln"><span class="k">In context</span><span class="ok">as expected</span></div>
+<div class="ln"><sl-badge class="found" pill>NT</sl-badge> <sl-badge class="found" pill>LXX</sl-badge> </div></div><div class="wcard"><div class="w">ἦν</div>
+<div class="ln"><span class="k">IPA</span><span class="ipaw"><span>en</span></span></div>
+<div class="ln"><span class="k">Syllables</span><span class="gk">ην</span></div>
+<div class="ln"><span class="k">Accent</span><span class="ok">follows the rules</span></div>
+<div class="ln"><span class="k">In context</span><span class="ok">as expected</span></div>
+<div class="ln"><sl-badge class="found" pill>NT</sl-badge> <sl-badge class="found" pill>LXX</sl-badge> </div></div><div class="wcard"><div class="w">πρὸς</div>
+<div class="ln"><span class="k">IPA</span><span class="ipaw"><span>pros</span></span></div>
+<div class="ln"><span class="k">Syllables</span><span class="gk">προς</span></div>
+<div class="ln"><span class="k">Accent</span><span class="ok">follows the rules</span></div>
+<div class="ln"><span class="k">In context</span><span class="ok">as expected</span></div>
+<div class="ln"><sl-badge class="found" pill>NT</sl-badge> <sl-badge class="found" pill>LXX</sl-badge>  <span class="gk">πρός</span></div></div><div class="wcard"><div class="w">τὸν</div>
+<div class="ln"><span class="k">IPA</span><span class="ipaw"><span>ton</span></span></div>
+<div class="ln"><span class="k">Syllables</span><span class="gk">τον</span></div>
+<div class="ln"><span class="k">Accent</span><span class="ok">follows the rules</span></div>
+<div class="ln"><span class="k">In context</span><span class="ok">as expected</span></div>
+<div class="ln"><sl-badge class="found" pill>NT</sl-badge> <sl-badge class="found" pill>LXX</sl-badge>  <span class="gk">τόν</span></div></div><div class="wcard"><div class="w">θεόν</div>
+<div class="ln"><span class="k">IPA</span><span class="ipaw"><span>tʰɛon</span></span></div>
+<div class="ln"><span class="k">Syllables</span><span class="gk">θε · ον</span></div>
+<div class="ln"><span class="k">Accent</span><span class="ok">follows the rules</span></div>
+<div class="ln"><span class="k">In context</span><span class="ok">as expected</span></div>
+<div class="ln"><sl-badge class="found" pill>NT</sl-badge> <sl-badge class="found" pill>LXX</sl-badge> </div></div></div></section>
 <section class="card stack" id="tools"><h2>Tools</h2>
-  <sl-select id="fn" label="Function" hoist></sl-select>
-  <p id="fndesc" class="sub" style="margin:0;min-height:1.5em"></p>
-  <sl-textarea id="fnarg" class="gktext" label="Input" rows="2" resize="auto"></sl-textarea>
+  <sl-select id="fn" label="Function" hoist value="t0"><sl-option value="t0">accentuate phrase</sl-option><sl-option value="t1">check phrase accents</sl-option><sl-option value="t2">lexical phrase</sl-option><sl-option value="t3">accentuate verb</sl-option><sl-option value="t4">syllabify</sl-option><sl-option value="t5">add acute</sl-option><sl-option value="t6">add circumflex</sl-option><sl-option value="t7">remove acutes</sl-option><sl-option value="t8">remove graves</sl-option><sl-option value="t9">remove circumflexes</sl-option><sl-option value="t10">without accents</sl-option><sl-option value="t11">contract</sl-option><sl-option value="t12">amalgamate</sl-option><sl-option value="t13">augmentize</sl-option><sl-option value="t14">conjugate</sl-option><sl-option value="t15">extract consonant clusters</sl-option><sl-option value="t16">lookup</sl-option><sl-option value="t17">ipa</sl-option><sl-option value="t18">detect</sl-option></sl-select>
+  <p id="fndesc" class="sub" style="margin:0;min-height:1.5em">Accents in context: enclitics, proclitics, acute → grave. Type words with their dictionary accents.</p>
+  <sl-textarea id="fnarg" class="gktext" label="Input" rows="2" resize="auto" value="ἄνθρωπος τις ἦλθεν καί εἰ τις θέλει"></sl-textarea>
   <sl-select id="fnarg2" label="Option" hoist hidden></sl-select>
   <div>
     <div class="k" id="fnoutlbl">Result</div>
-    <div class="out" role="region" aria-labelledby="fnoutlbl"><div id="fnout" aria-live="polite"></div><sl-copy-button id="copy" copy-label="Copy result" success-label="Copied"></sl-copy-button></div>
+    <div class="out" role="region" aria-labelledby="fnoutlbl"><div id="fnout" aria-live="polite"><div class="it"><span class="">ἄνθρωπός τις ἦλθεν καὶ εἴ τις θέλει</span></div></div><sl-copy-button id="copy" copy-label="Copy result" success-label="Copied"></sl-copy-button></div>
     <div id="fnerr"></div>
   </div>
 </section>
-<p id="status" role="status"><sl-spinner></sl-spinner><span>Loading the library…</span></p>
+<div id="err" role="status"></div>
+<p class="foot">Word list: SBLGNT (CC BY 4.0) and Rahlfs LXX forms.</p>
+<script type="application/json" id="pre">{"fn": "<sl-option value=\"t0\">accentuate phrase<\/sl-option><sl-option value=\"t1\">check phrase accents<\/sl-option><sl-option value=\"t2\">lexical phrase<\/sl-option><sl-option value=\"t3\">accentuate verb<\/sl-option><sl-option value=\"t4\">syllabify<\/sl-option><sl-option value=\"t5\">add acute<\/sl-option><sl-option value=\"t6\">add circumflex<\/sl-option><sl-option value=\"t7\">remove acutes<\/sl-option><sl-option value=\"t8\">remove graves<\/sl-option><sl-option value=\"t9\">remove circumflexes<\/sl-option><sl-option value=\"t10\">without accents<\/sl-option><sl-option value=\"t11\">contract<\/sl-option><sl-option value=\"t12\">amalgamate<\/sl-option><sl-option value=\"t13\">augmentize<\/sl-option><sl-option value=\"t14\">conjugate<\/sl-option><sl-option value=\"t15\">extract consonant clusters<\/sl-option><sl-option value=\"t16\">lookup<\/sl-option><sl-option value=\"t17\">ipa<\/sl-option><sl-option value=\"t18\">detect<\/sl-option>", "probs": "<div class=\"prob top\"><div class=\"lbl\"><span>Koine<\/span><span class=\"pct\">100.0%<\/span><\/div><sl-progress-bar value=\"100.0\" label=\"Koine: 100.0 percent\"><\/sl-progress-bar><\/div><div class=\"prob\"><div class=\"lbl\"><span>Restored Attic<\/span><span class=\"pct\">0.0%<\/span><\/div><sl-progress-bar value=\"0.0\" label=\"Restored Attic: 0.0 percent\"><\/sl-progress-bar><\/div><div class=\"prob\"><div class=\"lbl\"><span>Erasmian<\/span><span class=\"pct\">0.0%<\/span><\/div><sl-progress-bar value=\"0.0\" label=\"Erasmian: 0.0 percent\"><\/sl-progress-bar><\/div><div class=\"prob\"><div class=\"lbl\"><span>Modern Greek<\/span><span class=\"pct\">0.0%<\/span><\/div><sl-progress-bar value=\"0.0\" label=\"Modern Greek: 0.0 percent\"><\/sl-progress-bar><\/div>", "mode": "Aligned to the Greek text.", "words": "<div class=\"wcard\"><div class=\"w\">Ἐν<\/div>\n<div class=\"ln\"><span class=\"k\">IPA<\/span><span class=\"ipaw\"><span>ɛn<\/span><\/span><\/div>\n<div class=\"ln\"><span class=\"k\">Syllables<\/span><span class=\"gk\">εν<\/span><\/div>\n<div class=\"ln\"><span class=\"k\">Accent<\/span>–<\/div>\n<div class=\"ln\"><span class=\"k\">In context<\/span><span class=\"ok\">as expected<\/span><\/div>\n<div class=\"ln\"><sl-badge class=\"found\" pill>NT<\/sl-badge> <sl-badge class=\"found\" pill>LXX<\/sl-badge>  <span class=\"gk\">ἐν<\/span><\/div><\/div><div class=\"wcard\"><div class=\"w\">ἀρχῇ<\/div>\n<div class=\"ln\"><span class=\"k\">IPA<\/span><span class=\"ipaw\"><span>arkʰe<\/span><\/span><\/div>\n<div class=\"ln\"><span class=\"k\">Syllables<\/span><span class=\"gk\">αρ · χη<\/span><\/div>\n<div class=\"ln\"><span class=\"k\">Accent<\/span><span class=\"ok\">follows the rules<\/span><\/div>\n<div class=\"ln\"><span class=\"k\">In context<\/span><span class=\"ok\">as expected<\/span><\/div>\n<div class=\"ln\"><sl-badge class=\"found\" pill>NT<\/sl-badge> <sl-badge class=\"found\" pill>LXX<\/sl-badge> <\/div><\/div><div class=\"wcard\"><div class=\"w\">ἦν<\/div>\n<div class=\"ln\"><span class=\"k\">IPA<\/span><span class=\"ipaw\"><span>en<\/span><\/span><\/div>\n<div class=\"ln\"><span class=\"k\">Syllables<\/span><span class=\"gk\">ην<\/span><\/div>\n<div class=\"ln\"><span class=\"k\">Accent<\/span><span class=\"ok\">follows the rules<\/span><\/div>\n<div class=\"ln\"><span class=\"k\">In context<\/span><span class=\"ok\">as expected<\/span><\/div>\n<div class=\"ln\"><sl-badge class=\"found\" pill>NT<\/sl-badge> <sl-badge class=\"found\" pill>LXX<\/sl-badge> <\/div><\/div><div class=\"wcard\"><div class=\"w\">ὁ<\/div>\n<div class=\"ln\"><span class=\"k\">IPA<\/span><span class=\"ipaw\"><span>o<\/span><\/span><\/div>\n<div class=\"ln\"><span class=\"k\">Syllables<\/span><span class=\"gk\">ο<\/span><\/div>\n<div class=\"ln\"><span class=\"k\">Accent<\/span>–<\/div>\n<div class=\"ln\"><span class=\"k\">In context<\/span><span class=\"ok\">as expected<\/span><\/div>\n<div class=\"ln\"><sl-badge class=\"found\" pill>NT<\/sl-badge> <sl-badge class=\"found\" pill>LXX<\/sl-badge> <\/div><\/div><div class=\"wcard\"><div class=\"w\">λόγος<\/div>\n<div class=\"ln\"><span class=\"k\">IPA<\/span><span class=\"ipaw\"><span>loɣos<\/span><\/span><\/div>\n<div class=\"ln\"><span class=\"k\">Syllables<\/span><span class=\"gk\">λο · γος<\/span><\/div>\n<div class=\"ln\"><span class=\"k\">Accent<\/span><span class=\"ok\">follows the rules<\/span><\/div>\n<div class=\"ln\"><span class=\"k\">In context<\/span><span class=\"ok\">as expected<\/span><\/div>\n<div class=\"ln\"><sl-badge class=\"found\" pill>NT<\/sl-badge> <sl-badge class=\"found\" pill>LXX<\/sl-badge> <\/div><\/div><div class=\"wcard\"><div class=\"w\">καὶ<\/div>\n<div class=\"ln\"><span class=\"k\">IPA<\/span><span class=\"ipaw\"><span>kɛ<\/span><\/span><\/div>\n<div class=\"ln\"><span class=\"k\">Syllables<\/span><span class=\"gk\">και<\/span><\/div>\n<div class=\"ln\"><span class=\"k\">Accent<\/span><span class=\"ok\">follows the rules<\/span><\/div>\n<div class=\"ln\"><span class=\"k\">In context<\/span><span class=\"ok\">as expected<\/span><\/div>\n<div class=\"ln\"><sl-badge class=\"found\" pill>NT<\/sl-badge> <sl-badge class=\"found\" pill>LXX<\/sl-badge>  <span class=\"gk\">καί<\/span><\/div><\/div><div class=\"wcard\"><div class=\"w\">ὁ<\/div>\n<div class=\"ln\"><span class=\"k\">IPA<\/span><span class=\"ipaw\"><span>o<\/span><\/span><\/div>\n<div class=\"ln\"><span class=\"k\">Syllables<\/span><span class=\"gk\">ο<\/span><\/div>\n<div class=\"ln\"><span class=\"k\">Accent<\/span>–<\/div>\n<div class=\"ln\"><span class=\"k\">In context<\/span><span class=\"ok\">as expected<\/span><\/div>\n<div class=\"ln\"><sl-badge class=\"found\" pill>NT<\/sl-badge> <sl-badge class=\"found\" pill>LXX<\/sl-badge> <\/div><\/div><div class=\"wcard\"><div class=\"w\">λόγος<\/div>\n<div class=\"ln\"><span class=\"k\">IPA<\/span><span class=\"ipaw\"><span>loɣos<\/span><\/span><\/div>\n<div class=\"ln\"><span class=\"k\">Syllables<\/span><span class=\"gk\">λο · γος<\/span><\/div>\n<div class=\"ln\"><span class=\"k\">Accent<\/span><span class=\"ok\">follows the rules<\/span><\/div>\n<div class=\"ln\"><span class=\"k\">In context<\/span><span class=\"ok\">as expected<\/span><\/div>\n<div class=\"ln\"><sl-badge class=\"found\" pill>NT<\/sl-badge> <sl-badge class=\"found\" pill>LXX<\/sl-badge> <\/div><\/div><div class=\"wcard\"><div class=\"w\">ἦν<\/div>\n<div class=\"ln\"><span class=\"k\">IPA<\/span><span class=\"ipaw\"><span>en<\/span><\/span><\/div>\n<div class=\"ln\"><span class=\"k\">Syllables<\/span><span class=\"gk\">ην<\/span><\/div>\n<div class=\"ln\"><span class=\"k\">Accent<\/span><span class=\"ok\">follows the rules<\/span><\/div>\n<div class=\"ln\"><span class=\"k\">In context<\/span><span class=\"ok\">as expected<\/span><\/div>\n<div class=\"ln\"><sl-badge class=\"found\" pill>NT<\/sl-badge> <sl-badge class=\"found\" pill>LXX<\/sl-badge> <\/div><\/div><div class=\"wcard\"><div class=\"w\">πρὸς<\/div>\n<div class=\"ln\"><span class=\"k\">IPA<\/span><span class=\"ipaw\"><span>pros<\/span><\/span><\/div>\n<div class=\"ln\"><span class=\"k\">Syllables<\/span><span class=\"gk\">προς<\/span><\/div>\n<div class=\"ln\"><span class=\"k\">Accent<\/span><span class=\"ok\">follows the rules<\/span><\/div>\n<div class=\"ln\"><span class=\"k\">In context<\/span><span class=\"ok\">as expected<\/span><\/div>\n<div class=\"ln\"><sl-badge class=\"found\" pill>NT<\/sl-badge> <sl-badge class=\"found\" pill>LXX<\/sl-badge>  <span class=\"gk\">πρός<\/span><\/div><\/div><div class=\"wcard\"><div class=\"w\">τὸν<\/div>\n<div class=\"ln\"><span class=\"k\">IPA<\/span><span class=\"ipaw\"><span>ton<\/span><\/span><\/div>\n<div class=\"ln\"><span class=\"k\">Syllables<\/span><span class=\"gk\">τον<\/span><\/div>\n<div class=\"ln\"><span class=\"k\">Accent<\/span><span class=\"ok\">follows the rules<\/span><\/div>\n<div class=\"ln\"><span class=\"k\">In context<\/span><span class=\"ok\">as expected<\/span><\/div>\n<div class=\"ln\"><sl-badge class=\"found\" pill>NT<\/sl-badge> <sl-badge class=\"found\" pill>LXX<\/sl-badge>  <span class=\"gk\">τόν<\/span><\/div><\/div><div class=\"wcard\"><div class=\"w\">θεόν<\/div>\n<div class=\"ln\"><span class=\"k\">IPA<\/span><span class=\"ipaw\"><span>tʰɛon<\/span><\/span><\/div>\n<div class=\"ln\"><span class=\"k\">Syllables<\/span><span class=\"gk\">θε · ον<\/span><\/div>\n<div class=\"ln\"><span class=\"k\">Accent<\/span><span class=\"ok\">follows the rules<\/span><\/div>\n<div class=\"ln\"><span class=\"k\">In context<\/span><span class=\"ok\">as expected<\/span><\/div>\n<div class=\"ln\"><sl-badge class=\"found\" pill>NT<\/sl-badge> <sl-badge class=\"found\" pill>LXX<\/sl-badge> <\/div><\/div>", "ipaview": "<span class=\"ipaw\"><span>ɛn<\/span> <span>arkʰe<\/span> <span>en<\/span> <span>o<\/span> <span>loɣos<\/span> <span>kɛ<\/span> <span>o<\/span> <span>loɣos<\/span> <span>en<\/span> <span>pros<\/span> <span>ton<\/span> <span>tʰɛon<\/span><\/span>", "fnout": "<div class=\"it\"><span class=\"\">ἄνθρωπός τις ἦλθεν καὶ εἴ τις θέλει<\/span><\/div>"}</script>
 
-<script type="module" src="app.js?v=14"></script>
+<script type="module" src="app.js?v=15"></script>
 </body>
 </html>
