@@ -79,12 +79,17 @@ fn utf8_encode(s : String) -> Unit {
 
 ///|
 /// cmd 0 detect(arg0 = ipa, arg1 = greek text, may be empty); 1 ipa(arg0 = text, arg1 = scheme); 2 word_json(arg0);
-/// 3 load_lexicon (raw bytes, via run only); 4 lookup_json(arg0).
+/// 3 load_lexicon (raw bytes, via run only); 4 lookup_json(arg0); 5 call(name = arg0, arg1 = arg [\u{1} arg2]).
 pub fn run_str(cmd : Int32, a0 : String, a1 : String) -> String {
   match cmd {
     0 => @lib.detect(a0, greek_text=a1).to_json_string()
     1 => @lib.ipa(a0, a1)
     4 => @lib.lookup_json(a0)
+    5 => {
+      // a1 = "argument\u{1}second argument"
+      let parts = a1.split("\u{1}").map(fn(v) { v.to_string() }).collect()
+      @lib.call_json(a0, parts[0], if parts.length() > 1 { parts[1] } else { "" })
+    }
     _ => @lib.word_json(a0)
   }
 }
@@ -132,4 +137,10 @@ pub fn word_json(word : String) -> String {
 ///|
 pub fn lookup_json(word : String) -> String {
   run_str(4, word, "")
+}
+
+///|
+/// Call any library function by name (see lib.call_json); returns JSON.
+pub fn call(name : String, arg : String, arg2 : String) -> String {
+  @lib.call_json(name, arg, arg2)
 }

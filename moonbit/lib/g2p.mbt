@@ -445,6 +445,13 @@ pub fn accent(word : String) -> (Int32, String)? {
 }
 
 ///|
+/// True when the word ends in its last vowel (so final -αι/-οι count short: λύεται, but λόγοις).
+fn ends_in_vowel(word : String) -> Bool {
+  let us = units(word)
+  us.length() > 0 && is_vowel(first_char(us[us.length() - 1].u))
+}
+
+///|
 /// 1 long, 0 short, 2 unknown (α ι υ). Final -αι/-οι count short for accent.
 fn nucleus_long(nu : String, is_final : Bool) -> Int32 {
   if nu == "" {
@@ -470,7 +477,7 @@ pub fn accent_ok(word : String) -> Bool? {
   let sm = syl_marks(word)
   let n = sm.length()
   let nl = nucleus_long(sm[n - pos].1, false)
-  let ul = nucleus_long(sm[n - 1].1, true)
+  let ul = nucleus_long(sm[n - 1].1, ends_in_vowel(word))
   Some(@kernel.law_ok(n, pos, kind == "circumflex", nl != 0, ul == 1))
 }
 
@@ -482,7 +489,7 @@ pub fn recessive_accent(word : String) -> (Int32, String)? {
   if n == 0 {
     return None
   }
-  let ul = nucleus_long(sm[n - 1].1, true) == 1
+  let ul = nucleus_long(sm[n - 1].1, ends_in_vowel(word)) == 1
   let (pos, c) = if n == 1 {
     (1, @kernel.recessive_circ(1, false, nucleus_long(sm[0].1, false) == 1))
   } else {

@@ -152,9 +152,34 @@ pub fn lookup_json(word : String) -> String {
 ///|
 /// Compose a decomposed Greek string (base + marks) back to NFC, using the generated table.
 fn nfc(s : String) -> String {
+  // decompose, then canonical order (only U+0345, ccc 240, sorts after the ccc-230 Greek marks)
   let cs : Array[Char] = []
-  for c in s {
-    cs.push(c)
+  for c0 in s {
+    for c in nfd_char(c0) {
+      cs.push(c)
+    }
+  }
+  let mut a = 0
+  while a < cs.length() {
+    if is_comb(cs[a]) {
+      let mut b = a
+      while b < cs.length() && is_comb(cs[b]) {
+        b += 1
+      }
+      let mut n = 0
+      for t in a..<b {
+        if cs[t] != subscr {
+          cs[a + n] = cs[t]
+          n += 1
+        }
+      }
+      for t in (a + n)..<b {
+        cs[t] = subscr
+      }
+      a = b
+    } else {
+      a += 1
+    }
   }
   let sb = StringBuilder()
   let mut i = 0

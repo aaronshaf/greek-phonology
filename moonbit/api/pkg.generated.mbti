@@ -2,6 +2,8 @@
 package "aaronshaf/greek-phonology/api"
 
 // Values
+pub fn call(String, String, String) -> String
+
 pub fn detect_json(String, String) -> String
 
 pub fn in_clear() -> Unit

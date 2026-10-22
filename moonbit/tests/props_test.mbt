@@ -132,3 +132,48 @@ test "examples" {
     assert_eq(best, i)
   }
 }
+
+///|
+fn ncount(s : String) -> Int {
+  let mut n = 0
+  for _ in s {
+    n += 1
+  }
+  n
+}
+
+///|
+test "accentuate_verb: result always obeys the law of limitation" {
+  let seed = Ref(11)
+  for _ in 0..<3000 {
+    let w = @lib.remove_circumflexes(@lib.remove_acutes(random_word(seed)))
+    let a = @lib.accentuate_verb(w)
+    match @lib.accent_ok(a) {
+      Some(ok) => assert_true(ok, msg=a)
+      None => () // no vowel to accent
+    }
+  }
+}
+
+///|
+test "amalgamate never lengthens; remove_* are idempotent; without_accents leaves no marks" {
+  let seed = Ref(5)
+  for _ in 0..<3000 {
+    let w = random_word(seed)
+    assert_true(ncount(@lib.amalgamate(w)) <= ncount(w))
+    let r = @lib.remove_acutes(w)
+    assert_eq(@lib.remove_acutes(r), r)
+    assert_false(@lib.contains_circumflex(@lib.remove_circumflexes(w)))
+    for c in @lib.without_accents(w) {
+      assert_true(c.to_int() < 0x300 || c.to_int() > 0x36F)
+    }
+  }
+}
+
+///|
+test "kl examples" {
+  assert_eq(@lib.accentuate_verb("λυομεν"), "λύομεν")
+  assert_eq(@lib.accentuate_verb("δουλος"), "δοῦλος")
+  assert_eq(@lib.amalgamate("γραφσω"), "γραψω")
+  assert_eq(@lib.conjugate("λυ", "future-active-indicative")[0], "λύσω")
+}
