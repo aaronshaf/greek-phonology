@@ -7,12 +7,13 @@ const EXAMPLES = {
   modern: "Πάτερ ἡμῶν ὁ ἐν τοῖς οὐρανοῖς",
   byzantine: "οἱ υἱοὶ τῆς γῆς εὐλογοῦσιν",
 };
+const V = "4";
 const $ = (id) => document.getElementById(id);
 let lib = null;
 
 async function loadWasm() {
   const imports = { spectest: { print_char: () => {} } };
-  const { instance } = await WebAssembly.instantiateStreaming(fetch("greek-phonology.wasm"), imports);
+  const { instance } = await WebAssembly.instantiateStreaming(fetch("greek-phonology.wasm?v=" + V), imports);
   const x = instance.exports;
   if (x._start) x._start();
   const enc = new TextEncoder(), dec = new TextDecoder();
@@ -30,7 +31,7 @@ async function loadWasm() {
 }
 
 async function loadJs() {
-  const src = await (await fetch("greek-phonology.js")).text();
+  const src = await (await fetch("greek-phonology.js?v=" + V)).text();
   const module = { exports: {} };
   new Function("module", "exports", src)(module, module.exports);
   const m = module.exports;
@@ -45,6 +46,9 @@ function bars(probs) {
   }).join("");
 }
 
+// IPA "a b | c d" -> one unbreakable span per word, normal spaces between words.
+const ipaWords = (s) => String(s).split("|").map((w) => w.trim().split(/\s+/).join("")).filter(Boolean);
+const ipaHtml = (s) => `<span class="ipaw">${ipaWords(s).map((w) => `<span>${esc(w)}</span>`).join(" ")}</span>`;
 const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
 
 function render() {
@@ -62,14 +66,21 @@ function render() {
   const words = text.split(/[\s,.;·:!?()\[\]"“”]+/).filter(Boolean).slice(0, 40);
   const ctx = lib.call ? JSON.parse(lib.call("check_phrase_accents", text)) : [];
   const ctxFor = (i) => { const c = ctx[i]; if (!c) return "–"; return c.ok ? '<span class="ok">as expected</span>' : `<span class="bad">expected ${esc(c.expected)}</span>`; };
-  const rows = words.map((w, i) => {
+  const sc = $("scheme").value;
+  const cards = words.map((w, i) => {
     const info = lib.word(w), lx = lib.lookup(w);
-    const syl = (info.syllables || []).map((s) => s.join("")).join("·");
+    const syl = (info.syllables || []).map((x) => x.join("")).join(" · ");
     const law = info.accent_ok === null || info.accent_ok === undefined ? "–" : info.accent_ok ? '<span class="ok">follows the rules</span>' : '<span class="bad">breaks the law of limitation</span>';
-    const dict = lx ? `${esc(lx.form)} (${[lx.nt && "NT", lx.lxx && "LXX"].filter(Boolean).join(", ")}${lx.match !== "exact" ? ", matched ignoring " + (lx.match === "fold" ? "case" : "accents") : ""})` : "not found";
-    return `<tr><td class="gk" data-label="Word">${esc(w)}</td><td class="gk" data-label="Syllables">${esc(syl)}</td><td data-label="Accent">${law}</td><td data-label="In context">${ctxFor(i)}</td><td data-label="NT/LXX word list">${dict}</td></tr>`;
+    const badges = lx ? [lx.nt && "NT", lx.lxx && "LXX"].filter(Boolean).map((b) => `<span class="badge">${b}</span>`).join("") + (lx.form !== w ? ` <span class="gk">${esc(lx.form)}</span>` : "") : '<span class="badge">not in NT/LXX</span>';
+    return `<div class="wcard"><div class="w">${esc(w)}</div>
+<div class="ln"><span class="k">IPA</span>${ipaHtml(lib.ipa(w, sc))}</div>
+<div class="ln"><span class="k">Syllables</span><span class="gk">${esc(syl)}</span></div>
+<div class="ln"><span class="k">Accent</span>${law}</div>
+<div class="ln"><span class="k">In context</span>${ctxFor(i)}</div>
+<div class="ln">${badges}</div></div>`;
   });
-  $("words").innerHTML = rows.length ? `<div class="tablewrap"><table><tr class="head"><th>Word</th><th>Syllables</th><th>Accent</th><th>Accent in context</th><th>In NT/LXX word list</th></tr>${rows.join("")}</table></div>` : "";
+  $("words").innerHTML = cards.join("");
+  $("ipaview").innerHTML = ipaHtml(ipa);
 }
 
 function toIpa() { if (lib) { $("ipa").value = lib.ipa($("greek").value, $("scheme").value); render(); } }
@@ -105,21 +116,30 @@ const TOOLS = [
   ["ipa", "Greek text → IPA in a chosen pronunciation.", "εὐαγγέλιον τοῦ θεοῦ", SCHEME_OPTS],
   ["detect", "Which pronunciation does this IPA sound like? (without the Greek text)", "e v a ŋ ɟ e l i o n"],
 ];
-function pretty(v) {
-  if (Array.isArray(v) && v.length && typeof v[0] === "object" && v[0] && "word" in v[0])
-    return v.map((x) => `${x.word}  ${x.ok ? "✓" : "→ expected " + x.expected}`).join("\n");
-  if (Array.isArray(v)) return v.map((x) => (Array.isArray(x) ? x.join("") : x)).join(Array.isArray(v[0]) ? " · " : "\n");
-  if (v && typeof v === "object" && v.probs) return Object.entries(v.probs).sort((a, b) => b[1] - a[1]).map(([k, p]) => `${k.padEnd(10)} ${(100 * p).toFixed(1)}%`).join("\n");
-  if (v && typeof v === "object") return Object.entries(v).map(([k, x]) => `${k}: ${x}`).join("\n");
-  if (v === null) return "not found";
-  return String(v);
+const item = (lab, val, cls = "") => `<div class="it">${lab ? `<span class="lab">${esc(lab)}</span>` : ""}<span class="${cls}">${val}</span></div>`;
+const PERSONS = ["1st sg", "2nd sg", "3rd sg", "1st pl", "2nd pl", "3rd pl"];
+function pretty(name, v) {
+  if (v === null || v === undefined) return item("", "not found");
+  if (name === "ipa") return `<div class="it">${ipaHtml(v)}</div>`;
+  if (name === "detect") return Object.entries(v.probs).sort((a, b) => b[1] - a[1]).map(([k, p]) => item(k, (100 * p).toFixed(1) + "%")).join("");
+  if (name === "check_phrase_accents") return v.map((x) => item("", `${esc(x.word)} ${x.ok ? '<span class="ok">✓</span>' : `<span class="bad">→ ${esc(x.expected)}</span>`}`)).join("");
+  if (name === "conjugate") return v.map((f, i) => item(PERSONS[i] || "", esc(f))).join("");
+  if (name === "syllabify") return item("", esc(v.map((x) => (Array.isArray(x) ? x.join("") : x)).join(" · ")));
+  if (Array.isArray(v)) return v.length ? v.map((x) => item("", esc(Array.isArray(x) ? x.join("") : x))).join("") : item("", "(none)");
+  if (typeof v === "object") return Object.entries(v).map(([k, x]) => item(k, esc(x))).join("");
+  return item("", esc(v));
 }
 function runTool() {
   if (!lib) return;
   const t = TOOLS[$("fn").selectedIndex];
-  try { $("fnout").textContent = pretty(JSON.parse(lib.call(t[0], $("fnarg").value.trim(), t[3] ? $("fnarg2").value : ""))); }
+  try { $("fnout").innerHTML = pretty(t[0], JSON.parse(lib.call(t[0], $("fnarg").value.trim(), t[3] ? $("fnarg2").value : ""))); }
   catch (e) { $("fnout").textContent = "error: " + e.message; }
 }
+$("copy").addEventListener("click", async () => {
+  const txt = [...$("fnout").querySelectorAll(".it")].map((d) => d.innerText.replace(/\s+/g, " ").trim()).join("\n");
+  try { await navigator.clipboard.writeText(txt); $("copy").textContent = "Copied"; } catch { $("copy").textContent = "Copy failed"; }
+  setTimeout(() => ($("copy").textContent = "Copy"), 1500);
+});
 function pickTool() {
   const t = TOOLS[$("fn").selectedIndex];
   $("fndesc").textContent = t[1]; $("fnarg").value = t[2];
@@ -138,7 +158,7 @@ $("fndesc").textContent = TOOLS[0][1]; $("fnarg").value = TOOLS[0][2];
   try { lib = await loadWasm(); } catch (e) { console.warn("wasm failed, using JS build", e); lib = await loadJs(); }
   toIpa();
   $("status").textContent = `Running on ${lib.kind}. Loading NT + LXX word list…`;
-  const bytes = new Uint8Array(await (await fetch("greek-phonology-lexicon.bin")).arrayBuffer());
+  const bytes = new Uint8Array(await (await fetch("greek-phonology-lexicon.bin?v=" + V)).arrayBuffer());
   lib.loadBytes(bytes);
   $("status").textContent = `Running on ${lib.kind}, fully in your browser. Word list: SBLGNT (CC BY 4.0) + Rahlfs LXX forms.`;
   render();

@@ -7,6 +7,8 @@
 <meta name="color-scheme" content="light dark">
 <style>
   :root {
+    --gk: "Gentium Plus", "GFS Didot", "Noto Serif", "Noto Sans", "Times New Roman", "Arial Unicode MS", serif;
+    --ipa: "Charis SIL", "Doulos SIL", "Gentium Plus", "Noto Sans", "Segoe UI", "Lucida Grande", "Arial Unicode MS", sans-serif;
     --bg: #fafafa; --fg: #1f2328; --muted: #59636e; --card: #fff; --line: #d8dee4;
     --accent: #3b6ea8; --track: #eaeef2; --ok: #1a7f37; --bad: #b42318; --btn: #f3f4f6;
     color-scheme: light dark;
@@ -27,7 +29,7 @@
   textarea, select, button { font: inherit; color: inherit; }
   textarea { display: block; width: 100%; min-height: 4.5rem; font-size: 1.15rem; padding: .55rem .65rem;
              resize: vertical; background: var(--card); border: 1px solid var(--line); border-radius: 8px; }
-  #greek { font-family: "Gentium Plus", "GFS Didot", "Noto Serif", Georgia, serif; font-size: 1.3rem; }
+  #greek { font-family: var(--gk); font-size: 1.3rem; }
   .mono { font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace; }
   .row { display: flex; gap: .5rem; flex-wrap: wrap; align-items: center; margin: .6rem 0; }
   button, select { min-height: 44px; padding: .45rem .9rem; font-size: 1rem; border-radius: 8px;
@@ -42,19 +44,28 @@
   .track { background: var(--track); height: .9rem; border-radius: 4px; overflow: hidden; }
   .fill { background: var(--accent); height: 100%; width: 0; transition: width .2s; }
   #mode { min-height: 1.5em; margin: .4rem 0 0; }
-  #words { min-height: 8rem; }
-  .tablewrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
-  table { border-collapse: collapse; width: 100%; font-size: .95rem; }
-  td, th { text-align: left; padding: .35rem .5rem; border-bottom: 1px solid var(--line); vertical-align: top; }
-  td.gk { font-family: "Gentium Plus", "GFS Didot", "Noto Serif", Georgia, serif; font-size: 1.15rem; }
+  #words { min-height: 8rem; display: grid; grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr)); gap: .6rem; }
+  .wcard { border: 1px solid var(--line); border-radius: 8px; padding: .55rem .7rem; min-width: 0; }
+  .wcard .w { font-family: var(--gk); font-size: 1.6rem; line-height: 1.25; margin-bottom: .25rem; overflow-wrap: anywhere; }
+  .wcard .ln { font-size: .95rem; margin: .12rem 0; overflow-wrap: anywhere; }
+  .wcard .k { color: var(--muted); font-size: .8rem; margin-right: .35rem; }
+  .gk { font-family: var(--gk); font-size: 1.15rem; }
+  .badge { display: inline-block; font-size: .78rem; padding: .05rem .45rem; border-radius: 99px; border: 1px solid var(--line); margin-right: .25rem; }
+  .ipaw { white-space: normal; overflow-wrap: anywhere; font-family: var(--ipa); }
+  .ipaw span { display: inline-block; margin-right: .55em; }
+  #ipaview { min-height: 1.6em; margin: .35rem 0 0; font-size: 1.1rem; }
   #status { color: var(--muted); font-size: .9rem; min-height: 2.6em; }
   .ok { color: var(--ok); } .bad { color: var(--bad); }
   .skel { color: var(--muted); }
   #tools select { width: 100%; }
   #fndesc { min-height: 1.5em; margin: .5rem 0 0; }
-  pre.out { margin: 0; min-height: 3.2rem; padding: .6rem .7rem; background: var(--bg); border: 1px solid var(--line);
-            border-radius: 8px; white-space: pre-wrap; word-break: break-word; font-size: 1.05rem;
-            font-family: "Gentium Plus", "Noto Serif", Georgia, serif; }
+  .outwrap { position: relative; margin-top: .35rem; }
+  .out { min-height: 6.5rem; padding: .7rem 3.9rem .7rem .8rem; background: var(--bg); border: 1px solid var(--line);
+         border-radius: 8px; font-family: var(--gk); font-size: 1.25rem; line-height: 1.45; overflow-wrap: anywhere; }
+  .out .it { display: flex; flex-wrap: wrap; gap: .1rem .6rem; padding: .15rem 0; border-bottom: 1px dashed var(--line); }
+  .out .it:last-child { border-bottom: 0; }
+  .out .lab { color: var(--muted); font-family: system-ui, sans-serif; font-size: .85rem; min-width: 4.5rem; align-self: center; }
+  #copy { position: absolute; top: .4rem; right: .4rem; min-height: 36px; padding: .2rem .6rem; font-size: .85rem; }
   @media (max-width: 640px) {
     body { padding: 1rem .9rem 2.5rem; }
     h1 { font-size: 1.35rem; }
@@ -64,11 +75,7 @@
     .bar { grid-template-columns: 1fr auto; grid-template-areas: "name pct" "track track"; gap: .2rem .5rem; margin-bottom: .45rem; }
     .bar .name { grid-area: name; } .bar .pct { grid-area: pct; } .bar .track { grid-area: track; }
     #probs { min-height: calc(5 * 2.9rem); }
-    table, thead, tbody, tr, td { display: block; width: 100%; }
-    tr.head { display: none; }
-    tr { border: 1px solid var(--line); border-radius: 8px; padding: .4rem .6rem; margin: 0 0 .6rem; }
-    td { border: 0; padding: .2rem 0; display: grid; grid-template-columns: 8.5rem 1fr; gap: .5rem; }
-    td::before { content: attr(data-label); color: var(--muted); font-size: .85rem; font-family: system-ui, sans-serif; }
+    #words { grid-template-columns: 1fr; }
   }
 </style>
 </head>
@@ -92,6 +99,7 @@
 
 <label for="ipa">IPA (what was heard; separate phones with spaces, words with |)</label>
 <textarea id="ipa" class="mono"></textarea>
+<div id="ipaview" class="ipaw" aria-label="IPA by word"></div>
 <div class="row examples">
   <span>Examples:</span>
   <button data-ex="koine">Koine</button>
@@ -110,11 +118,11 @@
   <label for="fnarg">Input</label>
   <textarea id="fnarg" rows="2"></textarea>
   <div id="fnarg2wrap" class="row" hidden><label for="fnarg2" style="margin:0">Option</label><select id="fnarg2"></select></div>
-  <label>Output</label>
-  <pre id="fnout" class="out"></pre>
+  <label for="fnout">Result</label>
+  <div class="outwrap"><div id="fnout" class="out" aria-live="polite"></div><button id="copy" type="button">Copy</button></div>
 </section>
 <p id="status">Loading…</p>
 
-<script src="app.js"></script>
+<script src="app.js?v=4"></script>
 </body>
 </html>
