@@ -7,7 +7,7 @@ const EXAMPLES = {
   modern: "Πάτερ ἡμῶν ὁ ἐν τοῖς οὐρανοῖς",
   byzantine: "οἱ υἱοὶ τῆς γῆς εὐλογοῦσιν",
 };
-const V = "8";
+const V = "9";
 const $ = (id) => document.getElementById(id);
 let lib = null;
 
@@ -85,14 +85,10 @@ function render() {
 
 function toIpa() { if (lib) { $("ipa").value = lib.ipa($("greek").value, $("scheme").value); render(); } }
 
-const chips = [...document.querySelectorAll(".chip[data-ex]")];
-const selectChip = (k) => chips.forEach((c) => { c.setAttribute("aria-pressed", c.dataset.ex === k); });
-chips.forEach((b) => b.addEventListener("click", () => {
-  $("greek").value = EXAMPLES[b.dataset.ex]; $("scheme").value = b.dataset.ex; selectChip(b.dataset.ex); toIpa();
-}));
+$("loadex").addEventListener("click", () => { const k = $("scheme").value; $("greek").value = EXAMPLES[k] || EXAMPLES.koine; toIpa(); });
 $("toipa").addEventListener("click", toIpa);
 $("scheme").addEventListener("sl-change", toIpa);
-$("greek").addEventListener("sl-input", () => { selectChip(null); render(); });
+$("greek").addEventListener("sl-input", render);
 $("ipa").addEventListener("sl-input", render);
 
 const SCHEME_OPTS = ["koine", "attic", "erasmian", "modern", "byzantine"];
@@ -169,7 +165,6 @@ const setStatus = (html, busy) => { $("status").innerHTML = (busy ? "<sl-spinner
   pickToolText();
   try { lib = await loadWasm(); } catch (e) { console.warn("wasm failed, using JS build", e); lib = await loadJs(); }
   $("toipa").loading = false; $("toipa").disabled = false;
-  selectChip("koine");
   toIpa();
   setStatus(`Running on ${lib.kind}. Loading NT + LXX word list…`, true);
   try {

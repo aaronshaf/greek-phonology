@@ -64,7 +64,6 @@
   sl-alert { margin: .5rem 0 0; }
   :focus-visible { outline: 2px solid var(--sl-color-primary-600); outline-offset: 2px; }
   @media (max-width: 640px) {
-    .chips { flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; padding-bottom: 2px; }
     body { padding: 1rem .8rem 2.5rem; }
     h1 { font-size: 1.3rem; }
     #toipa { flex: 1 1 100%; }
@@ -118,13 +117,12 @@
   #toipa::part(base):hover { background: var(--pri-hover); border-color: var(--pri-hover); }
   sl-badge::part(base) { background: transparent; color: var(--muted); border: 1px solid var(--line); font-weight: 500; }
   sl-badge.found::part(base) { color: var(--olive); }
-  /* example chips */
-  .chips { display: flex; flex-wrap: wrap; gap: .4rem; align-items: center; }
-  .chip { font: 500 14px/1 var(--sl-font-sans); height: 32px; padding: 0 .65rem; border-radius: 7px;
+  /* load example: quiet outline button */
+  .exrow { display: flex; }
+  .quietbtn { font: 500 13px/1 var(--sl-font-sans); height: 30px; padding: 0 .7rem; border-radius: 7px;
           border: 1px solid var(--line); background: transparent; color: var(--muted); cursor: pointer; white-space: nowrap; }
-  .chip:hover { background: var(--hover); color: var(--text); }
-  .chip:focus-visible { outline: 2px solid var(--pri); outline-offset: 2px; }
-  .chip[aria-pressed="true"] { background: var(--pri); border-color: var(--pri); color: var(--pri-fg); }
+  .quietbtn:hover { background: var(--hover); color: var(--text); }
+  .quietbtn:focus-visible { outline: 2px solid var(--line); outline-offset: 2px; }
   .github-corner { position: fixed; top: 0; right: 0; z-index: 10; }
   .github-corner svg { display: block; width: 80px; height: 80px; }
   .github-corner .gc-bg { fill: var(--text); } .github-corner .gc-fg { fill: var(--bg); }
@@ -159,14 +157,7 @@
     </span>
   </sl-input>
   <div id="ipaview" class="ipaw" aria-label="IPA by word"></div>
-  <div class="chips" role="group" aria-label="Examples">
-    <span class="k">Examples</span>
-    <button type="button" class="chip" data-ex="koine" aria-pressed="false">Koine</button>
-    <button type="button" class="chip" data-ex="attic" aria-pressed="false">Restored Attic</button>
-    <button type="button" class="chip" data-ex="erasmian" aria-pressed="false">Erasmian</button>
-    <button type="button" class="chip" data-ex="modern" aria-pressed="false">Modern</button>
-    <button type="button" class="chip" data-ex="byzantine" aria-pressed="false">Byzantine</button>
-  </div>
+  <div class="exrow"><button type="button" id="loadex" class="quietbtn">Load example</button></div>
 </div>
 
 <section class="card"><h2>Which pronunciation does the IPA sound like?</h2>
@@ -186,6 +177,6 @@
 </section>
 <p id="status" role="status"><sl-spinner></sl-spinner><span>Loading the library…</span></p>
 
-<script type="module" src="app.js?v=8"></script>
+<script type="module" src="app.js?v=9"></script>
 </body>
 </html>
