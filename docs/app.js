@@ -7,7 +7,7 @@ const EXAMPLES = {
   modern: "Πάτερ ἡμῶν ὁ ἐν τοῖς οὐρανοῖς",
   byzantine: "οἱ υἱοὶ τῆς γῆς εὐλογοῦσιν",
 };
-const V = "7";
+const V = "8";
 const $ = (id) => document.getElementById(id);
 let lib = null;
 
@@ -40,9 +40,10 @@ async function loadJs() {
 }
 
 function bars(probs, empty) {
+  const top = empty ? null : SCHEMES.map((x) => x[0]).reduce((a, b) => ((probs[b] || 0) > (probs[a] || 0) ? b : a));
   return SCHEMES.map(([k, name]) => {
     const p = probs[k] || 0, pct = (100 * p).toFixed(1);
-    return `<div class="prob"><div class="lbl"><span>${name}</span><span class="pct">${empty ? "–" : pct + "%"}</span></div><sl-progress-bar value="${empty ? 0 : pct}" label="${name}: ${empty ? "no data" : pct + " percent"}"></sl-progress-bar></div>`;
+    return `<div class="prob${k === top ? " top" : ""}"><div class="lbl"><span>${name}</span><span class="pct">${empty ? "–" : pct + "%"}</span></div><sl-progress-bar value="${empty ? 0 : pct}" label="${name}: ${empty ? "no data" : pct + " percent"}"></sl-progress-bar></div>`;
   }).join("");
 }
 
@@ -70,7 +71,7 @@ function render() {
     const info = lib.word(w), lx = lib.lookup(w);
     const syl = (info.syllables || []).map((x) => x.join("")).join(" · ");
     const law = info.accent_ok === null || info.accent_ok === undefined ? "–" : info.accent_ok ? '<span class="ok">follows the rules</span>' : '<span class="bad">breaks the law of limitation</span>';
-    const badges = lx ? [lx.nt && "NT", lx.lxx && "LXX"].filter(Boolean).map((b) => `<sl-badge class="${b === "NT" ? "nt" : ""}" pill>${b}</sl-badge> `).join("") + (lx.form !== w ? ` <span class="gk">${esc(lx.form)}</span>` : "") : '<sl-badge pill>not in NT/LXX</sl-badge>';
+    const badges = lx ? [lx.nt && "NT", lx.lxx && "LXX"].filter(Boolean).map((b) => `<sl-badge class="found" pill>${b}</sl-badge> `).join("") + (lx.form !== w ? ` <span class="gk">${esc(lx.form)}</span>` : "") : '<sl-badge pill>not in NT/LXX</sl-badge>';
     return `<div class="wcard"><div class="w">${esc(w)}</div>
 <div class="ln"><span class="k">IPA</span>${ipaHtml(lib.ipa(w, sc))}</div>
 <div class="ln"><span class="k">Syllables</span><span class="gk">${esc(syl)}</span></div>

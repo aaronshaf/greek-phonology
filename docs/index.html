@@ -75,52 +75,60 @@
     *, *::before, *::after { animation: none !important; transition: none !important; }
     sl-progress-bar { --sl-transition-medium: 0s; }
   }
-  /* Restrained palette: zinc neutrals, one slate ink accent. Overrides Shoelace tokens. */
-  :root, :root.sl-theme-light, :root.sl-theme-dark {
-    --sl-color-primary-50: #f8fafc; --sl-color-primary-100: #f1f5f9; --sl-color-primary-200: #e2e8f0;
-    --sl-color-primary-300: #cbd5e1; --sl-color-primary-400: #94a3b8; --sl-color-primary-500: #64748b;
-    --sl-color-primary-600: #334155; --sl-color-primary-700: #1e293b; --sl-color-primary-800: #172033;
-    --sl-color-primary-900: #0f172a; --sl-color-primary-950: #020617;
-    --sl-focus-ring-color: #334155;
-  }
-  :root:not(.sl-theme-dark) {
-    --sl-color-neutral-0: #ffffff; --sl-color-neutral-50: #fafafa; --sl-color-neutral-100: #f4f4f5;
-    --sl-color-neutral-200: #e4e4e7; --sl-color-neutral-300: #d4d4d8; --sl-color-neutral-400: #a1a1aa;
-    --sl-color-neutral-500: #71717a; --sl-color-neutral-600: #52525b; --sl-color-neutral-700: #3f3f46;
-    --sl-color-neutral-800: #27272a; --sl-color-neutral-900: #18181b; --sl-color-neutral-950: #09090b;
-    --ink: #1f2937; --ink-fg: #ffffff; --bg: #ffffff; --surface: #ffffff; --line: #e4e4e7; --hover: #f4f4f5;
-    --sl-panel-background-color: #ffffff; --sl-panel-border-color: #e4e4e7; --sl-input-border-color: #d4d4d8;
-    --ok: #166534; --bad: #991b1b;
+  /* Greek palette: Aegean blue primary, marble/stone neutrals, terracotta + olive accents. Overrides Shoelace tokens. */
+  :root, :root.sl-theme-light {
+    --sl-color-primary-50: #f3f7fc; --sl-color-primary-100: #e8eff8; --sl-color-primary-200: #c9daef;
+    --sl-color-primary-300: #9dbbe1; --sl-color-primary-400: #5f8dc7; --sl-color-primary-500: #2f62a6;
+    --sl-color-primary-600: #1f4e8c; --sl-color-primary-700: #183f72; --sl-color-primary-800: #133259;
+    --sl-color-primary-900: #0e2542; --sl-color-primary-950: #091829;
+    --sl-color-neutral-0: #ffffff; --sl-color-neutral-50: #faf8f3; --sl-color-neutral-100: #f3f0e8;
+    --sl-color-neutral-200: #e5e1d8; --sl-color-neutral-300: #d3cdc1; --sl-color-neutral-400: #a8a194;
+    --sl-color-neutral-500: #7d766a; --sl-color-neutral-600: #635d52; --sl-color-neutral-700: #4a453d;
+    --sl-color-neutral-800: #312e2a; --sl-color-neutral-900: #1e2430; --sl-color-neutral-950: #12161e;
+    --pri: #1f4e8c; --pri-hover: #183f72; --pri-tint: #e8eff8; --pri-fg: #ffffff;
+    --bg: #faf8f3; --surface: #ffffff; --line: #e5e1d8; --text: #1e2430; --muted: #635d52;
+    --terra: #b5562f; --terra-text: #a34a26; --olive: #5c6a2f; --olive-bg: #eef1e4; --ochre: #c8a24a;
+    --key: #d9cfb8; --hover: #f3f0e8;
+    --sl-focus-ring-color: #1f4e8c;
+    --sl-panel-background-color: #ffffff; --sl-panel-border-color: #e5e1d8; --sl-input-border-color: #d3cdc1;
+    --sl-input-background-color: #ffffff;
   }
   :root.sl-theme-dark {
-    --sl-color-primary-600: #cbd5e1; --sl-color-primary-500: #94a3b8; --sl-color-primary-700: #e2e8f0;
-    --sl-focus-ring-color: #cbd5e1;
-    --sl-color-neutral-0: #18181b; --sl-color-neutral-50: #1c1c1f; --sl-color-neutral-100: #27272a;
-    --sl-color-neutral-200: #3f3f46; --sl-color-neutral-300: #52525b; --sl-color-neutral-400: #71717a;
-    --sl-color-neutral-500: #a1a1aa; --sl-color-neutral-600: #b4b4bb; --sl-color-neutral-700: #d4d4d8;
-    --sl-color-neutral-800: #e4e4e7; --sl-color-neutral-900: #f4f4f5; --sl-color-neutral-950: #fafafa;
-    --ink: #e4e4e7; --ink-fg: #18181b; --bg: #111113; --surface: #18181b; --line: #2e2e33; --hover: #232327;
-    --sl-panel-background-color: #18181b; --sl-panel-border-color: #2e2e33; --sl-input-border-color: #3f3f46;
-    --sl-input-background-color: #111113; --ok: #86efac; --bad: #fca5a5;
+    --sl-color-primary-600: #6ea0e0; --sl-color-primary-500: #5a8fd3; --sl-color-primary-700: #8db5e8;
+    --sl-color-neutral-0: #17253a; --sl-color-neutral-50: #0f1a2b; --sl-color-neutral-100: #1d2c44;
+    --sl-color-neutral-200: #2a3b56; --sl-color-neutral-300: #3a4d6b; --sl-color-neutral-400: #5b6d89;
+    --sl-color-neutral-500: #8494ad; --sl-color-neutral-600: #a3b0c4; --sl-color-neutral-700: #c3cddb;
+    --sl-color-neutral-800: #dbe2ec; --sl-color-neutral-900: #eef2f7; --sl-color-neutral-950: #f8fafc;
+    --pri: #6ea0e0; --pri-hover: #8db5e8; --pri-tint: #1d2f4b; --pri-fg: #0f1a2b;
+    --bg: #0f1a2b; --surface: #17253a; --line: #2a3b56; --text: #eef2f7; --muted: #a3b0c4;
+    --terra: #d27a55; --terra-text: #e08e6b; --olive: #a9b86f; --olive-bg: #253221; --ochre: #c8a24a;
+    --key: #2a3b56; --hover: #1d2c44;
+    --sl-focus-ring-color: #6ea0e0;
+    --sl-panel-background-color: #17253a; --sl-panel-border-color: #2a3b56; --sl-input-border-color: #3a4d6b;
+    --sl-input-background-color: #0f1a2b;
   }
-  body { background: var(--bg) !important; color: var(--sl-color-neutral-900); }
-  .ok { color: var(--ok) !important; } .bad { color: var(--bad) !important; }
-  sl-progress-bar { --indicator-color: var(--ink); --track-color: var(--hover); }
-  #toipa::part(base) { background: var(--ink); border-color: var(--ink); color: var(--ink-fg); }
-  #toipa::part(base):hover { opacity: .9; }
-  sl-badge::part(base) { background: transparent; color: var(--sl-color-neutral-700); border: 1px solid var(--sl-color-neutral-300); font-weight: 500; }
-  sl-badge.nt::part(base) { background: var(--ink); color: var(--ink-fg); border-color: var(--ink); }
+  body { background: var(--bg) !important; color: var(--text); }
+  .sub, .k, .empty, #status, .prob .lbl, .out .lab { color: var(--muted) !important; }
+  a { color: var(--pri); }
+  .ok { color: var(--olive) !important; } .bad { color: var(--terra-text) !important; }
+  h1 { color: var(--text); }
+  sl-progress-bar { --indicator-color: var(--pri); --track-color: var(--pri-tint); }
+  .prob.top .lbl { color: var(--text) !important; font-weight: 600; }
+  #toipa::part(base) { background: var(--pri); border-color: var(--pri); color: var(--pri-fg); }
+  #toipa::part(base):hover { background: var(--pri-hover); border-color: var(--pri-hover); }
+  sl-badge::part(base) { background: transparent; color: var(--muted); border: 1px solid var(--line); font-weight: 500; }
+  sl-badge.found::part(base) { color: var(--olive); }
   /* example chips */
   .chips { display: flex; flex-wrap: wrap; gap: .4rem; align-items: center; }
   .chip { font: 500 14px/1 var(--sl-font-sans); height: 32px; padding: 0 .65rem; border-radius: 7px;
-          border: 1px solid var(--line); background: transparent; color: var(--sl-color-neutral-600); cursor: pointer; white-space: nowrap; }
-  .chip:hover { background: var(--hover); color: var(--sl-color-neutral-900); }
-  .chip:focus-visible { outline: 2px solid var(--ink); outline-offset: 2px; }
-  .chip[aria-pressed="true"] { background: var(--ink); border-color: var(--ink); color: var(--ink-fg); }
+          border: 1px solid var(--line); background: transparent; color: var(--muted); cursor: pointer; white-space: nowrap; }
+  .chip:hover { background: var(--hover); color: var(--text); }
+  .chip:focus-visible { outline: 2px solid var(--pri); outline-offset: 2px; }
+  .chip[aria-pressed="true"] { background: var(--pri); border-color: var(--pri); color: var(--pri-fg); }
   .github-corner { position: fixed; top: 0; right: 0; z-index: 10; }
   .github-corner svg { display: block; width: 80px; height: 80px; }
-  .github-corner .gc-bg { fill: var(--ink); } .github-corner .gc-fg { fill: var(--ink-fg); }
-  .github-corner:focus-visible { outline: 2px solid var(--ink); outline-offset: -4px; }
+  .github-corner .gc-bg { fill: var(--text); } .github-corner .gc-fg { fill: var(--bg); }
+  .github-corner:focus-visible { outline: 2px solid var(--pri); outline-offset: -4px; }
   .github-corner:hover .octo-arm { animation: octocat-wave 560ms ease-in-out; }
   @keyframes octocat-wave { 0%,100% { transform: rotate(0) } 20%,60% { transform: rotate(-25deg) } 40%,80% { transform: rotate(10deg) } }
   h1, body > .sub { padding-right: 64px; }
@@ -178,6 +186,6 @@
 </section>
 <p id="status" role="status"><sl-spinner></sl-spinner><span>Loading the library…</span></p>
 
-<script type="module" src="app.js?v=7"></script>
+<script type="module" src="app.js?v=8"></script>
 </body>
 </html>
