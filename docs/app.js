@@ -7,7 +7,7 @@ const EXAMPLES = {
   modern: "Πάτερ ἡμῶν ὁ ἐν τοῖς οὐρανοῖς, ὁ κόσμος",
   byzantine: "οἱ υἱοὶ τῆς γῆς εὐλογοῦσιν",
 };
-const V = "12";
+const V = "13";
 const $ = (id) => document.getElementById(id);
 let lib = null;
 
@@ -85,18 +85,16 @@ function render() {
 
 function toIpa() { if (lib) { $("ipa").value = lib.ipa($("greek").value, $("scheme").value); render(); } }
 
-// Samples auto-fill until the user edits: greekSample = Greek box still holds an unedited sample,
-// ipaEdited = the user typed in the IPA box (then a scheme change never overwrites it).
-let greekSample = true, ipaEdited = false;
+// Scheme change keeps the Greek text and regenerates the IPA from it; an empty Greek box gets
+// that scheme's sample.
 function schemeChanged() {
-  const k = $("scheme").value;
-  if (greekSample || !$("greek").value.trim()) { $("greek").value = EXAMPLES[k] || EXAMPLES.koine; greekSample = true; }
-  if (!ipaEdited || !$("ipa").value.trim()) { ipaEdited = false; toIpa(); }
+  if (!$("greek").value.trim()) $("greek").value = EXAMPLES[$("scheme").value] || EXAMPLES.koine;
+  toIpa();
 }
-$("toipa").addEventListener("click", () => { ipaEdited = false; toIpa(); });
+$("toipa").addEventListener("click", toIpa);
 $("scheme").addEventListener("sl-change", schemeChanged);
-$("greek").addEventListener("sl-input", () => { greekSample = false; render(); });
-$("ipa").addEventListener("sl-input", () => { ipaEdited = true; render(); });
+$("greek").addEventListener("sl-input", render);
+$("ipa").addEventListener("sl-input", render);
 
 const SCHEME_OPTS = ["koine", "attic", "erasmian", "modern", "byzantine"];
 const PARADIGMS = ["present-active-indicative", "imperfect-active-indicative", "future-active-indicative", "future-middle-indicative", "middle-passive-indicative", "present-active-subjunctive"];
