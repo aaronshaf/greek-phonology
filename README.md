@@ -1,7 +1,5 @@
 # greek-phonology
 
-*Formerly koine-lexer.*
-
 greek-phonology helps you work with how Ancient Greek sounds. It turns Greek text into IPA under five pronunciation schemes (Modern, Byzantine, Koine, restored Attic, Erasmian), and guesses which scheme a speaker used from their IPA. It also splits words into syllables, checks and places accents, and looks words up in a built-in New Testament and Septuagint word list. It is written in [MoonBit](https://www.moonbitlang.com) and ships as WebAssembly and JavaScript, with no server and no dependencies. Try it in the [playground](docs/index.html).
 
 ## Install
