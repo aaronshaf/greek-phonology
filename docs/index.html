@@ -30,13 +30,15 @@
   .row { display: flex; flex-wrap: wrap; gap: .5rem; align-items: flex-end; }
   .row > sl-select { flex: 1 1 14rem; }
   .gktext::part(textarea), .gk { font-family: var(--gk); font-size: 1.25rem; }
-  .ipatext::part(textarea) { font-family: var(--ipa); font-size: 1.1rem; }
+  .ipatext::part(input) { font-family: var(--ipa); font-size: 1rem; letter-spacing: -0.02em; word-spacing: -0.12em; padding-inline: .5rem; }
+  sl-input:not(:defined) { display: block; min-height: 6rem; }
   /* reserve space before the components upgrade: no layout shift */
   sl-textarea:not(:defined) { display: block; min-height: 6.4rem; }
   sl-select:not(:defined), sl-button:not(:defined) { display: inline-block; min-height: 4.4rem; min-width: 8rem; }
   sl-button:not(:defined) { min-height: 2.5rem; }
   .chips { display: flex; flex-wrap: wrap; gap: .4rem; align-items: center; }
-  .chips sl-button::part(base) { min-height: 44px; }
+  .chips sl-button::part(base) { min-height: 44px; align-items: center; }
+  .chips sl-button::part(label) { line-height: 1.2; }
   .ipaw { white-space: normal; overflow-wrap: anywhere; font-family: var(--ipa); }
   .ipaw span { display: inline-block; margin-right: .55em; }
   #ipaview { min-height: 1.6em; font-size: 1.1rem; color: var(--sl-color-neutral-700); }
@@ -95,11 +97,11 @@
     </sl-select>
     <sl-button id="toipa" variant="primary" loading disabled>Greek → IPA</sl-button>
   </div>
-  <sl-textarea id="ipa" class="ipatext" rows="2" resize="auto" help-text="Phones separated by spaces, words by |" aria-label="IPA (what was heard)">
+  <sl-input id="ipa" class="ipatext" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" help-text="Phones separated by spaces, words by |" aria-label="IPA (what was heard)">
     <span slot="label">IPA (what was heard)
       <sl-tooltip content="Type or paste a transcription, or press Greek → IPA. The detector compares it with each pronunciation."><sl-icon-button name="info-circle" label="About the IPA box"></sl-icon-button></sl-tooltip>
     </span>
-  </sl-textarea>
+  </sl-input>
   <div id="ipaview" class="ipaw" aria-label="IPA by word"></div>
   <div class="chips" role="group" aria-label="Examples">
     <span class="k">Examples</span>
@@ -128,6 +130,6 @@
 </section>
 <p id="status" role="status"><sl-spinner></sl-spinner><span>Loading the library…</span></p>
 
-<script type="module" src="app.js?v=5"></script>
+<script type="module" src="app.js?v=6"></script>
 </body>
 </html>
