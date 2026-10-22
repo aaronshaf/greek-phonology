@@ -2,80 +2,80 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>greek-phonology playground</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="color-scheme" content="light dark">
+<title>greek-phonology playground</title>
+<!-- Shoelace 2.20.1, pinned; components load on demand -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/themes/light.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/themes/dark.css">
+<script>if (matchMedia("(prefers-color-scheme: dark)").matches) document.documentElement.classList.add("sl-theme-dark");</script>
+<script type="module" src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/shoelace-autoloader.js"></script>
 <style>
   :root {
     --gk: "Gentium Plus", "GFS Didot", "Noto Serif", "Noto Sans", "Times New Roman", "Arial Unicode MS", serif;
     --ipa: "Charis SIL", "Doulos SIL", "Gentium Plus", "Noto Sans", "Segoe UI", "Lucida Grande", "Arial Unicode MS", sans-serif;
-    --bg: #fafafa; --fg: #1f2328; --muted: #59636e; --card: #fff; --line: #d8dee4;
-    --accent: #3b6ea8; --track: #eaeef2; --ok: #1a7f37; --bad: #b42318; --btn: #f3f4f6;
-    color-scheme: light dark;
-    font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans", sans-serif;
-    color: var(--fg); background: var(--bg);
+    --sl-input-font-size-medium: 1.05rem; /* >= 16px: no iOS zoom */
     -webkit-text-size-adjust: 100%;
   }
-  @media (prefers-color-scheme: dark) {
-    :root { --bg: #0d1117; --fg: #e6edf3; --muted: #9198a1; --card: #161b22; --line: #30363d;
-            --accent: #5b9be0; --track: #262c36; --ok: #3fb950; --bad: #f47067; --btn: #21262d; }
-  }
+  body { margin: 0 auto; max-width: 880px; padding: 1.25rem 1rem 3rem; font-family: var(--sl-font-sans);
+         line-height: 1.45; background: var(--sl-color-neutral-50); color: var(--sl-color-neutral-900); }
   *, *::before, *::after { box-sizing: border-box; }
   [hidden] { display: none !important; }
-  body { max-width: 880px; margin: 0 auto; padding: 1.5rem 1.25rem 3rem; line-height: 1.45; }
-  h1 { font-size: 1.5rem; margin: 0 0 .25rem; }
-  p.sub { margin: 0 0 1rem; color: var(--muted); }
-  label { display: block; font-weight: 600; margin: 1rem 0 .35rem; }
-  textarea, select, button { font: inherit; color: inherit; }
-  textarea { display: block; width: 100%; min-height: 4.5rem; font-size: 1.15rem; padding: .55rem .65rem;
-             resize: vertical; background: var(--card); border: 1px solid var(--line); border-radius: 8px; }
-  #greek { font-family: var(--gk); font-size: 1.3rem; }
-  .mono { font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace; }
-  .row { display: flex; gap: .5rem; flex-wrap: wrap; align-items: center; margin: .6rem 0; }
-  button, select { min-height: 44px; padding: .45rem .9rem; font-size: 1rem; border-radius: 8px;
-                   border: 1px solid var(--line); background: var(--btn); cursor: pointer; }
-  button:focus-visible, select:focus-visible, textarea:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
-  #toipa { background: var(--accent); color: #fff; border-color: transparent; }
-  section { background: var(--card); border: 1px solid var(--line); border-radius: 10px; padding: .9rem 1rem; margin: 1rem 0; }
-  h2 { font-size: 1.05rem; margin: 0 0 .6rem; }
-  #probs { min-height: calc(5 * 1.9rem); }
-  .bar { display: grid; grid-template-columns: 9.5rem 1fr 3.8rem; gap: .6rem; align-items: center; min-height: 1.9rem; }
-  .bar .pct { text-align: right; font-variant-numeric: tabular-nums; }
-  .track { background: var(--track); height: .9rem; border-radius: 4px; overflow: hidden; }
-  .fill { background: var(--accent); height: 100%; width: 0; transition: width .2s; }
-  #mode { min-height: 1.5em; margin: .4rem 0 0; }
-  #words { min-height: 8rem; display: grid; grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr)); gap: .6rem; }
-  .wcard { border: 1px solid var(--line); border-radius: 8px; padding: .55rem .7rem; min-width: 0; }
-  .wcard .w { font-family: var(--gk); font-size: 1.6rem; line-height: 1.25; margin-bottom: .25rem; overflow-wrap: anywhere; }
-  .wcard .ln { font-size: .95rem; margin: .12rem 0; overflow-wrap: anywhere; }
-  .wcard .k { color: var(--muted); font-size: .8rem; margin-right: .35rem; }
-  .gk { font-family: var(--gk); font-size: 1.15rem; }
-  .badge { display: inline-block; font-size: .78rem; padding: .05rem .45rem; border-radius: 99px; border: 1px solid var(--line); margin-right: .25rem; }
+  h1 { font-size: 1.45rem; margin: 0 0 .2rem; }
+  h2 { font-size: 1.05rem; margin: 0 0 .7rem; }
+  .sub { margin: 0 0 1rem; color: var(--sl-color-neutral-600); }
+  .card { background: var(--sl-panel-background-color); border: 1px solid var(--sl-panel-border-color);
+          border-radius: var(--sl-border-radius-large); padding: 1rem; margin: 1rem 0; }
+  .stack > * + * { margin-top: .85rem; }
+  .row { display: flex; flex-wrap: wrap; gap: .5rem; align-items: flex-end; }
+  .row > sl-select { flex: 1 1 14rem; }
+  .gktext::part(textarea), .gk { font-family: var(--gk); font-size: 1.25rem; }
+  .ipatext::part(textarea) { font-family: var(--ipa); font-size: 1.1rem; }
+  /* reserve space before the components upgrade: no layout shift */
+  sl-textarea:not(:defined) { display: block; min-height: 6.4rem; }
+  sl-select:not(:defined), sl-button:not(:defined) { display: inline-block; min-height: 4.4rem; min-width: 8rem; }
+  sl-button:not(:defined) { min-height: 2.5rem; }
+  .chips { display: flex; flex-wrap: wrap; gap: .4rem; align-items: center; }
+  .chips sl-button::part(base) { min-height: 44px; }
   .ipaw { white-space: normal; overflow-wrap: anywhere; font-family: var(--ipa); }
   .ipaw span { display: inline-block; margin-right: .55em; }
-  #ipaview { min-height: 1.6em; margin: .35rem 0 0; font-size: 1.1rem; }
-  #status { color: var(--muted); font-size: .9rem; min-height: 2.6em; }
-  .ok { color: var(--ok); } .bad { color: var(--bad); }
-  .skel { color: var(--muted); }
-  #tools select { width: 100%; }
-  #fndesc { min-height: 1.5em; margin: .5rem 0 0; }
-  .outwrap { position: relative; margin-top: .35rem; }
-  .out { min-height: 6.5rem; padding: .7rem 3.9rem .7rem .8rem; background: var(--bg); border: 1px solid var(--line);
-         border-radius: 8px; font-family: var(--gk); font-size: 1.25rem; line-height: 1.45; overflow-wrap: anywhere; }
-  .out .it { display: flex; flex-wrap: wrap; gap: .1rem .6rem; padding: .15rem 0; border-bottom: 1px dashed var(--line); }
+  #ipaview { min-height: 1.6em; font-size: 1.1rem; color: var(--sl-color-neutral-700); }
+  #probs { min-height: calc(5 * 2.6rem); }
+  .prob { margin-bottom: .55rem; }
+  .prob .lbl { display: flex; justify-content: space-between; font-size: .95rem; margin-bottom: .2rem; }
+  .prob .pct { font-variant-numeric: tabular-nums; }
+  .prob sl-progress-bar { --height: .7rem; }
+  #mode { min-height: 1.5em; margin: .5rem 0 0; }
+  #words { min-height: 8rem; display: grid; grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr)); gap: .6rem; }
+  .wcard { border: 1px solid var(--sl-panel-border-color); border-radius: var(--sl-border-radius-medium); padding: .6rem .75rem; min-width: 0; }
+  .wcard .w { font-family: var(--gk); font-size: 1.6rem; line-height: 1.25; margin-bottom: .25rem; overflow-wrap: anywhere; }
+  .wcard .ln { font-size: .95rem; margin: .15rem 0; overflow-wrap: anywhere; }
+  .k { color: var(--sl-color-neutral-600); font-size: .8rem; margin-right: .35rem; }
+  .ok { color: var(--sl-color-success-700); } .bad { color: var(--sl-color-danger-700); }
+  .empty { color: var(--sl-color-neutral-600); font-style: italic; margin: 0; }
+  .out { position: relative; min-height: 6.5rem; padding: .7rem 3.2rem .7rem .8rem; background: var(--sl-color-neutral-50);
+         border: 1px solid var(--sl-panel-border-color); border-radius: var(--sl-border-radius-medium);
+         font-family: var(--gk); font-size: 1.25rem; line-height: 1.45; overflow-wrap: anywhere; }
+  .out sl-copy-button { position: absolute; top: .3rem; right: .3rem; font-size: 1.2rem; }
+  .out .it { display: flex; flex-wrap: wrap; gap: .1rem .6rem; padding: .15rem 0; border-bottom: 1px dashed var(--sl-panel-border-color); }
   .out .it:last-child { border-bottom: 0; }
-  .out .lab { color: var(--muted); font-family: system-ui, sans-serif; font-size: .85rem; min-width: 4.5rem; align-self: center; }
-  #copy { position: absolute; top: .4rem; right: .4rem; min-height: 36px; padding: .2rem .6rem; font-size: .85rem; }
+  .out .lab { color: var(--sl-color-neutral-600); font-family: var(--sl-font-sans); font-size: .85rem; min-width: 4.5rem; align-self: center; }
+  #status { color: var(--sl-color-neutral-600); font-size: .9rem; min-height: 2.6em; display: flex; gap: .5rem; align-items: center; }
+  sl-skeleton { --border-radius: 6px; height: 1.1rem; margin: .45rem 0; }
+  sl-alert { margin: .5rem 0 0; }
+  :focus-visible { outline: 2px solid var(--sl-color-primary-600); outline-offset: 2px; }
   @media (max-width: 640px) {
-    body { padding: 1rem .9rem 2.5rem; }
-    h1 { font-size: 1.35rem; }
-    .row > span { flex-basis: 100%; }
-    .row > select, #toipa { flex: 1 1 100%; width: 100%; }
-    .examples button { flex: 1 1 calc(50% - .5rem); }
-    .bar { grid-template-columns: 1fr auto; grid-template-areas: "name pct" "track track"; gap: .2rem .5rem; margin-bottom: .45rem; }
-    .bar .name { grid-area: name; } .bar .pct { grid-area: pct; } .bar .track { grid-area: track; }
-    #probs { min-height: calc(5 * 2.9rem); }
+    body { padding: 1rem .8rem 2.5rem; }
+    h1 { font-size: 1.3rem; }
+    #toipa { flex: 1 1 100%; }
+    #toipa::part(base) { width: 100%; min-height: 44px; }
+    .chips sl-button { flex: 1 1 calc(50% - .4rem); }
+    .chips sl-button::part(base) { width: 100%; }
     #words { grid-template-columns: 1fr; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation: none !important; transition: none !important; }
+    sl-progress-bar { --sl-transition-medium: 0s; }
   }
 </style>
 </head>
@@ -83,46 +83,51 @@
 <h1>greek-phonology</h1>
 <p class="sub">Greek pronunciation tools that run entirely in your browser (formerly koine-lexer). Nothing is sent to a server.</p>
 
-<label for="greek">Greek text</label>
-<textarea id="greek">Ἐν ἀρχῇ ἦν ὁ λόγος</textarea>
-<div class="row">
-  <span>Read it as</span>
-  <select id="scheme">
-    <option value="koine">Koine (reconstructed)</option>
-    <option value="attic">Restored Attic</option>
-    <option value="erasmian">Erasmian</option>
-    <option value="modern">Modern Greek</option>
-    <option value="byzantine">Byzantine</option>
-  </select>
-  <button id="toipa">Greek → IPA ↓</button>
+<div class="card stack">
+  <sl-textarea id="greek" class="gktext" label="Greek text" rows="2" resize="auto" value="Ἐν ἀρχῇ ἦν ὁ λόγος"></sl-textarea>
+  <div class="row">
+    <sl-select id="scheme" label="Read it as" value="koine">
+      <sl-option value="koine">Koine (reconstructed)</sl-option>
+      <sl-option value="attic">Restored Attic</sl-option>
+      <sl-option value="erasmian">Erasmian</sl-option>
+      <sl-option value="modern">Modern Greek</sl-option>
+      <sl-option value="byzantine">Byzantine</sl-option>
+    </sl-select>
+    <sl-button id="toipa" variant="primary" loading disabled>Greek → IPA</sl-button>
+  </div>
+  <sl-textarea id="ipa" class="ipatext" rows="2" resize="auto" help-text="Phones separated by spaces, words by |" aria-label="IPA (what was heard)">
+    <span slot="label">IPA (what was heard)
+      <sl-tooltip content="Type or paste a transcription, or press Greek → IPA. The detector compares it with each pronunciation."><sl-icon-button name="info-circle" label="About the IPA box"></sl-icon-button></sl-tooltip>
+    </span>
+  </sl-textarea>
+  <div id="ipaview" class="ipaw" aria-label="IPA by word"></div>
+  <div class="chips" role="group" aria-label="Examples">
+    <span class="k">Examples</span>
+    <sl-button size="small" pill data-ex="koine">Koine</sl-button>
+    <sl-button size="small" pill data-ex="attic">Restored Attic</sl-button>
+    <sl-button size="small" pill data-ex="erasmian">Erasmian</sl-button>
+    <sl-button size="small" pill data-ex="modern">Modern</sl-button>
+    <sl-button size="small" pill data-ex="byzantine">Byzantine</sl-button>
+  </div>
 </div>
 
-<label for="ipa">IPA (what was heard; separate phones with spaces, words with |)</label>
-<textarea id="ipa" class="mono"></textarea>
-<div id="ipaview" class="ipaw" aria-label="IPA by word"></div>
-<div class="row examples">
-  <span>Examples:</span>
-  <button data-ex="koine">Koine</button>
-  <button data-ex="attic">Restored Attic</button>
-  <button data-ex="erasmian">Erasmian</button>
-  <button data-ex="modern">Modern</button>
-  <button data-ex="byzantine">Byzantine</button>
-</div>
-
-<section><h2>Which pronunciation does the IPA sound like?</h2><div id="probs" aria-live="polite"></div><p id="mode" class="sub skel">Loading the library…</p></section>
-<section><h2>Words: syllables, accent, dictionary</h2><div id="words"><p class="skel">Word details appear here once the library has loaded.</p></div></section>
-<section id="tools"><h2>Tools</h2>
-  <label for="fn">Function</label>
-  <select id="fn"></select>
-  <p id="fndesc" class="sub"></p>
-  <label for="fnarg">Input</label>
-  <textarea id="fnarg" rows="2"></textarea>
-  <div id="fnarg2wrap" class="row" hidden><label for="fnarg2" style="margin:0">Option</label><select id="fnarg2"></select></div>
-  <label for="fnout">Result</label>
-  <div class="outwrap"><div id="fnout" class="out" aria-live="polite"></div><button id="copy" type="button">Copy</button></div>
+<section class="card"><h2>Which pronunciation does the IPA sound like?</h2>
+  <div id="probs" aria-live="polite"></div><p id="mode" class="sub"></p></section>
+<section class="card"><h2>Words: syllables, accent, dictionary</h2>
+  <div id="words"><div><sl-skeleton effect="pulse"></sl-skeleton><sl-skeleton effect="pulse"></sl-skeleton><sl-skeleton effect="pulse"></sl-skeleton></div></div></section>
+<section class="card stack" id="tools"><h2>Tools</h2>
+  <sl-select id="fn" label="Function" hoist></sl-select>
+  <p id="fndesc" class="sub" style="margin:0;min-height:1.5em"></p>
+  <sl-textarea id="fnarg" class="gktext" label="Input" rows="2" resize="auto"></sl-textarea>
+  <sl-select id="fnarg2" label="Option" hoist hidden></sl-select>
+  <div>
+    <div class="k" id="fnoutlbl">Result</div>
+    <div class="out" role="region" aria-labelledby="fnoutlbl"><div id="fnout" aria-live="polite"></div><sl-copy-button id="copy" copy-label="Copy result" success-label="Copied"></sl-copy-button></div>
+    <div id="fnerr"></div>
+  </div>
 </section>
-<p id="status">Loading…</p>
+<p id="status" role="status"><sl-spinner></sl-spinner><span>Loading the library…</span></p>
 
-<script src="app.js?v=4"></script>
+<script type="module" src="app.js?v=5"></script>
 </body>
 </html>

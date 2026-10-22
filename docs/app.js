@@ -7,7 +7,7 @@ const EXAMPLES = {
   modern: "Πάτερ ἡμῶν ὁ ἐν τοῖς οὐρανοῖς",
   byzantine: "οἱ υἱοὶ τῆς γῆς εὐλογοῦσιν",
 };
-const V = "4";
+const V = "5";
 const $ = (id) => document.getElementById(id);
 let lib = null;
 
@@ -39,10 +39,10 @@ async function loadJs() {
   return { kind: "js", detect: (i, t) => JSON.parse(m.detect_json(i, t)), ipa: m.ipa, word: (w) => JSON.parse(m.word_json(w)), lookup: (w) => JSON.parse(m.lookup_json(w)), call: (f, a, b = "") => m.call(f, a, b), loadBytes };
 }
 
-function bars(probs) {
+function bars(probs, empty) {
   return SCHEMES.map(([k, name]) => {
-    const p = probs[k] || 0;
-    return `<div class="bar"><span class="name">${name}</span><div class="track"><div class="fill" style="width:${(100 * p).toFixed(1)}%"></div></div><span class="pct">${(100 * p).toFixed(1)}%</span></div>`;
+    const p = probs[k] || 0, pct = (100 * p).toFixed(1);
+    return `<div class="prob"><div class="lbl"><span>${name}</span><span class="pct">${empty ? "–" : pct + "%"}</span></div><sl-progress-bar value="${empty ? 0 : pct}" label="${name}: ${empty ? "no data" : pct + " percent"}"></sl-progress-bar></div>`;
   }).join("");
 }
 
@@ -57,11 +57,10 @@ function render() {
   if (ipa) {
     const d = lib.detect(ipa, text);
     $("probs").innerHTML = bars(d.probs);
-    $("mode").classList.remove("skel");
     $("mode").textContent = d.mode === "aligned" ? "Compared phone by phone against the Greek text." : "No Greek text given: judged from typical sound patterns only (less certain).";
   } else {
-    $("probs").innerHTML = bars({});
-    $("mode").textContent = "Type or generate some IPA above.";
+    $("probs").innerHTML = bars({}, true);
+    $("mode").innerHTML = '<span class="empty">No IPA yet: type some above, or press Greek → IPA.</span>';
   }
   const words = text.split(/[\s,.;·:!?()\[\]"“”]+/).filter(Boolean).slice(0, 40);
   const ctx = lib.call ? JSON.parse(lib.call("check_phrase_accents", text)) : [];
@@ -71,7 +70,7 @@ function render() {
     const info = lib.word(w), lx = lib.lookup(w);
     const syl = (info.syllables || []).map((x) => x.join("")).join(" · ");
     const law = info.accent_ok === null || info.accent_ok === undefined ? "–" : info.accent_ok ? '<span class="ok">follows the rules</span>' : '<span class="bad">breaks the law of limitation</span>';
-    const badges = lx ? [lx.nt && "NT", lx.lxx && "LXX"].filter(Boolean).map((b) => `<span class="badge">${b}</span>`).join("") + (lx.form !== w ? ` <span class="gk">${esc(lx.form)}</span>` : "") : '<span class="badge">not in NT/LXX</span>';
+    const badges = lx ? [lx.nt && "NT", lx.lxx && "LXX"].filter(Boolean).map((b) => `<sl-badge variant="${b === "NT" ? "primary" : "neutral"}" pill>${b}</sl-badge> `).join("") + (lx.form !== w ? ` <span class="gk">${esc(lx.form)}</span>` : "") : '<sl-badge variant="warning" pill>not in NT/LXX</sl-badge>';
     return `<div class="wcard"><div class="w">${esc(w)}</div>
 <div class="ln"><span class="k">IPA</span>${ipaHtml(lib.ipa(w, sc))}</div>
 <div class="ln"><span class="k">Syllables</span><span class="gk">${esc(syl)}</span></div>
@@ -79,19 +78,21 @@ function render() {
 <div class="ln"><span class="k">In context</span>${ctxFor(i)}</div>
 <div class="ln">${badges}</div></div>`;
   });
-  $("words").innerHTML = cards.join("");
+  $("words").innerHTML = cards.length ? cards.join("") : '<p class="empty">Type some Greek above to see each word here.</p>';
   $("ipaview").innerHTML = ipaHtml(ipa);
 }
 
 function toIpa() { if (lib) { $("ipa").value = lib.ipa($("greek").value, $("scheme").value); render(); } }
 
-document.querySelectorAll("button[data-ex]").forEach((b) => b.addEventListener("click", () => {
-  $("greek").value = EXAMPLES[b.dataset.ex]; $("scheme").value = b.dataset.ex; toIpa();
+const chips = [...document.querySelectorAll("sl-button[data-ex]")];
+const selectChip = (k) => chips.forEach((c) => { const on = c.dataset.ex === k; c.variant = on ? "primary" : "default"; c.setAttribute("aria-pressed", on); });
+chips.forEach((b) => b.addEventListener("click", () => {
+  $("greek").value = EXAMPLES[b.dataset.ex]; $("scheme").value = b.dataset.ex; selectChip(b.dataset.ex); toIpa();
 }));
 $("toipa").addEventListener("click", toIpa);
-$("scheme").addEventListener("change", toIpa);
-$("greek").addEventListener("input", render);
-$("ipa").addEventListener("input", render);
+$("scheme").addEventListener("sl-change", toIpa);
+$("greek").addEventListener("sl-input", () => { selectChip(null); render(); });
+$("ipa").addEventListener("sl-input", render);
 
 const SCHEME_OPTS = ["koine", "attic", "erasmian", "modern", "byzantine"];
 const PARADIGMS = ["present-active-indicative", "imperfect-active-indicative", "future-active-indicative", "future-middle-indicative", "middle-passive-indicative", "present-active-subjunctive"];
@@ -131,36 +132,52 @@ function pretty(name, v) {
 }
 function runTool() {
   if (!lib) return;
-  const t = TOOLS[$("fn").selectedIndex];
-  try { $("fnout").innerHTML = pretty(t[0], JSON.parse(lib.call(t[0], $("fnarg").value.trim(), t[3] ? $("fnarg2").value : ""))); }
-  catch (e) { $("fnout").textContent = "error: " + e.message; }
+  const t = TOOLS[toolIdx()];
+  $("fnerr").innerHTML = "";
+  try {
+    const arg = String($("fnarg").value).trim();
+    if (!arg) { $("fnout").innerHTML = '<p class="empty">Type something in Input to see the result.</p>'; $("copy").value = ""; return; }
+    $("fnout").innerHTML = pretty(t[0], JSON.parse(lib.call(t[0], arg, t[3] ? $("fnarg2").value : "")));
+    $("copy").value = [...$("fnout").querySelectorAll(".it")].map((d) => d.innerText.replace(/\s+/g, " ").trim()).join("\n");
+  } catch (e) {
+    $("fnout").innerHTML = "";
+    $("fnerr").innerHTML = `<sl-alert variant="danger" open><sl-icon slot="icon" name="exclamation-octagon"></sl-icon>That input could not be processed: ${esc(e.message)}</sl-alert>`;
+  }
 }
-$("copy").addEventListener("click", async () => {
-  const txt = [...$("fnout").querySelectorAll(".it")].map((d) => d.innerText.replace(/\s+/g, " ").trim()).join("\n");
-  try { await navigator.clipboard.writeText(txt); $("copy").textContent = "Copied"; } catch { $("copy").textContent = "Copy failed"; }
-  setTimeout(() => ($("copy").textContent = "Copy"), 1500);
-});
 function pickTool() {
-  const t = TOOLS[$("fn").selectedIndex];
+  const t = TOOLS[toolIdx()];
   $("fndesc").textContent = t[1]; $("fnarg").value = t[2];
-  $("fnarg2wrap").hidden = !t[3];
-  if (t[3]) $("fnarg2").innerHTML = t[3].map((o) => `<option>${o}</option>`).join("");
+  $("fnarg2").hidden = !t[3];
+  if (t[3]) { $("fnarg2").innerHTML = t[3].map((o) => `<sl-option value="${o}">${o.replace(/-/g, " ")}</sl-option>`).join(""); $("fnarg2").value = t[3][0]; }
   runTool();
 }
-$("fn").innerHTML = TOOLS.map((t) => `<option>${t[0]}</option>`).join("");
-$("fn").addEventListener("change", pickTool);
-$("fnarg").addEventListener("input", runTool);
-$("fnarg2").addEventListener("change", runTool);
-$("fndesc").textContent = TOOLS[0][1]; $("fnarg").value = TOOLS[0][2];
+$("fn").innerHTML = TOOLS.map((t, i) => `<sl-option value="t${i}">${t[0].replace(/_/g, " ")}</sl-option>`).join("");
+$("fn").value = "t0";
+const toolIdx = () => +String($("fn").value || "t0").slice(1);
+$("fn").addEventListener("sl-change", pickTool);
+$("fnarg").addEventListener("sl-input", runTool);
+$("fnarg2").addEventListener("sl-change", runTool);
+function pickToolText() { $("fndesc").textContent = TOOLS[0][1]; $("fnarg").value = TOOLS[0][2]; }
+
+matchMedia("(prefers-color-scheme: dark)").addEventListener("change", (e) => document.documentElement.classList.toggle("sl-theme-dark", e.matches));
+const setStatus = (html, busy) => { $("status").innerHTML = (busy ? "<sl-spinner></sl-spinner>" : "") + `<span>${html}</span>`; };
 
 (async () => {
-  $("probs").innerHTML = bars({}); // same layout before the wasm arrives: no shift
+  $("probs").innerHTML = bars({}, true);
+  await Promise.race([Promise.all(["sl-select", "sl-textarea", "sl-button"].map((t) => customElements.whenDefined(t))), new Promise((r) => setTimeout(r, 4000))]);
+  pickToolText();
   try { lib = await loadWasm(); } catch (e) { console.warn("wasm failed, using JS build", e); lib = await loadJs(); }
+  $("toipa").loading = false; $("toipa").disabled = false;
+  selectChip("koine");
   toIpa();
-  $("status").textContent = `Running on ${lib.kind}. Loading NT + LXX word list…`;
-  const bytes = new Uint8Array(await (await fetch("greek-phonology-lexicon.bin?v=" + V)).arrayBuffer());
-  lib.loadBytes(bytes);
-  $("status").textContent = `Running on ${lib.kind}, fully in your browser. Word list: SBLGNT (CC BY 4.0) + Rahlfs LXX forms.`;
+  setStatus(`Running on ${lib.kind}. Loading NT + LXX word list…`, true);
+  try {
+    const bytes = new Uint8Array(await (await fetch("greek-phonology-lexicon.bin?v=" + V)).arrayBuffer());
+    lib.loadBytes(bytes);
+    setStatus(`Running on ${lib.kind}, fully in your browser. Word list: SBLGNT (CC BY 4.0) + Rahlfs LXX forms.`);
+  } catch (e) {
+    setStatus(`<sl-alert variant="warning" open>Word list failed to load; lookups are off. ${esc(e.message)}</sl-alert>`);
+  }
   render();
   pickTool();
-})();
+})().catch((e) => setStatus(`<sl-alert variant="danger" open>The library failed to load: ${esc(e.message)}</sl-alert>`));
