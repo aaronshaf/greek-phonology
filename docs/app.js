@@ -7,7 +7,7 @@ const EXAMPLES = {
   modern: "Πάτερ ἡμῶν ὁ ἐν τοῖς οὐρανοῖς, ὁ κόσμος",
   byzantine: "οἱ υἱοὶ τῆς γῆς εὐλογοῦσιν",
 };
-const V = "10";
+const V = "11";
 const $ = (id) => document.getElementById(id);
 let lib = null;
 
@@ -85,11 +85,18 @@ function render() {
 
 function toIpa() { if (lib) { $("ipa").value = lib.ipa($("greek").value, $("scheme").value); render(); } }
 
-$("loadex").addEventListener("click", () => { const k = $("scheme").value; $("greek").value = EXAMPLES[k] || EXAMPLES.koine; toIpa(); });
-$("toipa").addEventListener("click", toIpa);
-$("scheme").addEventListener("sl-change", toIpa);
-$("greek").addEventListener("sl-input", render);
-$("ipa").addEventListener("sl-input", render);
+// Samples auto-fill until the user edits: greekSample = Greek box still holds an unedited sample,
+// ipaEdited = the user typed in the IPA box (then a scheme change never overwrites it).
+let greekSample = true, ipaEdited = false;
+function schemeChanged() {
+  const k = $("scheme").value;
+  if (greekSample || !$("greek").value.trim()) { $("greek").value = EXAMPLES[k] || EXAMPLES.koine; greekSample = true; }
+  if (!ipaEdited || !$("ipa").value.trim()) { ipaEdited = false; toIpa(); }
+}
+$("toipa").addEventListener("click", () => { ipaEdited = false; toIpa(); });
+$("scheme").addEventListener("sl-change", schemeChanged);
+$("greek").addEventListener("sl-input", () => { greekSample = false; render(); });
+$("ipa").addEventListener("sl-input", () => { ipaEdited = true; render(); });
 
 const SCHEME_OPTS = ["koine", "attic", "erasmian", "modern", "byzantine"];
 const PARADIGMS = ["present-active-indicative", "imperfect-active-indicative", "future-active-indicative", "future-middle-indicative", "middle-passive-indicative", "present-active-subjunctive"];
@@ -165,7 +172,7 @@ const setStatus = (html, busy) => { $("status").innerHTML = (busy ? "<sl-spinner
   pickToolText();
   try { lib = await loadWasm(); } catch (e) { console.warn("wasm failed, using JS build", e); lib = await loadJs(); }
   $("toipa").loading = false; $("toipa").disabled = false;
-  toIpa();
+  schemeChanged();
   setStatus(`Running on ${lib.kind}. Loading NT + LXX word list…`, true);
   try {
     const bytes = new Uint8Array(await (await fetch("greek-phonology-lexicon.bin?v=" + V)).arrayBuffer());

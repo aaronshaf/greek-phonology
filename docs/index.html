@@ -117,12 +117,6 @@
   #toipa::part(base):hover { background: var(--pri-hover); border-color: var(--pri-hover); }
   sl-badge::part(base) { background: transparent; color: var(--muted); border: 1px solid var(--line); font-weight: 500; }
   sl-badge.found::part(base) { color: var(--olive); }
-  /* load example: quiet outline button */
-  .exrow { display: flex; }
-  .quietbtn { font: 500 13px/1 var(--sl-font-sans); height: 30px; padding: 0 .7rem; border-radius: 7px;
-          border: 1px solid var(--line); background: transparent; color: var(--muted); cursor: pointer; white-space: nowrap; }
-  .quietbtn:hover { background: var(--hover); color: var(--text); }
-  .quietbtn:focus-visible { outline: 2px solid var(--line); outline-offset: 2px; }
   .github-corner { position: fixed; top: 0; right: 0; z-index: 10; }
   .github-corner svg { display: block; width: 80px; height: 80px; }
   .github-corner .gc-bg { fill: var(--text); } .github-corner .gc-fg { fill: var(--bg); }
@@ -157,7 +151,6 @@
     </span>
   </sl-input>
   <div id="ipaview" class="ipaw" aria-label="IPA by word"></div>
-  <div class="exrow"><button type="button" id="loadex" class="quietbtn">Load example</button></div>
 </div>
 
 <section class="card"><h2>Which pronunciation does the IPA sound like?</h2>
@@ -177,6 +170,6 @@
 </section>
 <p id="status" role="status"><sl-spinner></sl-spinner><span>Loading the library…</span></p>
 
-<script type="module" src="app.js?v=10"></script>
+<script type="module" src="app.js?v=11"></script>
 </body>
 </html>
