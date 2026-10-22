@@ -6,7 +6,7 @@ greek-phonology helps you work with how Ancient Greek sounds. It turns Greek tex
 
 ## Install
 
-Not on npm yet. Build it from source:
+Build it from source with the MoonBit toolchain (there is no npm package; the old TypeScript koine-lexer has been removed):
 
 ```sh
 curl -fsSL https://cli.moonbitlang.com/install/unix.sh | bash
@@ -83,7 +83,7 @@ Tested, not proven:
 - Writing the accent mark back into the NFC string (before an iota subscript, then NFC). The slot logic is proved; the string step is checked on the whole SBLGNT.
 - `without_accents` and `syllabify` give the same syllables in either order. The exception is diaeresis, which marks a syllable break, so removing it rightly changes the split.
 
-Parity tests compare the library with the original TypeScript and with the reference G2P.
+Parity tests compare the library with the original TypeScript (its outputs are frozen in `moonbit/tests/kl_golden.json.gz`; run `node moonbit/tools/kl_parity.cjs`) and with the reference G2P.
 
 ## Data
 
