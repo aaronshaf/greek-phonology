@@ -38,7 +38,7 @@ Every function below can be called through `call(name, arg, arg2)`. The most com
 
 **Pronunciation**
 - `ipa(text, scheme)`: Greek to IPA. Phones are separated by spaces and words by `|`. `ipa("θεός", "attic")` → `tʰ e o s`. Restored Attic follows Allen's 4th-century target (ου [uː], length shown where the spelling marks it, geminates as Cː), Erasmian χ is [x], and Modern voices σ to [z] before β γ δ μ ν λ ρ. See [docs/RESEARCH.md](docs/RESEARCH.md).
-- `detect(ipa, greek_text?)`: scheme probabilities, plus the evidence behind them. It is more reliable when you pass the Greek text. It allows for typical phone-recognizer mistakes, using small tables fit on public Greek text corpora (see `moonbit/lib/conf_gen.mbt`).
+- `detect(ipa, greek_text?)`: scheme probabilities, plus the evidence behind them. It is more reliable when you pass the Greek text. It allows for typical phone-recognizer mistakes, using a simple prior (the expected phone 80% of the time, any other phone uniformly otherwise); no audio data is used. Phone-bigram tables come from SBLGNT and Rahlfs LXX word counts.
 - `lookup(word)`: finds a word in the NT/LXX list, ignoring case or accents if needed. `lookup("λογος")` → `{form: "λόγος", nt: true, lxx: true, ...}`
 
 **Syllables and accent**
