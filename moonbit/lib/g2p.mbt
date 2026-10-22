@@ -47,98 +47,6 @@ fn is_diph(s : String) -> Bool {
 }
 
 ///|
-fn vowel_ipa(s : Int32, c : Char) -> String {
-  match (s, c) {
-    (_, 'α') => "a"
-    (_, 'ι') => "i"
-    (_, 'ο') => "o"
-    (2, 'ε') => "ɛ"
-    (_, 'ε') => "e"
-    (0, 'η') | (1, 'η') => "i"
-    (2, 'η') => "e"
-    (3, 'η') => "ɛː"
-    (_, 'η') => "e ɪ"
-    (0, 'υ') => "i"
-    (4, 'υ') => "u"
-    (_, 'υ') => "y"
-    (3, 'ω') => "ɔː"
-    (4, 'ω') => "o ʊ"
-    (_, 'ω') => "o"
-    _ => ""
-  }
-}
-
-///|
-fn diph_ipa(s : Int32, u : String) -> String {
-  match (s, u) {
-    (0, "αι") | (1, "αι") => "e"
-    (2, "αι") => "ɛ"
-    (3, "αι") => "a i"
-    (4, "αι") => "a ɪ"
-    (0, "ει") | (1, "ει") | (2, "ει") => "i"
-    (3, "ει") => "eː"
-    (4, "ει") => "e ɪ"
-    (0, "οι") => "i"
-    (1, "οι") | (2, "οι") => "y"
-    (3, "οι") => "o i"
-    (4, "οι") => "ɔ ɪ"
-    (0, "υι") => "i"
-    (1, "υι") | (2, "υι") => "y"
-    (3, "υι") => "y i"
-    (4, "υι") => "w i"
-    (0, "ου") | (1, "ου") | (2, "ου") | (4, "ου") => "u"
-    (3, "ου") => "oː"
-    (3, "αυ") => "a u"
-    (3, "ευ") => "e u"
-    (3, "ηυ") => "ɛː u"
-    (4, "αυ") => "a ʊ"
-    (4, "ευ") => "j u"
-    (4, "ηυ") => "e ɪ u"
-    _ => ""
-  }
-}
-
-///|
-fn cons_ipa(s : Int32, c : Char) -> String {
-  match (s, c) {
-    (0, 'β') | (1, 'β') | (2, 'β') => "v"
-    (_, 'β') => "b"
-    (0, 'γ') | (1, 'γ') | (2, 'γ') => "ɣ"
-    (_, 'γ') => "g"
-    (0, 'δ') | (1, 'δ') | (2, 'δ') => "ð"
-    (_, 'δ') => "d"
-    (3, 'ζ') => "z d"
-    (4, 'ζ') => "d͡z"
-    (_, 'ζ') => "z"
-    (2, 'θ') | (3, 'θ') => "tʰ"
-    (_, 'θ') => "θ"
-    (2, 'φ') | (3, 'φ') => "pʰ"
-    (_, 'φ') => "f"
-    (2, 'χ') | (3, 'χ') => "kʰ"
-    (4, 'χ') => "k"
-    (_, 'χ') => "x"
-    _ => ""
-  }
-}
-
-///|
-fn base_cons_ipa(c : Char) -> String {
-  match c {
-    'κ' => "k"
-    'λ' => "l"
-    'μ' => "m"
-    'ν' => "n"
-    'π' => "p"
-    'ρ' => "r"
-    'σ' | 'ς' => "s"
-    'τ' => "t"
-    'ξ' => "k s"
-    'ψ' => "p s"
-    _ => ""
-  }
-}
-
-///|
 fn split_spaces(s : String) -> Array[String] {
   let out : Array[String] = []
   let sb = StringBuilder::new()
@@ -522,19 +430,6 @@ fn is_gc(c : Char) -> Bool {
 }
 
 ///|
-fn is_gvl(c : Char) -> Bool {
-  match c {
-    'π' | 'κ' | 'τ' | 'φ' | 'θ' | 'χ' | 'σ' | 'ξ' | 'ψ' | 'ς' => true
-    _ => false
-  }
-}
-
-///|
-fn is_gnas(c : Char) -> Bool {
-  c == 'κ' || c == 'γ' || c == 'χ' || c == 'ξ'
-}
-
-///|
 let non_alpha : Array[Int] = [
   0x0375, 0x0378, 0x0379, 0x037E, 0x0380, 0x0381, 0x0382, 0x0383, 0x0384, 0x0385, 0x0387, 0x038B,
   0x038D, 0x03A2, 0x03F6, 0x1F16, 0x1F17, 0x1F1E, 0x1F1F, 0x1F46, 0x1F47, 0x1F4E, 0x1F4F, 0x1F58,
@@ -621,197 +516,57 @@ fn g2p_clusters(word : String) -> Array[GCl]? {
 }
 
 ///|
-fn front_follows(cl : Array[GCl], i : Int) -> Bool {
-  if i >= cl.length() || !is_gv(cl[i].b) {
-    return false
-  }
-  if i + 1 < cl.length() && !cl[i + 1].dia {
-    let pair = cl[i].b.to_string() + cl[i + 1].b.to_string()
-    if is_diph(pair) {
-      return pair == "αι" || pair == "ει" || pair == "οι" || pair == "υι" || pair == "ευ" || pair == "ηυ"
-    }
-  }
-  let c = cl[i].b
-  c == 'ε' || c == 'η' || c == 'ι' || c == 'υ'
-}
-
-///|
-fn koine_vl(cl : Array[GCl], f : Int) -> Bool {
-  if f >= cl.length() {
-    return true
-  }
-  let n = cl[f].b
-  if is_gv(n) {
-    false
-  } else {
-    is_gvl(n)
-  }
-}
-
-///|
-fn simple_cons(c : Char) -> String {
-  match c {
-    'β' => "b"
-    'δ' => "d"
-    'κ' => "k"
-    'λ' => "l"
-    'μ' => "m"
-    'ν' => "n"
-    'π' => "p"
-    'ρ' => "r"
-    'σ' | 'ς' => "s"
-    'τ' => "t"
-    _ => ""
-  }
-}
+/// Phone strings by id (index 0 unused); ids and per-scheme inventories are in kernel/spec.mbtp.
+let phone_names : Array[String] = [
+  "", "a", "e", "i", "o", "u", "y", "ɛ", "ɛː", "ɔː", "eː", "oː", "ɪ", "ʊ", "ɔ", "w", "j", "h", "f",
+  "v", "β", "b", "d", "g", "m", "n", "ŋ", "ʝ", "ɣ", "ç", "x", "z", "ð", "θ", "k", "s", "p", "l", "r",
+  "t", "d͡z", "tʰ", "pʰ", "kʰ",
+]
 
 ///|
 /// Phones of one word in scheme s (0 modern, 1 byzantine, 2 koine, 3 attic, 4 erasmian).
-/// Port of the reference G2P; byzantine = modern with y for υ, οι, υι.
+/// Port of the reference G2P. The phones come from the proved step function
+/// @kernel.g2p_step (finite tables; every cluster consumed once; only the scheme's inventory).
 fn word_phones(word : String, s : Int, wi : Int) -> Array[Phone] {
   let out : Array[Phone] = []
   guard g2p_clusters(word) is Some(cl) else { return out }
-  let emit = fn(ph : String, tag : String, ui : Int) {
-    for p in split_spaces(ph) {
-      out.push({ p, tag, w: wi, u: if tag == "h" { -1 } else { ui } })
-    }
+  let n = cl.length()
+  let bs = FixedArray::make(n, 0)
+  let rf = FixedArray::make(n, 0)
+  let dd = FixedArray::make(n, 0)
+  for i, c in cl {
+    bs[i] = c.b.to_int()
+    rf[i] = if c.rough { 1 } else { 0 }
+    dd[i] = if c.dia { 1 } else { 0 }
   }
-  let mut i = 0
-  let mut ui = 0
-  while i < cl.length() {
+  let buf = FixedArray::make(8, 0)
+  // unit boundaries from the proved segmenter: every cluster consumed exactly once
+  let starts = FixedArray::make(n + 1, 0)
+  let nu = @kernel.g2p_units(s, bs, rf, dd, starts)
+  for ui in 0..<nu {
+    let i = starts[ui]
+    let r = @kernel.g2p_step(s, bs, rf, dd, i, buf)
+    let cnt = r % 8
+    let adv = r / 8
     let base = cl[i].b
-    let has_nxt = i + 1 < cl.length()
-    if has_nxt && is_gv(base) && is_gv(cl[i + 1].b) && !cl[i + 1].dia &&
-      is_diph(base.to_string() + cl[i + 1].b.to_string()) {
-      let pair = base.to_string() + cl[i + 1].b.to_string()
-      if (s == 3 || s == 4) && (cl[i].rough || cl[i + 1].rough) {
-        emit("h", "h", ui)
-      }
-      let ph = if s == 4 {
-        diph_ipa(4, pair)
-      } else if s == 3 {
-        diph_ipa(3, pair)
-      } else if s <= 1 {
-        if pair == "αι" {
-          "e"
-        } else if pair == "ει" {
-          "i"
-        } else if pair == "οι" || pair == "υι" {
-          if s == 1 { "y" } else { "i" }
-        } else if pair == "ου" {
-          "u"
-        } else {
-          let head = if base == 'α' { "a" } else if base == 'ε' { "e" } else { "i" }
-          head + " " + (if koine_vl(cl, i + 2) { "f" } else { "v" })
-        }
-      } else if pair == "αι" {
-        "ɛ"
-      } else if pair == "ει" {
-        "i"
-      } else if pair == "οι" || pair == "υι" {
-        "y"
-      } else if pair == "ου" {
-        "u"
-      } else {
-        let head = if base == 'α' { "a" } else if base == 'ε' { "ɛ" } else { "e" }
-        let tail = if i + 2 < cl.length() && is_gvl(cl[i + 2].b) { "f" } else { "β" }
-        head + " " + tail
-      }
-      emit(ph, pair, ui)
-      i += 2
-      ui += 1
-      continue
-    }
-    if is_gv(base) {
-      if (s == 3 || s == 4) && cl[i].rough {
-        emit("h", "h", ui)
-      }
-      let ph = match s {
-        0 => vowel_ipa(0, base)
-        1 => vowel_ipa(1, base)
-        _ => vowel_ipa(s, base)
-      }
-      emit(ph, base.to_string(), ui)
-      i += 1
-      ui += 1
-      continue
-    }
-    let nb = if has_nxt { cl[i + 1].b } else { '\u{0}' }
-    if (s == 3 || s == 4) && base == 'ρ' && cl[i].rough {
-      emit("h", "h", ui)
-    }
-    if s <= 1 && has_nxt {
-      let dg = base.to_string() + nb.to_string()
-      if dg == "μπ" || dg == "ντ" || dg == "γκ" {
-        let ph = if i == 0 {
-          if dg == "μπ" { "b" } else if dg == "ντ" { "d" } else { "g" }
-        } else if dg == "μπ" {
-          "m b"
-        } else if dg == "ντ" {
-          "n d"
-        } else {
-          "ŋ g"
-        }
-        emit(ph, dg, ui)
-        i += 2
-        ui += 1
-        continue
-      }
-    }
-    let ph = if s <= 1 {
-      let fr = front_follows(cl, i + 1)
-      match base {
-        'γ' => if has_nxt && is_gnas(nb) { "ŋ" } else if fr { "ʝ" } else { "ɣ" }
-        'χ' => if fr { "ç" } else { "x" }
-        'ξ' => "k s"
-        'ψ' => "p s"
-        'β' => "v"
-        'δ' => "ð"
-        'ζ' => "z"
-        'θ' => "θ"
-        'φ' => "f"
-        _ => simple_cons(base)
-      }
-    } else if s == 4 {
-      match base {
-        'γ' => if has_nxt && is_gnas(nb) { "ŋ" } else { "g" }
-        'ζ' => "d͡z"
-        'θ' => "θ"
-        'φ' => "f"
-        'χ' => "k"
-        'ξ' => "k s"
-        'ψ' => "p s"
-        _ => simple_cons(base)
-      }
+    let tag = if adv == 2 {
+      base.to_string() + cl[i + 1].b.to_string()
+    } else if is_gv(base) {
+      base.to_string()
     } else {
-      let koine = s == 2
       match base {
-        'γ' =>
-          if has_nxt && is_gnas(nb) {
-            "ŋ"
-          } else if koine {
-            if front_follows(cl, i + 1) { "ʝ" } else { "ɣ" }
-          } else {
-            "g"
-          }
-        'β' => if koine { "v" } else { "b" }
-        'δ' => if koine { "ð" } else { "d" }
-        'ζ' => if koine { "z" } else { "z d" }
-        'θ' => "tʰ"
-        'φ' => "pʰ"
-        'χ' => "kʰ"
-        'ξ' => "k s"
-        'ψ' => "p s"
-        _ => simple_cons(base)
+        'β' | 'γ' | 'δ' | 'ζ' | 'θ' | 'φ' | 'χ' => base.to_string()
+        _ => ""
       }
     }
-    let tag = match base {
-      'β' | 'γ' | 'δ' | 'ζ' | 'θ' | 'φ' | 'χ' => base.to_string()
-      _ => ""
+    for k in 0..<cnt {
+      let id = buf[k]
+      if id == 17 {
+        out.push({ p: "h", tag: "h", w: wi, u: -1 })
+      } else {
+        out.push({ p: phone_names[id], tag, w: wi, u: ui })
+      }
     }
-    emit(ph, tag, ui)
-    i += 1
-    ui += 1
   }
   out
 }

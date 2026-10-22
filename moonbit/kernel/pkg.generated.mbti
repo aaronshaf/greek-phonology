@@ -16,6 +16,18 @@ pub fn enclitic_keeps(Int32, Int32, Bool) -> Bool
 
 pub fn extra_acute(Int32, Bool, Bool, Bool) -> Bool
 
+pub fn g2p_step(Int32, FixedArray[Int32], FixedArray[Int32], FixedArray[Int32], Int32, FixedArray[Int32]) -> Int32
+
+pub fn g_cons_seq(Int32, FixedArray[Int32], FixedArray[Int32], Int32) -> Int32
+
+pub fn g_diph(Int32, Int32) -> Bool
+
+pub fn g_diph_seq(Int32, FixedArray[Int32], Int32) -> Int32
+
+pub fn g_vowel(Int32) -> Bool
+
+pub fn g_vowel_seq(Int32, Int32) -> Int32
+
 pub fn is_base_char(Int32) -> Bool
 
 pub fn keep_char(Int32, Int32) -> Bool
