@@ -2,6 +2,12 @@
 package "aaronshaf/greek-phonology/kernel"
 
 // Values
+pub fn accent_count(Bool, Bool) -> Int32
+
+pub fn enclitic_keeps(Int32, Int32, Bool) -> Bool
+
+pub fn extra_acute(Int32, Bool, Bool, Bool) -> Bool
+
 pub fn law_ok(Int32, Int32, Bool, Bool, Bool) -> Bool
 
 pub fn recessive_circ(Int32, Bool, Bool) -> Bool
@@ -9,6 +15,8 @@ pub fn recessive_circ(Int32, Bool, Bool) -> Bool
 pub fn recessive_pos(Int32, Bool) -> Int32
 
 pub fn syllable_cut(FixedArray[Int32], Int32, Int32, Int32) -> Int32
+
+pub fn to_grave(Int32, Bool, Bool) -> Bool
 
 // Errors
 

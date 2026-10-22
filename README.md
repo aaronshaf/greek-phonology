@@ -46,6 +46,7 @@ Every function below can be called through `call(name, arg, arg2)`. The most com
 **Syllables and accent**
 - `syllabify(word)`: `syllabify("ἄνθρωπος")` → `[["α","ν"],["θ","ρ","ω"],["π","ο","ς"]]`
 - `word(word)`: syllables, the written accent, whether it obeys the law of limitation, and the recessive accent.
+- `accentuate_phrase(text)` / `check_phrase_accents(text)`: accents in context (enclitics, proclitics, grave, elision). `accentuate_phrase("ἄνθρωπος τις ἦλθεν")` → `ἄνθρωπός τις ἦλθεν`
 - `accentuate_verb(word)`: places the recessive accent. `accentuate_verb("δουλος")` → `δοῦλος`
 - `accentuate_last_vowel(s)`: `accentuate_last_vowel("χα")` → `χά`
 - `add_acute(s)` / `add_circumflex(s)`: `add_circumflex("α")` → `ᾶ`

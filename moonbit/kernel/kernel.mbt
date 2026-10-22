@@ -100,3 +100,79 @@ pub fn recessive_circ(
     false
   }
 }
+
+///|
+/// Phrase sandhi: does a word take an extra acute on its ultima? Only before an enclitic, and only
+/// when it is a proclitic, proparoxytone (lex_pos 3) or properispomenon (lex_pos 2, circumflex).
+/// Proved: result implies next_enclitic.
+pub fn extra_acute(
+  lex_pos : Int32,
+  lex_circ : Bool,
+  proclitic : Bool,
+  next_enclitic : Bool,
+) -> Bool where {
+  proof_ensure: result => result == false || next_enclitic == true,
+  proof_ensure: result => result == false || proclitic == true || lex_pos == 3 || lex_pos == 2,
+} {
+  if next_enclitic {
+    if proclitic {
+      true
+    } else if lex_pos == 3 {
+      true
+    } else if lex_pos == 2 {
+      lex_circ
+    } else {
+      false
+    }
+  } else {
+    false
+  }
+}
+
+///|
+/// Number of written accents on a word in context. Proved: between 0 and 2.
+pub fn accent_count(has_lexical : Bool, extra : Bool) -> Int32 where {
+  proof_ensure: result => 0 <= result && result <= 2,
+} {
+  let a = if has_lexical { 1 } else { 0 }
+  if extra {
+    a + 1
+  } else {
+    a
+  }
+}
+
+///|
+/// Does a disyllabic enclitic keep its own accent? Only after a paroxytone host.
+/// Proved: result implies the host accent is an acute on the penult.
+pub fn enclitic_keeps(
+  enc_syllables : Int32,
+  host_pos : Int32,
+  host_circ : Bool,
+) -> Bool where {
+  proof_ensure: result => result == false || host_pos == 2,
+  proof_ensure: result => result == false || host_circ == false,
+} {
+  if enc_syllables == 2 && host_pos == 2 {
+    if host_circ {
+      false
+    } else {
+      true
+    }
+  } else {
+    false
+  }
+}
+
+///|
+/// Acute -> grave: only an acute on the ultima, and only when an ordinary word follows
+/// (no punctuation, no enclitic). Proved: result implies pos == 1.
+pub fn to_grave(pos : Int32, is_acute : Bool, word_follows : Bool) -> Bool where {
+  proof_ensure: result => result == false || pos == 1,
+} {
+  if pos == 1 && is_acute {
+    word_follows
+  } else {
+    false
+  }
+}

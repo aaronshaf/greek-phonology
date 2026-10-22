@@ -26,7 +26,7 @@ async function loadWasm() {
     return dec.decode(out);
   };
   const loadBytes = (bytes) => { x.in_clear(); for (const b of bytes) x.in_push(b); const n = x.run(3); let s = ""; for (let i = 0; i < n; i++) s += String.fromCharCode(x.out_get(i)); return +s; };
-  return { kind: "wasm", detect: (i, t) => JSON.parse(call(0, i, t)), ipa: (t, s) => call(1, t, s), word: (w) => JSON.parse(call(2, w)), lookup: (w) => JSON.parse(call(4, w)), loadBytes };
+  return { kind: "wasm", detect: (i, t) => JSON.parse(call(0, i, t)), ipa: (t, s) => call(1, t, s), word: (w) => JSON.parse(call(2, w)), lookup: (w) => JSON.parse(call(4, w)), call: (f, a, b = "") => call(5, f, a + "\u0001" + b), loadBytes };
 }
 
 async function loadJs() {
@@ -35,7 +35,7 @@ async function loadJs() {
   new Function("module", "exports", src)(module, module.exports);
   const m = module.exports;
   const loadBytes = (bytes) => { m.in_clear(); for (const b of bytes) m.in_push(b); m.run(3); return -1; };
-  return { kind: "js", detect: (i, t) => JSON.parse(m.detect_json(i, t)), ipa: m.ipa, word: (w) => JSON.parse(m.word_json(w)), lookup: (w) => JSON.parse(m.lookup_json(w)), loadBytes };
+  return { kind: "js", detect: (i, t) => JSON.parse(m.detect_json(i, t)), ipa: m.ipa, word: (w) => JSON.parse(m.word_json(w)), lookup: (w) => JSON.parse(m.lookup_json(w)), call: (f, a, b = "") => m.call(f, a, b), loadBytes };
 }
 
 function bars(probs) {
@@ -58,15 +58,17 @@ function render() {
     $("probs").innerHTML = bars({});
     $("mode").textContent = "Type or generate some IPA above.";
   }
-  const words = text.split(/[\s,.;·:!?()\[\]"“”'’]+/).filter(Boolean).slice(0, 40);
-  const rows = words.map((w) => {
+  const words = text.split(/[\s,.;·:!?()\[\]"“”]+/).filter(Boolean).slice(0, 40);
+  const ctx = lib.call ? JSON.parse(lib.call("check_phrase_accents", text)) : [];
+  const ctxFor = (i) => { const c = ctx[i]; if (!c) return "–"; return c.ok ? '<span class="ok">as expected</span>' : `<span class="bad">expected ${esc(c.expected)}</span>`; };
+  const rows = words.map((w, i) => {
     const info = lib.word(w), lx = lib.lookup(w);
     const syl = (info.syllables || []).map((s) => s.join("")).join("·");
     const law = info.accent_ok === null || info.accent_ok === undefined ? "–" : info.accent_ok ? '<span class="ok">follows the rules</span>' : '<span class="bad">breaks the law of limitation</span>';
     const dict = lx ? `${esc(lx.form)} (${[lx.nt && "NT", lx.lxx && "LXX"].filter(Boolean).join(", ")}${lx.match !== "exact" ? ", matched ignoring " + (lx.match === "fold" ? "case" : "accents") : ""})` : "not found";
-    return `<tr><td>${esc(w)}</td><td>${esc(syl)}</td><td>${law}</td><td>${dict}</td></tr>`;
+    return `<tr><td>${esc(w)}</td><td>${esc(syl)}</td><td>${law}</td><td>${ctxFor(i)}</td><td>${dict}</td></tr>`;
   });
-  $("words").innerHTML = rows.length ? `<table><tr><th>Word</th><th>Syllables</th><th>Accent</th><th>In NT/LXX word list</th></tr>${rows.join("")}</table>` : "";
+  $("words").innerHTML = rows.length ? `<table><tr><th>Word</th><th>Syllables</th><th>Accent</th><th>Accent in context</th><th>In NT/LXX word list</th></tr>${rows.join("")}</table>` : "";
 }
 
 function toIpa() { if (lib) { $("ipa").value = lib.ipa($("greek").value, $("scheme").value); render(); } }

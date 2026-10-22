@@ -8,6 +8,8 @@ pub fn accent_ok(String) -> Bool?
 
 pub fn accentuate_last_vowel(String) -> String
 
+pub fn accentuate_phrase(String) -> String
+
 pub fn accentuate_verb(String) -> String
 
 pub fn add_acute(String) -> String
@@ -19,6 +21,8 @@ pub fn amalgamate(String) -> String
 pub fn augmentize(String) -> String
 
 pub fn call_json(String, String, String) -> String
+
+pub fn check_phrase_accents(String) -> String
 
 pub fn conjugate(String, String) -> Array[String]
 
@@ -40,7 +44,13 @@ pub fn g2p_index(String, Int32) -> Array[Phone]
 
 pub fn ipa(String, String) -> String
 
+pub fn is_enclitic(String) -> Bool
+
 pub fn is_long_syllable(String) -> Bool
+
+pub fn is_proclitic(String) -> Bool
+
+pub fn lexical_phrase(String) -> String
 
 pub fn lexicon_size() -> Int32
 

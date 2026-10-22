@@ -177,3 +177,27 @@ test "kl examples" {
   assert_eq(@lib.amalgamate("γραφσω"), "γραψω")
   assert_eq(@lib.conjugate("λυ", "future-active-indicative")[0], "λύσω")
 }
+
+///|
+test "accentuate_phrase: at most two accents per word, a second accent only before an enclitic" {
+  let seed = Ref(9)
+  let words = [
+    "ἄνθρωπος", "δοῦλος", "λόγος", "θεός", "τιμῶν", "ἐν", "εἰ", "οὐ", "καί", "ἀκούσαντες", "σῶμα",
+    "τις", "τινές", "μου", "σου", "ἐστί", "ποτέ", "γε", "τε", "εἰσί", "με", ",", ".",
+  ]
+  for _ in 0..<2000 {
+    let k = 2 + lcg(seed) % 6
+    let ws : Array[String] = []
+    for _ in 0..<k {
+      ws.push(words[lcg(seed) % words.length()])
+    }
+    let out = @lib.accentuate_phrase(ws.join(" ")).split(" ").map(fn(v) { v.to_string() }).collect()
+    for i, w in out {
+      let c = @lib.count_accents(w)
+      assert_true(c <= 2, msg=ws.join(" ") + " -> " + w)
+      if c == 2 {
+        assert_true(i + 1 < ws.length() && @lib.is_enclitic(ws[i + 1]), msg=ws.join(" ") + " -> " + w)
+      }
+    }
+  }
+}
