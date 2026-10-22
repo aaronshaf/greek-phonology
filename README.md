@@ -65,10 +65,13 @@ Every function below can be called through `call(name, arg, arg2)`. The most com
 
 ## What's proven
 
-`moon prove` machine-checks these (54 goals in `moonbit/kernel`). The library's real code paths call these proved functions:
+`moon prove` machine-checks these (188 goals in `moonbit/kernel`, up from 54). The library's real code paths call these proved functions:
 
 - **Syllables:** every syllable has exactly one vowel, the pieces rejoin to the word, and an onset never takes more consonants than are legal or available.
 - **Law of limitation:** the accent checker matches the rule exactly, and the recessive accent used by `accentuate_verb` and `conjugate` always lands where the rule allows.
+- **`ipa` (all five schemes):** the rules are finite tables plus a proved step function over code points. Every code point is consumed (each step advances 1 or 2 and the steps end exactly at the word's end), the step is a pure function, and every phone it emits is in that scheme's sound inventory.
+- **`contract`:** a table plus a proved step function over code points, with the `[ει]`/`[ου]` markers as single tokens. The output is never longer than the input, and every output token is a valid letter, mark or marker.
+- **Accent slots:** on a word as an array of syllables with per-vowel mark flags, the proved target picker chooses the last vowel of the target syllable. Rendering a phrase decision changes only that slot (grave, acute, circumflex or an extra acute). Undoing it gives back the dictionary marks exactly.
 - **Phrase accents** (`accentuate_phrase`): every per-word decision comes from one proved function. A grave appears only when an ordinary word follows. An extra acute appears only before an enclitic and only on a proparoxytone or properispomenon. A word never gets more than two accents. A two-syllable enclitic keeps its accent only after a paroxytone. Undoing the decision (as `lexical_phrase` does) gives back every ordinary word's dictionary accent.
 - **`detect` probabilities:** every probability is at least 0 and they add up to exactly 1. Internally they are integer shares of 2^30, and the rounding remainder goes to the provably strongest scheme. Evidence hits never exceed totals.
 - **`amalgamate`:** the output is never longer than the input, and each step either copies a letter or merges a stop+σ into ψ, ξ or σ.
@@ -76,9 +79,8 @@ Every function below can be called through `call(name, arg, arg2)`. The most com
 - **Lookup:** tries an exact match first, then ignores case, then ignores accents.
 
 Tested, not proven:
-- `ipa` stays within each pronunciation's sounds and is deterministic. The rules are string rewrites over Unicode, which the prover can't reason about.
-- `contract` never lengthens a word. Its table matches the original TypeScript, including `[ει]` markers.
-- Accent marks land on the right letter when written into the string.
+- The Unicode boundary: splitting strings into code points, NFC normalization, and turning phone ids back into IPA strings. The prover has no model of Unicode.
+- Writing the accent mark back into the NFC string (before an iota subscript, then NFC). The slot logic is proved; the string step is checked on the whole SBLGNT.
 - `without_accents` and `syllabify` give the same syllables in either order. The exception is diaeresis, which marks a syllable break, so removing it rightly changes the split.
 
 Parity tests compare the library with the original TypeScript and with the reference G2P.
