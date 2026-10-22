@@ -7,7 +7,7 @@ const EXAMPLES = {
   modern: "Πάτερ ἡμῶν ὁ ἐν τοῖς οὐρανοῖς",
   byzantine: "οἱ υἱοὶ τῆς γῆς εὐλογοῦσιν",
 };
-const V = "6";
+const V = "7";
 const $ = (id) => document.getElementById(id);
 let lib = null;
 
@@ -70,7 +70,7 @@ function render() {
     const info = lib.word(w), lx = lib.lookup(w);
     const syl = (info.syllables || []).map((x) => x.join("")).join(" · ");
     const law = info.accent_ok === null || info.accent_ok === undefined ? "–" : info.accent_ok ? '<span class="ok">follows the rules</span>' : '<span class="bad">breaks the law of limitation</span>';
-    const badges = lx ? [lx.nt && "NT", lx.lxx && "LXX"].filter(Boolean).map((b) => `<sl-badge variant="${b === "NT" ? "primary" : "neutral"}" pill>${b}</sl-badge> `).join("") + (lx.form !== w ? ` <span class="gk">${esc(lx.form)}</span>` : "") : '<sl-badge variant="warning" pill>not in NT/LXX</sl-badge>';
+    const badges = lx ? [lx.nt && "NT", lx.lxx && "LXX"].filter(Boolean).map((b) => `<sl-badge class="${b === "NT" ? "nt" : ""}" pill>${b}</sl-badge> `).join("") + (lx.form !== w ? ` <span class="gk">${esc(lx.form)}</span>` : "") : '<sl-badge pill>not in NT/LXX</sl-badge>';
     return `<div class="wcard"><div class="w">${esc(w)}</div>
 <div class="ln"><span class="k">IPA</span>${ipaHtml(lib.ipa(w, sc))}</div>
 <div class="ln"><span class="k">Syllables</span><span class="gk">${esc(syl)}</span></div>
@@ -84,8 +84,8 @@ function render() {
 
 function toIpa() { if (lib) { $("ipa").value = lib.ipa($("greek").value, $("scheme").value); render(); } }
 
-const chips = [...document.querySelectorAll("sl-button[data-ex]")];
-const selectChip = (k) => chips.forEach((c) => { const on = c.dataset.ex === k; c.variant = on ? "primary" : "default"; c.setAttribute("aria-pressed", on); });
+const chips = [...document.querySelectorAll(".chip[data-ex]")];
+const selectChip = (k) => chips.forEach((c) => { c.setAttribute("aria-pressed", c.dataset.ex === k); });
 chips.forEach((b) => b.addEventListener("click", () => {
   $("greek").value = EXAMPLES[b.dataset.ex]; $("scheme").value = b.dataset.ex; selectChip(b.dataset.ex); toIpa();
 }));

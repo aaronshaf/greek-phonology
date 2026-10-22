@@ -36,9 +36,6 @@
   sl-textarea:not(:defined) { display: block; min-height: 6.4rem; }
   sl-select:not(:defined), sl-button:not(:defined) { display: inline-block; min-height: 4.4rem; min-width: 8rem; }
   sl-button:not(:defined) { min-height: 2.5rem; }
-  .chips { display: flex; flex-wrap: wrap; gap: .4rem; align-items: center; }
-  .chips sl-button::part(base) { min-height: 44px; align-items: center; }
-  .chips sl-button::part(label) { line-height: 1.2; }
   .ipaw { white-space: normal; overflow-wrap: anywhere; font-family: var(--ipa); }
   .ipaw span { display: inline-block; margin-right: .55em; }
   #ipaview { min-height: 1.6em; font-size: 1.1rem; color: var(--sl-color-neutral-700); }
@@ -67,21 +64,72 @@
   sl-alert { margin: .5rem 0 0; }
   :focus-visible { outline: 2px solid var(--sl-color-primary-600); outline-offset: 2px; }
   @media (max-width: 640px) {
+    .chips { flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; padding-bottom: 2px; }
     body { padding: 1rem .8rem 2.5rem; }
     h1 { font-size: 1.3rem; }
     #toipa { flex: 1 1 100%; }
     #toipa::part(base) { width: 100%; min-height: 44px; }
-    .chips sl-button { flex: 1 1 calc(50% - .4rem); }
-    .chips sl-button::part(base) { width: 100%; }
-    #words { grid-template-columns: 1fr; }
+      #words { grid-template-columns: 1fr; }
   }
   @media (prefers-reduced-motion: reduce) {
     *, *::before, *::after { animation: none !important; transition: none !important; }
     sl-progress-bar { --sl-transition-medium: 0s; }
   }
+  /* Restrained palette: zinc neutrals, one slate ink accent. Overrides Shoelace tokens. */
+  :root, :root.sl-theme-light, :root.sl-theme-dark {
+    --sl-color-primary-50: #f8fafc; --sl-color-primary-100: #f1f5f9; --sl-color-primary-200: #e2e8f0;
+    --sl-color-primary-300: #cbd5e1; --sl-color-primary-400: #94a3b8; --sl-color-primary-500: #64748b;
+    --sl-color-primary-600: #334155; --sl-color-primary-700: #1e293b; --sl-color-primary-800: #172033;
+    --sl-color-primary-900: #0f172a; --sl-color-primary-950: #020617;
+    --sl-focus-ring-color: #334155;
+  }
+  :root:not(.sl-theme-dark) {
+    --sl-color-neutral-0: #ffffff; --sl-color-neutral-50: #fafafa; --sl-color-neutral-100: #f4f4f5;
+    --sl-color-neutral-200: #e4e4e7; --sl-color-neutral-300: #d4d4d8; --sl-color-neutral-400: #a1a1aa;
+    --sl-color-neutral-500: #71717a; --sl-color-neutral-600: #52525b; --sl-color-neutral-700: #3f3f46;
+    --sl-color-neutral-800: #27272a; --sl-color-neutral-900: #18181b; --sl-color-neutral-950: #09090b;
+    --ink: #1f2937; --ink-fg: #ffffff; --bg: #ffffff; --surface: #ffffff; --line: #e4e4e7; --hover: #f4f4f5;
+    --sl-panel-background-color: #ffffff; --sl-panel-border-color: #e4e4e7; --sl-input-border-color: #d4d4d8;
+    --ok: #166534; --bad: #991b1b;
+  }
+  :root.sl-theme-dark {
+    --sl-color-primary-600: #cbd5e1; --sl-color-primary-500: #94a3b8; --sl-color-primary-700: #e2e8f0;
+    --sl-focus-ring-color: #cbd5e1;
+    --sl-color-neutral-0: #18181b; --sl-color-neutral-50: #1c1c1f; --sl-color-neutral-100: #27272a;
+    --sl-color-neutral-200: #3f3f46; --sl-color-neutral-300: #52525b; --sl-color-neutral-400: #71717a;
+    --sl-color-neutral-500: #a1a1aa; --sl-color-neutral-600: #b4b4bb; --sl-color-neutral-700: #d4d4d8;
+    --sl-color-neutral-800: #e4e4e7; --sl-color-neutral-900: #f4f4f5; --sl-color-neutral-950: #fafafa;
+    --ink: #e4e4e7; --ink-fg: #18181b; --bg: #111113; --surface: #18181b; --line: #2e2e33; --hover: #232327;
+    --sl-panel-background-color: #18181b; --sl-panel-border-color: #2e2e33; --sl-input-border-color: #3f3f46;
+    --sl-input-background-color: #111113; --ok: #86efac; --bad: #fca5a5;
+  }
+  body { background: var(--bg) !important; color: var(--sl-color-neutral-900); }
+  .ok { color: var(--ok) !important; } .bad { color: var(--bad) !important; }
+  sl-progress-bar { --indicator-color: var(--ink); --track-color: var(--hover); }
+  #toipa::part(base) { background: var(--ink); border-color: var(--ink); color: var(--ink-fg); }
+  #toipa::part(base):hover { opacity: .9; }
+  sl-badge::part(base) { background: transparent; color: var(--sl-color-neutral-700); border: 1px solid var(--sl-color-neutral-300); font-weight: 500; }
+  sl-badge.nt::part(base) { background: var(--ink); color: var(--ink-fg); border-color: var(--ink); }
+  /* example chips */
+  .chips { display: flex; flex-wrap: wrap; gap: .4rem; align-items: center; }
+  .chip { font: 500 14px/1 var(--sl-font-sans); height: 32px; padding: 0 .65rem; border-radius: 7px;
+          border: 1px solid var(--line); background: transparent; color: var(--sl-color-neutral-600); cursor: pointer; white-space: nowrap; }
+  .chip:hover { background: var(--hover); color: var(--sl-color-neutral-900); }
+  .chip:focus-visible { outline: 2px solid var(--ink); outline-offset: 2px; }
+  .chip[aria-pressed="true"] { background: var(--ink); border-color: var(--ink); color: var(--ink-fg); }
+  .github-corner { position: fixed; top: 0; right: 0; z-index: 10; }
+  .github-corner svg { display: block; width: 80px; height: 80px; }
+  .github-corner .gc-bg { fill: var(--ink); } .github-corner .gc-fg { fill: var(--ink-fg); }
+  .github-corner:focus-visible { outline: 2px solid var(--ink); outline-offset: -4px; }
+  .github-corner:hover .octo-arm { animation: octocat-wave 560ms ease-in-out; }
+  @keyframes octocat-wave { 0%,100% { transform: rotate(0) } 20%,60% { transform: rotate(-25deg) } 40%,80% { transform: rotate(10deg) } }
+  h1, body > .sub { padding-right: 64px; }
+  @media (max-width: 640px) { .github-corner svg { width: 60px; height: 60px; } h1, body > .sub { padding-right: 52px; } .github-corner { position: absolute; } }
+  @media (prefers-reduced-motion: reduce) { .github-corner:hover .octo-arm { animation: none; } }
 </style>
 </head>
 <body>
+<a href="https://github.com/aaronshaf/greek-phonology" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z" class="gc-bg"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" class="octo-arm gc-fg" style="transform-origin: 130px 106px;"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" class="gc-fg"></path></svg></a>
 <h1>greek-phonology</h1>
 <p class="sub">Greek pronunciation tools that run entirely in your browser (formerly koine-lexer). Nothing is sent to a server.</p>
 
@@ -105,11 +153,11 @@
   <div id="ipaview" class="ipaw" aria-label="IPA by word"></div>
   <div class="chips" role="group" aria-label="Examples">
     <span class="k">Examples</span>
-    <sl-button size="small" pill data-ex="koine">Koine</sl-button>
-    <sl-button size="small" pill data-ex="attic">Restored Attic</sl-button>
-    <sl-button size="small" pill data-ex="erasmian">Erasmian</sl-button>
-    <sl-button size="small" pill data-ex="modern">Modern</sl-button>
-    <sl-button size="small" pill data-ex="byzantine">Byzantine</sl-button>
+    <button type="button" class="chip" data-ex="koine" aria-pressed="false">Koine</button>
+    <button type="button" class="chip" data-ex="attic" aria-pressed="false">Restored Attic</button>
+    <button type="button" class="chip" data-ex="erasmian" aria-pressed="false">Erasmian</button>
+    <button type="button" class="chip" data-ex="modern" aria-pressed="false">Modern</button>
+    <button type="button" class="chip" data-ex="byzantine" aria-pressed="false">Byzantine</button>
   </div>
 </div>
 
@@ -130,6 +178,6 @@
 </section>
 <p id="status" role="status"><sl-spinner></sl-spinner><span>Loading the library…</span></p>
 
-<script type="module" src="app.js?v=6"></script>
+<script type="module" src="app.js?v=7"></script>
 </body>
 </html>
