@@ -1,10 +1,10 @@
 // IPA in -> per-scheme probabilities out. No audio or model dependencies.
 
 ///|
-let t_aligned : Double = 1.863
+let t_aligned : Double = 1.161
 
 ///|
-let t_free : Double = 17.347
+let t_free : Double = 0.872
 
 ///|
 let hit : Double = 0.8
@@ -398,7 +398,7 @@ pub fn detect_text(ipa_s : String, text : String) -> Detection {
         hits[s][idx] += 1
       }
       tots[s][idx] += 1
-      ll[s] += @math.ln(if ok { hit } else { 1.0 - hit })
+      ll[s] += @math.ln(p_heard(tag, preds[s], heard))
     }
   }
   for s in 0..<ns {
@@ -417,6 +417,73 @@ pub fn detect_text(ipa_s : String, text : String) -> Detection {
 }
 
 ///|
+/// P(recognizer hears `heard` | unit `tag` should sound `pred`): counts (
+/// conf_gen.mbt) with back-off tag+pred -> pred -> flat model.
+fn p_heard(tag : String, pred : String, heard : String) -> Double {
+  let a1 = 2.0
+  let a2 = 4.0
+  let p0 = if heard == pred { hit } else { (1.0 - hit) / 30.0 }
+  let pb = match ct_preds_total.get(pred) {
+    Some(n) =>
+      (ct_preds.get(pred + "\t" + heard).unwrap_or(0).to_double() + a2 * p0) / (n.to_double() + a2)
+    None => p0
+  }
+  let k = tag + "\t" + pred
+  match ct_units_total.get(k) {
+    Some(n) => (ct_units.get(k + "\t" + heard).unwrap_or(0).to_double() + a1 * pb) / (n.to_double() + a1)
+    None => pb
+  }
+}
+
+///|
+let nl_cache : Array[(Map[String, Double], Map[String, Double])] = []
+
+///|
+/// Scheme bigram tables pushed through the learned phone confusions (what the recognizer would output).
+fn noisy_lm(s : Int32) -> (Map[String, Double], Map[String, Double]) {
+  if nl_cache.length() == 0 {
+    let hit_lm = 0.7
+    let a = 5.0
+    let v = nl_vocab.length().to_double()
+    let cf : Map[String, Array[(String, Double)]] = {}
+    for e in nl_vocab {
+      let n = ct_phones_total.get(e).unwrap_or(0).to_double()
+      let d : Array[(String, Double)] = []
+      for h in nl_vocab {
+        let base = if h == e { hit_lm } else { (1.0 - hit_lm) / v }
+        let x = (ct_phones.get(e + "\t" + h).unwrap_or(0).to_double() + a * base) / (n + a)
+        if x > 1.0e-4 {
+          d.push((h, x))
+        }
+      }
+      cf[e] = d
+    }
+    for si in 0..<schemes.length() {
+      let (big0, _) = lm_tables(si)
+      let big : Map[String, Double] = {}
+      let uni : Map[String, Double] = {}
+      for k, c in big0 {
+        let parts = split_spaces(k)
+        let e1 = parts[0]
+        let e2 = parts[1]
+        let c1 = cf.get(e1).unwrap_or([(e1, 1.0)])
+        let c2 = cf.get(e2).unwrap_or([(e2, 1.0)])
+        for x1 in c1 {
+          for x2 in c2 {
+            let x = c.to_double() * x1.1 * x2.1
+            let key = x1.0 + " " + x2.0
+            big[key] = big.get(key).unwrap_or(0.0) + x
+            uni[x1.0] = uni.get(x1.0).unwrap_or(0.0) + x
+          }
+        }
+      }
+      nl_cache.push((big, uni))
+    }
+  }
+  nl_cache[s]
+}
+
+///|
 fn lm_tables(s : Int32) -> (Map[String, Int32], Map[String, Int32]) {
   match s {
     0 => (lm_bigram_0, lm_unigram_0)
@@ -428,7 +495,7 @@ fn lm_tables(s : Int32) -> (Map[String, Int32], Map[String, Int32]) {
 }
 
 ///|
-/// Free mode (no text): per-scheme phone-bigram language models.
+/// Free mode (no text): phone-bigram likelihood under each scheme's recognizer-noisy bigram model.
 pub fn detect_free(ipa_s : String) -> Detection {
   let obs : Array[String] = []
   for p in tokenize(ipa_s) {
@@ -438,13 +505,13 @@ pub fn detect_free(ipa_s : String) -> Detection {
   }
   let ns = schemes.length()
   let ll : Array[Double] = Array::make(ns, 0.0)
-  let vs = lm_vocab_size.to_double()
+  let vs = nl_vocab.length().to_double()
   for s in 0..<ns {
-    let (big, uni) = lm_tables(s)
+    let (big, uni) = noisy_lm(s)
     let mut tot = 0.0
     for i in 0..<(obs.length() - 1) {
-      let cab = big.get(obs[i] + " " + obs[i + 1]).unwrap_or(0).to_double()
-      let ca = uni.get(obs[i]).unwrap_or(0).to_double()
+      let cab = big.get(obs[i] + " " + obs[i + 1]).unwrap_or(0.0)
+      let ca = uni.get(obs[i]).unwrap_or(0.0)
       tot += @math.ln((cab + 0.5) / (ca + 0.5 * vs))
     }
     let n = if obs.length() - 1 > 1 { obs.length() - 1 } else { 1 }

@@ -40,7 +40,7 @@ Every function below can be called through `call(name, arg, arg2)`. The most com
 
 **Pronunciation**
 - `ipa(text, scheme)`: Greek to IPA. Phones are separated by spaces and words by `|`. `ipa("θεός", "attic")` → `tʰ e o s`
-- `detect(ipa, greek_text?)`: scheme probabilities, plus the evidence behind them. It is more reliable when you pass the Greek text.
+- `detect(ipa, greek_text?)`: scheme probabilities, plus the evidence behind them. It is more reliable when you pass the Greek text. It allows for typical phone-recognizer mistakes, using a simple prior over recognizer confusions (see `moonbit/lib/conf_gen.mbt`).
 - `lookup(word)`: finds a word in the NT/LXX list, ignoring case or accents if needed. `lookup("λογος")` → `{form: "λόγος", nt: true, lxx: true, ...}`
 
 **Syllables and accent**

@@ -30,6 +30,8 @@ pub fn contains_circumflex(String) -> Bool
 
 pub fn contract(String) -> String
 
+pub fn count_accents(String) -> Int32
+
 pub fn detect(String, greek_text? : String) -> Detection
 
 pub fn detect_free(String) -> Detection
