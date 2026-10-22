@@ -4,25 +4,66 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>greek-phonology playground</title>
+<meta name="color-scheme" content="light dark">
 <style>
-  :root { font-family: system-ui, sans-serif; color: #222; background: #fafafa; }
-  body { max-width: 860px; margin: 0 auto; padding: 1.5rem; }
-  h1 { font-size: 1.4rem; margin: 0 0 .25rem; }
-  p.sub { margin: 0 0 1rem; color: #666; }
-  label { display: block; font-weight: 600; margin: .8rem 0 .3rem; }
-  textarea { width: 100%; box-sizing: border-box; height: 4.2rem; font-size: 1.1rem; padding: .4rem; resize: vertical; }
-  .row { display: flex; gap: .5rem; flex-wrap: wrap; align-items: center; margin: .5rem 0; }
-  button, select { font-size: .95rem; padding: .3rem .7rem; }
-  section { background: #fff; border: 1px solid #ddd; border-radius: 6px; padding: .8rem 1rem; margin: 1rem 0; min-height: 3rem; }
-  h2 { font-size: 1rem; margin: 0 0 .5rem; }
-  .bar { display: grid; grid-template-columns: 9rem 1fr 4rem; gap: .5rem; align-items: center; margin: .2rem 0; }
-  .track { background: #eee; height: .9rem; border-radius: 3px; overflow: hidden; }
-  .fill { background: #3b6ea8; height: 100%; width: 0; transition: width .2s; }
+  :root {
+    --bg: #fafafa; --fg: #1f2328; --muted: #59636e; --card: #fff; --line: #d8dee4;
+    --accent: #3b6ea8; --track: #eaeef2; --ok: #1a7f37; --bad: #b42318; --btn: #f3f4f6;
+    color-scheme: light dark;
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans", sans-serif;
+    color: var(--fg); background: var(--bg);
+    -webkit-text-size-adjust: 100%;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root { --bg: #0d1117; --fg: #e6edf3; --muted: #9198a1; --card: #161b22; --line: #30363d;
+            --accent: #5b9be0; --track: #262c36; --ok: #3fb950; --bad: #f47067; --btn: #21262d; }
+  }
+  *, *::before, *::after { box-sizing: border-box; }
+  body { max-width: 880px; margin: 0 auto; padding: 1.5rem 1.25rem 3rem; line-height: 1.45; }
+  h1 { font-size: 1.5rem; margin: 0 0 .25rem; }
+  p.sub { margin: 0 0 1rem; color: var(--muted); }
+  label { display: block; font-weight: 600; margin: 1rem 0 .35rem; }
+  textarea, select, button { font: inherit; color: inherit; }
+  textarea { display: block; width: 100%; min-height: 4.5rem; font-size: 1.15rem; padding: .55rem .65rem;
+             resize: vertical; background: var(--card); border: 1px solid var(--line); border-radius: 8px; }
+  #greek { font-family: "Gentium Plus", "GFS Didot", "Noto Serif", Georgia, serif; font-size: 1.3rem; }
+  .mono { font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace; }
+  .row { display: flex; gap: .5rem; flex-wrap: wrap; align-items: center; margin: .6rem 0; }
+  button, select { min-height: 44px; padding: .45rem .9rem; font-size: 1rem; border-radius: 8px;
+                   border: 1px solid var(--line); background: var(--btn); cursor: pointer; }
+  button:focus-visible, select:focus-visible, textarea:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+  #toipa { background: var(--accent); color: #fff; border-color: transparent; }
+  section { background: var(--card); border: 1px solid var(--line); border-radius: 10px; padding: .9rem 1rem; margin: 1rem 0; }
+  h2 { font-size: 1.05rem; margin: 0 0 .6rem; }
+  #probs { min-height: calc(5 * 1.9rem); }
+  .bar { display: grid; grid-template-columns: 9.5rem 1fr 3.8rem; gap: .6rem; align-items: center; min-height: 1.9rem; }
+  .bar .pct { text-align: right; font-variant-numeric: tabular-nums; }
+  .track { background: var(--track); height: .9rem; border-radius: 4px; overflow: hidden; }
+  .fill { background: var(--accent); height: 100%; width: 0; transition: width .2s; }
+  #mode { min-height: 1.5em; margin: .4rem 0 0; }
+  #words { min-height: 8rem; }
+  .tablewrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   table { border-collapse: collapse; width: 100%; font-size: .95rem; }
-  td, th { text-align: left; padding: .2rem .4rem; border-bottom: 1px solid #eee; vertical-align: top; }
-  .mono { font-family: ui-monospace, monospace; }
-  #status { color: #666; font-size: .85rem; }
-  .ok { color: #1a7f37; } .bad { color: #b42318; }
+  td, th { text-align: left; padding: .35rem .5rem; border-bottom: 1px solid var(--line); vertical-align: top; }
+  td.gk { font-family: "Gentium Plus", "GFS Didot", "Noto Serif", Georgia, serif; font-size: 1.15rem; }
+  #status { color: var(--muted); font-size: .9rem; min-height: 2.6em; }
+  .ok { color: var(--ok); } .bad { color: var(--bad); }
+  .skel { color: var(--muted); }
+  @media (max-width: 640px) {
+    body { padding: 1rem .9rem 2.5rem; }
+    h1 { font-size: 1.35rem; }
+    .row > span { flex-basis: 100%; }
+    .row > select, #toipa { flex: 1 1 100%; width: 100%; }
+    .examples button { flex: 1 1 calc(50% - .5rem); }
+    .bar { grid-template-columns: 1fr auto; grid-template-areas: "name pct" "track track"; gap: .2rem .5rem; margin-bottom: .45rem; }
+    .bar .name { grid-area: name; } .bar .pct { grid-area: pct; } .bar .track { grid-area: track; }
+    #probs { min-height: calc(5 * 2.9rem); }
+    table, thead, tbody, tr, td { display: block; width: 100%; }
+    tr.head { display: none; }
+    tr { border: 1px solid var(--line); border-radius: 8px; padding: .4rem .6rem; margin: 0 0 .6rem; }
+    td { border: 0; padding: .2rem 0; display: grid; grid-template-columns: 8.5rem 1fr; gap: .5rem; }
+    td::before { content: attr(data-label); color: var(--muted); font-size: .85rem; font-family: system-ui, sans-serif; }
+  }
 </style>
 </head>
 <body>
@@ -45,7 +86,7 @@
 
 <label for="ipa">IPA (what was heard; separate phones with spaces, words with |)</label>
 <textarea id="ipa" class="mono"></textarea>
-<div class="row">
+<div class="row examples">
   <span>Examples:</span>
   <button data-ex="koine">Koine</button>
   <button data-ex="attic">Restored Attic</button>
@@ -54,8 +95,8 @@
   <button data-ex="byzantine">Byzantine</button>
 </div>
 
-<section><h2>Which pronunciation does the IPA sound like?</h2><div id="probs"></div><div id="mode" class="sub"></div></section>
-<section><h2>Words: syllables, accent, dictionary</h2><div id="words"></div></section>
+<section><h2>Which pronunciation does the IPA sound like?</h2><div id="probs" aria-live="polite"></div><p id="mode" class="sub skel">Loading the library…</p></section>
+<section><h2>Words: syllables, accent, dictionary</h2><div id="words"><p class="skel">Word details appear here once the library has loaded.</p></div></section>
 <p id="status">Loading…</p>
 
 <script src="app.js"></script>

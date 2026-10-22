@@ -41,7 +41,7 @@ async function loadJs() {
 function bars(probs) {
   return SCHEMES.map(([k, name]) => {
     const p = probs[k] || 0;
-    return `<div class="bar"><span>${name}</span><div class="track"><div class="fill" style="width:${(100 * p).toFixed(1)}%"></div></div><span>${(100 * p).toFixed(1)}%</span></div>`;
+    return `<div class="bar"><span class="name">${name}</span><div class="track"><div class="fill" style="width:${(100 * p).toFixed(1)}%"></div></div><span class="pct">${(100 * p).toFixed(1)}%</span></div>`;
   }).join("");
 }
 
@@ -53,6 +53,7 @@ function render() {
   if (ipa) {
     const d = lib.detect(ipa, text);
     $("probs").innerHTML = bars(d.probs);
+    $("mode").classList.remove("skel");
     $("mode").textContent = d.mode === "aligned" ? "Compared phone by phone against the Greek text." : "No Greek text given: judged from typical sound patterns only (less certain).";
   } else {
     $("probs").innerHTML = bars({});
@@ -66,9 +67,9 @@ function render() {
     const syl = (info.syllables || []).map((s) => s.join("")).join("·");
     const law = info.accent_ok === null || info.accent_ok === undefined ? "–" : info.accent_ok ? '<span class="ok">follows the rules</span>' : '<span class="bad">breaks the law of limitation</span>';
     const dict = lx ? `${esc(lx.form)} (${[lx.nt && "NT", lx.lxx && "LXX"].filter(Boolean).join(", ")}${lx.match !== "exact" ? ", matched ignoring " + (lx.match === "fold" ? "case" : "accents") : ""})` : "not found";
-    return `<tr><td>${esc(w)}</td><td>${esc(syl)}</td><td>${law}</td><td>${ctxFor(i)}</td><td>${dict}</td></tr>`;
+    return `<tr><td class="gk" data-label="Word">${esc(w)}</td><td class="gk" data-label="Syllables">${esc(syl)}</td><td data-label="Accent">${law}</td><td data-label="In context">${ctxFor(i)}</td><td data-label="NT/LXX word list">${dict}</td></tr>`;
   });
-  $("words").innerHTML = rows.length ? `<table><tr><th>Word</th><th>Syllables</th><th>Accent</th><th>Accent in context</th><th>In NT/LXX word list</th></tr>${rows.join("")}</table>` : "";
+  $("words").innerHTML = rows.length ? `<div class="tablewrap"><table><tr class="head"><th>Word</th><th>Syllables</th><th>Accent</th><th>Accent in context</th><th>In NT/LXX word list</th></tr>${rows.join("")}</table></div>` : "";
 }
 
 function toIpa() { if (lib) { $("ipa").value = lib.ipa($("greek").value, $("scheme").value); render(); } }
@@ -82,6 +83,7 @@ $("greek").addEventListener("input", render);
 $("ipa").addEventListener("input", render);
 
 (async () => {
+  $("probs").innerHTML = bars({}); // same layout before the wasm arrives: no shift
   try { lib = await loadWasm(); } catch (e) { console.warn("wasm failed, using JS build", e); lib = await loadJs(); }
   toIpa();
   $("status").textContent = `Running on ${lib.kind}. Loading NT + LXX word list…`;
