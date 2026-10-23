@@ -72,6 +72,8 @@ Every function below can be called through `call(name, arg, arg2)`. The most com
 
 ## What's proven
 
+See **[VERIFICATION.md](VERIFICATION.md)** for how to run checks in CI and locally.
+
 `moon prove` machine-checks these (184 goals in `moonbit/kernel`, up from 54). The library's real code paths call these proved functions:
 
 - **Syllables:** every syllable has exactly one vowel, the pieces rejoin to the word, and an onset never takes more consonants than are legal or available.
@@ -84,6 +86,8 @@ Every function below can be called through `call(name, arg, arg2)`. The most com
 - **`amalgamate`:** the output is never longer than the input, and each step either copies a letter or merges a stop+σ into ψ, ξ or σ.
 - **Removing accents:** only the target mark is dropped and base letters are kept, so running it again changes nothing.
 - **Lookup:** tries an exact match first, then ignores case, then ignores accents.
+
+`moon test` also runs exhaustive table checks and properties in `tests/verify_test.mbt` (inventories, NFC/NFD `ipa`, `normalize4` on small weights). See VERIFICATION.md.
 
 Tested, not proven:
 - The Unicode boundary: splitting strings into code points, NFC normalization, and turning phone ids back into IPA strings. The prover has no model of Unicode.
