@@ -40,6 +40,8 @@ pub fn g_vowel(Int32) -> Bool
 
 pub fn g_vowel_seq(Int32, Int32) -> Int32
 
+pub fn in_scheme_inv(Int32, Int32) -> Bool
+
 pub fn is_base_char(Int32) -> Bool
 
 pub fn keep_char(Int32, Int32) -> Bool

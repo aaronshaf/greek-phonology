@@ -543,3 +543,34 @@ pub fn detect(ipa_s : String, greek_text~ : String = "") -> Detection {
     detect_free(ipa_s)
   }
 }
+
+///|
+fn lm_phone_in_vocab(p : String) -> Bool {
+  for v in nl_vocab {
+    if v == p {
+      return true
+    }
+  }
+  false
+}
+
+///|
+/// Language-model bigram/unigram tables only use phones from the detector's folded vocabulary.
+pub fn verify_lm_phones_in_vocab() -> Bool {
+  for si in 0..<4 {
+    let (big, uni) = lm_tables(si)
+    for k, _ in uni {
+      if !lm_phone_in_vocab(k) {
+        return false
+      }
+    }
+    for k, _ in big {
+      for p in split_spaces(k) {
+        if !lm_phone_in_vocab(p) {
+          return false
+        }
+      }
+    }
+  }
+  true
+}

@@ -186,6 +186,18 @@ let contract_tables : Array[(FixedArray[Int], Int, FixedArray[Int])] = contract_
 })
 
 ///|
+/// Every contraction rule satisfies the proved `contract_core` preconditions.
+pub fn contract_rules_satisfy_kernel() -> Bool {
+  for r in contract_tables {
+    let (_, plen, rep) = r
+    if plen < 1 || rep.length() > plen || rep.length() > 2 {
+      return false
+    }
+  }
+  true
+}
+
+///|
 /// Vowel contraction, same table and behaviour as the TS: the first rule that matches anywhere is
 /// applied to the whole string. Kept as-is, including its quirks ("[ει]"/"[ου]" mark spurious diphthongs).
 pub fn contract(s : String) -> String {

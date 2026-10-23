@@ -364,6 +364,119 @@ pub fn g2p_units(
 }
 
 ///|
+/// Runtime mirror of `in_inv` in spec.mbtp (for exhaustive tests and detector-table checks).
+fn common_inv_id(id : Int32) -> Bool {
+  id == 1 ||
+  id == 3 ||
+  id == 4 ||
+  id == 34 ||
+  id == 35 ||
+  id == 36 ||
+  id == 37 ||
+  id == 24 ||
+  id == 25 ||
+  id == 38 ||
+  id == 39 ||
+  id == 26
+}
+
+///|
+fn modern_inv_id(id : Int32) -> Bool {
+  common_inv_id(id) ||
+  id == 2 ||
+  id == 5 ||
+  id == 18 ||
+  id == 19 ||
+  id == 21 ||
+  id == 22 ||
+  id == 27 ||
+  id == 28 ||
+  id == 29 ||
+  id == 30 ||
+  id == 31 ||
+  id == 32 ||
+  id == 33
+}
+
+///|
+fn koine_extra_id(id : Int32) -> Bool {
+  id == 7 ||
+  id == 2 ||
+  id == 6 ||
+  id == 5 ||
+  id == 18 ||
+  id == 20 ||
+  id == 27 ||
+  id == 28 ||
+  id == 19 ||
+  id == 32 ||
+  id == 31 ||
+  id == 41 ||
+  id == 42 ||
+  id == 43
+}
+
+///|
+fn attic_extra_id(id : Int32) -> Bool {
+  id == 2 ||
+  id == 8 ||
+  id == 6 ||
+  id == 9 ||
+  id == 10 ||
+  id == 11 ||
+  id == 5 ||
+  id == 17 ||
+  id == 23 ||
+  id == 21 ||
+  id == 22 ||
+  id == 31 ||
+  id == 41 ||
+  id == 42 ||
+  id == 43 ||
+  id == 44 ||
+  id == 45 ||
+  id == 46 ||
+  id == 47
+}
+
+///|
+fn erasmian_extra_id(id : Int32) -> Bool {
+  id == 2 ||
+  id == 12 ||
+  id == 5 ||
+  id == 13 ||
+  id == 14 ||
+  id == 15 ||
+  id == 16 ||
+  id == 17 ||
+  id == 23 ||
+  id == 40 ||
+  id == 33 ||
+  id == 18 ||
+  id == 21 ||
+  id == 22 ||
+  id == 30
+}
+
+///|
+/// Phone id belongs to scheme s's inventory (0 modern, 1 koine, 2 attic, 3 erasmian). Id 0 is the empty slot.
+pub fn in_scheme_inv(s : Int32, id : Int32) -> Bool {
+  if id == 0 {
+    true
+  } else if s == 0 {
+    modern_inv_id(id)
+  } else if s == 1 {
+    common_inv_id(id) || koine_extra_id(id)
+  } else if s == 2 {
+    common_inv_id(id) || attic_extra_id(id)
+  } else if s == 3 {
+    common_inv_id(id) || erasmian_extra_id(id)
+  } else {
+    false
+  }
+}
+
+///|
 /// Restored Attic vowel length: a, i, y become aː, iː, yː when the spelling shows the vowel is long
 /// (circumflex, macron, iota subscript). Proved: stays inside the Attic inventory.
 pub fn g_attic_long(id : Int32) -> Int32 where {

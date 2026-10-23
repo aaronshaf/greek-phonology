@@ -30,6 +30,8 @@ pub fn contains_circumflex(String) -> Bool
 
 pub fn contract(String) -> String
 
+pub fn contract_rules_satisfy_kernel() -> Bool
+
 pub fn count_accents(String) -> Int32
 
 pub fn detect(String, greek_text? : String) -> Detection
@@ -60,6 +62,8 @@ pub fn load_lexicon(Array[Int32]) -> Int32
 
 pub fn lookup_json(String) -> String
 
+pub fn phone_label(Int32) -> String
+
 pub fn recessive_accent(String) -> (Int32, String)?
 
 pub fn remove_acutes(String) -> String
@@ -89,6 +93,8 @@ pub fn tokenize(String) -> Array[String]
 pub fn units(String) -> Array[GUnit]
 
 pub fn verb_stem(String) -> String
+
+pub fn verify_lm_phones_in_vocab() -> Bool
 
 pub fn without_accents(String) -> String
 

@@ -1,3 +1,4 @@
 import {
   "aaronshaf/greek-phonology/lib" @lib,
+  "aaronshaf/greek-phonology/kernel" @kernel,
 }
