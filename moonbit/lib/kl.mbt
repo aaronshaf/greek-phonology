@@ -213,6 +213,32 @@ pub fn contract(s : String) -> String {
 }
 
 ///|
+/// Kernel preconditions for every contraction rule (plen, rlen, alternative layout).
+pub fn contract_tables_ok() -> Bool {
+  if contract_tables.length() != contract_rules.length() {
+    return false
+  }
+  for r in contract_tables {
+    let (alts, plen, rep) = r
+    if plen < 1 || rep.length() > plen || rep.length() > 2 || alts.length() % plen != 0 {
+      return false
+    }
+    // rlen == 0 is valid (e.g. η+ου -> empty); kernel allows 0 <= rlen <= plen.
+    for t in rep {
+      if !(t == marker_ei || t == marker_ou || (t >= 0 && t <= 1114113)) {
+        return false
+      }
+    }
+    for t in alts {
+      if t < 0 || t > 1114113 {
+        return false
+      }
+    }
+  }
+  true
+}
+
+///|
 fn filter_mark(s : String, m : Char) -> String {
   let sb = StringBuilder()
   for c0 in s {

@@ -203,33 +203,25 @@ test "accentuate_phrase: at most two accents per word, a second accent only befo
 }
 
 ///|
-test "g2p: deterministic, total, and each scheme only uses phones it can produce" {
-  // inventory per scheme = phones seen over a large random sample with a different seed
-  let inv : Array[Map[String, Bool]] = [{}, {}, {}, {}]
-  let s1 = Ref(101)
-  for _ in 0..<4000 {
-    let w = random_word(s1)
-    for si, s in @lib.schemes {
-      for p in @lib.tokenize(@lib.ipa(w, s)) {
-        inv[si][p] = true
-      }
-    }
-  }
+test "g2p: deterministic, total on random words, declared inventory, NFC/NFD invariance" {
   let s2 = Ref(202)
-  for _ in 0..<2000 {
+  for _ in 0..<2500 {
     let w = random_word(s2)
     for si, s in @lib.schemes {
       let a = @lib.ipa(w, s)
       assert_eq(a, @lib.ipa(w, s))
-      for p in @lib.tokenize(a) {
-        if !inv[si].contains(p) {
-          fail("scheme " + s + " produced unexpected phone " + p + " for " + w)
+      let nfc = @lib.ipa(@lib.to_nfc(w), s)
+      let nfd = @lib.ipa(@lib.to_nfd(w), s)
+      assert_eq(a, nfc)
+      assert_eq(a, nfd)
+      for x in @lib.g2p_index(w, si) {
+        if x.p != "|" {
+          assert_true(@lib.phone_allowed(si, x.p), msg=s + " " + w + " -> " + x.p)
         }
       }
     }
   }
-  // Koine keeps y for upsilon; Modern never produces y
-  assert_false(inv[@lib.schemes.search("modern").unwrap()].contains("y"))
+  assert_false(@lib.scheme_inventory(0).contains("y"))
 }
 
 ///|

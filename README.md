@@ -72,6 +72,8 @@ Every function below can be called through `call(name, arg, arg2)`. The most com
 
 ## What's proven
 
+See [VERIFICATION.md](VERIFICATION.md) for the full verification stack (CI runs `moon test`, `moon prove`, and `tools/verify_spec.py`).
+
 `moon prove` machine-checks these (184 goals in `moonbit/kernel`, up from 54). The library's real code paths call these proved functions:
 
 - **Syllables:** every syllable has exactly one vowel, the pieces rejoin to the word, and an onset never takes more consonants than are legal or available.

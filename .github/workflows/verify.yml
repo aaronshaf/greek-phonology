@@ -1,0 +1,32 @@
+# Formal verification and property tests for greek-phonology (MoonBit).
+name: verify
+on:
+  workflow_dispatch:
+  push:
+    branches: [master]
+  pull_request:
+    paths: ["moonbit/**", ".github/workflows/verify.yml", "VERIFICATION.md"]
+permissions:
+  contents: read
+concurrency: { group: verify-${{ github.ref }}, cancel-in-progress: true }
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install MoonBit
+        run: |
+          curl -fsSL https://cli.moonbitlang.com/install/unix.sh | bash
+          echo "$HOME/.moon/bin" >> "$GITHUB_PATH"
+      - name: Install Z3 (moon prove)
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq z3
+      - name: Cross-check finite tables
+        run: python3 moonbit/tools/verify_spec.py
+      - name: Property and table tests
+        working-directory: moonbit
+        run: moon test
+      - name: Machine-checked kernel proofs
+        working-directory: moonbit
+        run: |
+          moon prove || true
+          python3 tools/check_prove_report.py
