@@ -171,10 +171,9 @@ function ttsFail(why, m) {
   ttsToast(m || { stage: "load", message: why });
 }
 function watch() { clearTimeout(T.dog); T.dog = setTimeout(() => { if (T.st === "loading") ttsFail("the speech model didn't finish loading (low memory?) [timeout]", { code: "timeout", step: "load (no progress 45s)", message: "no progress 45s" }); }, 45000); }
-// iOS: Web Audio follows the ringer switch unless the session is "playback", and the context must be
+// iOS: no audioSession "playback" (it blocks mic capture in other pages/tabs). The context must be
 // created and resumed inside the tap, with a tiny buffer started to unlock output.
 function unlock() {
-  try { if (navigator.audioSession && navigator.audioSession.type !== "playback") navigator.audioSession.type = "playback"; } catch {}
   if (!T.ctx) T.ctx = new (window.AudioContext || window.webkitAudioContext)();
   try { if (T.ctx.state !== "running") T.ctx.resume().catch(() => {}); } catch {}
   try { const b = T.ctx.createBuffer(1, 1, T.ctx.sampleRate || 24000), s = T.ctx.createBufferSource(); s.buffer = b; s.connect(T.ctx.destination); s.start(0); } catch {}
@@ -194,7 +193,10 @@ function ttsInit(btn) {
   };
   T.w.postMessage({ type: "load" });
 }
+// Play is off for now: buttons hidden (html.noplay) and the speech worker/model never load. Set true to restore.
+const PLAY_ON = false;
 document.addEventListener("click", (e) => {
+  if (!PLAY_ON) return;
   const btn = e.target.closest(".play"); if (!btn || btn.disabled || T.st === "failed") return;
   if (btn.classList.contains("playing")) return stopPlay();
   const ipa = btn.dataset.src === "ipa" ? $("ipa").value.trim() : btn.dataset.ipa; if (!ipa) return;

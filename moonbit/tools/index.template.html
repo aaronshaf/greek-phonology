@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" class="noplay">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
@@ -61,6 +61,7 @@
   .play svg { width: 13px; height: 13px; fill: currentColor; }
   .play .i-stop { display: none; } .play.playing .i-play { display: none; } .play.playing .i-stop { display: inline; }
   .play:hover { color: var(--text); border-color: var(--sl-input-border-color); }
+  .noplay .play { display: none !important; } /* Play off for now: remove class="noplay" on <html> and set PLAY_ON in app.js */
   .play:disabled { opacity: .3; cursor: default; }
   .play::after { content: ""; position: absolute; inset: -3px; border-radius: 50%; pointer-events: none; opacity: 0; transition: opacity .2s;
                  background: conic-gradient(var(--muted) calc(var(--pp, 0) * 1turn), transparent 0);
