@@ -6,7 +6,7 @@ const EXAMPLES = {
   erasmian: "Μακάριοι οἱ πτωχοὶ τῷ πνεύματι, ἡ χάρις",
   modern: "Πάτερ ἡμῶν ὁ ἐν τοῖς οὐρανοῖς, ὁ κόσμος",
 };
-const V = "16";
+const V = "17";
 const $ = (id) => document.getElementById(id);
 const scheme = () => ($("scheme").querySelector('[aria-checked="true"]') || {}).dataset?.v || "koine";
 let lib = null, ready = false;
@@ -126,7 +126,8 @@ function stopPlay() {
 }
 function playBuf(a, btn) {
   stopPlay();
-  if (T.ctx.state === "suspended") T.ctx.resume();
+  if (T.ctx.state !== "running") T.ctx.resume().catch(() => {});
+  setTimeout(() => { if (T.ctx && T.ctx.state !== "running" && T.st !== "failed") ttsFail("audio output is blocked (" + T.ctx.state + ")"); }, 1500);
   const b = T.ctx.createBuffer(1, a.length, 24000); b.getChannelData(0).set(a);
   const s = T.ctx.createBufferSource(); s.buffer = b; s.connect(T.ctx.destination);
   s.onended = () => { if (T.src === s) { T.src = null; btn.classList.remove("playing"); } };
@@ -139,20 +140,36 @@ function speak(ipa, btn) {
   const id = ++T.id; T.want = { id, ipa, btn }; btn.classList.add("busy");
   T.w.postMessage({ type: "speak", id, ipa });
 }
-function ttsFail() {
-  T.st = "failed";
-  document.querySelectorAll(".play").forEach((b) => { b.classList.remove("loading", "busy", "playing"); b.disabled = true; b.title = ""; });
+// Failure is never silent: every play button turns red with the reason in its tooltip.
+function ttsFail(why) {
+  why = why || "the speech model failed to load"; clearTimeout(T.dog);
+  T.st = "failed"; if (T.w) { try { T.w.terminate(); } catch {} T.w = null; }
+  const msg = "Playback unavailable: " + why + ". Reload to retry.";
+  document.querySelectorAll(".play").forEach((b) => { b.classList.remove("loading", "busy", "playing"); b.disabled = true; b.title = msg; b.setAttribute("aria-label", msg);
+    b.style.color = "#c0392b"; b.style.borderColor = "#c0392b"; b.style.opacity = ".7"; });
+  console.warn("player", why);
+}
+function watch() { clearTimeout(T.dog); T.dog = setTimeout(() => { if (T.st === "loading") ttsFail("the speech model didn't finish loading (low memory?)"); }, 45000); }
+// iOS: Web Audio follows the ringer switch unless the session is "playback", and the context must be
+// created and resumed inside the tap, with a tiny buffer started to unlock output.
+function unlock() {
+  try { if (navigator.audioSession && navigator.audioSession.type !== "playback") navigator.audioSession.type = "playback"; } catch {}
+  if (!T.ctx) T.ctx = new (window.AudioContext || window.webkitAudioContext)();
+  try { if (T.ctx.state !== "running") T.ctx.resume().catch(() => {}); } catch {}
+  try { const b = T.ctx.createBuffer(1, 1, T.ctx.sampleRate || 24000), s = T.ctx.createBufferSource(); s.buffer = b; s.connect(T.ctx.destination); s.start(0); } catch {}
 }
 function ttsInit(btn) {
-  try { T.w = new Worker(new URL("tts-worker.js?v=" + V, import.meta.url), { type: "module" }); } catch (e) { console.warn("player", e); return ttsFail(); }
-  T.st = "loading"; T.btn = btn; btn.classList.add("loading"); btn.style.setProperty("--pp", "0.02");
-  T.w.onerror = (e) => { console.warn("player", e.message); ttsFail(); };
+  try { T.w = new Worker(new URL("tts-worker.js?v=" + V, import.meta.url), { type: "module" }); } catch (e) { return ttsFail("the speech worker could not start: " + e.message); }
+  T.st = "loading"; T.btn = btn; btn.classList.add("loading"); btn.style.setProperty("--pp", "0.02"); watch();
+  T.w.onerror = (e) => { ttsFail("the speech worker failed" + (e && e.message ? ": " + e.message : "")); };
+  T.w.onmessageerror = () => ttsFail("the speech worker failed");
   T.w.onmessage = (e) => {
     const m = e.data;
+    if (m.type === "progress") watch();
     if (m.type === "progress") T.btn.style.setProperty("--pp", String(Math.min(1, m.p)));
-    else if (m.type === "ready") { T.st = "ready"; T.btn.classList.remove("loading"); window.__ttsInfo = m.info; const w = T.want; T.want = null; if (w) speak(w.ipa, w.btn); }
+    else if (m.type === "ready") { clearTimeout(T.dog); T.st = "ready"; T.btn.classList.remove("loading"); window.__ttsInfo = m.info; const w = T.want; T.want = null; if (w) speak(w.ipa, w.btn); }
     else if (m.type === "audio") { window.__ttsMs = m.ms; const a = new Float32Array(m.audio); if (T.want && T.want.id === m.id) { const w = T.want; T.want = null; w.btn.classList.remove("busy"); T.cache.set(w.ipa, a); if (document.contains(w.btn)) playBuf(a, w.btn); } }
-    else if (m.type === "error") { console.warn("player", m.stage, m.message); if (m.stage === "load") ttsFail(); else stopPlay(); }
+    else if (m.type === "error") { console.warn("player", m.stage, m.message); if (m.stage === "load") ttsFail("the speech model failed to load (" + m.message + ")"); else { if (T.want && T.want.btn) T.want.btn.title = "Couldn't play that: " + m.message; stopPlay(); } }
   };
   T.w.postMessage({ type: "load" });
 }
@@ -160,7 +177,7 @@ document.addEventListener("click", (e) => {
   const btn = e.target.closest(".play"); if (!btn || btn.disabled || T.st === "failed") return;
   if (btn.classList.contains("playing")) return stopPlay();
   const ipa = btn.dataset.src === "ipa" ? $("ipa").value.trim() : btn.dataset.ipa; if (!ipa) return;
-  if (!T.ctx) { try { T.ctx = new (window.AudioContext || window.webkitAudioContext)(); } catch { return ttsFail(); } } // unlock audio on the gesture
+  try { unlock(); } catch { return ttsFail("audio is not available in this browser"); } // synchronously inside the tap (iOS)
   if (T.st === "idle") { T.want = { ipa, btn }; return ttsInit(btn); }
   if (T.st === "loading") { T.want = { ipa, btn }; return; } // one load; the latest press wins
   speak(ipa, btn);

@@ -7,26 +7,30 @@ import { toIds } from "./kokoro-ipa.js?v=16";
 const HF = "https://huggingface.co/onnx-community/Kokoro-82M-v1.0-ONNX/resolve/1939ad2a8e416c0acfeecc08a694d14ef25f2231/";
 const SIZE = 86033585, VSIZE = 522240, CACHE = "greek-phonology-tts-v1";
 let sess = null, voice = null, loading = null;
-async function fetchCached(url, onBytes) {
+// Streams straight into one preallocated buffer (no per-chunk copies), so peak worker memory
+// stays about 1x the model before onnxruntime (iOS kills large workers without an error event).
+// A short or wrong-size cached copy is dropped and fetched again.
+async function fetchInto(url, dst, onBytes) {
   let c = null; try { c = await caches.open(CACHE); } catch (e) {}
-  let r = c && await c.match(url);
+  let r = null; try { r = c && await c.match(url); } catch (e) {}
+  if (r && Number(r.headers.get("content-length") || dst.length) !== dst.length) { try { await c.delete(url); } catch (e) {} r = null; }
   const cached = !!r;
   if (!r) { r = await fetch(url); if (!r.ok) throw new Error("http " + r.status); if (c) { try { await c.put(url, r.clone()); } catch (e) {} } }
-  const rd = r.body.getReader(), out = []; let n = 0;
-  for (;;) { const { done, value } = await rd.read(); if (done) break; out.push(value); n += value.length; onBytes(value.length); }
-  const a = new Uint8Array(n); let o = 0; for (const v of out) { a.set(v, o); o += v.length; }
-  return { a, cached };
+  const rd = r.body.getReader(); let n = 0;
+  for (;;) { const { done, value } = await rd.read(); if (done) break; if (n + value.length > dst.length) throw new Error("size"); dst.set(value, n); n += value.length; onBytes(value.length); }
+  if (n !== dst.length) { if (c) { try { await c.delete(url); } catch (e) {} } throw new Error("short download " + n); }
+  return cached;
 }
 async function load() {
   const t0 = performance.now(); let got = 0, last = 0;
   const tick = (k) => { got += k; const p = got / (SIZE + VSIZE); if (p - last > 0.01) { last = p; postMessage({ type: "progress", p }); } };
-  const [m, v] = await Promise.all([fetchCached(HF + "onnx/model_q8f16.onnx", tick), fetchCached(HF + "voices/if_sara.bin", tick)]);
-  if (m.a.length !== SIZE || v.a.length !== VSIZE) throw new Error("size " + m.a.length + "/" + v.a.length);
-  voice = new Float32Array(v.a.buffer, 0, VSIZE / 4);
+  const m = new Uint8Array(SIZE), vb = new Uint8Array(VSIZE);
+  const [mc, vc] = await Promise.all([fetchInto(HF + "onnx/model_q8f16.onnx", m, tick), fetchInto(HF + "voices/if_sara.bin", vb, tick)]);
+  voice = new Float32Array(vb.buffer, 0, VSIZE / 4);
   ort.env.wasm.wasmPaths = "https://cdn.jsdelivr.net/npm/onnxruntime-web@1.30.0/dist/"; ort.env.wasm.numThreads = 1;
   const t1 = performance.now();
-  sess = await ort.InferenceSession.create(m.a, { executionProviders: ["wasm"] });
-  return { cached: m.cached && v.cached, fetch_ms: Math.round(t1 - t0), init_ms: Math.round(performance.now() - t1) };
+  sess = await ort.InferenceSession.create(m, { executionProviders: ["wasm"], enableCpuMemArena: false, enableMemPattern: false });
+  return { cached: mc && vc, fetch_ms: Math.round(t1 - t0), init_ms: Math.round(performance.now() - t1) };
 }
 // q8f16 on WASM sometimes returns an all-NaN waveform for a given (tokens, speed) pair (fp16
 // overflow). Retry with nearby speeds, then with a leading stress mark ˈ; the first finite result wins.
