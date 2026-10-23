@@ -24,11 +24,15 @@ pub fn call_json(String, String, String) -> String
 
 pub fn check_phrase_accents(String) -> String
 
+pub fn confusion_tables_ok() -> Bool
+
 pub fn conjugate(String, String) -> Array[String]
 
 pub fn contains_circumflex(String) -> Bool
 
 pub fn contract(String) -> String
+
+pub fn contract_tables_ok() -> Bool
 
 pub fn count_accents(String) -> Int32
 
@@ -37,6 +41,8 @@ pub fn detect(String, greek_text? : String) -> Detection
 pub fn detect_free(String) -> Detection
 
 pub fn detect_text(String, String) -> Detection
+
+pub fn detect_vocab_ok() -> Bool
 
 pub fn extract_consonant_clusters(String) -> Array[String]
 
@@ -60,6 +66,12 @@ pub fn load_lexicon(Array[Int32]) -> Int32
 
 pub fn lookup_json(String) -> String
 
+pub fn phone_allowed(Int32, String) -> Bool
+
+pub fn phone_name(Int32) -> String
+
+pub fn phone_table_ok() -> Bool
+
 pub fn recessive_accent(String) -> (Int32, String)?
 
 pub fn remove_acutes(String) -> String
@@ -72,6 +84,10 @@ pub fn remove_numbers(String) -> String
 
 pub fn remove_punctuation(String) -> String
 
+pub fn scheme_inventories_ok() -> Bool
+
+pub fn scheme_inventory(Int32) -> Array[String]
+
 pub let schemes : Array[String]
 
 pub fn softmax(Array[Double], Double) -> Array[Double]
@@ -83,6 +99,10 @@ pub fn syllabify(String) -> Array[Array[String]]
 pub fn syllabify_json(String) -> String
 
 pub fn syllable_cuts(Array[GUnit]) -> Array[Int32]
+
+pub fn to_nfc(String) -> String
+
+pub fn to_nfd(String) -> String
 
 pub fn tokenize(String) -> Array[String]
 

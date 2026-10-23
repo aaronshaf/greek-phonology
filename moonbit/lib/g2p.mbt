@@ -533,6 +533,15 @@ let phone_names : Array[String] = [
 ]
 
 ///|
+pub fn phone_name(id : Int) -> String {
+  if id > 0 && id < phone_names.length() {
+    phone_names[id]
+  } else {
+    ""
+  }
+}
+
+///|
 /// Phones of one word in scheme s (0 modern, 1 koine, 2 attic, 3 erasmian).
 /// The phones come from the proved step function
 /// @kernel.g2p_step (finite tables; every cluster consumed once; only the scheme's inventory).
