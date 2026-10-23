@@ -6,7 +6,7 @@ const EXAMPLES = {
   erasmian: "Μακάριοι οἱ πτωχοὶ τῷ πνεύματι, ἡ χάρις",
   modern: "Πάτερ ἡμῶν ὁ ἐν τοῖς οὐρανοῖς, ὁ κόσμος",
 };
-const V = "17";
+const V = "18";
 const $ = (id) => document.getElementById(id);
 const scheme = () => ($("scheme").querySelector('[aria-checked="true"]') || {}).dataset?.v || "koine";
 let lib = null, ready = false;
@@ -127,7 +127,7 @@ function stopPlay() {
 function playBuf(a, btn) {
   stopPlay();
   if (T.ctx.state !== "running") T.ctx.resume().catch(() => {});
-  setTimeout(() => { if (T.ctx && T.ctx.state !== "running" && T.st !== "failed") ttsFail("audio output is blocked (" + T.ctx.state + ")"); }, 1500);
+  setTimeout(() => { if (T.ctx && T.ctx.state !== "running" && T.st !== "failed") ttsFail("audio output is blocked (" + T.ctx.state + ")", { code: "audio-" + T.ctx.state, step: "audio", name: "AudioContext", message: "state " + T.ctx.state }); }, 1500);
   const b = T.ctx.createBuffer(1, a.length, 24000); b.getChannelData(0).set(a);
   const s = T.ctx.createBufferSource(); s.buffer = b; s.connect(T.ctx.destination);
   s.onended = () => { if (T.src === s) { T.src = null; btn.classList.remove("playing"); } };
@@ -140,16 +140,37 @@ function speak(ipa, btn) {
   const id = ++T.id; T.want = { id, ipa, btn }; btn.classList.add("busy");
   T.w.postMessage({ type: "speak", id, ipa });
 }
+// Small dismissable toast with the error details (selectable, with Copy). Nothing is sent anywhere.
+function ttsToast(m) {
+  try {
+    document.getElementById("tts-toast")?.remove();
+    const ua = navigator.userAgent, iv = /OS (\d+[_.]\d+(?:[_.]\d+)?) like Mac/.exec(ua);
+    const L = ["Play error [" + (m.code || m.stage || "load") + "]", "stage: " + (m.step || m.stage || "load"), "error: " + (m.name || "Error") + ": " + String(m.message || "").slice(0, 300)];
+    if (m.status != null) L.push("http: " + m.status);
+    if (m.want) L.push("bytes: " + (m.got || 0) + " / " + m.want);
+    L.push("iOS: " + (iv ? iv[1].replace(/_/g, ".") : "no"), "ua: " + ua);
+    const txt = L.join("\n"), box = document.createElement("div"); box.id = "tts-toast"; box.setAttribute("role", "status");
+    box.style.cssText = "position:fixed;left:50%;bottom:max(12px,env(safe-area-inset-bottom));transform:translateX(-50%);z-index:9999;width:min(92vw,520px);box-sizing:border-box;background:#f7f7f5;color:#333;border:1px solid #d6d6d0;border-radius:8px;box-shadow:0 2px 10px rgba(0,0,0,.12);font:12px/1.4 ui-monospace,Menlo,monospace;padding:8px 10px";
+    const pre = document.createElement("pre"); pre.textContent = txt; pre.style.cssText = "margin:0 0 6px;white-space:pre-wrap;word-break:break-word;user-select:text;-webkit-user-select:text;max-height:40vh;overflow:auto";
+    const bar = document.createElement("div"); bar.style.cssText = "display:flex;gap:8px;justify-content:flex-end";
+    const btn = (t, f) => { const b = document.createElement("button"); b.type = "button"; b.textContent = t; b.style.cssText = "font:12px system-ui,sans-serif;background:#fff;color:#333;border:1px solid #ccc;border-radius:6px;padding:3px 10px;cursor:pointer"; b.onclick = f; bar.appendChild(b); return b; };
+    const sel = () => { const r = document.createRange(); r.selectNodeContents(pre); const g = getSelection(); g.removeAllRanges(); g.addRange(r); try { document.execCommand("copy"); cp.textContent = "Copied"; } catch {} };
+    const cp = btn("Copy", () => { try { navigator.clipboard.writeText(txt).then(() => { cp.textContent = "Copied"; }, sel); } catch { sel(); } });
+    btn("Dismiss", () => box.remove()).setAttribute("aria-label", "Dismiss error details");
+    box.append(pre, bar); document.body.appendChild(box);
+  } catch {}
+}
 // Failure is never silent: every play button turns red with the reason in its tooltip.
-function ttsFail(why) {
+function ttsFail(why, m) {
   why = why || "the speech model failed to load"; clearTimeout(T.dog);
   T.st = "failed"; if (T.w) { try { T.w.terminate(); } catch {} T.w = null; }
   const msg = "Playback unavailable: " + why + ". Reload to retry.";
   document.querySelectorAll(".play").forEach((b) => { b.classList.remove("loading", "busy", "playing"); b.disabled = true; b.title = msg; b.setAttribute("aria-label", msg);
     b.style.color = "#c0392b"; b.style.borderColor = "#c0392b"; b.style.opacity = ".7"; });
   console.warn("player", why);
+  ttsToast(m || { stage: "load", message: why });
 }
-function watch() { clearTimeout(T.dog); T.dog = setTimeout(() => { if (T.st === "loading") ttsFail("the speech model didn't finish loading (low memory?)"); }, 45000); }
+function watch() { clearTimeout(T.dog); T.dog = setTimeout(() => { if (T.st === "loading") ttsFail("the speech model didn't finish loading (low memory?) [timeout]", { code: "timeout", step: "load (no progress 45s)", message: "no progress 45s" }); }, 45000); }
 // iOS: Web Audio follows the ringer switch unless the session is "playback", and the context must be
 // created and resumed inside the tap, with a tiny buffer started to unlock output.
 function unlock() {
@@ -159,7 +180,7 @@ function unlock() {
   try { const b = T.ctx.createBuffer(1, 1, T.ctx.sampleRate || 24000), s = T.ctx.createBufferSource(); s.buffer = b; s.connect(T.ctx.destination); s.start(0); } catch {}
 }
 function ttsInit(btn) {
-  try { T.w = new Worker(new URL("tts-worker.js?v=" + V, import.meta.url), { type: "module" }); } catch (e) { return ttsFail("the speech worker could not start: " + e.message); }
+  try { T.w = new Worker(new URL("tts-worker.js?v=" + V, import.meta.url), { type: "module" }); } catch (e) { return ttsFail("the speech worker could not start: " + e.message, { code: "worker-new", step: "worker", name: e.name, message: e.message }); }
   T.st = "loading"; T.btn = btn; btn.classList.add("loading"); btn.style.setProperty("--pp", "0.02"); watch();
   T.w.onerror = (e) => { ttsFail("the speech worker failed" + (e && e.message ? ": " + e.message : "")); };
   T.w.onmessageerror = () => ttsFail("the speech worker failed");
@@ -169,7 +190,7 @@ function ttsInit(btn) {
     if (m.type === "progress") T.btn.style.setProperty("--pp", String(Math.min(1, m.p)));
     else if (m.type === "ready") { clearTimeout(T.dog); T.st = "ready"; T.btn.classList.remove("loading"); window.__ttsInfo = m.info; const w = T.want; T.want = null; if (w) speak(w.ipa, w.btn); }
     else if (m.type === "audio") { window.__ttsMs = m.ms; const a = new Float32Array(m.audio); if (T.want && T.want.id === m.id) { const w = T.want; T.want = null; w.btn.classList.remove("busy"); T.cache.set(w.ipa, a); if (document.contains(w.btn)) playBuf(a, w.btn); } }
-    else if (m.type === "error") { console.warn("player", m.stage, m.message); if (m.stage === "load") ttsFail("the speech model failed to load (" + m.message + ")"); else { if (T.want && T.want.btn) T.want.btn.title = "Couldn't play that: " + m.message; stopPlay(); } }
+    else if (m.type === "error") { console.warn("player", m.stage, m.message); if (m.stage === "load") ttsFail("the speech model failed to load [" + (m.code || "load") + "] (" + m.message + ")", m); else { if (T.want && T.want.btn) T.want.btn.title = "Couldn't play that: " + m.message; stopPlay(); ttsToast(m); } }
   };
   T.w.postMessage({ type: "load" });
 }
