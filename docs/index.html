@@ -149,6 +149,10 @@
   h1, body > .sub { padding-right: 64px; }
   @media (max-width: 640px) { .github-corner svg { width: 60px; height: 60px; } h1, body > .sub { padding-right: 52px; } .github-corner { position: absolute; } }
   @media (prefers-reduced-motion: reduce) { .github-corner:hover .octo-arm { animation: none; } }
+  /* hallmark floor: visible keyboard focus on Shoelace fields and icon buttons */
+  sl-input:focus-within::part(base), sl-textarea:focus-within::part(base), sl-select:focus-within::part(combobox) { border-color: var(--pri); box-shadow: 0 0 0 2px var(--sl-focus-ring-color); }
+  sl-icon-button::part(base):focus-visible { outline: 2px solid var(--pri); outline-offset: 1px; }
+  h1, h2 { text-wrap: balance; }
 </style>
 </head>
 <body>
