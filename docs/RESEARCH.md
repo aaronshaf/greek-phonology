@@ -4,7 +4,7 @@ A short check of greek-phonology's rules against the standard references. Nothin
 
 ## 1. Pronunciation schemes (`ipa`)
 
-### Restored Attic
+### Attic
 What the library does: η [ɛː], ει [eː], ου [uː], ω [ɔː], υ [y], ζ [zd], φ θ χ [pʰ tʰ kʰ], αι [ai], αυ [au], and β δ γ as stops.
 - **Agrees** with Allen, *Vox Graeca* (3rd ed., CUP 1987) on the aspirated stops, ζ as [zd], η and ω as open long vowels, υ as [y] and the spurious diphthong ει as [eː].
 - **Diverges:** Allen dates the change of ου from [oː] to [uː] to before the mid-4th century BC, so [uː] fits the usual target of classical Attic. Teodorsson, *The Phonemic System of the Attic Dialect 400–340 BC* (1974), dates many changes even earlier.

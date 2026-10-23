@@ -1,14 +1,14 @@
 // greek-phonology playground. Loads the wasm build (byte-buffer ABI); falls back to the JS build.
-const SCHEMES = [["koine", "Koine"], ["attic", "Restored Attic"], ["erasmian", "Erasmian"], ["modern", "Modern Greek"]];
+const SCHEMES = [["koine", "Koine"], ["attic", "Attic"], ["erasmian", "Erasmian"], ["modern", "Modern"]];
 const EXAMPLES = {
   koine: "Ἐν ἀρχῇ ἦν ὁ λόγος, καὶ ὁ λόγος ἦν πρὸς τὸν θεόν",
   attic: "ἄνδρα μοι ἔννεπε, μοῦσα, πολύτροπον, θάλασσα",
   erasmian: "Μακάριοι οἱ πτωχοὶ τῷ πνεύματι, ἡ χάρις",
   modern: "Πάτερ ἡμῶν ὁ ἐν τοῖς οὐρανοῖς, ὁ κόσμος",
 };
-const V = "15";
+const V = "16";
 const $ = (id) => document.getElementById(id);
-const scheme = () => $("scheme").value || $("scheme").getAttribute("value") || "koine";
+const scheme = () => ($("scheme").querySelector('[aria-checked="true"]') || {}).dataset?.v || "koine";
 let lib = null, ready = false;
 // Prerendered initial HTML (index.html, written by moonbit/tools/prerender.py). put() only touches the
 // DOM when the HTML actually changes, so the first live render after loading changes nothing on screen.
@@ -64,7 +64,7 @@ function render() {
   if (ipa) {
     const d = lib.detect(ipa, text);
     put("probs", bars(d.probs));
-    put("mode", d.mode === "aligned" ? "Aligned to the Greek text." : "No Greek text: sound patterns only (less certain).");
+    put("mode", d.mode === "aligned" ? "Compared with how each pronunciation reads the Greek above." : "No Greek text, so this guess uses the sounds alone (less certain).");
   } else {
     put("probs", bars({}, true));
     put("mode", '<span class="empty">No IPA yet.</span>');
@@ -74,12 +74,12 @@ function render() {
   const ctxFor = (i) => { const c = ctx[i]; if (!c) return "–"; return c.ok ? '<span class="ok">as expected</span>' : `<span class="bad">expected ${esc(c.expected)}</span>`; };
   const sc = scheme();
   const cards = words.map((w, i) => {
-    const info = lib.word(w), lx = lib.lookup(w);
+    const info = lib.word(w), lx = lib.lookup(w), wi = lib.ipa(w, sc);
     const syl = (info.syllables || []).map((x) => x.join("")).join(" · ");
-    const law = info.accent_ok === null || info.accent_ok === undefined ? "–" : info.accent_ok ? '<span class="ok">follows the rules</span>' : '<span class="bad">breaks the law of limitation</span>';
+    const law = info.accent_ok === null || info.accent_ok === undefined ? "–" : info.accent_ok ? '<span class="ok">follows the rules</span>' : '<span class="bad">accent is too far from the end</span>';
     const badges = lx ? [lx.nt && "NT", lx.lxx && "LXX"].filter(Boolean).map((b) => `<sl-badge class="found" pill>${b}</sl-badge> `).join("") + (lx.form !== w ? ` <span class="gk">${esc(lx.form)}</span>` : "") : '<sl-badge pill>not in NT/LXX</sl-badge>';
     return `<div class="wcard"><div class="w">${esc(w)}</div>
-<div class="ln"><span class="k">IPA</span>${ipaHtml(lib.ipa(w, sc))}</div>
+<div class="ln"><span class="k">IPA</span>${ipaHtml(wi)}${playBtn(wi)}</div>
 <div class="ln"><span class="k">Syllables</span><span class="gk">${esc(syl)}</span></div>
 <div class="ln"><span class="k">Accent</span>${law}</div>
 <div class="ln"><span class="k">In context</span>${ctxFor(i)}</div>
@@ -89,18 +89,82 @@ function render() {
   put("ipaview", ipaHtml(ipa));
 }
 
+// The IPA box follows the Greek text automatically (typing, pasting, scheme change) until the user
+// types or pastes their own IPA there; clearing the box makes it automatic again.
+let ipaEdited = false;
 function toIpa() { if (ready) { $("ipa").value = lib.ipa($("greek").value, scheme()); render(); } }
 
 // Scheme change keeps the Greek text and regenerates the IPA from it; an empty Greek box gets
 // that scheme's sample.
 function schemeChanged() {
   if (!$("greek").value.trim()) $("greek").value = EXAMPLES[scheme()] || EXAMPLES.koine;
+  ipaEdited = false; stopPlay();
   toIpa();
 }
-$("toipa").addEventListener("click", toIpa);
-$("scheme").addEventListener("sl-change", schemeChanged);
-$("greek").addEventListener("sl-input", render);
-$("ipa").addEventListener("sl-input", render);
+function setScheme(btn, focus) {
+  for (const b of $("scheme").children) { const on = b === btn; b.setAttribute("aria-checked", on ? "true" : "false"); b.tabIndex = on ? 0 : -1; }
+  if (focus) btn.focus();
+  schemeChanged();
+}
+$("scheme").addEventListener("click", (e) => { const b = e.target.closest("button[role=radio]"); if (b && b.getAttribute("aria-checked") !== "true") setScheme(b); });
+$("scheme").addEventListener("keydown", (e) => {
+  const bs = [...$("scheme").children], i = bs.indexOf(document.activeElement); if (i < 0) return;
+  const k = e.key, j = k === "ArrowRight" || k === "ArrowDown" ? (i + 1) % bs.length : k === "ArrowLeft" || k === "ArrowUp" ? (i - 1 + bs.length) % bs.length : k === "Home" ? 0 : k === "End" ? bs.length - 1 : -1;
+  if (j >= 0) { e.preventDefault(); setScheme(bs[j], true); }
+});
+$("greek").addEventListener("sl-input", () => { if (!ipaEdited) toIpa(); else render(); });
+$("ipa").addEventListener("sl-input", () => { ipaEdited = $("ipa").value.trim() !== ""; if (!ipaEdited) toIpa(); else render(); });
+
+// ---- Play: speaks IPA (never the Greek text) with a small speech model run in the browser.
+// Lazy: nothing downloads until the first press; the model is kept in Cache Storage afterwards.
+const PLAY_SVG = '<svg viewBox="0 0 24 24" aria-hidden="true"><path class="i-play" d="M8 5.5v13a1 1 0 0 0 1.5.86l10.5-6.5a1 1 0 0 0 0-1.72L9.5 4.64A1 1 0 0 0 8 5.5Z"/><rect class="i-stop" x="7" y="7" width="10" height="10" rx="1.5"/></svg>';
+function playBtn(ipa) { return ipa ? `<button type="button" class="play" data-ipa="${esc(ipa)}" aria-label="Play" title="Play">${PLAY_SVG}</button>` : ""; }
+const T = { w: null, st: "idle", ctx: null, src: null, btn: null, want: null, id: 0, cache: new Map() };
+function stopPlay() {
+  if (T.src) { try { T.src.onended = null; T.src.stop(); } catch {} T.src = null; }
+  T.want = null; document.querySelectorAll(".play.playing, .play.busy").forEach((b) => b.classList.remove("playing", "busy"));
+}
+function playBuf(a, btn) {
+  stopPlay();
+  if (T.ctx.state === "suspended") T.ctx.resume();
+  const b = T.ctx.createBuffer(1, a.length, 24000); b.getChannelData(0).set(a);
+  const s = T.ctx.createBufferSource(); s.buffer = b; s.connect(T.ctx.destination);
+  s.onended = () => { if (T.src === s) { T.src = null; btn.classList.remove("playing"); } };
+  T.src = s; btn.classList.add("playing"); s.start();
+  let pk = 0, sq = 0; for (const x of a) { pk = Math.max(pk, Math.abs(x)); sq += x * x; }
+  window.__ttsLast = { n: a.length, peak: pk, rms: Math.sqrt(sq / a.length) };
+}
+function speak(ipa, btn) {
+  if (T.cache.has(ipa)) return playBuf(T.cache.get(ipa), btn);
+  const id = ++T.id; T.want = { id, ipa, btn }; btn.classList.add("busy");
+  T.w.postMessage({ type: "speak", id, ipa });
+}
+function ttsFail() {
+  T.st = "failed";
+  document.querySelectorAll(".play").forEach((b) => { b.classList.remove("loading", "busy", "playing"); b.disabled = true; b.title = ""; });
+}
+function ttsInit(btn) {
+  try { T.w = new Worker(new URL("tts-worker.js?v=" + V, import.meta.url), { type: "module" }); } catch (e) { console.warn("player", e); return ttsFail(); }
+  T.st = "loading"; T.btn = btn; btn.classList.add("loading"); btn.style.setProperty("--pp", "0.02");
+  T.w.onerror = (e) => { console.warn("player", e.message); ttsFail(); };
+  T.w.onmessage = (e) => {
+    const m = e.data;
+    if (m.type === "progress") T.btn.style.setProperty("--pp", String(Math.min(1, m.p)));
+    else if (m.type === "ready") { T.st = "ready"; T.btn.classList.remove("loading"); window.__ttsInfo = m.info; const w = T.want; T.want = null; if (w) speak(w.ipa, w.btn); }
+    else if (m.type === "audio") { window.__ttsMs = m.ms; const a = new Float32Array(m.audio); if (T.want && T.want.id === m.id) { const w = T.want; T.want = null; w.btn.classList.remove("busy"); T.cache.set(w.ipa, a); if (document.contains(w.btn)) playBuf(a, w.btn); } }
+    else if (m.type === "error") { console.warn("player", m.stage, m.message); if (m.stage === "load") ttsFail(); else stopPlay(); }
+  };
+  T.w.postMessage({ type: "load" });
+}
+document.addEventListener("click", (e) => {
+  const btn = e.target.closest(".play"); if (!btn || btn.disabled || T.st === "failed") return;
+  if (btn.classList.contains("playing")) return stopPlay();
+  const ipa = btn.dataset.src === "ipa" ? $("ipa").value.trim() : btn.dataset.ipa; if (!ipa) return;
+  if (!T.ctx) { try { T.ctx = new (window.AudioContext || window.webkitAudioContext)(); } catch { return ttsFail(); } } // unlock audio on the gesture
+  if (T.st === "idle") { T.want = { ipa, btn }; return ttsInit(btn); }
+  if (T.st === "loading") { T.want = { ipa, btn }; return; } // one load; the latest press wins
+  speak(ipa, btn);
+});
 
 const SCHEME_OPTS = ["koine", "attic", "erasmian", "modern"];
 const PARADIGMS = ["present-active-indicative", "imperfect-active-indicative", "future-active-indicative", "future-middle-indicative", "middle-passive-indicative", "present-active-subjunctive"];
@@ -173,7 +237,7 @@ const fail = (msg) => { document.documentElement.dataset.ready = "error"; $("loa
   const wasm = loadWasm().catch((e) => { console.warn("wasm failed, using JS build", e); return loadJs(); });
   const lex = fetch("greek-phonology-lexicon.bin?v=" + V).then((r) => (r.ok ? r.arrayBuffer() : Promise.reject(new Error("HTTP " + r.status))));
   await Promise.race([Promise.all(["sl-select", "sl-textarea", "sl-input"].map((t) => customElements.whenDefined(t))), new Promise((r) => setTimeout(r, 8000))]);
-  await Promise.all(["greek", "scheme", "ipa", "fn", "fnarg"].map((id) => $(id).updateComplete));
+  await Promise.all(["greek", "ipa", "fn", "fnarg"].map((id) => $(id).updateComplete));
   lib = await wasm;
   try { lib.loadBytes(new Uint8Array(await lex)); } catch (e) { console.warn("word list failed", e); }
   ready = true;

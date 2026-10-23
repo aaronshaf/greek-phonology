@@ -37,7 +37,6 @@
   sl-textarea:not(:defined) { height: 103.2px; }
   sl-select:not(:defined) { height: 65.2px; }
   sl-button:not(:defined) { display: inline-block; height: 40px; min-width: 8rem; }
-  @media (max-width: 640px) { sl-button#toipa:not(:defined) { display: block; height: 44px; } }
   .ipaw { white-space: normal; overflow-wrap: anywhere; font-family: var(--ipa); }
   .ipaw span { display: inline-block; margin-right: .55em; }
   #ipaview { min-height: 1.6em; font-size: 1.1rem; color: var(--sl-color-neutral-700); }
@@ -48,6 +47,28 @@
   .prob sl-progress-bar { --height: .7rem; }
   sl-progress-bar:not(:defined) { display: block; height: .7rem; }
   #mode { min-height: 1.5em; margin: .5rem 0 0; }
+  /* pronunciation picker: small text tabs, soft neutral fill on the selected one */
+  .seg { display: flex; flex-wrap: wrap; gap: 2px 2px; margin-top: .3rem; }
+  .seg button { min-height: 36px; padding: 0 .8rem; border: 0; border-radius: 999px; background: transparent; color: var(--muted);
+                font: 500 .92rem/1 var(--sl-font-sans); cursor: pointer; transition: background .15s, color .15s; }
+  .seg button:hover { color: var(--text); }
+  .seg button[aria-checked="true"] { background: var(--hover); color: var(--text); box-shadow: inset 0 0 0 1px var(--line); }
+  /* play: small outline circle; ring = first-load progress */
+  .ipaline { display: flex; align-items: flex-start; gap: .5rem; }
+  .ipaline #ipaview { flex: 1; min-width: 0; }
+  .play { position: relative; flex: none; width: 28px; height: 28px; padding: 0; border-radius: 50%; border: 1px solid var(--line);
+          background: transparent; color: var(--muted); cursor: pointer; display: inline-grid; place-items: center; vertical-align: middle; }
+  .play svg { width: 13px; height: 13px; fill: currentColor; }
+  .play .i-stop { display: none; } .play.playing .i-play { display: none; } .play.playing .i-stop { display: inline; }
+  .play:hover { color: var(--text); border-color: var(--sl-input-border-color); }
+  .play:disabled { opacity: .3; cursor: default; }
+  .play::after { content: ""; position: absolute; inset: -3px; border-radius: 50%; pointer-events: none; opacity: 0; transition: opacity .2s;
+                 background: conic-gradient(var(--muted) calc(var(--pp, 0) * 1turn), transparent 0);
+                 -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 2px), #000 calc(100% - 1.5px)); mask: radial-gradient(farthest-side, transparent calc(100% - 2px), #000 calc(100% - 1.5px)); }
+  .play.loading::after { opacity: .9; }
+  .play.busy svg { opacity: .45; }
+  .wcard .ln .play { width: 24px; height: 24px; margin-left: .35rem; } .wcard .ln .play svg { width: 11px; height: 11px; }
+  #ipaview { padding-top: 2px; }
   #words { min-height: 8rem; display: grid; grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr)); gap: .6rem; }
   .wcard { border: 1px solid var(--sl-panel-border-color); border-radius: var(--sl-border-radius-medium); padding: .6rem .75rem; min-width: 0; }
   .wcard .w { font-family: var(--gk); font-size: 1.6rem; line-height: 1.25; margin-bottom: .25rem; overflow-wrap: anywhere; }
@@ -72,8 +93,6 @@
   @media (max-width: 640px) {
     body { padding: 1rem .8rem 2.5rem; }
     h1 { font-size: 1.3rem; }
-    #toipa { flex: 1 1 100%; }
-    #toipa::part(base) { width: 100%; min-height: 44px; }
       #words { grid-template-columns: 1fr; }
   }
   @media (prefers-reduced-motion: reduce) {
@@ -119,8 +138,6 @@
   h1 { color: var(--text); }
   sl-progress-bar { --indicator-color: var(--pri); --track-color: var(--pri-tint); }
   .prob.top .lbl { color: var(--text) !important; font-weight: 600; }
-  #toipa::part(base) { background: var(--pri); border-color: var(--pri); color: var(--pri-fg); }
-  #toipa::part(base):hover { background: var(--pri-hover); border-color: var(--pri-hover); }
   sl-badge::part(base) { background: transparent; color: var(--muted); border: 1px solid var(--line); font-weight: 500; }
   sl-badge.found::part(base) { color: var(--olive); }
   .github-corner { position: fixed; top: 0; right: 0; z-index: 10; }
@@ -143,21 +160,16 @@
 
 <div class="card stack">
   <sl-textarea id="greek" class="gktext" label="Greek text" rows="2" resize="auto" value="Ἐν ἀρχῇ ἦν ὁ λόγος, καὶ ὁ λόγος ἦν πρὸς τὸν θεόν"></sl-textarea>
-  <div class="row">
-    <sl-select id="scheme" label="Read it as" value="koine">
-      <sl-option value="koine">Koine (reconstructed)</sl-option>
-      <sl-option value="attic">Restored Attic</sl-option>
-      <sl-option value="erasmian">Erasmian</sl-option>
-      <sl-option value="modern">Modern Greek</sl-option>
-    </sl-select>
-    <sl-button id="toipa" variant="primary">Greek → IPA</sl-button>
+  <div>
+    <div class="k" id="schemelbl">Read it as</div>
+    <div id="scheme" class="seg" role="radiogroup" aria-labelledby="schemelbl"><button type="button" role="radio" aria-checked="true" tabindex="0" data-v="koine">Koine</button><button type="button" role="radio" aria-checked="false" tabindex="-1" data-v="attic">Attic</button><button type="button" role="radio" aria-checked="false" tabindex="-1" data-v="erasmian">Erasmian</button><button type="button" role="radio" aria-checked="false" tabindex="-1" data-v="modern">Modern</button></div>
   </div>
-  <sl-input id="ipa" class="ipatext" value="<!--pre:ipa-->" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" help-text="Phones separated by spaces, words by |" aria-label="IPA (what was heard)">
+  <sl-input id="ipa" class="ipatext" value="<!--pre:ipa-->" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" help-text="Sounds separated by spaces, words by |" aria-label="IPA (what was heard)">
     <span slot="label">IPA (what was heard)
-      <sl-tooltip content="Type or paste a transcription, or press Greek → IPA."><sl-icon-button name="info-circle" label="About the IPA box"></sl-icon-button></sl-tooltip>
+      <sl-tooltip content="Filled in from the Greek as you type. Type or paste what you heard instead to see which pronunciation it is closest to; clear the box to go back to automatic."><sl-icon-button name="info-circle" label="About the IPA box"></sl-icon-button></sl-tooltip>
     </span>
   </sl-input>
-  <div id="ipaview" class="ipaw" aria-label="IPA by word"><!--pre:ipaview--></div>
+  <div class="ipaline"><button type="button" class="play" id="playall" data-src="ipa" aria-label="Play the IPA" title="Play"><svg viewBox="0 0 24 24" aria-hidden="true"><path class="i-play" d="M8 5.5v13a1 1 0 0 0 1.5.86l10.5-6.5a1 1 0 0 0 0-1.72L9.5 4.64A1 1 0 0 0 8 5.5Z"/><rect class="i-stop" x="7" y="7" width="10" height="10" rx="1.5"/></svg></button><div id="ipaview" class="ipaw" aria-label="IPA by word"><!--pre:ipaview--></div></div>
 </div>
 
 <section class="card"><h2>Closest pronunciation</h2>
@@ -179,6 +191,6 @@
 <p class="foot">Word list: SBLGNT (CC BY 4.0) and Rahlfs LXX forms.</p>
 <script type="application/json" id="pre"><!--pre:json--></script>
 
-<script type="module" src="app.js?v=15"></script>
+<script type="module" src="app.js?v=16"></script>
 </body>
 </html>
