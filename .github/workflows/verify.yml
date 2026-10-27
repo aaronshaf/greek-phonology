@@ -1,0 +1,88 @@
+# Informational verification. This job reports and warns. It is not a merge gate:
+# the job is marked continue-on-error, and it must not be added as a required check.
+# pages.yml still runs moon test before a Pages deploy.
+name: verify
+on:
+  pull_request:
+  push:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  verify:
+    name: informational verify
+    runs-on: ubuntu-latest
+    continue-on-error: true
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install MoonBit
+        run: |
+          curl -fsSL https://cli.moonbitlang.com/install/unix.sh | bash
+          echo "$HOME/.moon/bin" >> "$GITHUB_PATH"
+      - name: Install Z3
+        run: |
+          python3 -m pip install --user 'z3-solver==4.13.0.0'
+          echo "$HOME/.local/bin" >> "$GITHUB_PATH"
+          export PATH="$HOME/.local/bin:$PATH"
+          z3 --version
+      - name: moon check
+        id: check
+        continue-on-error: true
+        working-directory: moonbit
+        run: |
+          set +e
+          moon check > "$RUNNER_TEMP/moon-check.txt" 2>&1
+          code=$?
+          tail -30 "$RUNNER_TEMP/moon-check.txt"
+          exit "$code"
+      - name: moon test
+        id: test
+        continue-on-error: true
+        working-directory: moonbit
+        run: |
+          set +e
+          moon test > "$RUNNER_TEMP/moon-test.txt" 2>&1
+          code=$?
+          tail -20 "$RUNNER_TEMP/moon-test.txt"
+          exit "$code"
+      - name: moon prove
+        id: prove
+        continue-on-error: true
+        working-directory: moonbit
+        run: |
+          set +e
+          moon prove > "$RUNNER_TEMP/moon-prove.txt" 2>&1
+          code=$?
+          tail -30 "$RUNNER_TEMP/moon-prove.txt"
+          exit "$code"
+      - name: Public API snapshot
+        id: mbti
+        continue-on-error: true
+        working-directory: moonbit
+        run: |
+          moon info
+          git diff --exit-code -- '*.mbti'
+      - name: Built artifacts
+        id: artifacts
+        continue-on-error: true
+        run: moonbit/tools/check_artifacts.sh
+      - name: IPA golden still matches the JS build
+        id: golden
+        continue-on-error: true
+        working-directory: moonbit
+        run: node tools/regen_golden.cjs --check
+      - name: Write summary
+        if: always()
+        run: |
+          python3 moonbit/tools/verify_report.py \
+            --proof moonbit/_build/verif/kernel/kernel.proof.json \
+            --check-log "$RUNNER_TEMP/moon-check.txt" \
+            --test-log "$RUNNER_TEMP/moon-test.txt" \
+            --prove-log "$RUNNER_TEMP/moon-prove.txt" \
+            --outcome "moon check=${{ steps.check.outcome }}" \
+            --outcome "moon test=${{ steps.test.outcome }}" \
+            --outcome "moon prove=${{ steps.prove.outcome }}" \
+            --outcome "mbti diff=${{ steps.mbti.outcome }}" \
+            --outcome "artifacts=${{ steps.artifacts.outcome }}" \
+            --outcome "ipa golden=${{ steps.golden.outcome }}" \
+            >> "$GITHUB_STEP_SUMMARY"
