@@ -1,13 +1,41 @@
 ///|
+fn hex_digit(n : Int) -> Char {
+  if n < 10 {
+    Int::unsafe_to_char(48 + n)
+  } else {
+    Int::unsafe_to_char(87 + n)
+  }
+}
+
+///|
+/// JSON string literal. Escapes `"`, `\`, and every code point below U+0020
+/// (`\n` `\r` `\t` `\b` `\f`, otherwise `\u00XX`). Other characters, including
+/// U+2028, are copied unchanged so existing outputs stay byte-identical.
 fn jstr(s : String) -> String {
   let sb = StringBuilder::new()
   sb.write_char('"')
   for c in s {
-    match c {
-      '"' => sb.write_string("\\\"")
-      '\\' => sb.write_string("\\\\")
-      '\n' => sb.write_string("\\n")
-      _ => sb.write_char(c)
+    let cp = c.to_int()
+    if c == '"' {
+      sb.write_string("\\\"")
+    } else if c == '\\' {
+      sb.write_string("\\\\")
+    } else if c == '\n' {
+      sb.write_string("\\n")
+    } else if c == '\r' {
+      sb.write_string("\\r")
+    } else if c == '\t' {
+      sb.write_string("\\t")
+    } else if cp == 0x08 {
+      sb.write_string("\\b")
+    } else if cp == 0x0C {
+      sb.write_string("\\f")
+    } else if cp < 0x20 {
+      sb.write_string("\\u00")
+      sb.write_char(hex_digit(cp >> 4))
+      sb.write_char(hex_digit(cp & 0x0F))
+    } else {
+      sb.write_char(c)
     }
   }
   sb.write_char('"')
