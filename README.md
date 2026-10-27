@@ -94,8 +94,8 @@ Parity tests compare the library with the original TypeScript (its outputs are f
 
 ## Layout
 
-- `moonbit/kernel/` — proved core (`moon prove`). The prover uses one logic file for the package.
-- `moonbit/lib/` — syllables, accents, G2P, the lexicon, and JSON. Reusable logic lives here, not in the playground.
+- `moonbit/kernel/` — proved core (`moon prove`), split across `syllable.mbt`, `law.mbt`, `contract.mbt`, `phrase.mbt`, `detect_arith.mbt`, and `g2p_core.mbt`. The prover still uses one logic file, `spec.mbtp`.
+- `moonbit/lib/` — syllables (`syllable.mbt`), accents (`accent.mbt`), G2P (`g2p.mbt`), morphology (`morph.mbt`), marks (`marks.mbt`), `call_json` (`call.mbt`), the lexicon, and JSON. Reusable logic lives here, not in the playground.
 - `moonbit/api/` — WebAssembly byte ABI and the JavaScript exports.
 - `moonbit/tests/` — property tests and the `ipa()` golden snapshot.
 - `moonbit/tools/` — generators, the Pages build, and the golden and verify scripts.
