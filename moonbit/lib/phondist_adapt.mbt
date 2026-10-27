@@ -85,26 +85,106 @@ fn reached(pct : Double, cut : Double) -> Bool {
 }
 
 ///|
+fn cut10(cut : Double) -> Int {
+  let x = (cut * 10.0).round()
+  if x < -1000000.0 {
+    -1000000
+  } else if x > 1000000.0 {
+    1000000
+  } else {
+    x.to_int()
+  }
+}
+
+///|
+fn pct10_of(combined : Double) -> Int {
+  cut10(combined * 100.0)
+}
+
+///|
+fn cuts_ordered(scale : CreditScale) -> Bool {
+  scale.close <= scale.light &&
+  scale.light <= scale.medium &&
+  scale.medium <= scale.clear &&
+  scale.clear <= scale.deepest
+}
+
+///|
+fn level_name(rank : Int) -> String {
+  if rank <= 0 {
+    "none"
+  } else if rank == 1 {
+    "close tint"
+  } else if rank == 2 {
+    "light"
+  } else if rank == 3 {
+    "medium"
+  } else if rank == 4 {
+    "clear"
+  } else {
+    "deepest"
+  }
+}
+
+///|
 /// Map a combined credit in [0, 1] to a display level.
 /// Cutoffs are percents: below `close` is "none", then "close tint", "light",
 /// "medium", "clear", and "deepest" at or above `deepest`.
 /// The default cutoffs are `credit_level_close` (8), `credit_level_light` (30),
 /// `credit_level_medium` (60), `credit_level_clear` (85), and `credit_level_deepest` (95).
+/// Ordered cutoffs go through the proved rank. An unordered scale keeps the
+/// same bands, compared from the left, so a page can still pass a custom scale.
 pub fn credit_level(combined : Double, scale : CreditScale) -> String {
-  let pct = combined * 100.0
-  if !reached(pct, scale.close) {
-    "none"
-  } else if !reached(pct, scale.light) {
-    "close tint"
-  } else if !reached(pct, scale.medium) {
-    "light"
-  } else if !reached(pct, scale.clear) {
-    "medium"
-  } else if !reached(pct, scale.deepest) {
-    "clear"
+  if cuts_ordered(scale) {
+    level_name(
+      @kernel.credit_level_rank(
+        pct10_of(combined),
+        cut10(scale.close),
+        cut10(scale.light),
+        cut10(scale.medium),
+        cut10(scale.clear),
+        cut10(scale.deepest),
+      ),
+    )
   } else {
-    "deepest"
+    let pct = combined * 100.0
+    if !reached(pct, scale.close) {
+      "none"
+    } else if !reached(pct, scale.light) {
+      "close tint"
+    } else if !reached(pct, scale.medium) {
+      "light"
+    } else if !reached(pct, scale.clear) {
+      "medium"
+    } else if !reached(pct, scale.deepest) {
+      "clear"
+    } else {
+      "deepest"
+    }
   }
+}
+
+///|
+/// One row of the credit-to-tint table. `from_pct` is inclusive.
+/// `until_pct` is exclusive, except the deepest row, which includes 100.
+pub(all) struct CreditBand {
+  level : String
+  from_pct : Double
+  until_pct : Double
+}
+
+///|
+/// The six tint bands for a scale, from "none" through "deepest".
+/// A page paints with `level` and does not keep its own cutoff table.
+pub fn credit_bands(scale : CreditScale) -> Array[CreditBand] {
+  [
+    { level: "none", from_pct: 0.0, until_pct: scale.close },
+    { level: "close tint", from_pct: scale.close, until_pct: scale.light },
+    { level: "light", from_pct: scale.light, until_pct: scale.medium },
+    { level: "medium", from_pct: scale.medium, until_pct: scale.clear },
+    { level: "clear", from_pct: scale.clear, until_pct: scale.deepest },
+    { level: "deepest", from_pct: scale.deepest, until_pct: 100.0 },
+  ]
 }
 
 ///|
@@ -166,6 +246,29 @@ pub fn credit_scale_json() -> String {
 ///|
 pub fn credit_level_json(combined : Double, scale : String) -> String {
   jstr(credit_level(combined, parse_scale(scale)))
+}
+
+///|
+pub fn credit_bands_json(scale : String) -> String {
+  let rows = credit_bands(parse_scale(scale))
+  let sb = StringBuilder()
+  sb.write_char('[')
+  for i, row in rows {
+    if i > 0 {
+      sb.write_char(',')
+    }
+    sb.write_string(
+      "{\"level\":" +
+      jstr(row.level) +
+      ",\"from\":" +
+      jwhole(row.from_pct) +
+      ",\"until\":" +
+      jwhole(row.until_pct) +
+      "}",
+    )
+  }
+  sb.write_char(']')
+  sb.to_string()
 }
 
 ///|
@@ -259,17 +362,17 @@ fn hearing_of(
   curated : String?,
 ) -> HearingCredit {
   let c = phone_credit(target, phones, weights, scheme, goal)
-  let note = match c.best {
-    Some(b) =>
-      match curated {
-        Some(n) => n
-        None => phone_distance(target, b.phone, scheme, goal).note
-      }
+  let note = match curated {
+    Some(n) => n
     None =>
-      if c.exact > 0.0 {
-        exact_note(target, phones, weights, scheme, goal)
-      } else {
-        ""
+      match c.best {
+        Some(b) => phone_distance(target, b.phone, scheme, goal).note
+        None =>
+          if c.exact > 0.0 {
+            exact_note(target, phones, weights, scheme, goal)
+          } else {
+            ""
+          }
       }
   }
   { exact: c.exact, near: c.near, combined: c.combined, best: c.best, note, }
@@ -288,6 +391,40 @@ pub fn hearing_credit(
 ) -> HearingCredit {
   let (phones, weights) = lists_of(candidates)
   hearing_of(target, phones, weights, scheme, goal, None)
+}
+
+///|
+fn accurate_curated(
+  unit : G2pUnit,
+  index : Int,
+  phones : Array[String],
+  weights : Array[Double],
+  scheme : String,
+  goal : String,
+) -> String? {
+  if index < 0 || index >= unit.ph.length() {
+    return None
+  }
+  let n = if phones.length() < weights.length() {
+    phones.length()
+  } else {
+    weights.length()
+  }
+  for k in 0..<n {
+    if weights[k] <= 0.0 {
+      continue
+    }
+    match alt_note(unit, index, phones[k]) {
+      None => ()
+      Some(note) => {
+        let d = phone_distance(unit.ph[index], phones[k], scheme, goal)
+        if d.tier == "accurate" && phones[k] != unit.ph[index] {
+          return Some(note)
+        }
+      }
+    }
+  }
+  None
 }
 
 ///|
@@ -320,9 +457,10 @@ pub fn unit_hearing_credit(
   let mut chosen_cur = false
   let mut seen = false
   for i in lo..<hi {
-    let curated = match phone_credit(unit.ph[i], phones, weights, scheme, goal).best {
+    let credit = phone_credit(unit.ph[i], phones, weights, scheme, goal)
+    let curated = match credit.best {
       Some(b) => alt_note(unit, i, b.phone)
-      None => None
+      None => accurate_curated(unit, i, phones, weights, scheme, goal)
     }
     let h = hearing_of(unit.ph[i], phones, weights, scheme, goal, curated)
     let cur = curated is Some(_)

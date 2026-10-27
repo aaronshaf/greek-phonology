@@ -4,5 +4,6 @@ import {
 
 import {
   "aaronshaf/greek-phonology/api",
+  "aaronshaf/greek-phonology/kernel",
   "moonbitlang/core/math",
 } for "test"

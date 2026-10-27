@@ -42,6 +42,10 @@ pub fn contract(String) -> String
 
 pub fn count_accents(String) -> Int32
 
+pub fn credit_bands(CreditScale) -> Array[CreditBand]
+
+pub fn credit_bands_json(String) -> String
+
 pub fn credit_level(Double, CreditScale) -> String
 
 pub let credit_level_clear : Double
@@ -102,6 +106,10 @@ pub fn load_lexicon(Array[Int32]) -> Int32
 
 pub fn lookup_json(String) -> String
 
+pub fn optional_flags(Array[String]) -> Array[Bool]
+
+pub fn optional_phones_json(String) -> String
+
 pub fn phone_credit(String, Array[String], Array[Double], String, String) -> PhoneCredit
 
 pub fn phone_credit_json(String, String, String, String) -> String
@@ -109,6 +117,8 @@ pub fn phone_credit_json(String, String, String, String) -> String
 pub fn phone_distance(String, String, String, String) -> PhoneDistance
 
 pub fn phone_distance_json(String, String, String, String) -> String
+
+pub fn phone_is_optional(String) -> Bool
 
 pub fn phone_known(String) -> Bool
 
@@ -201,8 +211,10 @@ pub(all) struct AlignParams {
   edge : Double
   plain : Bool
   scheme : String
+  goal : String
 }
 pub fn AlignParams::with_back(Self, Int32) -> Self
+pub fn AlignParams::with_goal(Self, String) -> Self
 pub fn AlignParams::with_plain(Self, Bool) -> Self
 pub fn AlignParams::with_scheme(Self, String) -> Self
 
@@ -219,6 +231,12 @@ pub(all) struct AlignWindow {
   width : Int32
   data : Array[Double]
   spf : Double
+}
+
+pub(all) struct CreditBand {
+  level : String
+  from_pct : Double
+  until_pct : Double
 }
 
 pub(all) struct CreditHit {

@@ -64,6 +64,9 @@ let accurate_max : Double = 0.02
 
 ///|
 fn goal_of(goal : String) -> (Double, Double) {
+  // Proved: strict <= gracious <= lenient on both tolerance and credit cap.
+  // The floats are those thousandths. A goal does not change d, note, or advice.
+  ignore(@kernel.goal_bounds_ordered())
   if goal == "strict" {
     (0.20, 0.60)
   } else if goal == "lenient" {
@@ -383,9 +386,20 @@ fn scheme_short(s : String) -> String {
 }
 
 ///|
+fn beta_v(t : String, h : String) -> Bool {
+  (t == "β" && h == "v") || (t == "v" && h == "β")
+}
+
+///|
 fn equivalent(sc : String, t : String, h : String) -> Bool {
-  (sc == "koine" || sc == "modern") &&
-  ((t == "o" && h == "ɔ") || (t == "ɔ" && h == "o"))
+  let vowel = (sc == "koine" || sc == "modern") &&
+    ((t == "o" && h == "ɔ") || (t == "ɔ" && h == "o"))
+  // Koine writes the letter β as [v] and the voiced αυ/ευ/ηυ coda as [β] or [v].
+  // Aaron, 2026-10-27: those two symbols are one sound in this reconstruction.
+  // [f] stays a tolerated hearing, not an equivalent. Other schemes keep the
+  // feature-table distance (bilabial versus labiodental).
+  let fricative = sc == "koine" && beta_v(t, h)
+  vowel || fricative
 }
 
 ///|
@@ -671,6 +685,8 @@ pub fn phone_distance(
       let note = if tier == "accurate" {
         if same {
           "That is the target sound."
+        } else if sc == "koine" && beta_v(ts, hs) {
+          "“v” (as in van) and β are the same sound here. Nothing needs fixing."
         } else {
           "Either sound is correct in this reading."
         }
@@ -846,7 +862,7 @@ fn alt_row(
 }
 
 ///|
-let src_final : String = "Aaron 2026-10-27. Readable descriptions do not settle word-final αυ/ευ/ηυ; the target is v, the beta-type fricative, and f is tolerated."
+let src_final : String = "Aaron 2026-10-27. Readable descriptions do not settle word-final αυ/ευ/ηυ. The target symbol is v. β is the same sound in this reconstruction. f is tolerated."
 
 ///|
 let src_yi : String = "Erasmian υι stays w i, the US seminary classroom value (RESEARCH.md). y i is the reconstructed hearing and is accepted."
@@ -861,9 +877,9 @@ fn alt_rows(scheme : String) -> Array[AltRow] {
     out.push(alt_row("ευ", "word-end", ["ɛ", "v"], ["ɛ", "f"], "tolerated", note, src_final))
     out.push(alt_row("ηυ", "word-end", ["e", "v"], ["e", "f"], "tolerated", note, src_final))
     let beta = "“v” (as in van) and β are the same sound here. Nothing needs fixing."
-    out.push(alt_row("αυ", "word-end", ["a", "v"], ["a", "β"], "tolerated", beta, src_final))
-    out.push(alt_row("ευ", "word-end", ["ɛ", "v"], ["ɛ", "β"], "tolerated", beta, src_final))
-    out.push(alt_row("ηυ", "word-end", ["e", "v"], ["e", "β"], "tolerated", beta, src_final))
+    out.push(alt_row("αυ", "word-end", ["a", "v"], ["a", "β"], "accurate", beta, src_final))
+    out.push(alt_row("ευ", "word-end", ["ɛ", "v"], ["ɛ", "β"], "accurate", beta, src_final))
+    out.push(alt_row("ηυ", "word-end", ["e", "v"], ["e", "β"], "accurate", beta, src_final))
   } else if sc == "erasmian" {
     out.push(
       alt_row(
@@ -1054,7 +1070,9 @@ pub fn dist_table_json(scheme : String) -> String {
     jstr(if sc == "" { scheme } else { sc }) +
     ",\"model\":\"hand-weighted articulatory features (phondist 0.1)\",\"accurate_max\":0.02,\"goal_default\":\"gracious\",\"goals\":{\"strict\":{\"tol\":0.2,\"cap\":0.6},\"gracious\":{\"tol\":0.33,\"cap\":0.75},\"lenient\":{\"tol\":0.42,\"cap\":0.9}},\"equiv\":[",
   )
-  if sc == "koine" || sc == "modern" {
+  if sc == "koine" {
+    sb.write_string("[\"o\",\"ɔ\"],[\"β\",\"v\"]")
+  } else if sc == "modern" {
     sb.write_string("[\"o\",\"ɔ\"]")
   }
   sb.write_string("],\"notes\":{")

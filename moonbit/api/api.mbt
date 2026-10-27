@@ -220,6 +220,18 @@ pub fn credit_scale_json() -> String {
 }
 
 ///|
+/// Credit-to-tint bands. `scale` is `close,light,medium,clear,deepest` percents, or empty.
+pub fn credit_bands_json(scale : String) -> String {
+  @lib.credit_bands_json(scale)
+}
+
+///|
+/// Which phones in a comma list are optional (rough breathing `h` only).
+pub fn optional_phones_json(list : String) -> String {
+  @lib.optional_phones_json(list)
+}
+
+///|
 /// Short scheme id (`modern`, `koine`, `attic`, `erasmian`) for a page id or a long id. Unknown returns "".
 pub fn scheme_id(name : String) -> String {
   @lib.scheme_id(name)

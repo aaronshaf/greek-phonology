@@ -149,6 +149,43 @@ test "credit levels use the percent cutoffs and a caller can override them" {
   )
   assert_eq(@lib.credit_level_json(0.95, ""), "\"deepest\"")
   assert_eq(@lib.credit_level_json(0.5, "10,20,40,80,99"), "\"medium\"")
+  let bands = @lib.credit_bands(scale)
+  assert_eq(bands.length(), 6)
+  assert_eq(bands[0].level, "none")
+  assert_eq(bands[1].level, "close tint")
+  assert_eq(bands[5].level, "deepest")
+  assert_eq(bands[0].until_pct, bands[1].from_pct)
+  assert_eq(bands[5].from_pct, 95.0)
+  let mut prev = -1.0
+  for row in bands {
+    assert_true(row.from_pct >= prev)
+    prev = row.from_pct
+    let mid = if row.level == "deepest" {
+      0.97
+    } else if row.level == "none" {
+      0.0
+    } else {
+      (row.from_pct + 0.5) / 100.0
+    }
+    if row.level != "none" {
+      assert_eq(@lib.credit_level(row.from_pct / 100.0, scale), row.level)
+    }
+    ignore(mid)
+  }
+  assert_eq(
+    @lib.credit_bands_json(""),
+    "[{\"level\":\"none\",\"from\":0,\"until\":8},{\"level\":\"close tint\",\"from\":8,\"until\":30},{\"level\":\"light\",\"from\":30,\"until\":60},{\"level\":\"medium\",\"from\":60,\"until\":85},{\"level\":\"clear\",\"from\":85,\"until\":95},{\"level\":\"deepest\",\"from\":95,\"until\":100}]",
+  )
+  let strict_c = @lib.phone_credit("v", ["f"], [1.0], "koine", "strict")
+  let gracious_c = @lib.phone_credit("v", ["f"], [1.0], "koine", "gracious")
+  let lenient_c = @lib.phone_credit("v", ["f"], [1.0], "koine", "lenient")
+  assert_eq(strict_c.combined, 0.0)
+  assert_true(gracious_c.combined > 0.0)
+  assert_true(gracious_c.combined <= lenient_c.combined + 0.000000001)
+  let same = @lib.phone_credit("v", ["β"], [1.0], "koine", "strict")
+  assert_eq(same.exact, 1.0)
+  assert_eq(same.near, 0.0)
+  assert_eq(@lib.hearing_credit("v", [("β", 1.0)], "koine", "lenient").note, @lib.hearing_credit("v", [("β", 1.0)], "koine", "strict").note)
 }
 
 ///|
