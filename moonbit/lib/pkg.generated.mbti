@@ -32,6 +32,22 @@ pub fn contract(String) -> String
 
 pub fn count_accents(String) -> Int32
 
+pub fn credit_level(Double, CreditScale) -> String
+
+pub let credit_level_clear : Double
+
+pub let credit_level_close : Double
+
+pub let credit_level_deepest : Double
+
+pub fn credit_level_json(Double, String) -> String
+
+pub let credit_level_light : Double
+
+pub let credit_level_medium : Double
+
+pub fn credit_scale_json() -> String
+
 pub fn detect(String, greek_text? : String) -> Detection
 
 pub fn detect_free(String) -> Detection
@@ -53,6 +69,12 @@ pub fn g2p_json_flags(String, String, String) -> String
 pub fn g2p_words(String, String) -> Array[G2pWord]
 
 pub fn g2p_words_opts(String, String, G2pOpts) -> Array[G2pWord]
+
+pub fn hearing_credit(String, Array[(String, Double)], String, String) -> HearingCredit
+
+pub fn hearing_credit_json(String, String, String, String) -> String
+
+pub fn hearing_credit_posterior(String, String, String, String) -> HearingCredit
 
 pub fn ipa(String, String) -> String
 
@@ -94,6 +116,8 @@ pub fn remove_numbers(String) -> String
 
 pub fn remove_punctuation(String) -> String
 
+pub fn scheme_id(String) -> String
+
 pub let schemes : Array[String]
 
 pub fn softmax(Array[Double], Double) -> Array[Double]
@@ -107,6 +131,10 @@ pub fn syllabify_json(String) -> String
 pub fn syllable_cuts(Array[GUnit]) -> Array[Int32]
 
 pub fn tokenize(String) -> Array[String]
+
+pub fn unit_hearing_credit(G2pUnit, Array[(String, Double)], String, String, Int32) -> HearingCredit
+
+pub fn unit_hearing_credit_json(String, String, String, String, String) -> String
 
 pub fn units(String) -> Array[GUnit]
 
@@ -126,6 +154,15 @@ pub(all) struct CreditHit {
   d : Double
   tier : String
 }
+
+pub(all) struct CreditScale {
+  close : Double
+  light : Double
+  medium : Double
+  clear : Double
+  deepest : Double
+}
+pub fn CreditScale::standard() -> Self
 
 pub(all) struct Detection {
   mode : String
@@ -177,6 +214,14 @@ pub(all) struct G2pWord {
 pub(all) struct GUnit {
   u : String
   marks : Array[Char]
+}
+
+pub(all) struct HearingCredit {
+  exact : Double
+  near : Double
+  combined : Double
+  best : CreditHit?
+  note : String
 }
 
 pub(all) struct Phone {

@@ -69,6 +69,28 @@ export interface PhoneCredit {
   best: CreditHit | null;
 }
 
+/** `phone_credit` plus the learner note for the best alternate. */
+export interface HearingCredit extends PhoneCredit {
+  note: string;
+}
+
+export type CreditLevel = "none" | "close tint" | "light" | "medium" | "clear" | "deepest";
+
+/** Percent cutoffs. Omitted fields keep the default constants. */
+export interface CreditScale {
+  close?: number;
+  light?: number;
+  medium?: number;
+  clear?: number;
+  deepest?: number;
+}
+
+export type PosteriorItem =
+  | { phone: string; p?: number; probability?: number; weight?: number }
+  | [string, number];
+
+export type Posterior = string | PosteriorItem[];
+
 export interface G2pAlt {
   heard: string[];
   tier: string;
@@ -142,7 +164,11 @@ export type CallName =
   | "g2p_json"
   | "phone_distance"
   | "phone_credit"
-  | "dist_table";
+  | "dist_table"
+  | "hearing_credit"
+  | "unit_hearing_credit"
+  | "credit_level"
+  | "scheme_id";
 
 export type CallResult =
   | string
@@ -156,6 +182,8 @@ export type CallResult =
   | G2pResult
   | PhoneDistance
   | PhoneCredit
+  | HearingCredit
+  | CreditLevel
   | null;
 
 export function ipa(text: string, scheme: Scheme | string): string;
@@ -175,6 +203,31 @@ export function phoneCredit(
   goal?: LearnerGoal | string,
   posterior?: string,
 ): PhoneCredit;
+/** Same numbers as `phoneCredit`, plus the best alternate note. Accepts the string form or a candidate list. */
+export function hearingCredit(
+  target: string,
+  posterior: Posterior,
+  scheme?: string,
+  goal?: LearnerGoal | string,
+): HearingCredit;
+/** Score a grapheme unit. `at` < 0 (the default) keeps the phone with the highest combined credit. */
+export function unitHearingCredit(
+  unit: { ph?: string[]; phones?: string[]; alts?: Array<{ heard: string[]; note?: string }> },
+  posterior: Posterior,
+  scheme?: string,
+  goal?: LearnerGoal | string,
+  at?: number,
+): HearingCredit;
+/** Default cutoffs in percent: 8, 30, 60, 85, 95. */
+export const CREDIT_LEVEL_CLOSE: number;
+export const CREDIT_LEVEL_LIGHT: number;
+export const CREDIT_LEVEL_MEDIUM: number;
+export const CREDIT_LEVEL_CLEAR: number;
+export const CREDIT_LEVEL_DEEPEST: number;
+/** Map a combined credit in [0, 1] to a display level. Pass `scale` to override any cutoff. */
+export function creditLevel(combined: number, scale?: CreditScale): CreditLevel;
+/** Short id for a page id (`koine`, `attic`, `erasmian`, `modern`) or a long id. Unknown is `""`. */
+export function schemeId(name: string): Scheme | "";
 export function distTable(scheme: Scheme | string): unknown;
 export function detect(ipa: string, greekText?: string): Detection;
 export function word(w: string): WordInfo;
@@ -196,6 +249,15 @@ declare const _default: {
   g2p: typeof g2p;
   phoneDistance: typeof phoneDistance;
   phoneCredit: typeof phoneCredit;
+  hearingCredit: typeof hearingCredit;
+  unitHearingCredit: typeof unitHearingCredit;
+  creditLevel: typeof creditLevel;
+  CREDIT_LEVEL_CLOSE: number;
+  CREDIT_LEVEL_LIGHT: number;
+  CREDIT_LEVEL_MEDIUM: number;
+  CREDIT_LEVEL_CLEAR: number;
+  CREDIT_LEVEL_DEEPEST: number;
+  schemeId: typeof schemeId;
   distTable: typeof distTable;
   detect: typeof detect;
   word: typeof word;

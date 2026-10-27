@@ -57,6 +57,34 @@ pub fn call_json(name : String, arg : String, arg2 : String) -> String {
       phone_credit_json(arg, scheme, goal, posterior)
     }
     "dist_table" => dist_table_json(arg)
+    "hearing_credit" => {
+      let parts = arg2.split("\u{1}").map(fn(v) { v.to_owned() }).collect()
+      let scheme = if parts.length() > 0 { parts[0] } else { "" }
+      let goal = if parts.length() > 1 { parts[1] } else { "" }
+      let posterior = if parts.length() > 2 { parts[2] } else { "" }
+      hearing_credit_json(arg, posterior, scheme, goal)
+    }
+    "unit_hearing_credit" => {
+      let parts = arg2.split("\u{1}").map(fn(v) { v.to_owned() }).collect()
+      let scheme = if parts.length() > 0 { parts[0] } else { "" }
+      let goal = if parts.length() > 1 { parts[1] } else { "" }
+      let posterior = if parts.length() > 2 { parts[2] } else { "" }
+      let at = if parts.length() > 3 { parts[3] } else { "-1" }
+      unit_hearing_credit_json(arg, posterior, scheme, goal, at)
+    }
+    "credit_level" => {
+      let combined = if arg == "" {
+        0.0
+      } else {
+        try {
+          @string.parse_double(arg)
+        } catch {
+          _ => 0.0
+        }
+      }
+      credit_level_json(combined, arg2)
+    }
+    "scheme_id" => jstr(scheme_id(arg))
     "lookup" => lookup_json(arg)
     "detect" => detect(arg, greek_text=arg2).to_json_string()
     _ => "null"

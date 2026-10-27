@@ -14,6 +14,36 @@ export const phoneDistance = (target, heard, scheme = "", goal = "") =>
 /** Credit for a recognizer posterior, "phone=weight" pairs separated by commas. */
 export const phoneCredit = (target, scheme = "", goal = "", posterior = "") =>
   j(m.phone_credit_json(target, scheme, goal, posterior));
+function posteriorText(posterior) {
+  if (typeof posterior === "string") return posterior;
+  if (Array.isArray(posterior)) return JSON.stringify(posterior);
+  return "";
+}
+/** Same credit as phoneCredit, plus the note for the best alternate. */
+export const hearingCredit = (target, posterior, scheme = "", goal = "") =>
+  j(m.hearing_credit_json(target, posteriorText(posterior), scheme, goal));
+/** Credit and note for one grapheme unit. `at` < 0 keeps the strongest phone. */
+export const unitHearingCredit = (unit, posterior, scheme = "", goal = "", at = -1) =>
+  j(m.unit_hearing_credit_json(JSON.stringify(unit ?? {}), posteriorText(posterior), scheme, goal, String(at)));
+const creditScale = j(m.credit_scale_json());
+/** Default display cutoffs, in percent. Override any of them in creditLevel. */
+export const CREDIT_LEVEL_CLOSE = creditScale.close;
+export const CREDIT_LEVEL_LIGHT = creditScale.light;
+export const CREDIT_LEVEL_MEDIUM = creditScale.medium;
+export const CREDIT_LEVEL_CLEAR = creditScale.clear;
+export const CREDIT_LEVEL_DEEPEST = creditScale.deepest;
+/** Display level for a combined credit in [0, 1]. */
+export function creditLevel(combined, scale) {
+  if (!scale) return j(m.credit_level_json(combined, ""));
+  const close = scale.close ?? CREDIT_LEVEL_CLOSE;
+  const light = scale.light ?? CREDIT_LEVEL_LIGHT;
+  const medium = scale.medium ?? CREDIT_LEVEL_MEDIUM;
+  const clear = scale.clear ?? CREDIT_LEVEL_CLEAR;
+  const deepest = scale.deepest ?? CREDIT_LEVEL_DEEPEST;
+  return j(m.credit_level_json(combined, [close, light, medium, clear, deepest].join(",")));
+}
+/** Short scheme id for a page id or a long id. Unknown returns "". */
+export const schemeId = (name) => m.scheme_id(name);
 /** Scheme notes, learner-goal thresholds, and curated grapheme alternates. */
 export const distTable = (scheme) => j(m.dist_table_json(scheme));
 /** Scheme probabilities for an IPA string (optionally with the Greek text it reads). */
@@ -30,4 +60,8 @@ export function loadLexicon(bytes = readFileSync(new URL("./greek-phonology-lexi
   if (loaded) return; m.in_clear(); for (const b of bytes) m.in_push(b); m.run(3); loaded = true;
 }
 export const wasmPath = new URL("./greek-phonology.wasm", import.meta.url);
-export default { ipa, g2p, phoneDistance, phoneCredit, distTable, detect, word, lookup, call, loadLexicon, wasmPath };
+export default {
+  ipa, g2p, phoneDistance, phoneCredit, hearingCredit, unitHearingCredit, creditLevel,
+  CREDIT_LEVEL_CLOSE, CREDIT_LEVEL_LIGHT, CREDIT_LEVEL_MEDIUM, CREDIT_LEVEL_CLEAR, CREDIT_LEVEL_DEEPEST,
+  schemeId, distTable, detect, word, lookup, call, loadLexicon, wasmPath,
+};

@@ -4,6 +4,10 @@ package "aaronshaf/greek-phonology/api"
 // Values
 pub fn call(String, String, String) -> String
 
+pub fn credit_level_json(Double, String) -> String
+
+pub fn credit_scale_json() -> String
+
 pub fn detect_json(String, String) -> String
 
 pub fn dist_table_json(String) -> String
@@ -11,6 +15,8 @@ pub fn dist_table_json(String) -> String
 pub fn g2p_json(String, String) -> String
 
 pub fn g2p_json_flags(String, String, String) -> String
+
+pub fn hearing_credit_json(String, String, String, String) -> String
 
 pub fn in_clear() -> Unit
 
@@ -31,6 +37,10 @@ pub fn phone_distance_json(String, String, String, String) -> String
 pub fn run(Int32) -> Int32
 
 pub fn run_str(Int32, String, String) -> String
+
+pub fn scheme_id(String) -> String
+
+pub fn unit_hearing_credit_json(String, String, String, String, String) -> String
 
 pub fn word_json(String) -> String
 
