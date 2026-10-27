@@ -4,17 +4,17 @@
 ///|
 priv struct LexEntry {
   form : String // NFC
-  flags : Int
+  flags : Int32
 }
 
 ///|
-let lex_exact : Map[String, Int] = {}
+let lex_exact : Map[String, Int32] = Map([])
 
 ///|
-let lex_fold : Map[String, Int] = {}
+let lex_fold : Map[String, Int32] = Map([])
 
 ///|
-let lex_bare : Map[String, Int] = {}
+let lex_bare : Map[String, Int32] = Map([])
 
 ///|
 let lex_entries : Array[LexEntry] = []
@@ -63,10 +63,10 @@ fn key_bare(w : String) -> String {
 }
 
 ///|
-fn lex_put(m : Map[String, Int], k : String, idx : Int) -> Unit {
+fn lex_put(m : Map[String, Int32], k : String, idx : Int32) -> Unit {
   match m.get(k) {
     Some(j) =>
-      if (lex_entries[idx].flags >> 2) > (lex_entries[j].flags >> 2) {
+      if lex_entries[idx].flags >> 2 > lex_entries[j].flags >> 2 {
         m[k] = idx
       }
     None => m[k] = idx
@@ -75,7 +75,7 @@ fn lex_put(m : Map[String, Int], k : String, idx : Int) -> Unit {
 
 ///|
 /// Load the bundled lexicon blob. Returns the number of word forms.
-pub fn load_lexicon(blob : Array[Int]) -> Int {
+pub fn load_lexicon(blob : Array[Int32]) -> Int32 {
   lex_exact.clear()
   lex_fold.clear()
   lex_bare.clear()
@@ -100,7 +100,7 @@ pub fn load_lexicon(blob : Array[Int]) -> Int {
     i += 1
     let form = nfc_join(cur)
     let idx = lex_entries.length()
-    lex_entries.push({ form, flags })
+    lex_entries.push({ form, flags, })
     lex_put(lex_exact, key_fold_exact(form), idx)
     lex_put(lex_fold, key_fold(form), idx)
     lex_put(lex_bare, key_bare(form), idx)
@@ -119,7 +119,7 @@ fn key_fold_exact(w : String) -> String {
 
 ///|
 /// Number of loaded word forms (0 if no lexicon is loaded).
-pub fn lexicon_size() -> Int {
+pub fn lexicon_size() -> Int32 {
   lex_entries.length()
 }
 
@@ -127,7 +127,7 @@ pub fn lexicon_size() -> Int {
 /// Look a word up: exact (grave read as acute), then case/iota-subscript folded, then accents stripped.
 /// JSON: {"form","match","nt","lxx","freq_band"} or null.
 pub fn lookup_json(word : String) -> String {
-  let w = word.trim().to_string()
+  let w = word.trim().to_owned()
   let e0 = lex_exact.get(key_fold_exact(w))
   let e1 = lex_fold.get(key_fold(w))
   let e2 = lex_bare.get(key_bare(w))
@@ -143,9 +143,17 @@ pub fn lookup_json(word : String) -> String {
     return "null"
   }
   let e = lex_entries[hit]
-  "{\"form\":" + jstr(e.form) + ",\"match\":\"" + how + "\",\"nt\":" +
-  ((e.flags & 1) != 0).to_string() + ",\"lxx\":" + ((e.flags & 2) != 0).to_string() +
-  ",\"freq_band\":" + (e.flags >> 2).to_string() + "}"
+  "{\"form\":" +
+  jstr(e.form) +
+  ",\"match\":\"" +
+  how +
+  "\",\"nt\":" +
+  ((e.flags & 1) != 0).to_string() +
+  ",\"lxx\":" +
+  ((e.flags & 2) != 0).to_string() +
+  ",\"freq_band\":" +
+  (e.flags >> 2).to_string() +
+  "}"
 }
 
 ///|

@@ -104,7 +104,7 @@ pub fn tokenize(s : String) -> Array[String] {
       i += 1
       continue
     }
-    let sb = StringBuilder::new()
+    let sb = StringBuilder()
     sb.write_char(c)
     i += 1
     if i + 1 < cs.length() &&
@@ -198,7 +198,7 @@ fn align(
       j -= 1
     }
   }
-  path.rev_inplace()
+  path.rev_in_place()
   (path, d[n][m])
 }
 
@@ -287,7 +287,7 @@ pub fn detect_text(ipa_s : String, text : String) -> Detection {
   let costs : Array[Double] = []
   for s in 0..<ns {
     let (path, cost) = align(obs, exp[s].map(fn(x) { fold(x.p) }))
-    let seg : Map[Int32, Array[String]] = {}
+    let seg : Map[Int32, Array[String]] = Map([])
     for pr in path {
       let (io, je) = pr
       if io >= 0 && je >= 0 {
@@ -310,7 +310,7 @@ pub fn detect_text(ipa_s : String, text : String) -> Detection {
   let us : Array[Map[Int32, (String, Array[Int32])]] = []
   let all : Array[Int32] = []
   for s in 0..<ns {
-    let d : Map[Int32, (String, Array[Int32])] = {}
+    let d : Map[Int32, (String, Array[Int32])] = Map([])
     for k, x in exp[s] {
       if x.tag != "" {
         let key = uid_key(x.w, x.u)
@@ -345,7 +345,7 @@ pub fn detect_text(ipa_s : String, text : String) -> Detection {
     if !is_diag(tag) {
       continue
     }
-    let hb = StringBuilder::new()
+    let hb = StringBuilder()
     match us[rf].get(key) {
       Some(v) =>
         for k in v.1 {
@@ -365,7 +365,7 @@ pub fn detect_text(ipa_s : String, text : String) -> Detection {
     for s in 0..<ns {
       match us[s].get(key) {
         Some(v) => {
-          let pb = StringBuilder::new()
+          let pb = StringBuilder()
           for k in v.1 {
             pb.write_string(fold(exp[s][k].p))
           }
@@ -432,12 +432,15 @@ fn p_heard(tag : String, pred : String, heard : String) -> Double {
   let p0 = if heard == pred { hit } else { (1.0 - hit) / 30.0 }
   let pb = match ct_preds_total.get(pred) {
     Some(n) =>
-      (ct_preds.get(pred + "\t" + heard).unwrap_or(0).to_double() + a2 * p0) / (n.to_double() + a2)
+      (ct_preds.get(pred + "\t" + heard).unwrap_or(0).to_double() + a2 * p0) /
+      (n.to_double() + a2)
     None => p0
   }
   let k = tag + "\t" + pred
   match ct_units_total.get(k) {
-    Some(n) => (ct_units.get(k + "\t" + heard).unwrap_or(0).to_double() + a1 * pb) / (n.to_double() + a1)
+    Some(n) =>
+      (ct_units.get(k + "\t" + heard).unwrap_or(0).to_double() + a1 * pb) /
+      (n.to_double() + a1)
     None => pb
   }
 }
@@ -452,13 +455,16 @@ fn noisy_lm(s : Int32) -> (Map[String, Double], Map[String, Double]) {
     let hit_lm = 0.7
     let a = 5.0
     let v = nl_vocab.length().to_double()
-    let cf : Map[String, Array[(String, Double)]] = {}
+    let cf : Map[String, Array[(String, Double)]] = Map([])
     for e in nl_vocab {
       let n = ct_phones_total.get(e).unwrap_or(0).to_double()
       let d : Array[(String, Double)] = []
       for h in nl_vocab {
         let base = if h == e { hit_lm } else { (1.0 - hit_lm) / v }
-        let x = (ct_phones.get(e + "\t" + h).unwrap_or(0).to_double() + a * base) / (n + a)
+        let x = (
+            ct_phones.get(e + "\t" + h).unwrap_or(0).to_double() + a * base
+          ) /
+          (n + a)
         if x > 1.0e-4 {
           d.push((h, x))
         }
@@ -467,8 +473,8 @@ fn noisy_lm(s : Int32) -> (Map[String, Double], Map[String, Double]) {
     }
     for si in 0..<schemes.length() {
       let (big0, _) = lm_tables(si)
-      let big : Map[String, Double] = {}
-      let uni : Map[String, Double] = {}
+      let big : Map[String, Double] = Map([])
+      let uni : Map[String, Double] = Map([])
       for k, c in big0 {
         let parts = split_spaces(k)
         let e1 = parts[0]
@@ -520,7 +526,6 @@ pub fn detect_free(ipa_s : String) -> Detection {
       let ca = uni.get(obs[i]).unwrap_or(0.0)
       tot += @math.ln((cab + 0.5) / (ca + 0.5 * vs))
     }
-    let n = if obs.length() - 1 > 1 { obs.length() - 1 } else { 1 }
     ll[s] = tot
   }
   {

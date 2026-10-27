@@ -1,0 +1,46 @@
+{
+  "name": "greek-phonology",
+  "version": "0.2.0",
+  "description": "Ancient Greek to IPA in four pronunciation schemes, pronunciation-scheme detection, syllables and accents. MoonBit build (JS + Wasm), no dependencies.",
+  "type": "module",
+  "main": "./index.js",
+  "types": "./index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./index.d.ts",
+      "default": "./index.js"
+    },
+    "./greek-phonology.wasm": "./greek-phonology.wasm",
+    "./greek-phonology-lexicon.bin": "./greek-phonology-lexicon.bin"
+  },
+  "files": [
+    "index.js",
+    "index.d.ts",
+    "greek-phonology.cjs",
+    "greek-phonology.wasm",
+    "greek-phonology-lexicon.bin",
+    "README.md",
+    "LICENSE"
+  ],
+  "keywords": [
+    "greek",
+    "ancient-greek",
+    "koine",
+    "ipa",
+    "phonology",
+    "pronunciation",
+    "erasmian",
+    "wasm"
+  ],
+  "license": "MIT",
+  "author": "Aaron Shafovaloff",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aaronshaf/greek-phonology.git"
+  },
+  "homepage": "https://aaronshaf.github.io/greek-phonology/",
+  "bugs": "https://github.com/aaronshaf/greek-phonology/issues",
+  "engines": {
+    "node": ">=18"
+  }
+}

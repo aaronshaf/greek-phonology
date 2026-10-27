@@ -35,6 +35,21 @@ What the library does: standard Athenian values, with μπ ντ γκ as digraphs
 - **Small gaps:** σ is not voiced to [z] before voiced consonants (κόσμος [ˈkozmos]). Medial μπ/ντ, which many speakers say as [mb]/[nd], is not prenasalized.
   **Done (Oct 2026), Modern only:** σ/ς becomes [z] before β γ δ μ ν λ ρ (κόσμος [k o z m o s]).
 
+### υι, and Erasmian ευ
+
+What the library emits for υι (checked on `υἱός`; the `h` below is the rough breathing, not part of υι):
+
+| scheme | υι | `υἱός` |
+|---|---|---|
+| Modern | [i] | `i o s` |
+| Koine | [y] | `y o s` |
+| Attic | [y i] | `h y i o s` |
+| Erasmian | [w i] | `h w i o s` |
+
+Attic scholarship disagrees about this sequence: a diphthong [yi], especially before a vowel, versus an early monophthong [yː] (Allen's discussion of υἱός). The library keeps the diphthong [y i]. Erasmian [w i] is the usual US seminary classroom value, not a reconstructed [yi]. Koine is the monophthong [y]. None of these notes change the output.
+
+Erasmian ευ is [ju] (`εὐαγγέλιον` → `j u a ŋ g e l i o n`), the common North American classroom value. A reconstructed [eu] is a different convention, and this scheme does not emit it.
+
 ## 2. Accent rules and sandhi
 - The law of limitation, recessive accent, grave before a following word, and the enclitic rules follow Smyth, *Greek Grammar* §§149–187 (rev. Messing, 1956; text at <https://www.perseus.tufts.edu/>), and Probert, *A New Short Guide to the Accentuation of Ancient Greek* (Bristol Classical Press, 2003). These cover: an extra acute on a proparoxytone or properispomenon before an enclitic, a two-syllable enclitic keeping its accent after a paroxytone, and the acute kept on an oxytone before an enclitic. **Agrees.**
 - **Edition conventions:** SBLGNT and Rahlfs write the acute, not the grave, before punctuation, and interrogative τίς/τί never takes a grave. The phrase code follows the SBLGNT text, which it reproduces on round trip.

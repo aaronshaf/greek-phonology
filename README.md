@@ -2,7 +2,7 @@
 
 [![npm](https://img.shields.io/npm/v/greek-phonology)](https://www.npmjs.com/package/greek-phonology)
 
-greek-phonology helps you work with how Ancient Greek sounds. It turns Greek text into IPA under four pronunciation schemes (Modern, Koine, restored Attic, Erasmian), and guesses which scheme a speaker used from their IPA. It also splits words into syllables, checks and places accents, and looks words up in a built-in New Testament and Septuagint word list. It is written in [MoonBit](https://www.moonbitlang.com) and ships as WebAssembly and JavaScript, with no server and no dependencies. Try it in the [playground](docs/index.html).
+greek-phonology helps you work with how Ancient Greek sounds. It turns Greek text into IPA under four pronunciation schemes (Modern, Koine, restored Attic, Erasmian), and guesses which scheme a speaker used from their IPA. It also splits words into syllables, checks and places accents, and looks words up in a built-in New Testament and Septuagint word list. It is written in [MoonBit](https://www.moonbitlang.com) and ships as WebAssembly and JavaScript, with no server and no dependencies. Try it in the [playground](https://aaronshaf.github.io/greek-phonology/).
 
 ## Install
 
@@ -39,7 +39,7 @@ curl -fsSL https://cli.moonbitlang.com/install/unix.sh | bash
 cd moonbit && ./tools/build_pages.sh   # writes docs/greek-phonology.{wasm,js} and the word list
 ```
 
-The word list (`greek-phonology-lexicon.bin`, 168 KB gzipped, bundled in the package) is optional. Load it once (`loadLexicon()`) to turn on `lookup` and to restore accents and breathings on bare input before G2P.
+A release wasm build is 178,373 bytes (66,993 bytes gzipped) with moon 0.1.20261023. `docs/greek-phonology.wasm` is the copy the playground serves and can lag that build; the informational verify workflow compares them and only warns. The word list (`greek-phonology-lexicon.bin`, 370,483 bytes, 167,674 bytes gzipped) is optional. Load it once (`loadLexicon()`) to turn on `lookup` and to restore accents and breathings on bare input before G2P.
 
 ## Functions
 
@@ -72,7 +72,7 @@ Every function below can be called through `call(name, arg, arg2)`. The most com
 
 ## What's proven
 
-`moon prove` machine-checks these (184 goals in `moonbit/kernel`, up from 54). The library's real code paths call these proved functions:
+`moon prove` machine-checks these. With moon 0.1.20261023 and Z3 4.13.0 the verifier reports **193** proved goals (193 valid, none invalid or timed out). The count depends on the MoonBit and Z3 versions: a 2026-10-27 check with moon 0.1.20261021 and Z3 5.3.2 reported 158, and the old "184 goals" figure is not what either pairing prints. The informational verify workflow prints the count for the toolchain it actually installed. The library's real code paths call these proved functions:
 
 - **Syllables:** every syllable has exactly one vowel, the pieces rejoin to the word, and an onset never takes more consonants than are legal or available.
 - **Law of limitation:** the accent checker matches the rule exactly, and the recessive accent used by `accentuate_verb` and `conjugate` always lands where the rule allows.
@@ -91,6 +91,22 @@ Tested, not proven:
 - `without_accents` and `syllabify` give the same syllables in either order. The exception is diaeresis, which marks a syllable break, so removing it rightly changes the split.
 
 Parity tests compare the library with the original TypeScript (its outputs are frozen in `moonbit/tests/kl_golden.json.gz`; run `node moonbit/tools/kl_parity.cjs`).
+
+## Layout
+
+- `moonbit/kernel/` — proved core (`moon prove`), split across `syllable.mbt`, `law.mbt`, `contract.mbt`, `phrase.mbt`, `detect_arith.mbt`, and `g2p_core.mbt`. The prover still uses one logic file, `spec.mbtp`.
+- `moonbit/lib/` — syllables (`syllable.mbt`), accents (`accent.mbt`), G2P (`g2p.mbt`), morphology (`morph.mbt`), marks (`marks.mbt`), `call_json` (`call.mbt`), the lexicon, and JSON. Reusable logic lives here, not in the playground.
+- `moonbit/api/` — WebAssembly byte ABI and the JavaScript exports.
+- `moonbit/tests/` — property tests and the `ipa()` golden snapshot.
+- `moonbit/tools/` — generators, the Pages build, and the golden and verify scripts.
+- `moonbit/data/` — the lexicon blob and the word counts used to build the detector tables.
+- `docs/` — the GitHub Pages playground (`index.html`, `app.js`) plus committed wasm, JS, and lexicon copies, and [RESEARCH.md](docs/RESEARCH.md).
+- `notes/` — working notes. The build does not read them.
+- `packages/npm/` — npm package source (`package.json`, `index.js`, `index.d.ts`). `moonbit/tools/build_npm.sh` copies the release JS, wasm, and lexicon in. Nothing here publishes to npm.
+
+## Versioning
+
+`moonbit/moon.mod` and the npm package `greek-phonology` use the same version number. Published npm releases are 0.1.0 (2026-10-22 18:08Z) and 0.2.0 (2026-10-22 20:05Z); see [CHANGELOG.md](CHANGELOG.md). This repository has no git tags. Creating tags is a separate push and is not done from documentation changes. The proved-goal count is not a version: CI prints whatever the installed MoonBit and Z3 report.
 
 ## Data
 

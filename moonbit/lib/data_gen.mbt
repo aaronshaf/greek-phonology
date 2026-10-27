@@ -297,10 +297,7 @@ fn decomp(c : Char) -> String {
 }
 
 ///|
-let lm_vocab_size : Int = 30
-
-///|
-let lm_bigram_0 : Map[String, Int] = {
+let lm_bigram_0 : Map[String, Int32] = {
   "a a": 1982,
   "a e": 338,
   "a f": 43734,
@@ -658,7 +655,7 @@ let lm_bigram_0 : Map[String, Int] = {
 }
 
 ///|
-let lm_unigram_0 : Map[String, Int] = {
+let lm_unigram_0 : Map[String, Int32] = {
   "a": 285395,
   "b": 1252,
   "d": 21540,
@@ -685,7 +682,7 @@ let lm_unigram_0 : Map[String, Int] = {
 }
 
 ///|
-let lm_bigram_1 : Map[String, Int] = {
+let lm_bigram_1 : Map[String, Int32] = {
   "a a": 1982,
   "a e": 3673,
   "a f": 40265,
@@ -989,7 +986,7 @@ let lm_bigram_1 : Map[String, Int] = {
 }
 
 ///|
-let lm_unigram_1 : Map[String, Int] = {
+let lm_unigram_1 : Map[String, Int32] = {
   "a": 285395,
   "e": 394551,
   "f": 48767,
@@ -1012,7 +1009,7 @@ let lm_unigram_1 : Map[String, Int] = {
 }
 
 ///|
-let lm_bigram_2 : Map[String, Int] = {
+let lm_bigram_2 : Map[String, Int32] = {
   "a a": 1984,
   "a b": 6906,
   "a d": 5172,
@@ -1297,7 +1294,7 @@ let lm_bigram_2 : Map[String, Int] = {
 }
 
 ///|
-let lm_unigram_2 : Map[String, Int] = {
+let lm_unigram_2 : Map[String, Int32] = {
   "a": 400616,
   "b": 26580,
   "d": 67606,
@@ -1320,7 +1317,7 @@ let lm_unigram_2 : Map[String, Int] = {
 }
 
 ///|
-let lm_bigram_3 : Map[String, Int] = {
+let lm_bigram_3 : Map[String, Int32] = {
   "a a": 1984,
   "a b": 6906,
   "a d": 5342,
@@ -1654,7 +1651,7 @@ let lm_bigram_3 : Map[String, Int] = {
 }
 
 ///|
-let lm_unigram_3 : Map[String, Int] = {
+let lm_unigram_3 : Map[String, Int32] = {
   "a": 397372,
   "b": 26876,
   "d": 60888,
@@ -1677,4 +1674,3 @@ let lm_unigram_3 : Map[String, Int] = {
   "z": 6835,
   "θ": 52417,
 }
-

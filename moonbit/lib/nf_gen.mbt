@@ -477,4 +477,3 @@ fn nfc_lookup(s : String) -> Char? {
     _ => None
   }
 }
-

@@ -1,6 +1,6 @@
 name = "aaronshaf/greek-phonology"
 
-version = "0.1.0"
+version = "0.2.0"
 
 readme = "README.md"
 
@@ -8,6 +8,6 @@ license = "MIT"
 
 keywords = [ "greek", "ipa", "pronunciation", "phonology" ]
 
-description = "Identify the Ancient Greek reading scheme (Modern, Byzantine, Koine, restored Attic, Erasmian) from IPA phones"
+description = "Ancient Greek to IPA in four pronunciation schemes, scheme detection, syllables and accents"
 
 preferred_target = "wasm"
