@@ -20,6 +20,7 @@ loadLexicon();                                 // optional: enables lookup() and
 Schemes: `"modern"`, `"koine"`, `"attic"`, `"erasmian"`. Phones are separated by spaces, words by `|`.
 `g2p(text, scheme, flags)` is the same reading split into grapheme units. `alts` and `ctx` are optional flags and default off; neither changes `ipa()`. Koine word-final αυ/ευ/ηυ is [v].
 `phoneDistance`, `phoneCredit`, `hearingCredit`, `unitHearingCredit`, and `distTable` score a heard phone against a target. The learner goal (`strict`, `gracious`, `lenient`) changes acceptance and credit only. `gracious` is the default. `creditLevel` maps a combined credit to a display level (cutoffs 8, 30, 60, 85, and 95 percent). `schemeId` turns a long scheme id into `modern`, `koine`, `attic`, or `erasmian`.
+`alignPhonesJson` aligns a recognizer posterior to target phones (restarts, skips, repeats, stray sounds) and does not affect `ipa()`.
 The detector uses no audio data: a simple prior over recognizer confusions plus phone-bigram tables from SBLGNT and Rahlfs LXX word counts.
 `greek-phonology.wasm` (byte-buffer ABI, see the repo's `docs/app.js`) is included for browsers and other hosts.
 
