@@ -148,7 +148,9 @@ pub(all) struct G2pAlt {
 
 pub(all) struct G2pOpts {
   alts : Bool
+  cross_word : Bool
 }
+pub fn G2pOpts::contextual() -> Self
 pub fn G2pOpts::plain() -> Self
 pub fn G2pOpts::with_alts() -> Self
 

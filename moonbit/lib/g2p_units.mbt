@@ -10,16 +10,24 @@
 ///|
 pub(all) struct G2pOpts {
   alts : Bool
+  cross_word : Bool
 }
 
 ///|
 pub fn G2pOpts::plain() -> G2pOpts {
-  { alts: false }
+  { alts: false, cross_word: false }
 }
 
 ///|
 pub fn G2pOpts::with_alts() -> G2pOpts {
-  { alts: true }
+  { alts: true, cross_word: false }
+}
+
+///|
+/// Word-final αυ/ευ/ηυ takes the next word's first letter into account.
+/// Off by default, and `ipa()` never reads this flag.
+pub fn G2pOpts::contextual() -> G2pOpts {
+  { alts: false, cross_word: true }
 }
 
 ///|
@@ -423,13 +431,119 @@ pub fn g2p_words_opts(
   if s < 0 {
     return []
   }
-  let out : Array[G2pWord] = []
+  let built : Array[G2pWord] = []
   for w in split_ws(text) {
-    let word = one_word(w, s)
-    if opts.alts {
-      out.push(with_grapheme_alts(word, scheme))
+    built.push(one_word(w, s))
+  }
+  let voiced = if opts.cross_word {
+    apply_cross_word(built, s)
+  } else {
+    built
+  }
+  if !opts.alts {
+    return voiced
+  }
+  let out : Array[G2pWord] = []
+  for w in voiced {
+    out.push(with_grapheme_alts(w, scheme))
+  }
+  out
+}
+
+///|
+fn letter_voiceless(c : Char) -> Bool {
+  // Same letters as kernel g_voiceless. ς is already folded to σ.
+  match c {
+    'π' | 'κ' | 'τ' | 'φ' | 'θ' | 'χ' | 'σ' | 'ξ' | 'ψ' => true
+    _ => false
+  }
+}
+
+///|
+fn first_base(w : G2pWord) -> Char? {
+  for u in w.units {
+    for c in unit_key(u.t) {
+      return Some(c)
+    }
+  }
+  None
+}
+
+///|
+fn with_coda(u : G2pUnit, coda : String) -> G2pUnit {
+  let ph : Array[String] = []
+  let last = u.ph.length() - 1
+  for i, p in u.ph {
+    if i == last {
+      ph.push(coda)
     } else {
-      out.push(word)
+      ph.push(p)
+    }
+  }
+  {
+    t: u.t,
+    k: u.k,
+    ph,
+    from: u.from,
+    to: u.to,
+    restored: u.restored,
+    asp: u.asp,
+    ctx: u.ctx,
+    alts: [],
+  }
+}
+
+///|
+fn retarget_final_au(w : G2pWord, coda : String) -> G2pWord {
+  let mut idx = -1
+  for i, u in w.units {
+    if u.ctx == "word-end" && u.ph.length() > 0 {
+      let last = u.ph[u.ph.length() - 1]
+      if last == "f" || last == "v" {
+        idx = i
+      }
+    }
+  }
+  if idx < 0 {
+    return w
+  }
+  let units : Array[G2pUnit] = []
+  for i, u in w.units {
+    if i == idx {
+      units.push(with_coda(u, coda))
+    } else {
+      units.push(u)
+    }
+  }
+  {
+    text: w.text,
+    form: w.form,
+    form_used: w.form_used,
+    phones: flat_phones(units),
+    units,
+  }
+}
+
+///|
+/// Koine and Modern only. Phrase-final αυ/ευ/ηυ keeps the isolated target
+/// (Koine v, Modern f). A following voiceless letter selects f; a vowel or
+/// a voiced letter selects v. Attic and Erasmian are unchanged.
+fn apply_cross_word(words : Array[G2pWord], s : Int32) -> Array[G2pWord] {
+  if s != 0 && s != 1 {
+    return words
+  }
+  let out : Array[G2pWord] = []
+  for i, w in words {
+    if i + 1 >= words.length() {
+      out.push(w)
+      continue
+    }
+    match first_base(words[i + 1]) {
+      None => out.push(w)
+      Some(c) => {
+        let coda = if letter_voiceless(c) { "f" } else { "v" }
+        out.push(retarget_final_au(w, coda))
+      }
     }
   }
   out
@@ -587,17 +701,21 @@ fn word_json_g2p(w : G2pWord, alts : Bool) -> String {
 ///|
 fn opts_of(flags : String) -> G2pOpts {
   let mut alts = false
+  let mut cross_word = false
   for part in flags.split(",") {
     let p = part.to_owned()
     if p == "alts" || p == "alts=1" {
       alts = true
+    } else if p == "ctx" || p == "ctx=1" {
+      cross_word = true
     }
   }
-  { alts, }
+  { alts, cross_word, }
 }
 
 ///|
-/// JSON for `g2p_words`. `flags` is a comma list; `alts` adds an `alts` array on each unit.
+/// JSON for `g2p_words`. `flags` is a comma list. `alts` adds an `alts` array on each unit.
+/// `ctx` voices word-final αυ/ευ/ηυ from the next word. Default flags change nothing.
 pub fn g2p_json_flags(text : String, scheme : String, flags : String) -> String {
   let opts = opts_of(flags)
   let sname = scheme
