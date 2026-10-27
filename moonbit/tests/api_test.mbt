@@ -16,7 +16,7 @@ test "every call_json name returns JSON other than null for a sample word" {
 }
 
 ///|
-test "run_str commands 0, 1, 2, 4 and 5" {
+test "run_str commands 0, 1, 2, 4, 5 and 6" {
   let det = @api.run_str(0, "l o ɣ o s", "λόγος")
   assert_true(det.has_prefix("{\"mode\":"))
   assert_eq(@api.run_str(1, "θεός", "attic"), "tʰ e o s")
@@ -27,4 +27,7 @@ test "run_str commands 0, 1, 2, 4 and 5" {
     "\"ανθρωπος\"",
   )
   assert_eq(@api.run_str(5, "ipa", "θεός\u{1}attic"), "\"tʰ e o s\"")
+  let g = @api.run_str(6, "θεός", "attic")
+  assert_true(g.has_prefix("{\"v\":1,\"scheme\":\"attic\""))
+  assert_true(g.contains("\"phones\":[\"tʰ\",\"e\",\"o\",\"s\"]"))
 }

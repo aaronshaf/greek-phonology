@@ -38,11 +38,21 @@ pub fn detect_free(String) -> Detection
 
 pub fn detect_text(String, String) -> Detection
 
+pub fn dist_table_json(String) -> String
+
 pub fn extract_consonant_clusters(String) -> Array[String]
 
 pub fn fold(String) -> String
 
 pub fn g2p_index(String, Int32) -> Array[Phone]
+
+pub fn g2p_json(String, String) -> String
+
+pub fn g2p_json_flags(String, String, String) -> String
+
+pub fn g2p_words(String, String) -> Array[G2pWord]
+
+pub fn g2p_words_opts(String, String, G2pOpts) -> Array[G2pWord]
 
 pub fn ipa(String, String) -> String
 
@@ -59,6 +69,18 @@ pub fn lexicon_size() -> Int32
 pub fn load_lexicon(Array[Int32]) -> Int32
 
 pub fn lookup_json(String) -> String
+
+pub fn phone_credit(String, Array[String], Array[Double], String, String) -> PhoneCredit
+
+pub fn phone_credit_json(String, String, String, String) -> String
+
+pub fn phone_distance(String, String, String, String) -> PhoneDistance
+
+pub fn phone_distance_json(String, String, String, String) -> String
+
+pub fn phone_known(String) -> Bool
+
+pub fn phone_label(String) -> PhoneLabel
 
 pub fn recessive_accent(String) -> (Int32, String)?
 
@@ -97,6 +119,14 @@ pub fn word_json(String) -> String
 // Errors
 
 // Types and methods
+pub(all) struct CreditHit {
+  phone : String
+  p : Double
+  sim : Double
+  d : Double
+  tier : String
+}
+
 pub(all) struct Detection {
   mode : String
   probs : Array[Double]
@@ -108,6 +138,42 @@ pub(all) struct Detection {
 }
 pub fn Detection::to_json_string(Self) -> String
 
+pub(all) struct G2pAlt {
+  heard : Array[String]
+  tier : String
+  d : Double
+  note : String
+  src : String
+}
+
+pub(all) struct G2pOpts {
+  alts : Bool
+  cross_word : Bool
+}
+pub fn G2pOpts::contextual() -> Self
+pub fn G2pOpts::plain() -> Self
+pub fn G2pOpts::with_alts() -> Self
+
+pub(all) struct G2pUnit {
+  t : String
+  k : String
+  ph : Array[String]
+  from : Int32
+  to : Int32
+  restored : Bool
+  asp : Bool
+  ctx : String
+  alts : Array[G2pAlt]
+}
+
+pub(all) struct G2pWord {
+  text : String
+  form : String
+  form_used : String
+  phones : Array[String]
+  units : Array[G2pUnit]
+}
+
 pub(all) struct GUnit {
   u : String
   marks : Array[Char]
@@ -118,6 +184,29 @@ pub(all) struct Phone {
   tag : String
   w : Int32
   u : Int32
+}
+
+pub(all) struct PhoneCredit {
+  exact : Double
+  near : Double
+  combined : Double
+  best : CreditHit?
+}
+
+pub(all) struct PhoneDistance {
+  d : Double
+  sim : Double
+  tier : String
+  note : String
+  advice : String
+  said : PhoneLabel
+  target : PhoneLabel
+}
+
+pub(all) struct PhoneLabel {
+  say : String
+  ex : String
+  kind : String
 }
 
 // Type aliases

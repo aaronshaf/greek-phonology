@@ -1,4 +1,5 @@
 import {
   "aaronshaf/greek-phonology/kernel",
   "moonbitlang/core/math",
+  "moonbitlang/core/string",
 }

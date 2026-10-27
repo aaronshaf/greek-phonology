@@ -106,7 +106,7 @@ fn g_front(
 
 ///|
 /// Modern αυ ευ ηυ: f before a voiceless consonant or at the end, else v.
-fn g_koine_vl(
+fn g_modern_vl(
   bs : FixedArray[Int32],
   f : Int32,
 ) -> Bool where {
@@ -183,6 +183,8 @@ pub fn g_diph_seq(
   proof_require: 0 <= s && s <= 3,
   proof_require: 0 <= i && i + 1 < bs.length(),
   proof_ensure: result => seq_ok(s, result),
+  proof_ensure: result =>
+    koine_word_final_v(s, bs.length(), i, bs[i], bs[i + 1], result),
 } {
   let a = bs[i]
   let b = bs[i + 1]
@@ -240,7 +242,7 @@ pub fn g_diph_seq(
       5
     } else {
       let head = if a == 0x3B1 { 1 } else if a == 0x3B5 { 2 } else { 3 }
-      head + 64 * (if g_koine_vl(bs, i + 2) { 18 } else { 19 })
+      head + 64 * (if g_modern_vl(bs, i + 2) { 18 } else { 19 })
     }
   } else if ai {
     7
@@ -252,8 +254,20 @@ pub fn g_diph_seq(
     5
   } else {
     let head = if a == 0x3B1 { 1 } else if a == 0x3B5 { 7 } else { 2 }
-    let vl = i + 2 < bs.length() && g_voiceless(bs[i + 2])
-    head + 64 * (if vl { 18 } else { 20 })
+    // Word-final αυ/ευ/ηυ is v, the beta-type fricative the letter β already uses.
+    // f is a tolerated hearing, not the target. Before a voiceless consonant: f.
+    // Before a vowel or a voiced consonant: β (unchanged; word-final is the
+    // only position Aaron settled, 2026-10-27).
+    let at_end = i + 2 >= bs.length()
+    let vl = !at_end && g_voiceless(bs[i + 2])
+    let coda = if vl {
+      18
+    } else if at_end {
+      19
+    } else {
+      20
+    }
+    head + 64 * coda
   }
 }
 

@@ -1,8 +1,27 @@
 // Local smoke test for the built package. Not part of the published file list.
 import assert from "node:assert/strict";
-import { ipa, detect, call, loadLexicon, lookup, word } from "./index.js";
+import { ipa, g2p, phoneDistance, phoneCredit, distTable, detect, call, loadLexicon, lookup, word } from "./index.js";
 
 assert.equal(ipa("θεός", "attic"), "tʰ e o s");
+const units = g2p("αι", "modern");
+assert.equal(units.v, 1);
+assert.equal(units.words[0].units.map((u) => u.t).join(""), "αι");
+assert.equal(units.words[0].phones.join(" "), ipa("αι", "modern"));
+assert.equal(g2p("εὖ", "koine").words[0].phones.join(" "), "ɛ v");
+assert.equal(ipa("εὖ τοῦ", "koine"), "ɛ v | t u");
+assert.equal(g2p("εὖ τοῦ", "koine", "ctx").words[0].phones.join(" "), "ɛ f");
+const near = phoneDistance("ð", "d", "koine", "gracious");
+const strict = phoneDistance("ð", "d", "koine", "strict");
+assert.equal(near.tier, "tolerated");
+assert.equal(strict.tier, "not-a-match");
+assert.equal(strict.note, near.note);
+assert.equal(strict.advice, near.advice);
+assert.equal(strict.d, near.d);
+assert.equal(phoneCredit("ð", "koine", "gracious", "d=0.55,z=0.41").best.phone, "z");
+assert.equal(distTable("koine").goal_default, "gracious");
+const alt = g2p("εὖ", "koine", "alts").words[0].units[0].alts.find((a) => a.heard.join(" ") === "ɛ f");
+assert.equal(alt.tier, "tolerated");
+assert.match(alt.note, /more accurate/);
 const detected = detect("e n | a r x i");
 assert.equal(typeof detected.probs.koine, "number");
 assert.equal(call("accentuate_verb", "λυομεν"), "λύομεν");

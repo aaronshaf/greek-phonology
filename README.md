@@ -29,7 +29,7 @@ import { readFileSync } from "node:fs";
 import { wasmPath } from "greek-phonology";
 const { instance } = await WebAssembly.instantiate(readFileSync(wasmPath), { spectest: { print_char() {} } });
 // in_clear(); in_push(byte)...; in_push(0); in_push(byte)...; n = run(cmd); out_get(0..n-1)
-// cmd 0 detect, 1 ipa, 2 word, 3 load word list, 4 lookup, 5 call(name, arg)
+// cmd 0 detect, 1 ipa, 2 word, 3 load word list, 4 lookup, 5 call(name, arg), 6 g2p_json
 ```
 
 ### Build from source
@@ -46,8 +46,12 @@ A release wasm build is 178,373 bytes (66,993 bytes gzipped) with moon 0.1.20261
 Every function below can be called through `call(name, arg, arg2)`. The most common ones also have their own JS functions.
 
 **Pronunciation**
-- `ipa(text, scheme)`: Greek to IPA. Phones are separated by spaces and words by `|`. `ipa("θεός", "attic")` → `tʰ e o s`. Attic follows Allen's 4th-century target (ου [uː], length shown where the spelling marks it, geminates as Cː), Erasmian χ is [x], and Modern voices σ to [z] before β γ δ μ ν λ ρ. See [docs/RESEARCH.md](docs/RESEARCH.md).
-- `detect(ipa, greek_text?)`: scheme probabilities, plus the evidence behind them. It is more reliable when you pass the Greek text. It allows for typical phone-recognizer mistakes, using a simple prior (the expected phone 80% of the time, any other phone uniformly otherwise); no audio data is used. Phone-bigram tables come from SBLGNT and Rahlfs LXX word counts.
+- `ipa(text, scheme)`: Greek to IPA. Phones are separated by spaces and words by `|`. `ipa("θεός", "attic")` → `tʰ e o s`. Attic follows Allen's 4th-century target (ου [uː], length shown where the spelling marks it, geminates as Cː), Erasmian χ is [x], and Modern voices σ to [z] before β γ δ μ ν λ ρ. Koine word-final αυ/ευ/ηυ is [v]; before a voiceless consonant it is [f], and medial before a vowel or voiced consonant it stays [β]. See [docs/RESEARCH.md](docs/RESEARCH.md).
+- `g2p(text, scheme, flags?)`: the same phones, plus one unit per grapheme. Concatenating `units[].t` gives the typed word back. `restored` is true when a phone used a mark the user did not type. Flags are a comma list: `alts` adds tolerated hearings, `ctx` voices word-final αυ/ευ/ηυ from the next word. Both are off by default, and neither changes `ipa()`. Wasm command 6. `g2p("αι", "modern")` → `{v:1, scheme:"modern", lib:"0.3.0", words:[{text:"αι", phones:["e"], units:[{t:"αι", k:"diph", ph:["e"], …}]}]}`.
+- `phoneDistance(target, heard, scheme?, goal?)`: graded distance between one target phone and one heard phone, for any recognizer's IPA. `goal` is `strict`, `gracious` (default), or `lenient`. It changes `tier` and `sim` only; `d`, `note`, and `advice` stay put. Tiers are `accurate`, `tolerated`, and `not-a-match`. Unknown phones return `not-a-match` and do not throw.
+- `phoneCredit(target, scheme, goal, posterior)`: credit for a comma list of `phone=weight` pairs. An exact hit outranks a near miss, and nothing outside the tolerated tier scores.
+- `distTable(scheme)`: the learner-goal thresholds, the scheme notes, and the curated grapheme alternates (Koine word-final [f] for αυ/ευ/ηυ, with a "more accurate" note; Erasmian υι [y i] beside the classroom [w i]).
+- `detect(ipa, greek_text?)`: scheme probabilities, plus the evidence behind them. It is more reliable when you pass the Greek text. It allows for typical phone-recognizer mistakes, using a simple prior (the expected phone 80% of the time, any other phone uniformly otherwise); no audio data is used. Phone-bigram tables come from SBLGNT and Rahlfs LXX word counts. The distance table does not feed the detector.
 - `lookup(word)`: finds a word in the NT/LXX list, ignoring case or accents if needed. `lookup("λογος")` → `{form: "λόγος", nt: true, lxx: true, ...}`
 
 **Syllables and accent**
@@ -76,7 +80,7 @@ Every function below can be called through `call(name, arg, arg2)`. The most com
 
 - **Syllables:** every syllable has exactly one vowel, the pieces rejoin to the word, and an onset never takes more consonants than are legal or available.
 - **Law of limitation:** the accent checker matches the rule exactly, and the recessive accent used by `accentuate_verb` and `conjugate` always lands where the rule allows.
-- **`ipa` (all four schemes):** the rules are finite tables plus a proved step function over code points. Every code point is consumed (each step advances 1 or 2 and the steps end exactly at the word's end), the step is a pure function, and every phone it emits is in that scheme's sound inventory. Attic vowel length (aː iː yː from a circumflex, macron or iota subscript) goes through a proved helper that stays in the Attic inventory; reading the marks and writing geminates as Cː is tested, not proven.
+- **`ipa` (all four schemes):** the rules are finite tables plus a proved step function over code points. Every code point is consumed (each step advances 1 or 2 and the steps end exactly at the word's end), the step is a pure function, and every phone it emits is in that scheme's sound inventory. Koine word-final αυ/ευ/ηυ emits [v]; that postcondition sits inside the existing `g_diph_seq` check, so this toolchain still reports 193 goals. Attic vowel length (aː iː yː from a circumflex, macron or iota subscript) goes through a proved helper that stays in the Attic inventory; reading the marks and writing geminates as Cː is tested, not proven. Grapheme-unit tiling and the distance table are tested, not proved.
 - **`contract`:** a table plus a proved step function over code points, with the `[ει]`/`[ου]` markers as single tokens. The output is never longer than the input, and every output token is a valid letter, mark or marker.
 - **Accent slots:** on a word as an array of syllables with per-vowel mark flags, the proved target picker chooses the last vowel of the target syllable. Rendering a phrase decision changes only that slot (grave, acute, circumflex or an extra acute). Undoing it gives back the dictionary marks exactly.
 - **Phrase accents** (`accentuate_phrase`): every per-word decision comes from one proved function. A grave appears only when an ordinary word follows. An extra acute appears only before an enclitic and only on a proparoxytone or properispomenon. A word never gets more than two accents. A two-syllable enclitic keeps its accent only after a paroxytone. Undoing the decision (as `lexical_phrase` does) gives back every ordinary word's dictionary accent.
@@ -95,9 +99,9 @@ Parity tests compare the library with the original TypeScript (its outputs are f
 ## Layout
 
 - `moonbit/kernel/` — proved core (`moon prove`), split across `syllable.mbt`, `law.mbt`, `contract.mbt`, `phrase.mbt`, `detect_arith.mbt`, and `g2p_core.mbt`. The prover still uses one logic file, `spec.mbtp`.
-- `moonbit/lib/` — syllables (`syllable.mbt`), accents (`accent.mbt`), G2P (`g2p.mbt`), morphology (`morph.mbt`), marks (`marks.mbt`), `call_json` (`call.mbt`), the lexicon, and JSON. Reusable logic lives here, not in the playground.
+- `moonbit/lib/` — syllables (`syllable.mbt`), accents (`accent.mbt`), G2P (`g2p.mbt`, `g2p_units.mbt`), the opt-in distance table (`phondist.mbt`), morphology (`morph.mbt`), marks (`marks.mbt`), `call_json` (`call.mbt`), the lexicon, and JSON. Reusable logic lives here, not in the playground.
 - `moonbit/api/` — WebAssembly byte ABI and the JavaScript exports.
-- `moonbit/tests/` — property tests and the `ipa()` golden snapshot.
+- `moonbit/tests/` — property tests, the `ipa()` golden snapshot, and the cross-word snapshot.
 - `moonbit/tools/` — generators, the Pages build, and the golden and verify scripts.
 - `moonbit/data/` — the lexicon blob and the word counts used to build the detector tables.
 - `docs/` — the GitHub Pages playground (`index.html`, `app.js`) plus committed wasm, JS, and lexicon copies, and [RESEARCH.md](docs/RESEARCH.md).
@@ -106,7 +110,7 @@ Parity tests compare the library with the original TypeScript (its outputs are f
 
 ## Versioning
 
-`moonbit/moon.mod` and the npm package `greek-phonology` use the same version number. Published npm releases are 0.1.0 (2026-10-22 18:08Z) and 0.2.0 (2026-10-22 20:05Z); see [CHANGELOG.md](CHANGELOG.md). This repository has no git tags. Creating tags is a separate push and is not done from documentation changes. The proved-goal count is not a version: CI prints whatever the installed MoonBit and Z3 report.
+`moonbit/moon.mod` and the npm package `greek-phonology` use the same version number. Published npm releases are 0.1.0 (2026-10-22 18:08Z) and 0.2.0 (2026-10-22 20:05Z). The working tree is 0.3.0 and has not been published; see [CHANGELOG.md](CHANGELOG.md). This repository has no git tags. Creating tags is a separate push and is not done from documentation changes. The proved-goal count is not a version: CI prints whatever the installed MoonBit and Z3 report.
 
 ## Data
 

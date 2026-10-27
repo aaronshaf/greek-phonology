@@ -15,6 +15,11 @@ options(
       "exports": [
         "detect_json",
         "ipa",
+        "g2p_json",
+        "g2p_json_flags",
+        "phone_distance_json",
+        "phone_credit_json",
+        "dist_table_json",
         "word_json",
         "lookup_json",
         "call",

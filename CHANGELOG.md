@@ -4,6 +4,11 @@ Versions match `moonbit/moon.mod` and the npm package `greek-phonology`. Git tag
 
 ## Unreleased
 
+- 0.3.0 is written in `moonbit/moon.mod` and `packages/npm/package.json`. It has not been published to npm.
+- `g2p_json` (wasm command 6) returns per-grapheme units that tile the typed word. The lexicon form supplies phones when it only restores marks. A unit is `restored` when a phone depended on a mark the user did not type (rough breathing, Attic length, iota subscript, or a diaeresis that split a diphthong). An acute or grave that does not change the phones is not `restored`.
+- Koine word-final αυ/ευ/ηυ is [v] in `ipa()`, the same phone as the letter β. [f] is a tolerated hearing, not the target. Before a voiceless consonant the target stays [f]. Medial, before a vowel or a voiced consonant, it stays [β]. Source: Aaron, 2026-10-27. The golden snapshot changes fifteen Koine cells, and no other column: Αζαυ, Ἠσαῦ, Ησαυ, Ναβαυ, Ρααυ, Ραγαυ, Σαβευ, Χασελευ, ἄνευ, αιλευ, βασιλεῦ, εὖ, θαυ, ἱερεῦ, ουαυ. Each was `… β` and is now `… v`.
+- Phonetic distance is opt-in (`phone_distance`, `phone_credit`, `dist_table`, and the `alts` flag on `g2p_json`). It is the playground's hand-weighted feature table. A learner goal (`strict`, `gracious`, `lenient`) changes the tier and the credit only. `gracious` is the default. `ipa()` does not call it.
+- Cross-word voicing is the `ctx` flag, default off. For Koine and Modern it sets word-final αυ/ευ/ηυ to [f] before a voiceless letter and [v] before a vowel or a voiced letter. Phrase-final output matches the isolated word. `ipa()` ignores the flag. A separate snapshot covers the flag-on phrases.
 - JSON results escape tab, carriage return, backspace, form feed, and every other code point below U+0020. Text without those characters is unchanged, including U+2028.
 - `ipa()` output for the current rules is frozen in `moonbit/tests/ipa_golden.tsv.gz`.
 - An informational GitHub Actions workflow reports `moon prove` and related checks and does not block merges.

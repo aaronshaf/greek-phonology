@@ -110,6 +110,14 @@ predicate in_inv(s : Int, id : Int) {
   (0 <= s) && (s <= 3) && if0(s, id) && if1(s, id) && if2(s, id) && if3(s, id)
 }
 predicate slot_ok(s : Int, p : Int) { (p == 0) || in_inv(s, p) }
+/// αυ / ευ / ηυ (alpha, epsilon or eta + upsilon).
+predicate au_eu_hu(a : Int, b : Int) {
+  (b == 965) && ((a == 945) || (a == 949) || (a == 951))
+}
+/// Koine word-final αυ/ευ/ηυ ends in v (phone 19), not β and not f.
+predicate koine_word_final_v(s : Int, n : Int, i : Int, a : Int, b : Int, q : Int) {
+  (s != 1) || ((i + 2) < n) || (au_eu_hu(a, b) == false) || (((q / 64) % 64) == 19)
+}
 /// A packed phone sequence p1 + 64*p2 + 4096*p3 (0 = no phone) uses only scheme s's phones.
 predicate seq_ok(s : Int, q : Int) {
   (0 <= q) && (q < 262144) && slot_ok(s, q % 64) && slot_ok(s, (q / 64) % 64) && slot_ok(s, q / 4096)
