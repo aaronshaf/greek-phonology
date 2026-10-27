@@ -19,6 +19,7 @@ let call_names : Array[String] = [
   "accentuate_verb", "accentuate_phrase", "lexical_phrase", "check_phrase_accents",
   "is_enclitic", "is_proclitic", "verb_stem", "augmentize", "conjugate", "syllabify",
   "word", "ipa", "g2p_json", "phone_distance", "phone_credit", "dist_table",
+  "hearing_credit", "unit_hearing_credit", "credit_level", "scheme_id",
   "lookup", "detect",
 ]
 
@@ -30,6 +31,12 @@ fn call_arg2(name : String) -> String {
     "d\u{1}koine\u{1}gracious"
   } else if name == "phone_credit" {
     "koine\u{1}gracious\u{1}d=0.55,z=0.41"
+  } else if name == "hearing_credit" {
+    "koine\u{1}gracious\u{1}d=0.55,z=0.41"
+  } else if name == "unit_hearing_credit" {
+    "koine\u{1}gracious\u{1}[[\"v\",1]]\u{1}-1"
+  } else if name == "credit_level" {
+    ""
   } else if name == "conjugate" {
     "future-active-indicative"
   } else if name == "detect" {
@@ -96,7 +103,7 @@ fn hex_digit(n : Int32) -> Char {
 ///|
 test "call_json, word_json, lookup_json and detect JSON contain no raw controls" {
   let nasty = "α\"\\\t\r\u{0001}\u{0008}\u{000C}\u{2028}β"
-  assert_eq(call_names.length(), 32)
+  assert_eq(call_names.length(), 36)
   for name in call_names {
     let out = @lib.call_json(name, nasty, call_arg2(name))
     assert_false(has_raw_control(out), msg=name + " => " + out)

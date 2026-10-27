@@ -185,6 +185,47 @@ pub fn dist_table_json(scheme : String) -> String {
 }
 
 ///|
+/// Credit and the best alternate note. `posterior` is `phone=weight` or a JSON candidate list.
+pub fn hearing_credit_json(
+  target : String,
+  posterior : String,
+  scheme : String,
+  goal : String,
+) -> String {
+  @lib.hearing_credit_json(target, posterior, scheme, goal)
+}
+
+///|
+/// Same as `hearing_credit_json` for a grapheme unit JSON (`ph` and `alts`). `at` is a phone index, or -1.
+pub fn unit_hearing_credit_json(
+  unit_json : String,
+  posterior : String,
+  scheme : String,
+  goal : String,
+  at : String,
+) -> String {
+  @lib.unit_hearing_credit_json(unit_json, posterior, scheme, goal, at)
+}
+
+///|
+/// Display level for a combined credit. `scale` is `close,light,medium,clear,deepest` percents, or empty for the defaults.
+pub fn credit_level_json(combined : Double, scale : String) -> String {
+  @lib.credit_level_json(combined, scale)
+}
+
+///|
+/// Default credit-level cutoffs, as percents.
+pub fn credit_scale_json() -> String {
+  @lib.credit_scale_json()
+}
+
+///|
+/// Short scheme id (`modern`, `koine`, `attic`, `erasmian`) for a page id or a long id. Unknown returns "".
+pub fn scheme_id(name : String) -> String {
+  @lib.scheme_id(name)
+}
+
+///|
 pub fn word_json(word : String) -> String {
   run_str(2, word, "")
 }
