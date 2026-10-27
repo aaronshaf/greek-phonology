@@ -79,7 +79,8 @@ fn utf8_encode(s : String) -> Unit {
 
 ///|
 /// cmd 0 detect(arg0 = ipa, arg1 = greek text, may be empty); 1 ipa(arg0 = text, arg1 = scheme); 2 word_json(arg0);
-/// 3 load_lexicon (raw bytes, via run only); 4 lookup_json(arg0); 5 call(name = arg0, arg1 = arg [\u{1} arg2]).
+/// 3 load_lexicon (raw bytes, via run only); 4 lookup_json(arg0); 5 call(name = arg0, arg1 = arg [\u{1} arg2]);
+/// 6 g2p_json(arg0 = text, arg1 = scheme [\u{1} flags]). Flags are a comma list; `alts` is opt-in.
 pub fn run_str(cmd : Int32, a0 : String, a1 : String) -> String {
   match cmd {
     0 => @lib.detect(a0, greek_text=a1).to_json_string()
@@ -97,6 +98,12 @@ pub fn run_str(cmd : Int32, a0 : String, a1 : String) -> String {
           ""
         },
       )
+    }
+    6 => {
+      let parts = a1.split("\u{1}").map(fn(v) { v.to_owned() }).collect()
+      let scheme = if parts.length() > 0 { parts[0] } else { "" }
+      let flags = if parts.length() > 1 { parts[1] } else { "" }
+      @lib.g2p_json_flags(a0, scheme, flags)
     }
     _ => @lib.word_json(a0)
   }
@@ -135,6 +142,12 @@ pub fn detect_json(ipa : String, greek_text : String) -> String {
 ///|
 pub fn ipa(text : String, scheme : String) -> String {
   run_str(1, text, scheme)
+}
+
+///|
+/// Grapheme units for `text` in `scheme`. `flags` is a comma list (`alts`).
+pub fn g2p_json(text : String, scheme : String) -> String {
+  run_str(6, text, scheme)
 }
 
 ///|

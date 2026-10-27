@@ -6,6 +6,8 @@ pub fn call(String, String, String) -> String
 
 pub fn detect_json(String, String) -> String
 
+pub fn g2p_json(String, String) -> String
+
 pub fn in_clear() -> Unit
 
 pub fn in_push(Int32) -> Unit

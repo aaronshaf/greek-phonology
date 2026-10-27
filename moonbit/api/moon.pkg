@@ -15,6 +15,7 @@ options(
       "exports": [
         "detect_json",
         "ipa",
+        "g2p_json",
         "word_json",
         "lookup_json",
         "call",

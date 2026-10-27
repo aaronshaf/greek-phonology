@@ -44,6 +44,14 @@ pub fn fold(String) -> String
 
 pub fn g2p_index(String, Int32) -> Array[Phone]
 
+pub fn g2p_json(String, String) -> String
+
+pub fn g2p_json_flags(String, String, String) -> String
+
+pub fn g2p_words(String, String) -> Array[G2pWord]
+
+pub fn g2p_words_opts(String, String, G2pOpts) -> Array[G2pWord]
+
 pub fn ipa(String, String) -> String
 
 pub fn is_enclitic(String) -> Bool
@@ -107,6 +115,39 @@ pub(all) struct Detection {
   phones : Int32
 }
 pub fn Detection::to_json_string(Self) -> String
+
+pub(all) struct G2pAlt {
+  heard : Array[String]
+  tier : String
+  d : Double
+  note : String
+  src : String
+}
+
+pub(all) struct G2pOpts {
+  alts : Bool
+}
+pub fn G2pOpts::plain() -> Self
+
+pub(all) struct G2pUnit {
+  t : String
+  k : String
+  ph : Array[String]
+  from : Int32
+  to : Int32
+  restored : Bool
+  asp : Bool
+  ctx : String
+  alts : Array[G2pAlt]
+}
+
+pub(all) struct G2pWord {
+  text : String
+  form : String
+  form_used : String
+  phones : Array[String]
+  units : Array[G2pUnit]
+}
 
 pub(all) struct GUnit {
   u : String

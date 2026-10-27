@@ -36,6 +36,12 @@ pub fn call_json(name : String, arg : String, arg2 : String) -> String {
     "syllabify" => syllabify_json(arg)
     "word" => word_json(arg)
     "ipa" => jstr(ipa(arg, arg2))
+    "g2p_json" => {
+      let parts = arg2.split("\u{1}").map(fn(v) { v.to_owned() }).collect()
+      let scheme = if parts.length() > 0 && parts[0] != "" { parts[0] } else { "" }
+      let flags = if parts.length() > 1 { parts[1] } else { "" }
+      g2p_json_flags(arg, scheme, flags)
+    }
     "lookup" => lookup_json(arg)
     "detect" => detect(arg, greek_text=arg2).to_json_string()
     _ => "null"
