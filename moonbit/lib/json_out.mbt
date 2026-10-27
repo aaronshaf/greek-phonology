@@ -1,9 +1,9 @@
 ///|
-fn hex_digit(n : Int) -> Char {
+fn hex_digit(n : Int32) -> Char {
   if n < 10 {
-    Int::unsafe_to_char(48 + n)
+    Int32::unsafe_to_char(48 + n)
   } else {
-    Int::unsafe_to_char(87 + n)
+    Int32::unsafe_to_char(87 + n)
   }
 }
 
@@ -12,7 +12,7 @@ fn hex_digit(n : Int) -> Char {
 /// (`\n` `\r` `\t` `\b` `\f`, otherwise `\u00XX`). Other characters, including
 /// U+2028, are copied unchanged so existing outputs stay byte-identical.
 fn jstr(s : String) -> String {
-  let sb = StringBuilder::new()
+  let sb = StringBuilder()
   sb.write_char('"')
   for c in s {
     let cp = c.to_int()
@@ -50,7 +50,7 @@ fn jnum(d : Double) -> String {
 ///|
 /// Detection as JSON: {"mode", "probs": {scheme: p}, "loglik": {...}, "evidence": {scheme: {tag: [hits, total]}}, "phones"}.
 pub fn Detection::to_json_string(self : Detection) -> String {
-  let sb = StringBuilder::new()
+  let sb = StringBuilder()
   sb.write_string("{\"mode\":" + jstr(self.mode))
   for k in ["probs", "loglik"] {
     let v = if k == "probs" { self.probs } else { self.loglik }
@@ -93,7 +93,7 @@ pub fn Detection::to_json_string(self : Detection) -> String {
 
 ///|
 pub fn syllabify_json(word : String) -> String {
-  let sb = StringBuilder::new()
+  let sb = StringBuilder()
   sb.write_char('[')
   for i, s in syllabify(word) {
     if i > 0 {

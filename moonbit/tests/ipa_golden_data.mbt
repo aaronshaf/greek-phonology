@@ -8275,4 +8275,4 @@ let ipa_golden_tsv : String =
   #|υἱῶν	i o n	y o n	h y i ɔː n	h w i o ʊ n
 
 ///|
-let _ipa_golden_rows : Int = ipa_golden_tsv.length()
+let _ipa_golden_rows : Int32 = ipa_golden_tsv.length()

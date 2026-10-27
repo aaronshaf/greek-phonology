@@ -5,14 +5,25 @@
 // Schemes: 0 modern, 1 koine, 2 attic, 3 erasmian.
 
 ///|
-pub fn g_vowel(c : Int32) -> Bool where {
+pub fn g_vowel(
+  c : Int32,
+) -> Bool where {
   proof_ensure: result => result == true || result == false,
 } {
-  c == 0x3B1 || c == 0x3B5 || c == 0x3B7 || c == 0x3B9 || c == 0x3BF || c == 0x3C5 || c == 0x3C9
+  c == 0x3B1 ||
+  c == 0x3B5 ||
+  c == 0x3B7 ||
+  c == 0x3B9 ||
+  c == 0x3BF ||
+  c == 0x3C5 ||
+  c == 0x3C9
 }
 
 ///|
-pub fn g_diph(a : Int32, b : Int32) -> Bool where {
+pub fn g_diph(
+  a : Int32,
+  b : Int32,
+) -> Bool where {
   proof_ensure: result => result == true || result == false,
 } {
   if b == 0x3B9 {
@@ -25,23 +36,43 @@ pub fn g_diph(a : Int32, b : Int32) -> Bool where {
 }
 
 ///|
-fn g_voiceless(c : Int32) -> Bool where {
+fn g_voiceless(
+  c : Int32,
+) -> Bool where {
   proof_ensure: result => result == true || result == false,
 } {
-  c == 0x3C0 || c == 0x3BA || c == 0x3C4 || c == 0x3C6 || c == 0x3B8 || c == 0x3C7 || c == 0x3C3 ||
-  c == 0x3BE || c == 0x3C8 || c == 0x3C2
+  c == 0x3C0 ||
+  c == 0x3BA ||
+  c == 0x3C4 ||
+  c == 0x3C6 ||
+  c == 0x3B8 ||
+  c == 0x3C7 ||
+  c == 0x3C3 ||
+  c == 0x3BE ||
+  c == 0x3C8 ||
+  c == 0x3C2
 }
 
 ///|
 /// β γ δ μ ν λ ρ: voiced consonants that voice a preceding σ in Modern Greek.
-fn g_voiced_cons(c : Int32) -> Bool where {
+fn g_voiced_cons(
+  c : Int32,
+) -> Bool where {
   proof_ensure: result => result == true || result == false,
 } {
-  c == 0x3B2 || c == 0x3B3 || c == 0x3B4 || c == 0x3BC || c == 0x3BD || c == 0x3BB || c == 0x3C1
+  c == 0x3B2 ||
+  c == 0x3B3 ||
+  c == 0x3B4 ||
+  c == 0x3BC ||
+  c == 0x3BD ||
+  c == 0x3BB ||
+  c == 0x3C1
 }
 
 ///|
-fn g_velar(c : Int32) -> Bool where {
+fn g_velar(
+  c : Int32,
+) -> Bool where {
   proof_ensure: result => result == true || result == false,
 } {
   c == 0x3BA || c == 0x3B3 || c == 0x3C7 || c == 0x3BE
@@ -49,7 +80,11 @@ fn g_velar(c : Int32) -> Bool where {
 
 ///|
 /// Is the sound at j a front vowel (or a front-gliding diphthong)?
-fn g_front(bs : FixedArray[Int32], dd : FixedArray[Int32], j : Int32) -> Bool where {
+fn g_front(
+  bs : FixedArray[Int32],
+  dd : FixedArray[Int32],
+  j : Int32,
+) -> Bool where {
   proof_require: 0 <= j,
   proof_require: bs.length() == dd.length(),
 } {
@@ -71,7 +106,10 @@ fn g_front(bs : FixedArray[Int32], dd : FixedArray[Int32], j : Int32) -> Bool wh
 
 ///|
 /// Modern αυ ευ ηυ: f before a voiceless consonant or at the end, else v.
-fn g_koine_vl(bs : FixedArray[Int32], f : Int32) -> Bool where {
+fn g_koine_vl(
+  bs : FixedArray[Int32],
+  f : Int32,
+) -> Bool where {
   proof_require: 0 <= f,
 } {
   if f >= bs.length() {
@@ -85,7 +123,10 @@ fn g_koine_vl(bs : FixedArray[Int32], f : Int32) -> Bool where {
 
 ///|
 /// Single vowel. Proved: only phones of scheme s.
-pub fn g_vowel_seq(s : Int32, c : Int32) -> Int32 where {
+pub fn g_vowel_seq(
+  s : Int32,
+  c : Int32,
+) -> Int32 where {
   proof_require: 0 <= s && s <= 3,
   proof_ensure: result => seq_ok(s, result),
 } {
@@ -96,13 +137,37 @@ pub fn g_vowel_seq(s : Int32, c : Int32) -> Int32 where {
   } else if c == 0x3BF {
     4
   } else if c == 0x3B5 {
-    if s == 1 { 7 } else { 2 }
+    if s == 1 {
+      7
+    } else {
+      2
+    }
   } else if c == 0x3B7 {
-    if s == 0 { 3 } else if s == 1 { 2 } else if s == 2 { 8 } else { 2 + 64 * 12 }
+    if s == 0 {
+      3
+    } else if s == 1 {
+      2
+    } else if s == 2 {
+      8
+    } else {
+      2 + 64 * 12
+    }
   } else if c == 0x3C5 {
-    if s == 0 { 3 } else if s == 3 { 5 } else { 6 }
+    if s == 0 {
+      3
+    } else if s == 3 {
+      5
+    } else {
+      6
+    }
   } else if c == 0x3C9 {
-    if s == 2 { 9 } else if s == 3 { 4 + 64 * 13 } else { 4 }
+    if s == 2 {
+      9
+    } else if s == 3 {
+      4 + 64 * 13
+    } else {
+      4
+    }
   } else {
     0
   }
@@ -110,7 +175,11 @@ pub fn g_vowel_seq(s : Int32, c : Int32) -> Int32 where {
 
 ///|
 /// Diphthong a+b starting at i (b at i+1). Proved: only phones of scheme s.
-pub fn g_diph_seq(s : Int32, bs : FixedArray[Int32], i : Int32) -> Int32 where {
+pub fn g_diph_seq(
+  s : Int32,
+  bs : FixedArray[Int32],
+  i : Int32,
+) -> Int32 where {
   proof_require: 0 <= s && s <= 3,
   proof_require: 0 <= i && i + 1 < bs.length(),
   proof_ensure: result => seq_ok(s, result),
@@ -125,14 +194,51 @@ pub fn g_diph_seq(s : Int32, bs : FixedArray[Int32], i : Int32) -> Int32 where {
   let au = a == 0x3B1 && b == 0x3C5
   let eu = a == 0x3B5 && b == 0x3C5
   if s == 2 {
-    if ai { 1 + 64 * 3 } else if ei { 10 } else if oi { 4 + 64 * 3 } else if yi { 6 + 64 * 3 }
-    else if ou { 44 } else if au { 1 + 64 * 5 } else if eu { 2 + 64 * 5 } else { 8 + 64 * 5 }
+    if ai {
+      1 + 64 * 3
+    } else if ei {
+      10
+    } else if oi {
+      4 + 64 * 3
+    } else if yi {
+      6 + 64 * 3
+    } else if ou {
+      44
+    } else if au {
+      1 + 64 * 5
+    } else if eu {
+      2 + 64 * 5
+    } else {
+      8 + 64 * 5
+    }
   } else if s == 3 {
-    if ai { 1 + 64 * 12 } else if ei { 2 + 64 * 12 } else if oi { 14 + 64 * 12 } else if yi { 15 + 64 * 3 }
-    else if ou { 5 } else if au { 1 + 64 * 13 } else if eu { 16 + 64 * 5 } else { 2 + 64 * 12 + 4096 * 5 }
+    if ai {
+      1 + 64 * 12
+    } else if ei {
+      2 + 64 * 12
+    } else if oi {
+      14 + 64 * 12
+    } else if yi {
+      15 + 64 * 3
+    } else if ou {
+      5
+    } else if au {
+      1 + 64 * 13
+    } else if eu {
+      16 + 64 * 5
+    } else {
+      2 + 64 * 12 + 4096 * 5
+    }
   } else if s == 0 {
-    if ai { 2 } else if ei { 3 } else if oi || yi { 3 } else if ou { 5 }
-    else {
+    if ai {
+      2
+    } else if ei {
+      3
+    } else if oi || yi {
+      3
+    } else if ou {
+      5
+    } else {
       let head = if a == 0x3B1 { 1 } else if a == 0x3B5 { 2 } else { 3 }
       head + 64 * (if g_koine_vl(bs, i + 2) { 18 } else { 19 })
     }
@@ -152,19 +258,48 @@ pub fn g_diph_seq(s : Int32, bs : FixedArray[Int32], i : Int32) -> Int32 where {
 }
 
 ///|
-fn g_simple(c : Int32) -> Int32 where {
-  proof_ensure: result => result == 0 || common_inv(result) || result == 21 || result == 22,
+fn g_simple(
+  c : Int32,
+) -> Int32 where {
+  proof_ensure: result => {
+    result == 0 || common_inv(result) || result == 21 || result == 22
+  },
   proof_ensure: result => result != 21 || c == 0x3B2,
   proof_ensure: result => result != 22 || c == 0x3B4,
 } {
-  if c == 0x3B2 { 21 } else if c == 0x3B4 { 22 } else if c == 0x3BA { 34 } else if c == 0x3BB { 37 }
-  else if c == 0x3BC { 24 } else if c == 0x3BD { 25 } else if c == 0x3C0 { 36 } else if c == 0x3C1 { 38 }
-  else if c == 0x3C3 || c == 0x3C2 { 35 } else if c == 0x3C4 { 39 } else { 0 }
+  if c == 0x3B2 {
+    21
+  } else if c == 0x3B4 {
+    22
+  } else if c == 0x3BA {
+    34
+  } else if c == 0x3BB {
+    37
+  } else if c == 0x3BC {
+    24
+  } else if c == 0x3BD {
+    25
+  } else if c == 0x3C0 {
+    36
+  } else if c == 0x3C1 {
+    38
+  } else if c == 0x3C3 || c == 0x3C2 {
+    35
+  } else if c == 0x3C4 {
+    39
+  } else {
+    0
+  }
 }
 
 ///|
 /// Single consonant at i. Proved: only phones of scheme s.
-pub fn g_cons_seq(s : Int32, bs : FixedArray[Int32], dd : FixedArray[Int32], i : Int32) -> Int32 where {
+pub fn g_cons_seq(
+  s : Int32,
+  bs : FixedArray[Int32],
+  dd : FixedArray[Int32],
+  i : Int32,
+) -> Int32 where {
   proof_require: 0 <= s && s <= 3,
   proof_require: 0 <= i && i < bs.length(),
   proof_require: bs.length() == dd.length(),
@@ -178,30 +313,107 @@ pub fn g_cons_seq(s : Int32, bs : FixedArray[Int32], dd : FixedArray[Int32], i :
     36 + 64 * 35
   } else if s == 0 {
     if c == 0x3B3 {
-      if nas { 26 } else if g_front(bs, dd, i + 1) { 27 } else { 28 }
+      if nas {
+        26
+      } else if g_front(bs, dd, i + 1) {
+        27
+      } else {
+        28
+      }
     } else if c == 0x3C7 {
-      if g_front(bs, dd, i + 1) { 29 } else { 30 }
-    } else if c == 0x3B2 { 19 } else if c == 0x3B4 { 32 } else if c == 0x3B6 { 31 }
-    else if c == 0x3B8 { 33 } else if c == 0x3C6 { 18 }
-    else if s == 0 && (c == 0x3C3 || c == 0x3C2) && i + 1 < bs.length() && g_voiced_cons(bs[i + 1]) { 31 }
-    else { g_simple(c) }
+      if g_front(bs, dd, i + 1) {
+        29
+      } else {
+        30
+      }
+    } else if c == 0x3B2 {
+      19
+    } else if c == 0x3B4 {
+      32
+    } else if c == 0x3B6 {
+      31
+    } else if c == 0x3B8 {
+      33
+    } else if c == 0x3C6 {
+      18
+    } else if s == 0 &&
+      (c == 0x3C3 || c == 0x3C2) &&
+      i + 1 < bs.length() &&
+      g_voiced_cons(bs[i + 1]) {
+      31
+    } else {
+      g_simple(c)
+    }
   } else if s == 3 {
-    if c == 0x3B3 { if nas { 26 } else { 23 } } else if c == 0x3B6 { 40 } else if c == 0x3B8 { 33 }
-    else if c == 0x3C6 { 18 } else if c == 0x3C7 { 30 } else { g_simple(c) }
+    if c == 0x3B3 {
+      if nas {
+        26
+      } else {
+        23
+      }
+    } else if c == 0x3B6 {
+      40
+    } else if c == 0x3B8 {
+      33
+    } else if c == 0x3C6 {
+      18
+    } else if c == 0x3C7 {
+      30
+    } else {
+      g_simple(c)
+    }
   } else {
     let koine = s == 1
     if c == 0x3B3 {
-      if nas { 26 } else if koine { if g_front(bs, dd, i + 1) { 27 } else { 28 } } else { 23 }
-    } else if c == 0x3B2 { if koine { 19 } else { 21 } }
-    else if c == 0x3B4 { if koine { 32 } else { 22 } }
-    else if c == 0x3B6 { if koine { 31 } else { 31 + 64 * 22 } }
-    else if c == 0x3B8 { 41 } else if c == 0x3C6 { 42 } else if c == 0x3C7 { 43 } else { g_simple(c) }
+      if nas {
+        26
+      } else if koine {
+        if g_front(bs, dd, i + 1) {
+          27
+        } else {
+          28
+        }
+      } else {
+        23
+      }
+    } else if c == 0x3B2 {
+      if koine {
+        19
+      } else {
+        21
+      }
+    } else if c == 0x3B4 {
+      if koine {
+        32
+      } else {
+        22
+      }
+    } else if c == 0x3B6 {
+      if koine {
+        31
+      } else {
+        31 + 64 * 22
+      }
+    } else if c == 0x3B8 {
+      41
+    } else if c == 0x3C6 {
+      42
+    } else if c == 0x3C7 {
+      43
+    } else {
+      g_simple(c)
+    }
   }
 }
 
 ///|
 /// Append a packed sequence. Proved: keeps out[0..k) inside the inventory.
-fn g_put(s : Int32, out : FixedArray[Int32], k : Int32, q : Int32) -> Int32 where {
+fn g_put(
+  s : Int32,
+  out : FixedArray[Int32],
+  k : Int32,
+  q : Int32,
+) -> Int32 where {
   proof_require: 0 <= s && s <= 3,
   proof_require: 0 <= k && k <= 4,
   proof_require: out.length() >= 8,
@@ -234,7 +446,12 @@ fn g_put(s : Int32, out : FixedArray[Int32], k : Int32, q : Int32) -> Int32 wher
 ///|
 /// Size of the G2P unit starting at cluster i: 2 for a diphthong (or, in Modern, the
 /// digraphs μπ ντ γκ), else 1. Proved: 1 or 2, and the unit stays inside the word.
-pub fn g2p_adv(s : Int32, bs : FixedArray[Int32], dd : FixedArray[Int32], i : Int32) -> Int32 where {
+pub fn g2p_adv(
+  s : Int32,
+  bs : FixedArray[Int32],
+  dd : FixedArray[Int32],
+  i : Int32,
+) -> Int32 where {
   proof_require: 0 <= i && i < bs.length(),
   proof_require: dd.length() == bs.length(),
   proof_ensure: result => 1 <= result && result <= 2,
@@ -245,7 +462,12 @@ pub fn g2p_adv(s : Int32, bs : FixedArray[Int32], dd : FixedArray[Int32], i : In
     let d = bs[i + 1]
     if g_vowel(c) && g_vowel(d) && dd[i + 1] == 0 && g_diph(c, d) {
       2
-    } else if s == 0 && ((c == 0x3BC && d == 0x3C0) || (c == 0x3BD && d == 0x3C4) || (c == 0x3B3 && d == 0x3BA)) {
+    } else if s == 0 &&
+      (
+        (c == 0x3BC && d == 0x3C0) ||
+        (c == 0x3BD && d == 0x3C4) ||
+        (c == 0x3B3 && d == 0x3BA)
+      ) {
       2
     } else {
       1
@@ -280,7 +502,11 @@ pub fn g2p_step(
   let c = bs[i]
   let has_nxt = i + 1 < n
   let att = s == 2 || s == 3
-  let is_d = has_nxt && g_vowel(c) && g_vowel(bs[i + 1]) && dd[i + 1] == 0 && g_diph(c, bs[i + 1])
+  let is_d = has_nxt &&
+    g_vowel(c) &&
+    g_vowel(bs[i + 1]) &&
+    dd[i + 1] == 0 &&
+    g_diph(c, bs[i + 1])
   let rough = if is_d {
     att && (rf[i] != 0 || rf[i + 1] != 0)
   } else if g_vowel(c) {
@@ -304,7 +530,13 @@ pub fn g2p_step(
     k + 8 * g2p_adv(s, bs, dd, i)
   } else if mp || nt || gk {
     let q = if i == 0 {
-      if mp { 21 } else if nt { 22 } else { 23 }
+      if mp {
+        21
+      } else if nt {
+        22
+      } else {
+        23
+      }
     } else if mp {
       24 + 64 * 21
     } else if nt {
@@ -366,9 +598,19 @@ pub fn g2p_units(
 ///|
 /// Restored Attic vowel length: a, i, y become aː, iː, yː when the spelling shows the vowel is long
 /// (circumflex, macron, iota subscript). Proved: stays inside the Attic inventory.
-pub fn g_attic_long(id : Int32) -> Int32 where {
+pub fn g_attic_long(
+  id : Int32,
+) -> Int32 where {
   proof_require: in_inv(2, id),
   proof_ensure: result => in_inv(2, result),
 } {
-  if id == 1 { 45 } else if id == 3 { 46 } else if id == 6 { 47 } else { id }
+  if id == 1 {
+    45
+  } else if id == 3 {
+    46
+  } else if id == 6 {
+    47
+  } else {
+    id
+  }
 }

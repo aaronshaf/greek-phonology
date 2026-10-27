@@ -14,11 +14,11 @@ fn has_raw_control(s : String) -> Bool {
 ///|
 let call_names : Array[String] = [
   "amalgamate", "contract", "remove_acutes", "remove_graves", "remove_circumflexes",
-  "contains_circumflex", "add_acute", "add_circumflex", "without_accents",
-  "accentuate_last_vowel", "is_long_syllable", "remove_punctuation", "remove_numbers",
-  "extract_consonant_clusters", "accentuate_verb", "accentuate_phrase", "lexical_phrase",
-  "check_phrase_accents", "is_enclitic", "is_proclitic", "verb_stem", "augmentize",
-  "conjugate", "syllabify", "word", "ipa", "lookup", "detect",
+  "contains_circumflex", "add_acute", "add_circumflex", "without_accents", "accentuate_last_vowel",
+  "is_long_syllable", "remove_punctuation", "remove_numbers", "extract_consonant_clusters",
+  "accentuate_verb", "accentuate_phrase", "lexical_phrase", "check_phrase_accents",
+  "is_enclitic", "is_proclitic", "verb_stem", "augmentize", "conjugate", "syllabify",
+  "word", "ipa", "lookup", "detect",
 ]
 
 ///|
@@ -36,10 +36,16 @@ fn call_arg2(name : String) -> String {
 
 ///|
 test "jstr escapes controls and leaves ordinary text unchanged" {
-  assert_eq(@lib.call_json("without_accents", "ἄνθρωπος", ""), "\"ανθρωπος\"")
+  assert_eq(
+    @lib.call_json("without_accents", "ἄνθρωπος", ""),
+    "\"ανθρωπος\"",
+  )
   assert_eq(@lib.call_json("ipa", "θεός", "attic"), "\"tʰ e o s\"")
   assert_eq(@lib.call_json("without_accents", "a\tb", ""), "\"a\\tb\"")
-  assert_eq(@lib.call_json("without_accents", "α\tβ\u{0001}", ""), "\"α\\tβ\\u0001\"")
+  assert_eq(
+    @lib.call_json("without_accents", "α\tβ\u{0001}", ""),
+    "\"α\\tβ\\u0001\"",
+  )
   assert_eq(@lib.call_json("without_accents", "\r", ""), "\"\\r\"")
   assert_eq(@lib.call_json("without_accents", "\n", ""), "\"\\n\"")
   assert_eq(@lib.call_json("without_accents", "\u{0008}", ""), "\"\\b\"")
@@ -48,9 +54,12 @@ test "jstr escapes controls and leaves ordinary text unchanged" {
   assert_eq(@lib.call_json("without_accents", "\u{2028}", ""), "\"\u{2028}\"")
   let q = "\""
   let bs = "\\"
-  assert_eq(@lib.call_json("without_accents", q + bs, ""), q + bs + q + bs + bs + q)
+  assert_eq(
+    @lib.call_json("without_accents", q + bs, ""),
+    q + bs + q + bs + bs + q,
+  )
   for i in 0..<32 {
-    let raw = Int::unsafe_to_char(i).to_string()
+    let raw = Int32::unsafe_to_char(i).to_string()
     let out = @lib.call_json("remove_punctuation", raw, "")
     assert_false(has_raw_control(out), msg=out)
     let esc = if i == 8 {
@@ -64,20 +73,18 @@ test "jstr escapes controls and leaves ordinary text unchanged" {
     } else if i == 13 {
       "\\r"
     } else {
-      "\\u00" +
-      hex_digit(i >> 4).to_string() +
-      hex_digit(i & 0x0F).to_string()
+      "\\u00" + hex_digit(i >> 4).to_string() + hex_digit(i & 0x0F).to_string()
     }
     assert_eq(out, "\"" + esc + "\"")
   }
 }
 
 ///|
-fn hex_digit(n : Int) -> Char {
+fn hex_digit(n : Int32) -> Char {
   if n < 10 {
-    Int::unsafe_to_char(48 + n)
+    Int32::unsafe_to_char(48 + n)
   } else {
-    Int::unsafe_to_char(87 + n)
+    Int32::unsafe_to_char(87 + n)
   }
 }
 

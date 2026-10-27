@@ -1,9 +1,7 @@
 // Ancient Greek -> IPA for four reading schemes, syllables and accent.
 
 ///|
-pub let schemes : Array[String] = [
-  "modern", "koine", "attic", "erasmian",
-]
+pub let schemes : Array[String] = ["modern", "koine", "attic", "erasmian"]
 
 ///|
 let rough_mark : Char = '\u{0314}'
@@ -49,7 +47,7 @@ fn is_diph(s : String) -> Bool {
 ///|
 fn split_spaces(s : String) -> Array[String] {
   let out : Array[String] = []
-  let sb = StringBuilder::new()
+  let sb = StringBuilder()
   let mut n = 0
   for c in s {
     if c == ' ' {
@@ -83,7 +81,7 @@ fn is_ws(c : Char) -> Bool {
 /// Split on ASCII whitespace (same rule as the Python reference).
 pub fn split_ws(s : String) -> Array[String] {
   let out : Array[String] = []
-  let sb = StringBuilder::new()
+  let sb = StringBuilder()
   let mut n = 0
   for c in s {
     if is_ws(c) {
@@ -239,7 +237,7 @@ fn onset_len(cons : Array[Char]) -> Int32 {
   let n = cons.length()
   let mut j = 0
   while j < n {
-    let sb = StringBuilder::new()
+    let sb = StringBuilder()
     for k in j..<n {
       sb.write_char(cons[k])
     }
@@ -424,18 +422,36 @@ fn is_gv(c : Char) -> Bool {
 ///|
 fn is_gc(c : Char) -> Bool {
   match c {
-    'β' | 'γ' | 'δ' | 'ζ' | 'θ' | 'κ' | 'λ' | 'μ' | 'ν' | 'ξ' | 'π' | 'ρ' | 'σ' | 'ς' | 'τ' | 'φ' | 'χ' | 'ψ' => true
+    'β'
+    | 'γ'
+    | 'δ'
+    | 'ζ'
+    | 'θ'
+    | 'κ'
+    | 'λ'
+    | 'μ'
+    | 'ν'
+    | 'ξ'
+    | 'π'
+    | 'ρ'
+    | 'σ'
+    | 'ς'
+    | 'τ'
+    | 'φ'
+    | 'χ'
+    | 'ψ' => true
     _ => false
   }
 }
 
 ///|
-let non_alpha : Array[Int] = [
-  0x0375, 0x0378, 0x0379, 0x037E, 0x0380, 0x0381, 0x0382, 0x0383, 0x0384, 0x0385, 0x0387, 0x038B,
-  0x038D, 0x03A2, 0x03F6, 0x1F16, 0x1F17, 0x1F1E, 0x1F1F, 0x1F46, 0x1F47, 0x1F4E, 0x1F4F, 0x1F58,
-  0x1F5A, 0x1F5C, 0x1F5E, 0x1F7E, 0x1F7F, 0x1FB5, 0x1FBD, 0x1FBF, 0x1FC0, 0x1FC1, 0x1FC5, 0x1FCD,
-  0x1FCE, 0x1FCF, 0x1FD4, 0x1FD5, 0x1FDC, 0x1FDD, 0x1FDE, 0x1FDF, 0x1FED, 0x1FEE, 0x1FEF, 0x1FF0,
-  0x1FF1, 0x1FF5, 0x1FFD, 0x1FFE, 0x1FFF, 0x00D7, 0x00F7,
+let non_alpha : Array[Int32] = [
+  0x0375, 0x0378, 0x0379, 0x037E, 0x0380, 0x0381, 0x0382, 0x0383, 0x0384, 0x0385,
+  0x0387, 0x038B, 0x038D, 0x03A2, 0x03F6, 0x1F16, 0x1F17, 0x1F1E, 0x1F1F, 0x1F46,
+  0x1F47, 0x1F4E, 0x1F4F, 0x1F58, 0x1F5A, 0x1F5C, 0x1F5E, 0x1F7E, 0x1F7F, 0x1FB5,
+  0x1FBD, 0x1FBF, 0x1FC0, 0x1FC1, 0x1FC5, 0x1FCD, 0x1FCE, 0x1FCF, 0x1FD4, 0x1FD5,
+  0x1FDC, 0x1FDD, 0x1FDE, 0x1FDF, 0x1FED, 0x1FEE, 0x1FEF, 0x1FF0, 0x1FF1, 0x1FF5,
+  0x1FFD, 0x1FFE, 0x1FFF, 0x00D7, 0x00F7,
 ]
 
 ///|
@@ -444,8 +460,11 @@ fn is_alpha_like(c : Char) -> Bool {
   if non_alpha.contains(o) {
     return false
   }
-  (c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z') || (o >= 0xC0 && o <= 0x24F) ||
-  (o >= 0x370 && o <= 0x3FF) || (o >= 0x1F00 && o <= 0x1FFF)
+  (c >= 'a' && c <= 'z') ||
+  (c >= 'A' && c <= 'Z') ||
+  (o >= 0xC0 && o <= 0x24F) ||
+  (o >= 0x370 && o <= 0x3FF) ||
+  (o >= 0x1F00 && o <= 0x1FFF)
 }
 
 ///|
@@ -458,7 +477,7 @@ fn fold_lower(c : Char) -> Char {
     return first_char(d)
   }
   if c >= 'A' && c <= 'Z' {
-    return Int::unsafe_to_char(c.to_int() + 32)
+    return Int32::unsafe_to_char(c.to_int() + 32)
   }
   c
 }
@@ -512,7 +531,7 @@ fn g2p_clusters(word : String) -> Array[GCl]? {
       i += 1
     }
     if is_gv(ch) || is_gc(ch) {
-      out.push({ b: ch, rough, dia, long, isub })
+      out.push({ b: ch, rough, dia, long, isub, })
     } else if is_alpha_like(ch) {
       return None
     }
@@ -527,16 +546,17 @@ fn g2p_clusters(word : String) -> Array[GCl]? {
 ///|
 /// Phone strings by id (index 0 unused); ids and per-scheme inventories are in kernel/spec.mbtp.
 let phone_names : Array[String] = [
-  "", "a", "e", "i", "o", "u", "y", "ɛ", "ɛː", "ɔː", "eː", "oː", "ɪ", "ʊ", "ɔ", "w", "j", "h", "f",
-  "v", "β", "b", "d", "g", "m", "n", "ŋ", "ʝ", "ɣ", "ç", "x", "z", "ð", "θ", "k", "s", "p", "l", "r",
-  "t", "d͡z", "tʰ", "pʰ", "kʰ", "uː", "aː", "iː", "yː",
+  "", "a", "e", "i", "o", "u", "y", "ɛ", "ɛː", "ɔː", "eː", "oː", "ɪ", "ʊ",
+  "ɔ", "w", "j", "h", "f", "v", "β", "b", "d", "g", "m", "n", "ŋ", "ʝ", "ɣ",
+  "ç", "x", "z", "ð", "θ", "k", "s", "p", "l", "r", "t", "d͡z", "tʰ", "pʰ",
+  "kʰ", "uː", "aː", "iː", "yː",
 ]
 
 ///|
 /// Phones of one word in scheme s (0 modern, 1 koine, 2 attic, 3 erasmian).
 /// The phones come from the proved step function
 /// @kernel.g2p_step (finite tables; every cluster consumed once; only the scheme's inventory).
-fn word_phones(word : String, s : Int, wi : Int) -> Array[Phone] {
+fn word_phones(word : String, s : Int32, wi : Int32) -> Array[Phone] {
   let out : Array[Phone] = []
   guard g2p_clusters(word) is Some(cl) else { return out }
   let n = cl.length()
@@ -573,8 +593,15 @@ fn word_phones(word : String, s : Int, wi : Int) -> Array[Phone] {
         }
       }
       isub = cl[i].isub
-    } else if s == 2 && adv == 1 && cnt == 1 && !is_gv(cl[i].b) && cl[i].b != 'γ' &&
-      ui + 1 < nu && starts[ui + 1] == i + 1 && i + 1 < n && cl[i + 1].b == cl[i].b {
+    } else if s == 2 &&
+      adv == 1 &&
+      cnt == 1 &&
+      !is_gv(cl[i].b) &&
+      cl[i].b != 'γ' &&
+      ui + 1 < nu &&
+      starts[ui + 1] == i + 1 &&
+      i + 1 < n &&
+      cl[i + 1].b == cl[i].b {
       gem = true
       skip = true
     }
@@ -592,13 +619,18 @@ fn word_phones(word : String, s : Int, wi : Int) -> Array[Phone] {
     for k in 0..<cnt {
       let id = buf[k]
       if id == 17 {
-        out.push({ p: "h", tag: "h", w: wi, u: -1 })
+        out.push({ p: "h", tag: "h", w: wi, u: -1, })
       } else {
-        out.push({ p: phone_names[id] + (if gem { "ː" } else { "" }), tag, w: wi, u: ui })
+        out.push({
+          p: phone_names[id] + (if gem { "ː" } else { "" }),
+          tag,
+          w: wi,
+          u: ui,
+        })
       }
     }
     if isub {
-      out.push({ p: "i", tag, w: wi, u: ui })
+      out.push({ p: "i", tag, w: wi, u: ui, })
     }
   }
   out
@@ -639,7 +671,7 @@ pub fn ipa(text : String, scheme : String) -> String {
   if s < 0 {
     return ""
   }
-  let sb = StringBuilder::new()
+  let sb = StringBuilder()
   for i, x in g2p_index(text, s) {
     if i > 0 {
       sb.write_char(' ')

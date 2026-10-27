@@ -1,4 +1,7 @@
 import {
-  "aaronshaf/greek-phonology/api",
   "aaronshaf/greek-phonology/lib",
 }
+
+import {
+  "aaronshaf/greek-phonology/api",
+} for "test"

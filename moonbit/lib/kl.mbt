@@ -26,31 +26,6 @@ fn join_chars(cs : ArrayView[Char]) -> String {
 }
 
 ///|
-/// Replace every non-overlapping match (left to right) of any alternative with rep.
-/// All alternatives of one pattern have the same length, as in the TS regexes.
-fn replace_alts(s : String, alts : Array[String], rep : String) -> String {
-  let cs = chars(s)
-  let n = char_count(alts[0])
-  let sb = StringBuilder()
-  let mut i = 0
-  while i < cs.length() {
-    if i + n <= cs.length() && alts.contains(join_chars(cs[i:i + n])) {
-      sb.write_string(rep)
-      i += n
-    } else {
-      sb.write_char(cs[i])
-      i += 1
-    }
-  }
-  sb.to_string()
-}
-
-///|
-fn has_alts(s : String, alts : Array[String]) -> Bool {
-  replace_alts(s, alts, "\u{0}") != s
-}
-
-///|
 /// Expand a tiny regex ("x[ab](c|d)y") into its literal alternatives.
 fn expand(pat : String) -> Array[String] {
   let cs = chars(pat)
@@ -101,7 +76,7 @@ pub fn amalgamate(s : String) -> String {
   let n = @kernel.amalgamate_core(cs, out)
   let sb = StringBuilder()
   for i in 0..<n {
-    sb.write_char(Int::unsafe_to_char(out[i]))
+    sb.write_char(Int32::unsafe_to_char(out[i]))
   }
   sb.to_string()
 }
@@ -159,31 +134,38 @@ let contract_rules : Array[(String, String)] = [
 ]
 
 ///|
-let marker_ei : Int = 0x110000
+let marker_ei : Int32 = 0x110000
 
 ///|
-let marker_ou : Int = 0x110001
+let marker_ou : Int32 = 0x110001
 
 ///|
 /// contract_rules as token tables: (alternatives flattened, pattern length, replacement tokens).
 /// The proved kernel needs replacement length <= pattern length <= ... and at most 2 tokens.
-let contract_tables : Array[(FixedArray[Int], Int, FixedArray[Int])] = contract_rules.map(fn(r) {
-  let alts = expand(r.0)
-  let flat : Array[Int] = []
-  for a in alts {
-    for c in a {
-      flat.push(c.to_int())
+let contract_tables : Array[(FixedArray[Int32], Int32, FixedArray[Int32])] = contract_rules.map(fn(
+    r,
+  ) {
+    let alts = expand(r.0)
+    let flat : Array[Int32] = []
+    for a in alts {
+      for c in a {
+        flat.push(c.to_int())
+      }
     }
-  }
-  let rep : Array[Int] = if r.1 == "[ει]" {
-    [marker_ei]
-  } else if r.1 == "[ου]" {
-    [marker_ou]
-  } else {
-    chars(r.1).map(fn(c) { c.to_int() })
-  }
-  (FixedArray::from_array(flat), char_count(alts[0]), FixedArray::from_array(rep))
-})
+    let rep : Array[Int32] = if r.1 == "[ει]" {
+      [marker_ei]
+    } else if r.1 == "[ου]" {
+      [marker_ou]
+    } else {
+      chars(r.1).map(fn(c) { c.to_int() })
+    }
+    (
+      FixedArray::from_array(flat),
+      char_count(alts[0]),
+      FixedArray::from_array(rep),
+    )
+  },
+)
 
 ///|
 /// Vowel contraction, same table and behaviour as the TS: the first rule that matches anywhere is
@@ -203,7 +185,7 @@ pub fn contract(s : String) -> String {
         } else if t == marker_ou {
           sb.write_string("[ου]")
         } else {
-          sb.write_char(Int::unsafe_to_char(t))
+          sb.write_char(Int32::unsafe_to_char(t))
         }
       }
       return sb.to_string()
@@ -289,7 +271,9 @@ pub fn accentuate_last_vowel(s : String) -> String {
   let mut x = cs.length() - 1
   while x >= 0 {
     if kl_is_vowel(cs[x]) {
-      return join_chars(cs[0:x]) + add_acute(cs[x].to_string()) + join_chars(cs[x + 1:])
+      return join_chars(cs[0:x]) +
+        add_acute(cs[x].to_string()) +
+        join_chars(cs[x + 1:])
     }
     x -= 1
   }
@@ -349,9 +333,9 @@ fn kl_lower(s : String) -> String {
   for c in s {
     let o = c.to_int()
     let l = if o >= 0x391 && o <= 0x3A9 && o != 0x3A2 {
-      Int::unsafe_to_char(o + 32)
+      Int32::unsafe_to_char(o + 32)
     } else if c >= 'A' && c <= 'Z' {
-      Int::unsafe_to_char(o + 32)
+      Int32::unsafe_to_char(o + 32)
     } else {
       let d = decomp(c)
       if d != c.to_string() && o >= 0x370 {
@@ -465,16 +449,24 @@ pub fn accentuate_verb(word : String) -> String {
 }
 
 ///|
-let primary_suffixes : Array[String] = ["ω", "εις", "ει", "ομεν", "ετε", "ουσι"]
+let primary_suffixes : Array[String] = [
+  "ω", "εις", "ει", "ομεν", "ετε", "ουσι",
+]
 
 ///|
-let middle_passive_endings : Array[String] = ["ομαι", "ῃ", "εται", "όμεθα", "εσθε", "ονται"]
+let middle_passive_endings : Array[String] = [
+  "ομαι", "ῃ", "εται", "όμεθα", "εσθε", "ονται",
+]
 
 ///|
-let imperfect_endings : Array[String] = ["ον", "ες", "ε", "ομεν", "ετε", "ον"]
+let imperfect_endings : Array[String] = [
+  "ον", "ες", "ε", "ομεν", "ετε", "ον",
+]
 
 ///|
-let subjunctive_endings : Array[String] = ["ω", "ῃς", "ῃ", "ωμεν", "ητε", "ωσι"]
+let subjunctive_endings : Array[String] = [
+  "ω", "ῃς", "ῃ", "ωμεν", "ητε", "ωσι",
+]
 
 ///|
 /// Verb stem from the lexical form (first principal part minus its last letter), e.g. λύω → λυ.
@@ -499,13 +491,18 @@ pub fn augmentize(word : String) -> String {
 /// "present-active-subjunctive", "middle-passive-subjunctive".
 pub fn conjugate(stem : String, paradigm : String) -> Array[String] {
   match paradigm {
-    "present-active-indicative" => primary_suffixes.map(fn(e) { accentuate_verb(stem + e) })
+    "present-active-indicative" =>
+      primary_suffixes.map(fn(e) { accentuate_verb(stem + e) })
     "imperfect-active-indicative" =>
       imperfect_endings.map(fn(e) { accentuate_verb(augmentize(stem) + e) })
     "future-active-indicative" =>
-      primary_suffixes.map(fn(e) { accentuate_verb(amalgamate(stem + "σ" + e)) })
-    "future-middle-indicative" => middle_passive_endings.map(fn(e) { stem + "σ" + e })
-    "middle-passive-indicative" => middle_passive_endings.map(fn(e) { stem + e })
+      primary_suffixes.map(fn(e) {
+        accentuate_verb(amalgamate(stem + "σ" + e))
+      })
+    "future-middle-indicative" =>
+      middle_passive_endings.map(fn(e) { stem + "σ" + e })
+    "middle-passive-indicative" =>
+      middle_passive_endings.map(fn(e) { stem + e })
     "present-active-subjunctive" | "middle-passive-subjunctive" =>
       subjunctive_endings.map(fn(e) { stem + e })
     _ => []

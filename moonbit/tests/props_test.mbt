@@ -1,22 +1,24 @@
 // Property tests for invariants that are not (yet) machine-proved; see README "What's proven".
 
 ///|
-fn lcg(seed : Ref[Int]) -> Int {
+fn lcg(seed : Ref[Int32]) -> Int32 {
   seed.val = (seed.val * 1103515245 + 12345) & 0x7FFFFFFF
   seed.val
 }
 
 ///|
 let letters : Array[String] = [
-  "α", "ε", "η", "ι", "ο", "υ", "ω", "ά", "έ", "ή", "ί", "ό", "ύ", "ώ", "ᾶ", "ῆ", "ῶ", "ᾳ", "ῃ", "ῳ",
-  "ϊ", "ϋ", "ἁ", "ἐ", "ὁ", "αι", "ει", "οι", "ου", "αυ", "ευ", "υι", "β", "γ", "δ", "ζ", "θ", "κ",
-  "λ", "μ", "ν", "ξ", "π", "ρ", "σ", "τ", "φ", "χ", "ψ", "στ", "πτ", "χθ", "στρ", "γγ", "μν",
+  "α", "ε", "η", "ι", "ο", "υ", "ω", "ά", "έ", "ή", "ί", "ό", "ύ", "ώ",
+  "ᾶ", "ῆ", "ῶ", "ᾳ", "ῃ", "ῳ", "ϊ", "ϋ", "ἁ", "ἐ", "ὁ", "αι",
+  "ει", "οι", "ου", "αυ", "ευ", "υι", "β", "γ", "δ", "ζ", "θ", "κ",
+  "λ", "μ", "ν", "ξ", "π", "ρ", "σ", "τ", "φ", "χ", "ψ", "στ", "πτ",
+  "χθ", "στρ", "γγ", "μν",
 ]
 
 ///|
-fn random_word(seed : Ref[Int]) -> String {
+fn random_word(seed : Ref[Int32]) -> String {
   let n = 1 + lcg(seed) % 7
-  let sb = StringBuilder::new()
+  let sb = StringBuilder()
   for _ in 0..<n {
     sb.write_string(letters[lcg(seed) % letters.length()])
   }
@@ -26,7 +28,13 @@ fn random_word(seed : Ref[Int]) -> String {
 ///|
 fn vowel_unit(u : String) -> Bool {
   for c in u {
-    return c == 'α' || c == 'ε' || c == 'η' || c == 'ι' || c == 'ο' || c == 'υ' || c == 'ω'
+    return c == 'α' ||
+      c == 'ε' ||
+      c == 'η' ||
+      c == 'ι' ||
+      c == 'ο' ||
+      c == 'υ' ||
+      c == 'ω'
   }
   false
 }
@@ -35,7 +43,9 @@ fn vowel_unit(u : String) -> Bool {
 test "softmax: probabilities are non-negative and sum to 1" {
   let seed = Ref(42)
   for _ in 0..<2000 {
-    let ll = Array::makei(5, fn(_) { (lcg(seed) % 20000).to_double() / 100.0 - 100.0 })
+    let ll = Array::makei(5, fn(_) {
+      (lcg(seed) % 20000).to_double() / 100.0 - 100.0
+    })
     let t = 0.1 + (lcg(seed) % 3000).to_double() / 100.0
     let p = @lib.softmax(ll, t)
     let mut z = 0.0
@@ -53,7 +63,11 @@ test "detect: output probabilities are a distribution (aligned and free modes)" 
   for _ in 0..<300 {
     let w = random_word(seed) + " " + random_word(seed)
     let s = @lib.schemes[lcg(seed) % 4]
-    for d in [@lib.detect(@lib.ipa(w, s), greek_text=w), @lib.detect(@lib.ipa(w, s))] {
+    for
+      d in [
+        @lib.detect(@lib.ipa(w, s), greek_text=w),
+        @lib.detect(@lib.ipa(w, s)),
+      ] {
       let mut z = 0.0
       for x in d.probs {
         assert_true(x >= 0.0)
@@ -108,13 +122,24 @@ test "recessive accent always obeys the law of limitation" {
 
 ///|
 test "examples" {
-  assert_eq(@lib.syllabify("ἀκηκόαμεν"), [["α"], ["κ", "η"], ["κ", "ο"], ["α"], ["μ", "ε", "ν"]])
-  assert_eq(@lib.syllabify("Βηθσαϊδά"), [["β", "η", "θ"], ["σ", "α"], ["ι"], ["δ", "α"]])
+  assert_eq(@lib.syllabify("ἀκηκόαμεν"), [
+    ["α"],
+    ["κ", "η"],
+    ["κ", "ο"],
+    ["α"],
+    ["μ", "ε", "ν"],
+  ])
+  assert_eq(@lib.syllabify("Βηθσαϊδά"), [
+    ["β", "η", "θ"],
+    ["σ", "α"],
+    ["ι"],
+    ["δ", "α"],
+  ])
   assert_eq(@lib.syllabify("στραφείς")[0], ["σ", "τ", "ρ", "α"])
   assert_eq(@lib.syllabify("γωνίᾳ"), [["γ", "ω"], ["ν", "ι"], ["α"]])
   assert_eq(@lib.accent("ἐχθροῦ"), Some((1, "circumflex")))
   assert_eq(@lib.accent_ok("ἀκηκόαμεν"), Some(true))
-  assert_eq(@lib.accent_ok("λόγου") , Some(true))
+  assert_eq(@lib.accent_ok("λόγου"), Some(true))
   assert_eq(@lib.accent_ok("ἄνθρωπου"), Some(false))
   assert_eq(@lib.ipa("θεός", "attic"), "tʰ e o s")
   assert_eq(@lib.ipa("θεός", "modern"), "θ e o s")
@@ -134,7 +159,7 @@ test "examples" {
 }
 
 ///|
-fn ncount(s : String) -> Int {
+fn ncount(s : String) -> Int32 {
   let mut n = 0
   for _ in s {
     n += 1
@@ -182,8 +207,10 @@ test "kl examples" {
 test "accentuate_phrase: at most two accents per word, a second accent only before an enclitic" {
   let seed = Ref(9)
   let words = [
-    "ἄνθρωπος", "δοῦλος", "λόγος", "θεός", "τιμῶν", "ἐν", "εἰ", "οὐ", "καί", "ἀκούσαντες", "σῶμα",
-    "τις", "τινές", "μου", "σου", "ἐστί", "ποτέ", "γε", "τε", "εἰσί", "με", ",", ".",
+    "ἄνθρωπος", "δοῦλος", "λόγος", "θεός", "τιμῶν",
+    "ἐν", "εἰ", "οὐ", "καί", "ἀκούσαντες", "σῶμα", "τις",
+    "τινές", "μου", "σου", "ἐστί", "ποτέ", "γε", "τε", "εἰσί",
+    "με", ",", ".",
   ]
   for _ in 0..<2000 {
     let k = 2 + lcg(seed) % 6
@@ -191,12 +218,18 @@ test "accentuate_phrase: at most two accents per word, a second accent only befo
     for _ in 0..<k {
       ws.push(words[lcg(seed) % words.length()])
     }
-    let out = @lib.accentuate_phrase(ws.join(" ")).split(" ").map(fn(v) { v.to_string() }).collect()
+    let out = @lib.accentuate_phrase(ws.join(" "))
+      .split(" ")
+      .map(fn(v) { v.to_owned() })
+      .collect()
     for i, w in out {
       let c = @lib.count_accents(w)
       assert_true(c <= 2, msg=ws.join(" ") + " -> " + w)
       if c == 2 {
-        assert_true(i + 1 < ws.length() && @lib.is_enclitic(ws[i + 1]), msg=ws.join(" ") + " -> " + w)
+        assert_true(
+          i + 1 < ws.length() && @lib.is_enclitic(ws[i + 1]),
+          msg=ws.join(" ") + " -> " + w,
+        )
       }
     }
   }
@@ -254,12 +287,20 @@ test "contract never lengthens; without_accents keeps base letters" {
   for _ in 0..<3000 {
     let w = random_word(seed)
     // "[ει]"/"[ου]" brackets are TS-compatible spurious-diphthong markers, not letters
-    let c = @lib.contract(w).replace_all(old="[", new="").replace_all(old="]", new="")
+    let c = @lib.contract(w)
+      .replace_all(old="[", new="")
+      .replace_all(old="]", new="")
     if ncount(c) > ncount(w) {
       fail("contract lengthened: " + w + " -> " + c)
     }
-    assert_eq(@lib.without_accents(@lib.without_accents(w)), @lib.without_accents(w))
-    assert_eq(ncount(@lib.without_accents(@lib.remove_acutes(w))), ncount(@lib.without_accents(w)))
+    assert_eq(
+      @lib.without_accents(@lib.without_accents(w)),
+      @lib.without_accents(w),
+    )
+    assert_eq(
+      ncount(@lib.without_accents(@lib.remove_acutes(w))),
+      ncount(@lib.without_accents(w)),
+    )
   }
 }
 
@@ -276,14 +317,20 @@ test "without_accents commutes with syllabify; composed accent removal is idempo
     assert_eq(a, b)
     let w = random_word(seed)
     let r = @lib.remove_circumflexes(@lib.remove_graves(@lib.remove_acutes(w)))
-    assert_eq(@lib.remove_circumflexes(@lib.remove_graves(@lib.remove_acutes(r))), r)
+    assert_eq(
+      @lib.remove_circumflexes(@lib.remove_graves(@lib.remove_acutes(r))),
+      r,
+    )
   }
 }
 
 ///|
 test "contract tables satisfy the proved kernel's preconditions" {
   // rlen <= plen and rlen <= 2 for every rule (checked against the generated tables)
-  for w in ["εε", "εο", "οε", "αει", "ηου", "ποιεω", "τιμαω", "δηλοω"] {
+  for
+    w in [
+      "εε", "εο", "οε", "αει", "ηου", "ποιεω", "τιμαω", "δηλοω",
+    ] {
     ignore(@lib.contract(w))
   }
 }

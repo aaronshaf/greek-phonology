@@ -11,3 +11,9 @@
 # MoonBit
 moonbit/_build/
 moonbit/.mooncakes/
+
+# Local tooling
+node_modules/
+__pycache__/
+*.pyc
+.venv/

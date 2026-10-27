@@ -9,7 +9,7 @@ for line in open(decomp):
     L.append(f'    \'\\u{{{a}}}\' => "' + "".join(f"\\u{{{x}}}" for x in b.split()) + '"')
 L += ["    _ => c.to_string()", "  }", "}", ""]
 d = json.load(open(lm))
-L += ["///|", f"let lm_vocab_size : Int = {d['_vocab_size']}", ""]
+# `_vocab_size` is not emitted: the library never reads it.
 for i, s in enumerate(["modern", "koine", "attic", "erasmian"]):
     for kind in ("bigram", "unigram"):
         items = sorted(d[s][kind].items())

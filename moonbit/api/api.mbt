@@ -29,7 +29,7 @@ pub fn out_get(i : Int32) -> Int32 {
 
 ///|
 fn utf8_decode(bs : Array[Int32], lo : Int32, hi : Int32) -> String {
-  let sb = StringBuilder::new()
+  let sb = StringBuilder()
   let mut i = lo
   while i < hi {
     let b = bs[i]
@@ -87,8 +87,16 @@ pub fn run_str(cmd : Int32, a0 : String, a1 : String) -> String {
     4 => @lib.lookup_json(a0)
     5 => {
       // a1 = "argument\u{1}second argument"
-      let parts = a1.split("\u{1}").map(fn(v) { v.to_string() }).collect()
-      @lib.call_json(a0, parts[0], if parts.length() > 1 { parts[1] } else { "" })
+      let parts = a1.split("\u{1}").map(fn(v) { v.to_owned() }).collect()
+      @lib.call_json(
+        a0,
+        parts[0],
+        if parts.length() > 1 {
+          parts[1]
+        } else {
+          ""
+        },
+      )
     }
     _ => @lib.word_json(a0)
   }
