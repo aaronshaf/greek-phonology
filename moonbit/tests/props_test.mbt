@@ -1,4 +1,4 @@
-// Property tests for invariants that are not (yet) machine-proved; see README "Verification".
+// Property tests for invariants that are not (yet) machine-proved; see README "What's proven".
 
 ///|
 fn lcg(seed : Ref[Int]) -> Int {
