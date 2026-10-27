@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
-"""Markdown summary of an informational verification run. No third-party dependencies.
+"""Markdown summary of a local verification run. No third-party dependencies.
 
-Reads the kernel proof report and optional moon check/test/prove logs. Prints to stdout
-so CI can append it to the job summary. Never decides whether a merge may proceed.
+Reads the kernel proof report and optional moon check/test/prove logs. Prints to stdout.
+The pre-commit hook uses coverage.py instead. This script does not decide whether a merge may proceed.
 """
 import argparse
 import json
