@@ -8,6 +8,36 @@ pub fn accent_target(FixedArray[Int32], FixedArray[Int32], Int32) -> Int32
 
 pub fn accents_written(Int32, Int32) -> Int32
 
+pub fn align_bt_delete(Int32, Int32, Int32, Int32) -> AlignCursor
+
+pub fn align_bt_insert(Int32, Int32, Int32, Int32) -> AlignCursor
+
+pub fn align_bt_jump(Int32, Int32, Int32, Int32, Int32) -> AlignCursor
+
+pub fn align_bt_match(Int32, Int32, Int32, Int32) -> AlignCursor
+
+pub fn align_clamp_score(Int32) -> Int32
+
+pub fn align_emit_ok(Int32, Int32, Int32, Int32) -> Bool
+
+pub fn align_in_back(Int32, Int32, Int32, Int32) -> Bool
+
+pub fn align_max_score(Int32, Int32) -> Int32
+
+pub fn align_min_cost(Int32, Int32) -> Int32
+
+pub fn align_phones_needed(Int32, Int32) -> Int32
+
+pub fn align_pick_cost(Int32, Int32, Bool) -> Int32
+
+pub fn align_pick_end(Int32, Int32, Bool, Bool) -> Int32
+
+pub fn align_rank(Int32, Int32, Int32, Int32) -> Int32
+
+pub fn align_skip_n(Int32, Int32) -> Int32
+
+pub fn align_step_cap(Int32, Int32) -> Int32
+
 pub fn alt_match(FixedArray[Int32], Int32, FixedArray[Int32], Int32) -> Bool
 
 pub fn amalgamate_core(FixedArray[Int32], FixedArray[Int32]) -> Int32
@@ -75,6 +105,12 @@ pub fn unrender_marks(FixedArray[Int32], Int32, Bool, FixedArray[Int32]) -> Int3
 // Errors
 
 // Types and methods
+pub(all) struct AlignCursor {
+  ci : Int32
+  cj : Int32
+  att : Int32
+  rank : Int32
+}
 
 // Type aliases
 
