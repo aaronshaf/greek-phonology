@@ -24,15 +24,15 @@ Computed by `moonbit/tools/coverage.py`. It is a report, not a ratchet. A drop d
 
 One function can have several goals, so goals divided by public functions can be greater than 1. It is not "the fraction of functions that have a proof."
 
-On this change, with moon 0.1 and Z3 4.13.0:
+On this change, with moon 0.1.20261023 and Z3 4.13.0:
 
 | | Before | After |
 |---|---|---|
-| Proved goals | 208 valid, 0 invalid, 0 timeout | 218 valid, 0 invalid, 0 timeout |
-| Public functions | 154 | 172 |
-| Tests (`moon test`) | 67 passed | 77 passed |
+| Proved goals | 218 valid, 0 invalid, 0 timeout | 221 valid, 0 invalid, 0 timeout |
+| Public functions | 172 | 185 |
+| Tests (`moon test`) | 77 passed | 81 passed |
 
-The ten new goals are the integer models in `moonbit/kernel/metric.mbt` (cell cap, substitution bucket, goal bounds, tier code, near-miss credit product, display rank) plus the stricter rank-drop postconditions on the alignment jump and match steps. The library calls those functions from `goal_of`, `credit_level`, `align_sub_cost`, and `align_tokens`.
+The three new goals are the integer decisions in `moonbit/kernel/align.mbt`: equal-cost tie-break (`align_tie_take`), the exact-credit switch (`align_near_miss_on`), and the substitution-price override (`align_pick_price`). The library calls them from `align_tokens`, `phone_score_of`, and `align_sub_cost_with`. The earlier ten goals (cell cap, substitution bucket, goal bounds, tier code, near-miss credit product, display rank, and the rank-drop postconditions) are unchanged.
 
 ## What is proved
 
@@ -40,6 +40,9 @@ The kernel proofs listed in the README still hold (syllables, law of limitation,
 
 - Alignment matrix cell count is over the cap exactly when `(heard + 1) * (phones + 1) > 250000`, for sides up to 20,000.
 - The substitution bucket is 0 exactly when the pair is the same phone or scheme-accurate, 1 only when tolerated, otherwise 2.
+- An equal-cost token tie keeps the identical string over a stand-in, and otherwise keeps the higher posterior. An equal posterior keeps the token already chosen.
+- Near-miss credit is off when the caller disables it or the goal is exact, and on only when both allow it.
+- A caller-supplied substitution price is the one used; otherwise the table price is used.
 - A match or a restart/skip jump lowers the integer rank by at least 1, so those steps cannot cycle.
 - Goal tolerances are 0.20 / 0.33 / 0.42 and credit caps are 0.60 / 0.75 / 0.90, with strict ≤ gracious ≤ lenient on both.
 - A larger integer distance never improves the tier code.

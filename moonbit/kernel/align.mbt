@@ -43,12 +43,14 @@ pub fn align_bt_match(
   proof_ensure: result => result.ci + result.cj < ci + cj,
   proof_ensure: result => ci + cj - result.ci - result.cj >= 1,
   proof_ensure: result => result.rank < ci + cj - att * (span + span),
-  proof_ensure: result => result.rank == result.ci + result.cj - result.att * (span + span),
+  proof_ensure: result => {
+    result.rank == result.ci + result.cj - result.att * (span + span)
+  },
 } {
   let nci = ci - 1
   let ncj = cj - 1
   let rank = nci + ncj - att * (span + span)
-  { ci: nci, cj: ncj, att, rank }
+  { ci: nci, cj: ncj, att, rank, }
 }
 
 ///|
@@ -69,7 +71,7 @@ pub fn align_bt_insert(
 } {
   let nci = ci - 1
   let rank = nci + cj - att * (span + span)
-  { ci: nci, cj, att, rank }
+  { ci: nci, cj, att, rank, }
 }
 
 ///|
@@ -90,7 +92,7 @@ pub fn align_bt_delete(
 } {
   let ncj = cj - 1
   let rank = ci + ncj - att * (span + span)
-  { ci, cj: ncj, att, rank }
+  { ci, cj: ncj, att, rank, }
 }
 
 ///|
@@ -117,7 +119,7 @@ pub fn align_bt_jump(
   let natt = att + 1
   proof_assert src - (span + span) < 0
   let rank = ci + src - natt * (span + span)
-  { ci, cj: src, att: natt, rank }
+  { ci, cj: src, att: natt, rank, }
 }
 
 ///|
@@ -163,7 +165,10 @@ pub fn align_pick_end(
 ///|
 /// Integer relaxation. Proved: the result is one of the two costs and no larger
 /// than either, so a cell's cost never rises.
-pub fn align_min_cost(cur : Int32, cand : Int32) -> Int32 where {
+pub fn align_min_cost(
+  cur : Int32,
+  cand : Int32,
+) -> Int32 where {
   proof_ensure: result => result <= cur && result <= cand,
   proof_ensure: result => result == cur || result == cand,
 } {
@@ -177,7 +182,10 @@ pub fn align_min_cost(cur : Int32, cand : Int32) -> Int32 where {
 ///|
 /// Best attempt score. Proved: the result is one of the two scores and no smaller
 /// than either.
-pub fn align_max_score(cur : Int32, cand : Int32) -> Int32 where {
+pub fn align_max_score(
+  cur : Int32,
+  cand : Int32,
+) -> Int32 where {
   proof_ensure: result => result >= cur && result >= cand,
   proof_ensure: result => result == cur || result == cand,
 } {
@@ -210,7 +218,10 @@ pub fn align_pick_cost(
 ///|
 /// Words skipped by a forward jump from the end of `earlier` to the start of
 /// `later`. Proved: at least one word, and the count is `later - earlier - 1`.
-pub fn align_skip_n(later : Int32, earlier : Int32) -> Int32 where {
+pub fn align_skip_n(
+  later : Int32,
+  earlier : Int32,
+) -> Int32 where {
   proof_require: 0 <= earlier && earlier <= later - 2,
   proof_ensure: result => result >= 1,
   proof_ensure: result => result == later - earlier - 1,
@@ -239,7 +250,10 @@ pub fn align_in_back(
 /// How many phones a word must credit before the attempt counts.
 /// One phone needs that phone. A longer word needs at least `minc` and at least
 /// half its phones, rounded up. `min_frac` other than 1/2 stays in the library.
-pub fn align_phones_needed(n : Int32, minc : Int32) -> Int32 where {
+pub fn align_phones_needed(
+  n : Int32,
+  minc : Int32,
+) -> Int32 where {
   proof_require: n >= 0 && minc >= 1,
   proof_ensure: result => result >= 1,
   proof_ensure: result => n > 1 || result == 1,
@@ -261,7 +275,9 @@ pub fn align_phones_needed(n : Int32, minc : Int32) -> Int32 where {
 ///|
 /// Phone, word, and overall scores are percentages.
 /// Proved: the result is inside 0..=100.
-pub fn align_clamp_score(score : Int32) -> Int32 where {
+pub fn align_clamp_score(
+  score : Int32,
+) -> Int32 where {
   proof_ensure: result => 0 <= result && result <= 100,
 } {
   if score < 0 {
@@ -279,7 +295,10 @@ pub fn align_clamp_score(score : Int32) -> Int32 where {
 /// `align_bt_insert`, `align_bt_delete`, `align_bt_jump`); this fuse only stops
 /// a buggy table from running without bound. Proved: the fuse is exactly
 /// 1_000_000 for every non-negative length.
-pub fn align_step_cap(heard_n : Int32, phone_n : Int32) -> Int32 where {
+pub fn align_step_cap(
+  heard_n : Int32,
+  phone_n : Int32,
+) -> Int32 where {
   proof_require: heard_n >= 0 && phone_n >= 0,
   proof_ensure: result => result == 1000000,
 } {
@@ -287,5 +306,95 @@ pub fn align_step_cap(heard_n : Int32, phone_n : Int32) -> Int32 where {
     1000000
   } else {
     1000000
+  }
+}
+
+///|
+/// Equal-cost choice between two heard tokens for one target.
+/// An identical string beats a tier-accurate stand-in. When that does not
+/// separate them, the higher posterior on the target wins. An equal posterior
+/// keeps the token already chosen, so the result does not depend on map order.
+/// Proved: identical beats non-identical, and otherwise the result is exactly
+/// `cand_post > cur_post`.
+pub fn align_tie_take(
+  cur_same : Bool,
+  cand_same : Bool,
+  cur_post : Int32,
+  cand_post : Int32,
+) -> Bool where {
+  proof_ensure: result => {
+    cand_same == false || cur_same == true || result == true
+  },
+  proof_ensure: result => {
+    cur_same == false || cand_same == true || result == false
+  },
+  proof_ensure: result => {
+    cur_same == false ||
+    cand_same == false ||
+    cand_post <= cur_post ||
+    result == true
+  },
+  proof_ensure: result => {
+    cur_same == false ||
+    cand_same == false ||
+    cand_post > cur_post ||
+    result == false
+  },
+  proof_ensure: result => {
+    cur_same == true ||
+    cand_same == true ||
+    cand_post <= cur_post ||
+    result == true
+  },
+  proof_ensure: result => {
+    cur_same == true ||
+    cand_same == true ||
+    cand_post > cur_post ||
+    result == false
+  },
+} {
+  if cand_same && !cur_same {
+    true
+  } else if cur_same && !cand_same {
+    false
+  } else {
+    cand_post > cur_post
+  }
+}
+
+///|
+/// Near-miss credit is on only when the caller asked for it and the goal is
+/// not the exact-only switch. Proved: false when disabled or when the goal is
+/// exact, true only when both allow it.
+pub fn align_near_miss_on(
+  enabled : Bool,
+  goal_exact : Bool,
+) -> Bool where {
+  proof_ensure: result => enabled == true || result == false,
+  proof_ensure: result => goal_exact == false || result == false,
+  proof_ensure: result => {
+    enabled == false || goal_exact == true || result == true
+  },
+} {
+  enabled && !goal_exact
+}
+
+///|
+/// A caller-supplied substitution price replaces the table price.
+/// Proved: the result is the override when one was supplied, and the table
+/// price otherwise.
+pub fn align_pick_price(
+  has_over : Bool,
+  over : Int32,
+  table : Int32,
+) -> Int32 where {
+  proof_ensure: result => has_over == false || result == over,
+  proof_ensure: result => has_over == true || result == table,
+  proof_ensure: result => result == over || result == table,
+} {
+  if has_over {
+    over
+  } else {
+    table
   }
 }

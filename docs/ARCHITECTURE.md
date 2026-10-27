@@ -30,9 +30,13 @@ Koine equivalences: `o`/`ɔ`, and `β`/`v`. The second one is this reconstructio
 | Tier tolerated | 0.5 |
 | Anything else | 1 |
 
-The old CLASS list priced `e`/`i` and `r`/`l` at 0.5. Those pairs are not tolerated here (`e`/`i` is a step of vowel height; `r` and `l` differ in manner), so the cost is 1. CLASS is not a second price list. The JavaScript fixture `packages/npm/test/align_ref.cjs` still has CLASS so the parity test can name that disagreement. The learner goal does not move the path.
+The old CLASS list priced `e`/`i` and `r`/`l` at 0.5. Those pairs are not tolerated here (`e`/`i` is a step of vowel height; `r` and `l` differ in manner), so the cost is 1. CLASS is not a second price list. The JavaScript fixture `packages/npm/test/align_ref.cjs` still has CLASS so the parity test can name that disagreement. A page that still wants that 0.5 on the path passes `params.subCost` (both orders of the pair). The default stays 1 so a caller that does not opt in keeps the feature table. An identical string stays 0. The override is a path price, not a new credit tier. The learner goal does not move the path.
 
-Word `score` and `overall` are 0–100. An exact phone, or a lane alternate, still uses the posterior mass when it clears `floor`. A different heard phone below that floor uses `hearing_credit` at `params.goal` (empty means gracious). Divide by 100 and pass it to `credit_level`. The JSON also carries `credit`, `level`, `overallCredit`, and `overallLevel`.
+When two heard tokens can take the same target at the same cost, the identical string wins, then the token with the higher posterior on that target. A saturated insert cost (peak at least `QPK`) is what makes those paths tie; the tie-break does not change a strictly cheaper path.
+
+Word `score` and `overall` are 0–100. An exact phone, or a lane alternate, still uses the posterior mass when it clears `floor`. A different heard phone below that floor uses `hearing_credit` at `params.goal` (empty means gracious), unless `params.nearMiss` is false or `goal` is `exact`. Then that phone scores 0. Divide by 100 and pass it to `credit_level`. The JSON also carries `credit`, `level`, `overallCredit`, `overallLevel`, and `attemptCredit` for every attempt already scored.
+
+`lanes` runs one soft decode and one token list, then aligns each lane. Tokenisation uses the outer `TAU` and `MERGE_GAP`. A lane's own `scheme` or `params` applies to its path and its credit. Pass the matrix as a typed array, a number array, base64 float32, or `alignSetPost` plus `postRef`, instead of a JSON number list.
 
 `phone_is_optional` is the page's default abstain rule: rough breathing [h] only. Aspiration (`pʰ`) stays required. The caller can still set `opt` itself.
 

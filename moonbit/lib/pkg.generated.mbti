@@ -16,13 +16,23 @@ pub fn add_acute(String) -> String
 
 pub fn add_circumflex(String) -> String
 
+pub fn align_clear_post() -> Unit
+
+pub fn align_f32le_b64(String) -> Array[Double]
+
 pub fn align_lane(Array[String], Array[String], Array[Int32], Array[Array[Int32]], Array[Bool], Array[Int32], Array[Int32]) -> AlignLane
 
 pub fn align_params_default() -> AlignParams
 
 pub fn align_phones_json(String) -> String
 
+pub fn align_set_post(Array[Double], Int32, Int32, Double) -> Unit
+
+pub fn align_stored_post() -> AlignPost?
+
 pub fn align_sub_cost(String, String, String) -> Double
+
+pub fn align_sub_cost_with(String, String, String, Array[SubOverride]) -> Double
 
 pub fn align_tokens(Array[HeardToken], AlignLane, AlignParams) -> TokenAlign
 
@@ -140,6 +150,8 @@ pub fn scheme_id(String) -> String
 
 pub let schemes : Array[String]
 
+pub fn score_lanes(AlignPost, Array[AlignLane], Array[String], AlignParams, Array[AlignParams]) -> LaneBatch
+
 pub fn score_take(AlignPost, AlignLane, Array[String], AlignParams) -> TakeScore
 
 pub fn score_words(AlignPost, AlignLane, TokenAlign, Array[HeardToken], Array[String], AlignParams) -> TakeScore
@@ -212,11 +224,15 @@ pub(all) struct AlignParams {
   plain : Bool
   scheme : String
   goal : String
+  near_miss : Bool
+  sub : Array[SubOverride]
 }
 pub fn AlignParams::with_back(Self, Int32) -> Self
 pub fn AlignParams::with_goal(Self, String) -> Self
+pub fn AlignParams::with_near_miss(Self, Bool) -> Self
 pub fn AlignParams::with_plain(Self, Bool) -> Self
 pub fn AlignParams::with_scheme(Self, String) -> Self
+pub fn AlignParams::with_sub(Self, Array[SubOverride]) -> Self
 
 pub(all) struct AlignPost {
   lp : Array[Double]
@@ -231,6 +247,13 @@ pub(all) struct AlignWindow {
   width : Int32
   data : Array[Double]
   spf : Double
+}
+
+pub(all) struct AttemptCredit {
+  w : Int32
+  att : Int32
+  credited : Int32
+  score : Int32
 }
 
 pub(all) struct CreditBand {
@@ -325,6 +348,11 @@ pub(all) struct HearingCredit {
   note : String
 }
 
+pub(all) struct LaneBatch {
+  tokens : Array[HeardToken]
+  takes : Array[TakeScore]
+}
+
 pub(all) struct Phone {
   p : String
   tag : String
@@ -369,6 +397,12 @@ pub(all) struct PhoneLabel {
   kind : String
 }
 
+pub(all) struct SubOverride {
+  a : String
+  b : String
+  cost : Double
+}
+
 pub(all) struct TakeScore {
   words : Array[WordScore]
   overall : Int32
@@ -378,6 +412,7 @@ pub(all) struct TakeScore {
   tokens : Array[HeardToken]
   cost : Double
   align : TokenAlign
+  attempt_credit : Array[AttemptCredit]
 }
 
 pub(all) struct TokenAlign {

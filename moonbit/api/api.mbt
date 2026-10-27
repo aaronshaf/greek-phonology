@@ -240,10 +240,30 @@ pub fn scheme_id(name : String) -> String {
 ///|
 /// Restart-tolerant alignment of one take. `spec` is JSON: log-posteriors
 /// (`lp`, `T`, `V`, `spf`), `vocab`, `lane`, and optional `params`.
+/// `lanes` scores every lane from one soft decode. `postRef: true` uses the
+/// matrix stored by `align_set_post`. `lpB64` is little-endian float32 in base64.
 /// `windows` plus `totalSec` stitches overlapping matrices first.
 /// `ipa()` does not call this.
 pub fn align_phones_json(spec : String) -> String {
   @lib.align_phones_json(spec)
+}
+
+///|
+/// Store one log-posterior matrix for a later `align_phones_json` with `postRef`.
+/// `lp` may be a JavaScript number array or a Float32Array.
+pub fn align_set_post(
+  lp : Array[Double],
+  frames : Int32,
+  width : Int32,
+  spf : Double,
+) -> Unit {
+  @lib.align_set_post(lp, frames, width, spf)
+}
+
+///|
+/// Drop the matrix stored by `align_set_post`.
+pub fn align_clear_post() -> Unit {
+  @lib.align_clear_post()
 }
 
 ///|

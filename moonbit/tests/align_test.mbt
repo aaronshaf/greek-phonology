@@ -23,7 +23,7 @@ fn bare(p : String) -> String {
 }
 
 ///|
-fn index_of(vocab : Array[String], p : String) -> Int {
+fn index_of(vocab : Array[String], p : String) -> Int32 {
   for i in 0..<vocab.length() {
     if vocab[i] == p {
       return i
@@ -59,16 +59,16 @@ fn vocab_with(phones : Array[String], extra : Array[String]) -> Array[String] {
 
 ///|
 let extra_phones : Array[String] = [
-  "a", "e", "ɛ", "i", "o", "u", "n", "r", "l", "s", "k", "kʰ", "ɣ", "m", "ɸ", "p",
-  "t", "b", "d",
+  "a", "e", "ɛ", "i", "o", "u", "n", "r", "l", "s", "k", "kʰ", "ɣ", "m", "ɸ",
+  "p", "t", "b", "d",
 ]
 
 ///|
 fn lane_phrase() -> @lib.AlignLane {
   let ws = @lib.g2p_words(john, "koine")
   let tgt : Array[String] = []
-  let start : Array[Int] = []
-  let wlen : Array[Int] = []
+  let start : Array[Int32] = []
+  let wlen : Array[Int32] = []
   for w in ws {
     if w.phones.length() == 0 {
       continue
@@ -81,7 +81,7 @@ fn lane_phrase() -> @lib.AlignLane {
   }
   let vocab = vocab_with(tgt, extra_phones)
   let ids = tgt.map(fn(p) { index_of(vocab, p) })
-  let alts : Array[Array[Int]] = []
+  let alts : Array[Array[Int32]] = []
   let opt : Array[Bool] = []
   for _ in tgt {
     alts.push([])
@@ -96,11 +96,14 @@ fn phrase_vocab(lane : @lib.AlignLane) -> Array[String] {
 }
 
 ///|
-fn lane_custom(words : Array[Array[String]], opt_at : Array[Int]) -> @lib.AlignLane {
+fn lane_custom(
+  words : Array[Array[String]],
+  opt_at : Array[Int32],
+) -> @lib.AlignLane {
   let tgt : Array[String] = []
   let opt : Array[Bool] = []
-  let start : Array[Int] = []
-  let wlen : Array[Int] = []
+  let start : Array[Int32] = []
+  let wlen : Array[Int32] = []
   for w in words {
     start.push(tgt.length())
     wlen.push(w.length())
@@ -118,7 +121,7 @@ fn lane_custom(words : Array[Array[String]], opt_at : Array[Int]) -> @lib.AlignL
   }
   let vocab = vocab_with(tgt, extra_phones)
   let ids = tgt.map(fn(p) { index_of(vocab, p) })
-  let alts : Array[Array[Int]] = []
+  let alts : Array[Array[Int32]] = []
   for _ in tgt {
     alts.push([])
   }
@@ -168,7 +171,7 @@ fn post_of(
       lp[i * v + j] = r[j]
     }
   }
-  { lp, frames: rows.length(), width: v, spf: 0.02 }
+  { lp, frames: rows.length(), width: v, spf: 0.02, }
 }
 
 ///|
@@ -202,11 +205,11 @@ fn post_quiet(vocab : Array[String], tokens : Array[String]) -> @lib.AlignPost {
       lp[i * v + j] = r[j]
     }
   }
-  { lp, frames: rows.length(), width: v, spf: 0.02 }
+  { lp, frames: rows.length(), width: v, spf: 0.02, }
 }
 
 ///|
-fn seq_of(lane : @lib.AlignLane, idxs : Array[Int]) -> Array[String] {
+fn seq_of(lane : @lib.AlignLane, idxs : Array[Int32]) -> Array[String] {
   let out : Array[String] = []
   for i in idxs {
     let s = lane.start[i]
@@ -241,14 +244,14 @@ fn take_of(
 }
 
 ///|
-fn scores_of(tokens : Array[String], prm : @lib.AlignParams) -> Array[Int] {
+fn scores_of(tokens : Array[String], prm : @lib.AlignParams) -> Array[Int32] {
   let lane = lane_phrase()
   let r = take_of(lane, tokens, prm)
   r.words.map(fn(w) { w.score })
 }
 
 ///|
-fn sum_of(xs : Array[Int]) -> Int {
+fn sum_of(xs : Array[Int32]) -> Int32 {
   let mut s = 0
   for x in xs {
     s = s + x
@@ -257,7 +260,7 @@ fn sum_of(xs : Array[Int]) -> Int {
 }
 
 ///|
-fn all_ge(xs : Array[Int], n : Int) -> Bool {
+fn all_ge(xs : Array[Int32], n : Int32) -> Bool {
   for x in xs {
     if x < n {
       return false
@@ -267,7 +270,7 @@ fn all_ge(xs : Array[Int], n : Int) -> Bool {
 }
 
 ///|
-fn show(xs : Array[Int]) -> String {
+fn show(xs : Array[Int32]) -> String {
   let sb = StringBuilder()
   for i, x in xs {
     if i > 0 {
@@ -343,7 +346,10 @@ test "optional phone only, and an abstaining phone beside a real one" {
   assert_false(only.words[0].evidence)
   assert_false(only.words[0].has_ph)
   let beside = take_of(lane_custom([["e", "a"]], [0]), ["a", "_"], prm())
-  assert_true(beside.words[0].score >= 80, msg=beside.words[0].score.to_string())
+  assert_true(
+    beside.words[0].score >= 80,
+    msg=beside.words[0].score.to_string(),
+  )
   assert_true(beside.words[0].ph[0].absent)
   assert_true(beside.words[0].ph[0].optional)
   assert_true(beside.words[0].ph[1].score >= 80)
@@ -353,7 +359,12 @@ test "optional phone only, and an abstaining phone beside a real one" {
 test "empty take and pure silence score nothing and do not throw" {
   let lane = lane_phrase()
   let vocab = phrase_vocab(lane)
-  let empty = @lib.AlignPost::{ lp: [], frames: 0, width: vocab.length(), spf: 0.02 }
+  let empty = @lib.AlignPost::{
+    lp: [],
+    frames: 0,
+    width: vocab.length(),
+    spf: 0.02,
+  }
   let r0 = @lib.score_take(empty, lane, vocab, prm())
   assert_eq(r0.words.length(), 5)
   for w in r0.words {
@@ -372,7 +383,7 @@ test "empty take and pure silence score nothing and do not throw" {
     }
   }
   let silent = @lib.score_take(
-    { lp, frames: rows.length(), width: v, spf: 0.02 },
+    { lp, frames: rows.length(), width: v, spf: 0.02, },
     lane,
     vocab,
     prm(),
@@ -418,9 +429,18 @@ test "false start of a word, then the word" {
 ///|
 test "restart back 1, 2 and 3 words keeps the words" {
   let lane = lane_phrase()
-  let back1 = scores_of(cat(seq_of(lane, [0, 1, 2]), seq_of(lane, [1, 2, 3, 4])), prm())
-  let back2 = scores_of(cat(seq_of(lane, [0, 1, 2, 3]), seq_of(lane, [1, 2, 3, 4])), prm())
-  let back3 = scores_of(cat(seq_of(lane, [0, 1, 2, 3]), seq_of(lane, [0, 1, 2, 3, 4])), prm())
+  let back1 = scores_of(
+    cat(seq_of(lane, [0, 1, 2]), seq_of(lane, [1, 2, 3, 4])),
+    prm(),
+  )
+  let back2 = scores_of(
+    cat(seq_of(lane, [0, 1, 2, 3]), seq_of(lane, [1, 2, 3, 4])),
+    prm(),
+  )
+  let back3 = scores_of(
+    cat(seq_of(lane, [0, 1, 2, 3]), seq_of(lane, [0, 1, 2, 3, 4])),
+    prm(),
+  )
   assert_true(all_ge(back1, 80), msg="1 " + show(back1))
   assert_true(all_ge(back2, 80), msg="2 " + show(back2))
   assert_true(all_ge(back3, 80), msg="3 " + show(back3))
@@ -429,7 +449,10 @@ test "restart back 1, 2 and 3 words keeps the words" {
 ///|
 test "restart from the top of the phrase" {
   let lane = lane_phrase()
-  let s = scores_of(cat(seq_of(lane, [0, 1]), seq_of(lane, [0, 1, 2, 3, 4])), prm())
+  let s = scores_of(
+    cat(seq_of(lane, [0, 1]), seq_of(lane, [0, 1, 2, 3, 4])),
+    prm(),
+  )
   assert_true(all_ge(s, 80), msg=show(s))
 }
 
@@ -437,13 +460,19 @@ test "restart from the top of the phrase" {
 test "a restart four words back is not free" {
   let lane = lane_custom([["a"], ["b"], ["c"], ["d"], ["e"]], [])
   let heard = [
-    "a", "_", "b", "_", "c", "_", "d", "_", "e", "_", "a", "_", "b", "_", "c",
-    "_", "d", "_", "e", "_",
+    "a", "_", "b", "_", "c", "_", "d", "_", "e", "_", "a", "_", "b", "_", "c", "_",
+    "d", "_", "e", "_",
   ]
   let c3 = take_of(lane, heard, prm().with_back(3))
   let c4 = take_of(lane, heard, prm().with_back(4))
-  assert_true(all_ge(c4.words.map(fn(w) { w.score }), 80), msg=show(c4.words.map(fn(w) { w.score })))
-  assert_true(c4.cost < c3.cost, msg=c4.cost.to_string() + " vs " + c3.cost.to_string())
+  assert_true(
+    all_ge(c4.words.map(fn(w) { w.score }), 80),
+    msg=show(c4.words.map(fn(w) { w.score })),
+  )
+  assert_true(
+    c4.cost < c3.cost,
+    msg=c4.cost.to_string() + " vs " + c3.cost.to_string(),
+  )
 }
 
 ///|
@@ -493,7 +522,10 @@ test "a different verse earns nothing" {
 ///|
 test "noise tokens between words are ignored" {
   let lane = lane_phrase()
-  let s = scores_of(cat(cat(seq_of(lane, [0, 1]), ["m", "ɸ", "_"]), seq_of(lane, [2, 3, 4])), prm())
+  let s = scores_of(
+    cat(cat(seq_of(lane, [0, 1]), ["m", "ɸ", "_"]), seq_of(lane, [2, 3, 4])),
+    prm(),
+  )
   assert_true(all_ge(s, 80), msg=show(s))
 }
 
@@ -508,7 +540,11 @@ test "plain mode (no restart moves) does not beat the tolerant score" {
 
 ///|
 test "same vowel and sigma across a word boundary credit both words" {
-  let vowel = take_of(lane_custom([["a", "e"], ["e", "n"]], []), ["a", "_", "e", "_", "n", "_"], prm())
+  let vowel = take_of(
+    lane_custom([["a", "e"], ["e", "n"]], []),
+    ["a", "_", "e", "_", "n", "_"],
+    prm(),
+  )
   assert_true(vowel.words[0].score >= 80, msg=vowel.words[0].score.to_string())
   assert_true(vowel.words[1].score >= 80, msg=vowel.words[1].score.to_string())
   let mut shared_v = false
@@ -518,7 +554,11 @@ test "same vowel and sigma across a word boundary credit both words" {
     }
   }
   assert_true(shared_v)
-  let sigma = take_of(lane_custom([["a", "s"], ["s", "a"]], []), ["a", "_", "s", "_", "a", "_"], prm())
+  let sigma = take_of(
+    lane_custom([["a", "s"], ["s", "a"]], []),
+    ["a", "_", "s", "_", "a", "_"],
+    prm(),
+  )
   assert_true(sigma.words[0].score >= 80, msg=sigma.words[0].score.to_string())
   assert_true(sigma.words[1].score >= 80, msg=sigma.words[1].score.to_string())
   let mut shared_s = false
@@ -548,7 +588,7 @@ test "a quiet take still scores, and a peak under the floor does not" {
     lp[j] = row[j]
   }
   let low = @lib.score_take(
-    { lp, frames: 1, width: v, spf: 0.02 },
+    { lp, frames: 1, width: v, spf: 0.02, },
     lane,
     vocab,
     prm().with_back(3),
@@ -574,8 +614,15 @@ test "a quiet take still scores, and a peak under the floor does not" {
     plain: false,
     scheme: "",
     goal: "",
+    near_miss: true,
+    sub: [],
   }
-  let floored = @lib.score_take({ lp, frames: 1, width: v, spf: 0.02 }, lane, vocab, tuned)
+  let floored = @lib.score_take(
+    { lp, frames: 1, width: v, spf: 0.02, },
+    lane,
+    vocab,
+    tuned,
+  )
   assert_true(floored.tokens.length() >= 1)
   assert_eq(floored.words[0].score, 0)
   let _ = low
@@ -597,7 +644,11 @@ test "the same input scores the same way twice" {
 ///|
 test "pair indexes stay in range and scores stay in 0..=100" {
   let lane = lane_phrase()
-  let r = take_of(lane, cat(seq_of(lane, [0, 1]), seq_of(lane, [0, 1, 2, 3, 4])), prm())
+  let r = take_of(
+    lane,
+    cat(seq_of(lane, [0, 1]), seq_of(lane, [0, 1, 2, 3, 4])),
+    prm(),
+  )
   assert_true(r.cost >= 0.0)
   assert_true(r.overall >= 0 && r.overall <= 100)
   for p in r.align.pairs {
@@ -614,7 +665,11 @@ test "pair indexes stay in range and scores stay in 0..=100" {
     }
   }
   let clean = take_of(lane, seq_of(lane, [0, 1, 2, 3, 4]), prm())
-  let noisy = take_of(lane, cat(seq_of(lane, [0, 1, 2, 3, 4]), ["m", "_"]), prm())
+  let noisy = take_of(
+    lane,
+    cat(seq_of(lane, [0, 1, 2, 3, 4]), ["m", "_"]),
+    prm(),
+  )
   assert_true(clean.cost <= noisy.cost + 0.000001)
   assert_true(clean.cost < 0.000001)
 }
@@ -622,7 +677,13 @@ test "pair indexes stay in range and scores stay in 0..=100" {
 ///|
 test "stitch keeps the nearer window centre and blanks a gap" {
   let data = [0.0, -1.0, 0.0, -2.0]
-  let w : @lib.AlignWindow = { start: 0.0, frames: 2, width: 2, data, spf: 1.0 }
+  let w : @lib.AlignWindow = {
+    start: 0.0,
+    frames: 2,
+    width: 2,
+    data,
+    spf: 1.0,
+  }
   let post = @lib.stitch([w], 3.0, prm())
   assert_eq(post.frames, 5)
   assert_eq(post.width, 2)
@@ -643,8 +704,20 @@ test "stitch keeps the nearer window centre and blanks a gap" {
   right[1] = -6.0
   right[2] = 0.0
   right[3] = -7.0
-  let w0 : @lib.AlignWindow = { start: 0.0, frames: 2, width: 2, data: left, spf: 1.0 }
-  let w1 : @lib.AlignWindow = { start: 1.0, frames: 2, width: 2, data: right, spf: 1.0 }
+  let w0 : @lib.AlignWindow = {
+    start: 0.0,
+    frames: 2,
+    width: 2,
+    data: left,
+    spf: 1.0,
+  }
+  let w1 : @lib.AlignWindow = {
+    start: 1.0,
+    frames: 2,
+    width: 2,
+    data: right,
+    spf: 1.0,
+  }
   let both = @lib.stitch([w0, w1], 2.0, edge)
   assert_true(both.frames >= 3)
   assert_true(close_d(both.lp[1], -4.0))
@@ -664,7 +737,7 @@ test "align_phones_json agrees with score_take and bad input is empty" {
   assert_eq(via, js)
   let lane = @lib.align_lane(["a"], ["a"], [1], [[]], [false], [0], [1])
   let direct = @lib.score_take(
-    { lp: [lp0, lp1], frames: 1, width: 2, spf: 0.02 },
+    { lp: [lp0, lp1], frames: 1, width: 2, spf: 0.02, },
     lane,
     ["", "a"],
     prm(),
@@ -699,7 +772,10 @@ fn take_more(
 test "near-miss credit changes the score and not the alignment cost" {
   let open_e = lane_custom([["ɛ"]], [])
   let gracious = take_of(open_e, ["e", "_"], prm())
-  assert_true(gracious.words[0].score > 0, msg=gracious.words[0].score.to_string())
+  assert_true(
+    gracious.words[0].score > 0,
+    msg=gracious.words[0].score.to_string(),
+  )
   assert_true(gracious.words[0].score < 80)
   assert_true(gracious.words[0].evidence)
   assert_eq(gracious.overall, gracious.words[0].score)
@@ -751,7 +827,11 @@ test "alignment cost is non-negative, zero on an exact plain read, and bounded" 
   let none = @lib.align_tokens([], empty, prm())
   assert_eq(none.pairs.length(), 0)
   assert_true(none.cost < 0.000001)
-  let exact = take_of(lane_custom([["a", "e"]], []), ["a", "e", "_"], prm().with_plain(true))
+  let exact = take_of(
+    lane_custom([["a", "e"]], []),
+    ["a", "e", "_"],
+    prm().with_plain(true),
+  )
   assert_true(exact.cost < 0.000001)
   assert_true(exact.words[0].score >= 80)
   let mut prev = 1000000
@@ -763,13 +843,25 @@ test "alignment cost is non-negative, zero on an exact plain read, and bounded" 
       prev = p.h + p.j
     }
   }
-  let swapped = take_of(lane_custom([["a"]], []), ["p", "_"], prm().with_plain(true))
+  let swapped = take_of(
+    lane_custom([["a"]], []),
+    ["p", "_"],
+    prm().with_plain(true),
+  )
   assert_true(swapped.cost > 0.4)
   let lane = lane_phrase()
-  let restarted = take_of(lane, cat(seq_of(lane, [0, 1]), seq_of(lane, [0, 1, 2, 3, 4])), prm())
+  let restarted = take_of(
+    lane,
+    cat(seq_of(lane, [0, 1]), seq_of(lane, [0, 1, 2, 3, 4])),
+    prm(),
+  )
   assert_true(restarted.cost >= 0.0 && restarted.cost < 1.0e8)
   assert_true(restarted.attempts < 30)
-  let again = take_of(lane, cat(seq_of(lane, [0, 1]), seq_of(lane, [0, 1, 2, 3, 4])), prm())
+  let again = take_of(
+    lane,
+    cat(seq_of(lane, [0, 1]), seq_of(lane, [0, 1, 2, 3, 4])),
+    prm(),
+  )
   assert_true(close_d(again.cost, restarted.cost))
   assert_eq(again.overall, restarted.overall)
 }
@@ -780,14 +872,14 @@ test "a long alignment is refused instead of allocating the matrix" {
   let tgt = Array::make(n, "a")
   let ids = Array::make(n, 1)
   let opt = Array::make(n, false)
-  let alts : Array[Array[Int]] = []
+  let alts : Array[Array[Int32]] = []
   for _ in 0..<n {
     alts.push([])
   }
   let lane = @lib.align_lane(tgt, tgt, ids, alts, opt, [0], [n])
   let heard : Array[@lib.HeardToken] = []
   for i in 0..<n {
-    heard.push({ id: 1, p: "a", t0: i, t1: i, pk: 0.9, fr: [i] })
+    heard.push({ id: 1, p: "a", t0: i, t1: i, pk: 0.9, fr: [i], })
   }
   let al = @lib.align_tokens(heard, lane, prm())
   assert_eq(al.pairs.length(), 0)
@@ -795,4 +887,231 @@ test "a long alignment is refused instead of allocating the matrix" {
   assert_eq(@kernel.align_cell_cap(), 250000)
   assert_true(@kernel.align_over_cap(600, 600))
   assert_false(@kernel.align_over_cap(100, 100))
+}
+
+///|
+fn post_rows(
+  vocab : Array[String],
+  rows : Array[Array[Double]],
+) -> @lib.AlignPost {
+  let v = vocab.length()
+  let lp = Array::make(rows.length() * v, 0.0)
+  for i, r in rows {
+    for j in 0..<v {
+      lp[i * v + j] = r[j]
+    }
+  }
+  { lp, frames: rows.length(), width: v, spf: 0.02, }
+}
+
+///|
+fn probs_row(
+  vocab : Array[String],
+  blank : Double,
+  peaks : Array[(String, Double)],
+) -> Array[Double] {
+  let r = Array::make(vocab.length(), @math.ln(1.0e-8))
+  r[0] = @math.ln(blank)
+  for pair in peaks {
+    let (name, p) = pair
+    r[index_of(vocab, name)] = @math.ln(p)
+  }
+  r
+}
+
+///|
+fn matched_heard(take : @lib.TakeScore) -> String {
+  if take.words.length() == 0 ||
+    !take.words[0].has_ph ||
+    take.words[0].ph.length() == 0 {
+    ""
+  } else if take.words[0].ph[0].has_heard {
+    take.words[0].ph[0].heard
+  } else {
+    ""
+  }
+}
+
+///|
+test "equal-cost tokens prefer the identical phone, then the target posterior" {
+  assert_true(@kernel.align_tie_take(false, true, 10, 1))
+  assert_false(@kernel.align_tie_take(true, false, 1, 900))
+  assert_true(@kernel.align_tie_take(false, false, 10, 11))
+  assert_false(@kernel.align_tie_take(true, true, 50, 50))
+  assert_false(@kernel.align_tie_take(false, false, 40, 40))
+  let vocab = ["", "o", "ɔ"]
+  let ids = [1]
+  let lane = @lib.align_lane(["o"], ["o"], ids, [[]], [false], [0], [1])
+  let blank = probs_row(vocab, 0.99, [])
+  let open_o = probs_row(vocab, 0.1, [("ɔ", 0.8), ("o", 0.1)])
+  let close_o = probs_row(vocab, 0.1, [("o", 0.8), ("ɔ", 0.1)])
+  let post = post_rows(vocab, [open_o, blank, blank, close_o, blank, blank])
+  let koine = @lib.score_take(post, lane, vocab, prm().with_scheme("koine"))
+  assert_eq(matched_heard(koine), "o")
+  assert_true(koine.words[0].score >= 80)
+  assert_true(koine.attempt_credit.length() >= 1)
+  assert_eq(koine.attempt_credit[0].score, koine.words[0].score)
+  let modern = @lib.score_take(post, lane, vocab, prm().with_scheme("modern"))
+  assert_eq(matched_heard(modern), "o")
+  let ev = ["", "e", "ɛ"]
+  let lane_e = @lib.align_lane(["e"], ["e"], [1], [[]], [false], [0], [1])
+  let gap = probs_row(ev, 0.99, [])
+  let first = probs_row(ev, 0.05, [("ɛ", 0.75), ("e", 0.20)])
+  let second = probs_row(ev, 0.05, [("ɛ", 0.55), ("e", 0.40)])
+  let near = post_rows(ev, [first, gap, gap, gap, gap, second, gap, gap])
+  let picked = @lib.score_take(near, lane_e, ev, prm())
+  assert_eq(matched_heard(picked), "ɛ")
+  assert_true(
+    picked.words[0].ph[0].h == 1,
+    msg=picked.words[0].ph[0].h.to_string(),
+  )
+  assert_true(
+    picked.words[0].score >= 35,
+    msg=picked.words[0].score.to_string(),
+  )
+  assert_true(picked.words[0].score <= 50)
+}
+
+///|
+test "nearMiss false and goal exact keep only target posterior credit" {
+  assert_false(@kernel.align_near_miss_on(false, false))
+  assert_false(@kernel.align_near_miss_on(true, true))
+  assert_true(@kernel.align_near_miss_on(true, false))
+  let open_e = lane_custom([["ɛ"]], [])
+  let gracious = take_of(open_e, ["e", "_"], prm())
+  let off = take_of(open_e, ["e", "_"], prm().with_near_miss(false))
+  let exact = take_of(open_e, ["e", "_"], prm().with_goal("exact"))
+  assert_true(gracious.words[0].score > 0)
+  assert_eq(off.words[0].score, 0)
+  assert_eq(exact.words[0].score, 0)
+  assert_true(close_d(off.cost, gracious.cost))
+  assert_true(close_d(exact.cost, gracious.cost))
+  let clean = take_of(
+    lane_custom([["a"]], []),
+    ["a", "_"],
+    prm().with_near_miss(false),
+  )
+  assert_true(clean.words[0].score >= 80)
+  let strict_off = take_of(
+    open_e,
+    ["e", "_"],
+    prm().with_goal("strict").with_near_miss(false),
+  )
+  assert_eq(strict_off.words[0].score, 0)
+  assert_true(close_d(strict_off.cost, gracious.cost))
+}
+
+///|
+test "subCost overrides the path price and leaves the default table alone" {
+  assert_eq(@kernel.align_pick_price(true, 1, 0), 1)
+  assert_eq(@kernel.align_pick_price(false, 1, 0), 0)
+  let pair : Array[@lib.SubOverride] = [{ a: "e", b: "i", cost: 0.5, }]
+  let liquids : Array[@lib.SubOverride] = [{ a: "r", b: "l", cost: 0.5, }]
+  assert_true(close_d(@lib.align_sub_cost("i", "e", ""), 1.0))
+  assert_true(close_d(@lib.align_sub_cost("l", "r", "attic"), 1.0))
+  assert_true(close_d(@lib.align_sub_cost_with("i", "e", "", pair), 0.5))
+  assert_true(close_d(@lib.align_sub_cost_with("e", "i", "modern", pair), 0.5))
+  assert_true(close_d(@lib.align_sub_cost_with("l", "r", "", liquids), 0.5))
+  assert_true(close_d(@lib.align_sub_cost_with("e", "e", "", pair), 0.0))
+  let lane = lane_custom([["e"]], [])
+  let plain = take_more(lane, ["i", "_"], prm(), ["i"])
+  let cheap = take_more(lane, ["i", "_"], prm().with_sub(pair), ["i"])
+  assert_true(cheap.cost < plain.cost)
+  assert_true(plain.cost > 0.7)
+  assert_true(cheap.cost < 0.7)
+  assert_true(cheap.align.pairs.length() >= 1)
+}
+
+///|
+test "postRef, base64, and one call for every lane match the single-lane result" {
+  let lp0 = @math.ln(0.2)
+  let lp1 = @math.ln(0.8)
+  let lane_a = "{\"tgt\":[\"a\"],\"phones\":[\"a\"],\"ids\":[1],\"start\":[0],\"wlen\":[1]}"
+  let spec = "{\"vocab\":[\"\",\"a\"],\"spf\":0.02,\"T\":1,\"V\":2,\"lp\":[" +
+    lp0.to_string() +
+    "," +
+    lp1.to_string() +
+    "],\"lane\":" +
+    lane_a +
+    "}"
+  let via_lp = @lib.align_phones_json(spec)
+  @lib.align_set_post([lp0, lp1], 1, 2, 0.02)
+  let via_ref = @lib.align_phones_json(
+    "{\"postRef\":true,\"vocab\":[\"\",\"a\"],\"lane\":" + lane_a + "}",
+  )
+  assert_eq(via_ref, via_lp)
+  @lib.align_clear_post()
+  let missing = @lib.align_phones_json(
+    "{\"postRef\":true,\"vocab\":[\"\",\"a\"],\"lane\":" + lane_a + "}",
+  )
+  assert_true(missing.contains("\"words\":[]"))
+  let floats = @lib.align_f32le_b64("AAAAPwAAoL8AAAA+")
+  assert_eq(floats.length(), 3)
+  assert_true(close_d(floats[0], 0.5))
+  assert_true(close_d(floats[1], -1.25))
+  assert_true(close_d(floats[2], 0.125))
+  let b64 = @lib.align_phones_json(
+    "{\"vocab\":[\"\",\"a\"],\"spf\":0.02,\"T\":1,\"V\":2,\"lpB64\":\"EALOv75/ZL4=\",\"lane\":" +
+    lane_a +
+    "}",
+  )
+  let direct = @lib.score_take(
+    {
+      lp: @lib.align_f32le_b64("EALOv75/ZL4="),
+      frames: 1,
+      width: 2,
+      spf: 0.02,
+    },
+    @lib.align_lane(["a"], ["a"], [1], [[]], [false], [0], [1]),
+    ["", "a"],
+    prm(),
+  )
+  assert_true(b64.contains("\"overall\":" + direct.overall.to_string()))
+  assert_true(b64.contains("\"score\":" + direct.words[0].score.to_string()))
+  let vocab = ["", "a", "e"]
+  let post = post_of(vocab, ["a", "e", "_"], 0.8)
+  let lane1 = @lib.align_lane(["a"], ["a"], [1], [[]], [false], [0], [1])
+  let lane2 = @lib.align_lane(["e"], ["e"], [2], [[]], [false], [0], [1])
+  let batch = @lib.score_lanes(post, [lane1, lane2], vocab, prm(), [])
+  let one1 = @lib.score_take(post, lane1, vocab, prm())
+  let one2 = @lib.score_take(post, lane2, vocab, prm())
+  assert_eq(batch.takes.length(), 2)
+  assert_eq(batch.takes[0].overall, one1.overall)
+  assert_eq(batch.takes[1].overall, one2.overall)
+  assert_eq(batch.takes[0].words[0].score, one1.words[0].score)
+  assert_eq(batch.takes[1].words[0].score, one2.words[0].score)
+  assert_eq(batch.tokens.length(), one1.tokens.length())
+  assert_eq(batch.takes[0].tokens.length(), 0)
+  let many = "{\"vocab\":[\"\",\"a\",\"e\"],\"spf\":0.02,\"T\":" +
+    post.frames.to_string() +
+    ",\"V\":3,\"lp\":" +
+    dbl_json(post.lp) +
+    ",\"lanes\":[" +
+    lane_a +
+    ",{\"tgt\":[\"e\"],\"phones\":[\"e\"],\"ids\":[2],\"start\":[0],\"wlen\":[1],\"scheme\":\"koine\"}]}"
+  let js = @lib.align_phones_json(many)
+  assert_true(js.contains("\"takes\":["))
+  assert_true(js.contains("\"overall\":" + batch.takes[0].overall.to_string()))
+  @lib.align_set_post(post.lp, post.frames, post.width, post.spf)
+  let js_ref = @lib.align_phones_json(
+    "{\"postRef\":true,\"vocab\":[\"\",\"a\",\"e\"],\"lanes\":[" +
+    lane_a +
+    ",{\"tgt\":[\"e\"],\"phones\":[\"e\"],\"ids\":[2],\"start\":[0],\"wlen\":[1],\"scheme\":\"koine\"}]}",
+  )
+  assert_eq(js_ref, js)
+  @lib.align_clear_post()
+}
+
+///|
+fn dbl_json(xs : Array[Double]) -> String {
+  let sb = StringBuilder()
+  sb.write_char('[')
+  for i, x in xs {
+    if i > 0 {
+      sb.write_char(',')
+    }
+    sb.write_string(x.to_string())
+  }
+  sb.write_char(']')
+  sb.to_string()
 }
