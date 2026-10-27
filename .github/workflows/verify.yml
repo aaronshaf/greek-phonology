@@ -71,6 +71,14 @@ jobs:
         continue-on-error: true
         working-directory: moonbit
         run: node tools/regen_golden.cjs --check
+      - name: npm package smoke
+        id: npm
+        continue-on-error: true
+        run: |
+          bash moonbit/tools/build_npm.sh
+          cd packages/npm
+          npm pack --dry-run
+          node smoke.mjs
       - name: Write summary
         if: always()
         run: |
@@ -85,4 +93,5 @@ jobs:
             --outcome "mbti diff=${{ steps.mbti.outcome }}" \
             --outcome "artifacts=${{ steps.artifacts.outcome }}" \
             --outcome "ipa golden=${{ steps.golden.outcome }}" \
+            --outcome "npm smoke=${{ steps.npm.outcome }}" \
             >> "$GITHUB_STEP_SUMMARY"
