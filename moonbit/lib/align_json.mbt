@@ -453,6 +453,10 @@ fn params_of(v : AVal?, scheme : String) -> AlignParams {
             edge: fnum(f, "EDGE", base.edge),
             plain: mode == "plain",
             scheme: sch,
+            goal: match afind(f, "goal") {
+              Some(AStr(s)) => s
+              _ => ""
+            },
           }
         }
       }
@@ -698,6 +702,25 @@ fn post_of(fields : Array[(String, AVal)]) -> AlignPost? {
 }
 
 ///|
+fn jpct(score : Int) -> String {
+  let s = if score < 0 {
+    0
+  } else if score > 100 {
+    100
+  } else {
+    score
+  }
+  let whole = s / 100
+  let frac = s % 100
+  let digits = if frac < 10 {
+    "0" + frac.to_string()
+  } else {
+    frac.to_string()
+  }
+  whole.to_string() + "." + digits
+}
+
+///|
 fn jint_list(xs : Array[Int]) -> String {
   let sb = StringBuilder()
   sb.write_char('[')
@@ -777,6 +800,10 @@ fn word_out(w : WordScore) -> String {
   w.i.to_string() +
   ",\"score\":" +
   w.score.to_string() +
+  ",\"credit\":" +
+  jpct(w.score) +
+  ",\"level\":" +
+  jstr(credit_level(w.score.to_double() / 100.0, CreditScale::standard())) +
   ",\"attempts\":" +
   w.attempts.to_string() +
   ",\"evidence\":" +
@@ -861,6 +888,10 @@ fn take_out(r : TakeScore) -> String {
   sb.write_string(
     "],\"overall\":" +
     r.overall.to_string() +
+    ",\"overallCredit\":" +
+    jpct(r.overall) +
+    ",\"overallLevel\":" +
+    jstr(credit_level(r.overall.to_double() / 100.0, CreditScale::standard())) +
     ",\"cursorWord\":" +
     r.cursor_word.to_string() +
     ",\"lastPhone\":" +

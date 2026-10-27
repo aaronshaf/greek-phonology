@@ -189,6 +189,10 @@ export interface AlignPhoneHit {
 export interface AlignWord {
   i: number;
   score: number;
+  /** `score / 100`, the same fraction `creditLevel` takes. */
+  credit: number;
+  /** Display tint for `score`. Cutoffs are the library table, not a page copy. */
+  level: CreditLevel;
   attempts: number;
   evidence: boolean;
   ph: AlignPhoneHit[] | null;
@@ -201,6 +205,9 @@ export interface AlignWord {
 export interface AlignTake {
   words: AlignWord[];
   overall: number;
+  /** `overall / 100`. */
+  overallCredit: number;
+  overallLevel: CreditLevel;
   cursorWord: number;
   lastPhone: number;
   attempts: number;
@@ -235,6 +242,8 @@ export type CallName =
   | "unit_hearing_credit"
   | "align_phones"
   | "credit_level"
+  | "credit_bands"
+  | "optional_phones"
   | "scheme_id";
 
 export type CallResult =
@@ -297,6 +306,15 @@ export const CREDIT_LEVEL_CLEAR: number;
 export const CREDIT_LEVEL_DEEPEST: number;
 /** Map a combined credit in [0, 1] to a display level. Pass `scale` to override any cutoff. */
 export function creditLevel(combined: number, scale?: CreditScale): CreditLevel;
+export interface CreditBand {
+  level: CreditLevel;
+  from: number;
+  until: number;
+}
+/** The six tint bands. `scale` overrides cutoffs the same way as `creditLevel`. */
+export function creditBands(scale?: CreditScale): CreditBand[];
+/** Rough breathing `h` is optional. Other phones, including `pʰ`, are not. */
+export function optionalPhones(phones: string[] | string): boolean[];
 /** Short id for a page id (`koine`, `attic`, `erasmian`, `modern`) or a long id. Unknown is `""`. */
 export function schemeId(name: string): Scheme | "";
 export function distTable(scheme: Scheme | string): unknown;

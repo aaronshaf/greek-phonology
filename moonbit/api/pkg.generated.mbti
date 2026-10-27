@@ -6,6 +6,8 @@ pub fn align_phones_json(String) -> String
 
 pub fn call(String, String, String) -> String
 
+pub fn credit_bands_json(String) -> String
+
 pub fn credit_level_json(Double, String) -> String
 
 pub fn credit_scale_json() -> String
@@ -27,6 +29,8 @@ pub fn in_push(Int32) -> Unit
 pub fn ipa(String, String) -> String
 
 pub fn lookup_json(String) -> String
+
+pub fn optional_phones_json(String) -> String
 
 pub fn out_get(Int32) -> Int32
 

@@ -1,0 +1,3 @@
+#!/bin/sh
+root=$(git rev-parse --show-toplevel) || exit 1
+exec "$root/moonbit/tools/precommit.sh"

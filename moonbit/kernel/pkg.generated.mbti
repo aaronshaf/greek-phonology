@@ -16,6 +16,8 @@ pub fn align_bt_jump(Int32, Int32, Int32, Int32, Int32) -> AlignCursor
 
 pub fn align_bt_match(Int32, Int32, Int32, Int32) -> AlignCursor
 
+pub fn align_cell_cap() -> Int32
+
 pub fn align_clamp_score(Int32) -> Int32
 
 pub fn align_emit_ok(Int32, Int32, Int32, Int32) -> Bool
@@ -25,6 +27,8 @@ pub fn align_in_back(Int32, Int32, Int32, Int32) -> Bool
 pub fn align_max_score(Int32, Int32) -> Int32
 
 pub fn align_min_cost(Int32, Int32) -> Int32
+
+pub fn align_over_cap(Int32, Int32) -> Bool
 
 pub fn align_phones_needed(Int32, Int32) -> Int32
 
@@ -38,6 +42,8 @@ pub fn align_skip_n(Int32, Int32) -> Int32
 
 pub fn align_step_cap(Int32, Int32) -> Int32
 
+pub fn align_sub_bucket(Bool, Bool, Bool) -> Int32
+
 pub fn alt_match(FixedArray[Int32], Int32, FixedArray[Int32], Int32) -> Bool
 
 pub fn amalgamate_core(FixedArray[Int32], FixedArray[Int32]) -> Int32
@@ -45,6 +51,8 @@ pub fn amalgamate_core(FixedArray[Int32], FixedArray[Int32]) -> Int32
 pub fn argmax4(Int64, Int64, Int64, Int64) -> Int32
 
 pub fn contract_core(FixedArray[Int32], FixedArray[Int32], Int32, FixedArray[Int32], Int32, FixedArray[Int32]) -> Int32
+
+pub fn credit_level_rank(Int32, Int32, Int32, Int32, Int32, Int32) -> Int32
 
 pub fn decoded_pos(Int32, Int32) -> Int32
 
@@ -70,6 +78,12 @@ pub fn g_vowel(Int32) -> Bool
 
 pub fn g_vowel_seq(Int32, Int32) -> Int32
 
+pub fn goal_bounds_ordered() -> Bool
+
+pub fn goal_cap_milli(Int32) -> Int32
+
+pub fn goal_tol_milli(Int32) -> Int32
+
 pub fn is_base_char(Int32) -> Bool
 
 pub fn keep_char(Int32, Int32) -> Bool
@@ -77,6 +91,8 @@ pub fn keep_char(Int32, Int32) -> Bool
 pub fn law_ok(Int32, Int32, Bool, Bool, Bool) -> Bool
 
 pub fn lookup_stage(Bool, Bool, Bool) -> Int32
+
+pub fn near_credit_milli(Int32, Int32) -> Int32
 
 pub fn normalize4(Int64, Int64, Int64, Int64, Int64) -> FixedArray[Int64]
 
@@ -97,6 +113,10 @@ pub fn stop_class(Int32) -> Int32
 pub fn syllable_cut(FixedArray[Int32], Int32, Int32, Int32) -> Int32
 
 pub fn tally_hit(Int32, Int32, Bool) -> Int32
+
+pub fn tier_code(Int32, Int32) -> Int32
+
+pub fn tier_worsens(Int32, Int32, Int32) -> Bool
 
 pub fn to_grave(Int32, Bool, Bool) -> Bool
 

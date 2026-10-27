@@ -35,6 +35,19 @@ export const CREDIT_LEVEL_LIGHT = creditScale.light;
 export const CREDIT_LEVEL_MEDIUM = creditScale.medium;
 export const CREDIT_LEVEL_CLEAR = creditScale.clear;
 export const CREDIT_LEVEL_DEEPEST = creditScale.deepest;
+/** The six tint bands for the credit table. */
+export function creditBands(scale) {
+  if (!scale) return j(m.credit_bands_json(""));
+  const close = scale.close ?? CREDIT_LEVEL_CLOSE;
+  const light = scale.light ?? CREDIT_LEVEL_LIGHT;
+  const medium = scale.medium ?? CREDIT_LEVEL_MEDIUM;
+  const clear = scale.clear ?? CREDIT_LEVEL_CLEAR;
+  const deepest = scale.deepest ?? CREDIT_LEVEL_DEEPEST;
+  return j(m.credit_bands_json([close, light, medium, clear, deepest].join(",")));
+}
+/** Rough breathing `h` (and `hː`) is optional. Pass phones as an array or a comma list. */
+export const optionalPhones = (phones) =>
+  j(m.optional_phones_json(Array.isArray(phones) ? phones.join(",") : String(phones ?? "")));
 /** Display level for a combined credit in [0, 1]. */
 export function creditLevel(combined, scale) {
   if (!scale) return j(m.credit_level_json(combined, ""));
@@ -65,6 +78,7 @@ export function loadLexicon(bytes = readFileSync(new URL("./greek-phonology-lexi
 export const wasmPath = new URL("./greek-phonology.wasm", import.meta.url);
 export default {
   ipa, g2p, phoneDistance, phoneCredit, hearingCredit, unitHearingCredit, alignPhonesJson, creditLevel,
+  creditBands, optionalPhones,
   CREDIT_LEVEL_CLOSE, CREDIT_LEVEL_LIGHT, CREDIT_LEVEL_MEDIUM, CREDIT_LEVEL_CLEAR, CREDIT_LEVEL_DEEPEST,
   schemeId, distTable, detect, word, lookup, call, loadLexicon, wasmPath,
 };

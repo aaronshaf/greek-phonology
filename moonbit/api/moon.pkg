@@ -25,6 +25,8 @@ options(
         "align_phones_json",
         "credit_level_json",
         "credit_scale_json",
+        "credit_bands_json",
+        "optional_phones_json",
         "scheme_id",
         "word_json",
         "lookup_json",

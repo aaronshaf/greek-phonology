@@ -18,7 +18,7 @@ let tier_table : Array[(String, String, String, String)] = [
   ("koine", "ð", "θ", tolerated),
   ("koine", "ð", "v", nomatch),
   ("koine", "ð", "k", nomatch),
-  ("koine", "β", "v", tolerated),
+  ("koine", "β", "v", accurate),
   ("koine", "β", "b", tolerated),
   ("koine", "β", "f", nomatch),
   ("koine", "ɛ", "e", tolerated),
@@ -174,6 +174,25 @@ test "scheme equivalence and long scheme names" {
   assert_eq(pd("o", "ɔ", "koine", "").note, "Either sound is correct in this reading.")
   assert_eq(pd("o", "ɔ", "koine", "").d, 0.0)
   assert_eq(pd("o", "ɔ", "attic", "").note != pd("o", "ɔ", "koine", "").note, true)
+  let goals = ["strict", "gracious", "lenient", ""]
+  for g in goals {
+    let bv = pd("β", "v", "koine", g)
+    let vb = pd("v", "β", "koine", g)
+    assert_eq(bv.tier, accurate)
+    assert_eq(vb.tier, accurate)
+    assert_eq(bv.d, 0.0)
+    assert_eq(vb.d, 0.0)
+    assert_eq(bv.sim, 1.0)
+    assert_eq(bv.note, vb.note)
+    assert_true(bv.note.contains("Nothing needs fixing"))
+    assert_eq(bv.note, pd("β", "v", "koine", "strict").note)
+    assert_eq(bv.advice, "")
+  }
+  assert_eq(pd("β", "v", "attic", "gracious").tier, tolerated)
+  assert_eq(pd("β", "v", "modern", "gracious").tier, tolerated)
+  assert_eq(pd("v", "f", "koine", "gracious").tier, tolerated)
+  assert_eq(pd("v", "f", "koine", "strict").tier, nomatch)
+  assert_true(pd("v", "f", "koine", "strict").note == pd("v", "f", "koine", "lenient").note)
 }
 
 ///|
@@ -282,6 +301,7 @@ test "credit keeps an exact hit strongest and ignores anything outside the tier"
   let table = @lib.dist_table_json("grc-koine-reconstructed")
   assert_true(table.contains("\"scheme\":\"koine\""))
   assert_true(table.contains("more accurate"))
+  assert_true(table.contains("[\"β\",\"v\"]"))
   assert_false(has_raw_control(table))
 }
 
@@ -320,7 +340,8 @@ test "grapheme alternates are opt-in and do not repeat the target" {
   assert_true(f.note.contains("more accurate"))
   assert_true(f.d > 0.0 && f.d < 0.33)
   let beta = find_alt(end.units[0].alts, ["ɛ", "β"]).unwrap()
-  assert_eq(beta.tier, tolerated)
+  assert_eq(beta.tier, accurate)
+  assert_eq(beta.d, 0.0)
   assert_true(beta.note.contains("same sound"))
   assert_true(beta.note.contains("Nothing needs fixing"))
   for a in end.units[0].alts {

@@ -294,6 +294,15 @@ test "substitution cost follows the distance table" {
   assert_true(close_d(@lib.align_sub_cost("ɔ", "o", ""), 0.5))
   assert_true(close_d(@lib.align_sub_cost("ɔ", "o", "koine"), 0.0))
   assert_true(close_d(@lib.align_sub_cost("r", "l", ""), 1.0))
+  assert_true(close_d(@lib.align_sub_cost("l", "r", ""), 1.0))
+  assert_true(close_d(@lib.align_sub_cost("e", "i", ""), 1.0))
+  assert_true(close_d(@lib.align_sub_cost("i", "e", "koine"), 1.0))
+  // Koine β and v are one sound, so the path treats them as a match.
+  // With no scheme they stay in the tolerated band (feature distance 0.12).
+  assert_true(close_d(@lib.align_sub_cost("β", "v", "koine"), 0.0))
+  assert_true(close_d(@lib.align_sub_cost("v", "β", "koine"), 0.0))
+  assert_true(close_d(@lib.align_sub_cost("β", "v", ""), 0.5))
+  assert_true(close_d(@lib.align_sub_cost("v", "f", "koine"), 0.5))
 }
 
 ///|
@@ -564,6 +573,7 @@ test "a quiet take still scores, and a peak under the floor does not" {
     edge: 0.5,
     plain: false,
     scheme: "",
+    goal: "",
   }
   let floored = @lib.score_take({ lp, frames: 1, width: v, spf: 0.02 }, lane, vocab, tuned)
   assert_true(floored.tokens.length() >= 1)
@@ -667,4 +677,122 @@ test "align_phones_json agrees with score_take and bad input is empty" {
   assert_true(bad.contains("\"overall\":0"))
   let api = @api.align_phones_json(spec)
   assert_eq(api, js)
+  assert_true(js.contains("\"level\":"))
+  assert_true(js.contains("\"overallLevel\":"))
+}
+
+///|
+fn take_more(
+  lane : @lib.AlignLane,
+  tokens : Array[String],
+  prm : @lib.AlignParams,
+  more : Array[String],
+) -> @lib.TakeScore {
+  let vocab = vocab_with(lane.tgt, extra_phones)
+  for p in more {
+    push_unique(vocab, p)
+  }
+  @lib.score_take(post_of(vocab, tokens, 0.8), lane, vocab, prm)
+}
+
+///|
+test "near-miss credit changes the score and not the alignment cost" {
+  let open_e = lane_custom([["ɛ"]], [])
+  let gracious = take_of(open_e, ["e", "_"], prm())
+  assert_true(gracious.words[0].score > 0, msg=gracious.words[0].score.to_string())
+  assert_true(gracious.words[0].score < 80)
+  assert_true(gracious.words[0].evidence)
+  assert_eq(gracious.overall, gracious.words[0].score)
+  let strict_e = take_of(open_e, ["e", "_"], prm().with_goal("strict"))
+  assert_true(close_d(strict_e.cost, gracious.cost))
+  assert_true(strict_e.words[0].score > 0)
+  let wrong = take_of(lane_custom([["a"]], []), ["p", "_"], prm())
+  assert_eq(wrong.words[0].score, 0)
+  assert_true(wrong.cost > 0.4)
+  let koine = prm().with_scheme("koine")
+  let soft = take_more(lane_custom([["v"]], []), ["f", "_"], koine, ["f", "β"])
+  let hard = take_more(
+    lane_custom([["v"]], []),
+    ["f", "_"],
+    koine.with_goal("strict"),
+    ["f", "β"],
+  )
+  assert_true(soft.words[0].score > 0, msg=soft.words[0].score.to_string())
+  assert_eq(hard.words[0].score, 0)
+  assert_true(close_d(soft.cost, hard.cost))
+  let same = take_more(lane_custom([["v"]], []), ["β", "_"], koine, ["f", "β"])
+  assert_true(same.words[0].score >= 80)
+  assert_true(same.cost < 0.000001)
+}
+
+///|
+test "rough breathing is the optional phone" {
+  assert_false(@lib.phone_is_optional("a"))
+  assert_true(@lib.phone_is_optional("h"))
+  assert_true(@lib.phone_is_optional("hː"))
+  assert_false(@lib.phone_is_optional("pʰ"))
+  let flags = @lib.optional_flags(["a", "h", "pʰ"])
+  assert_eq(flags.length(), 3)
+  assert_false(flags[0])
+  assert_true(flags[1])
+  assert_false(flags[2])
+  assert_eq(@lib.optional_phones_json("a,h,pʰ"), "[false,true,false]")
+  assert_eq(@lib.call_json("optional_phones", "h,a", ""), "[true,false]")
+  let required = take_of(lane_custom([["a", "h"]], []), ["a", "_"], prm())
+  assert_eq(required.words[0].score, 0)
+  let optional = take_of(lane_custom([["a", "h"]], [1]), ["a", "_"], prm())
+  assert_true(optional.words[0].score >= 80)
+  assert_true(optional.words[0].ph[1].optional)
+}
+
+///|
+test "alignment cost is non-negative, zero on an exact plain read, and bounded" {
+  let empty = @lib.align_lane([], [], [], [], [], [], [])
+  let none = @lib.align_tokens([], empty, prm())
+  assert_eq(none.pairs.length(), 0)
+  assert_true(none.cost < 0.000001)
+  let exact = take_of(lane_custom([["a", "e"]], []), ["a", "e", "_"], prm().with_plain(true))
+  assert_true(exact.cost < 0.000001)
+  assert_true(exact.words[0].score >= 80)
+  let mut prev = 1000000
+  for p in exact.align.pairs {
+    assert_true(p.h >= 0 && p.h < exact.tokens.length())
+    assert_true(p.j >= 0 && p.j < 2)
+    if !p.shared {
+      assert_true(p.h + p.j <= prev)
+      prev = p.h + p.j
+    }
+  }
+  let swapped = take_of(lane_custom([["a"]], []), ["p", "_"], prm().with_plain(true))
+  assert_true(swapped.cost > 0.4)
+  let lane = lane_phrase()
+  let restarted = take_of(lane, cat(seq_of(lane, [0, 1]), seq_of(lane, [0, 1, 2, 3, 4])), prm())
+  assert_true(restarted.cost >= 0.0 && restarted.cost < 1.0e8)
+  assert_true(restarted.attempts < 30)
+  let again = take_of(lane, cat(seq_of(lane, [0, 1]), seq_of(lane, [0, 1, 2, 3, 4])), prm())
+  assert_true(close_d(again.cost, restarted.cost))
+  assert_eq(again.overall, restarted.overall)
+}
+
+///|
+test "a long alignment is refused instead of allocating the matrix" {
+  let n = 600
+  let tgt = Array::make(n, "a")
+  let ids = Array::make(n, 1)
+  let opt = Array::make(n, false)
+  let alts : Array[Array[Int]] = []
+  for _ in 0..<n {
+    alts.push([])
+  }
+  let lane = @lib.align_lane(tgt, tgt, ids, alts, opt, [0], [n])
+  let heard : Array[@lib.HeardToken] = []
+  for i in 0..<n {
+    heard.push({ id: 1, p: "a", t0: i, t1: i, pk: 0.9, fr: [i] })
+  }
+  let al = @lib.align_tokens(heard, lane, prm())
+  assert_eq(al.pairs.length(), 0)
+  assert_true(al.cost > 1.0e8)
+  assert_eq(@kernel.align_cell_cap(), 250000)
+  assert_true(@kernel.align_over_cap(600, 600))
+  assert_false(@kernel.align_over_cap(100, 100))
 }

@@ -1,9 +1,12 @@
 // Restart/skip-tolerant alignment of a recognizer's heard phones against
 // target grapheme units. Opt-in: ipa(), g2p, and detect never call it.
 //
-// Substitution cost comes from phone_distance (gracious tier): accurate 0,
-// tolerated 0.5, otherwise 1. That is the spec's same / same-class / else
-// table, read from this library instead of a second class list.
+// Substitution cost comes from phone_distance at the gracious goal: accurate 0,
+// tolerated 0.5, otherwise 1. The deploy-122 CLASS table is not a second price.
+// CLASS priced e/i and r/l at 0.5. This table does not tolerate those pairs
+// (e/i is a full step of vowel height; r and l differ in manner), so they
+// cost 1. A learner goal changes near-miss credit later, not this cost, so
+// the alignment path stays put when a page changes how generously it tints.
 //
 // The backtrace calls the proved kernel for cursor motion, index checks,
 // the end column, skip length, the restart window, the phone-count floor,
@@ -30,6 +33,7 @@ pub(all) struct AlignParams {
   edge : Double
   plain : Bool
   scheme : String
+  goal : String
 }
 
 ///|
@@ -171,6 +175,7 @@ pub fn align_params_default() -> AlignParams {
     edge: 0.5,
     plain: false,
     scheme: "",
+    goal: "",
   }
 }
 
@@ -194,6 +199,7 @@ pub fn AlignParams::with_plain(self : AlignParams, plain : Bool) -> AlignParams 
     edge: self.edge,
     plain,
     scheme: self.scheme,
+    goal: self.goal,
   }
 }
 
@@ -217,6 +223,7 @@ pub fn AlignParams::with_back(self : AlignParams, back : Int) -> AlignParams {
     edge: self.edge,
     plain: self.plain,
     scheme: self.scheme,
+    goal: self.goal,
   }
 }
 
@@ -240,6 +247,31 @@ pub fn AlignParams::with_scheme(self : AlignParams, scheme : String) -> AlignPar
     edge: self.edge,
     plain: self.plain,
     scheme,
+    goal: self.goal,
+  }
+}
+
+///|
+pub fn AlignParams::with_goal(self : AlignParams, goal : String) -> AlignParams {
+  {
+    tau: self.tau,
+    ins: self.ins,
+    qpk: self.qpk,
+    inslo: self.inslo,
+    sublo: self.sublo,
+    rs: self.rs,
+    sk: self.sk,
+    back: self.back,
+    floor: self.floor,
+    min_frac: self.min_frac,
+    minc: self.minc,
+    merge_gap: self.merge_gap,
+    win: self.win,
+    hop: self.hop,
+    edge: self.edge,
+    plain: self.plain,
+    scheme: self.scheme,
+    goal,
   }
 }
 
@@ -300,20 +332,75 @@ fn take_lower(cur : Double, cand : Double) -> Bool {
 /// Substitution cost from `phone_distance` at the gracious goal.
 /// The same string is 0, including a phone the feature table does not know.
 /// Accurate (including the same phone, ignoring length) is 0.
-/// Tolerated, the library's same-class band, is 0.5. Anything else is 1.
+/// Tolerated is 0.5. Anything else, including e/i and r/l, is 1.
 /// A learner goal is not consulted: alignment must not move when the page
 /// changes how generously it tints a near miss.
 pub fn align_sub_cost(heard : String, target : String, scheme : String) -> Double {
   if heard == target {
+    ignore(@kernel.align_sub_bucket(true, false, false))
     return 0.0
   }
   let dist = phone_distance(target, heard, scheme, "gracious")
-  if dist.tier == "accurate" {
+  let bucket = @kernel.align_sub_bucket(
+    false,
+    dist.tier == "accurate",
+    dist.tier == "tolerated",
+  )
+  if bucket == 0 {
     0.0
-  } else if dist.tier == "tolerated" {
+  } else if bucket == 1 {
     0.5
   } else {
     1.0
+  }
+}
+
+///|
+/// Rough breathing [h] is the one phone a page may mark optional.
+/// A missing [h] is a cheap deletion; producing it still matches.
+/// Aspiration stays inside the phone (`pʰ`), and length is not its own phone.
+/// This is an acceptance rule for a learner page. It does not change `ipa()`.
+pub fn phone_is_optional(phone : String) -> Bool {
+  bare_phone(phone) == "h"
+}
+
+///|
+/// Default optional flags for a target phone list. See `phone_is_optional`.
+pub fn optional_flags(phones : Array[String]) -> Array[Bool] {
+  let out = Array::make(phones.length(), false)
+  for i in 0..<phones.length() {
+    out[i] = phone_is_optional(phones[i])
+  }
+  out
+}
+
+///|
+/// Comma-separated phones to a JSON bool array. See `phone_is_optional`.
+pub fn optional_phones_json(list : String) -> String {
+  let parts = if list == "" {
+    []
+  } else {
+    list.split(",").map(fn(v) { v.to_owned() }).collect()
+  }
+  let flags = optional_flags(parts)
+  let sb = StringBuilder()
+  sb.write_char('[')
+  for i, flag in flags {
+    if i > 0 {
+      sb.write_char(',')
+    }
+    sb.write_string(if flag { "true" } else { "false" })
+  }
+  sb.write_char(']')
+  sb.to_string()
+}
+
+///|
+fn align_matrix_refused(heard : Int, phones : Int) -> Bool {
+  if heard > 20000 || phones > 20000 {
+    true
+  } else {
+    @kernel.align_over_cap(heard, phones)
   }
 }
 
@@ -550,6 +637,11 @@ pub fn align_tokens(
   let h = heard.length()
   let w = lane.start.length()
   let inf = 1.0e9
+  // (heard + 1) * (phones + 1) cells, three arrays. Past the cap, or a side
+  // over 20_000, return no pairs and the sentinel cost instead of allocating.
+  if align_matrix_refused(h, n) {
+    return { pairs: [], k: 0, cost: inf, atts: 0, heard_n: h }
+  }
   let del = Array::make(n, 1.0)
   for jj in 0..<n {
     if lane.opt[jj] {
@@ -948,7 +1040,54 @@ fn phone_score_of(
     let capped = if ratio > 1.0 { 1.0 } else { ratio }
     js_round(capped * 100.0)
   }
-  (clamp_score(raw), vocab_at(vocab, hv))
+  let heard_name = vocab_at(vocab, hv)
+  let mut same_id = false
+  if j >= 0 && j < lane.ids.length() && hv == lane.ids[j] {
+    same_id = true
+  }
+  if j >= 0 && j < lane.alts.length() {
+    for a in lane.alts[j] {
+      if hv == a {
+        same_id = true
+      }
+    }
+  }
+  // Exact or lane-alternate mass keeps the posterior score. A different phone
+  // below that floor takes hearing_credit, so a tolerated near miss is not a 0.
+  // The goal changes that credit. It does not change align_sub_cost.
+  let score = if raw > 0 || same_id || heard_name == "" {
+    raw
+  } else {
+    let w = if hm < 0.0 { g.pk } else { hm }
+    near_miss_score(phone_name(lane, j), heard_name, w, prm.scheme, prm.goal)
+  }
+  (clamp_score(score), heard_name)
+}
+
+///|
+fn near_miss_score(
+  target : String,
+  heard : String,
+  weight : Double,
+  scheme : String,
+  goal : String,
+) -> Int {
+  if target == "" || heard == "" {
+    return 0
+  }
+  let w = if weight < 0.0 {
+    0.0
+  } else if weight > 1.0 {
+    1.0
+  } else {
+    weight
+  }
+  let credit = hearing_credit(target, [(heard, w)], scheme, goal)
+  if credit.combined <= 0.0 {
+    0
+  } else {
+    clamp_score(js_round(credit.combined * 100.0))
+  }
 }
 
 ///|
@@ -966,8 +1105,11 @@ fn phones_needed(n : Int, prm : AlignParams) -> Int {
 ///|
 /// Credit each word from its best coherent attempt. A phone scores
 /// round(100 * min(1, best posterior / non-blank mass)) when the target
-/// (or an alternate) reaches FLOOR inside the token; otherwise 0.
-/// An abstaining phone that was not heard is left out of the mean.
+/// (or a lane alternate) reaches FLOOR inside the token. Otherwise a different
+/// heard phone scores round(100 * hearing_credit) at `params.goal` (empty goal
+/// is gracious). An abstaining phone that was not heard is left out of the mean.
+/// `overall` is the mean of the word scores. Pass either number divided by 100
+/// to `credit_level` for the tint. The alignment path does not use the goal.
 pub fn score_words(
   post : AlignPost,
   lane0 : AlignLane,

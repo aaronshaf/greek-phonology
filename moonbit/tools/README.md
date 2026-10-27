@@ -28,10 +28,13 @@ Run them from `moonbit/` unless a script says otherwise.
 
 | Script | Command | What it does |
 |---|---|---|
-| `check_artifacts.sh` | `./tools/check_artifacts.sh` | Release-builds wasm and JS and `cmp`s them with `docs/`. Exit 1 means the committed Pages files are stale. CI treats that as a warning. |
-| `verify_report.py` | `python3 tools/verify_report.py --proof _build/verif/kernel/kernel.proof.json` | Prints the informational verify summary (MoonBit version, Z3 version, proof counts). |
+| `check_artifacts.sh` | `./tools/check_artifacts.sh` | Release-builds wasm and JS and `cmp`s them with `docs/`. Exit 1 means the committed Pages files are stale. Not run by the pre-commit hook. |
+| `precommit.sh` | `./tools/precommit.sh` | `moon check`, `moon test`, additive `.mbti`, and `moon prove` when z3 is on PATH. The git hook calls this. |
+| `coverage.py` | `python3 tools/coverage.py` | Prints proved goals and public-function counts. See `docs/VERIFICATION.md`. |
+| `check_mbti_additive.py` | `python3 tools/check_mbti_additive.py` | Fails if a public `.mbti` line disappeared relative to HEAD. |
+| `verify_report.py` | `python3 tools/verify_report.py --proof _build/verif/kernel/kernel.proof.json` | Prints a local summary (MoonBit version, Z3 version, proof counts). |
 | `kl_parity.cjs` | `node tools/kl_parity.cjs` | Compares the JS build with `tests/kl_golden.json.gz`. Needs `moon build --target js --release`. |
 | `phrase_eval.py` | `python3 tools/phrase_eval.py MORPHGNT_DIR` | Scores `accentuate_phrase` against MorphGNT SBLGNT files. Those files are not in the repo. |
 | `phrase_eval_lxx.cjs` | `node tools/phrase_eval_lxx.cjs text_accented.csv` | Scores phrase accents on Rahlfs running text. The CSV is not in the repo. Needs the JS build. |
 
-`kl_parity.cjs`, `phrase_eval.py`, and `phrase_eval_lxx.cjs` are not run by CI.
+`kl_parity.cjs`, `phrase_eval.py`, and `phrase_eval_lxx.cjs` are not run by the pre-commit hook.

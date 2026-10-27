@@ -41,6 +41,7 @@ pub fn align_bt_match(
   proof_ensure: result => result.att == att,
   proof_ensure: result => result.ci >= 0 && result.cj >= 0,
   proof_ensure: result => result.ci + result.cj < ci + cj,
+  proof_ensure: result => ci + cj - result.ci - result.cj >= 1,
   proof_ensure: result => result.rank < ci + cj - att * (span + span),
   proof_ensure: result => result.rank == result.ci + result.cj - result.att * (span + span),
 } {
@@ -110,6 +111,7 @@ pub fn align_bt_jump(
   proof_ensure: result => result.att == att + 1,
   proof_ensure: result => result.cj >= 0 && result.cj < span,
   proof_ensure: result => result.rank < ci + cj - att * (span + span),
+  proof_ensure: result => ci + cj - att * (span + span) - result.rank >= 1,
   proof_ensure: result => result.rank == ci + src - (att + 1) * (span + span),
 } {
   let natt = att + 1

@@ -72,6 +72,8 @@ pub fn call_json(name : String, arg : String, arg2 : String) -> String {
       let at = if parts.length() > 3 { parts[3] } else { "-1" }
       unit_hearing_credit_json(arg, posterior, scheme, goal, at)
     }
+    "credit_bands" => credit_bands_json(arg)
+    "optional_phones" => optional_phones_json(arg)
     "credit_level" => {
       let combined = if arg == "" {
         0.0
