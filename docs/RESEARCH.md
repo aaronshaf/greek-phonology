@@ -13,12 +13,14 @@ What the library does: η [ɛː], ει [eː], ου [uː], ω [ɔː], υ [y], ζ 
 - **Gap:** no pitch accent is shown. That is fine for segmental IPA but worth stating.
 
 ### Koine
-What the library does: η [e], ε/αι [ɛ], ει [i], οι/υ [y], ω [o], β [v], δ [ð], γ [ɣ ~ ʝ], ζ [z], and φ θ χ aspirated [pʰ tʰ kʰ].
+What the library does: η [e], ε/αι [ɛ], ει [i], οι/υ [y], ω [o], β [v], δ [ð], γ [ɣ ~ ʝ], ζ [z], and φ θ χ aspirated [pʰ tʰ kʰ]. Word-final αυ/ευ/ηυ is [v]; before a voiceless consonant it is [f]; medial, before a vowel or a voiced consonant, it is [β].
 - **Agrees** with Buth's reconstruction ("Ἡ Κοινὴ Προφορά", Biblical Language Center, <https://athenaze.com/wp-content/media/PRONSYS12005.pdf>), which has voiced fricatives already by the 1st century and keeps η distinct from ε/αι.
 - **Agrees** with Horrocks, *Greek: A History of the Language and its Speakers* (2nd ed., Wiley-Blackwell 2010, ch. 6). Horrocks finds the evidence for frication of φ θ χ "frankly meagre" before the late Roman period, and Egypt kept hard aspirates. Gignac, *A Grammar of the Greek Papyri of the Roman and Byzantine Periods*, vol. 1, *Phonology* (1976), documents the papyrus spellings that support the vowel mergers.
 - **Agrees with the recent switch** to aspirated φ θ χ for Roman Palestine (koinegreek.com, <https://www.koinegreek.com/koine-pronunciation>; Wikipedia summary with sources, <https://en.wikipedia.org/wiki/Koine_Greek_phonology>).
 - **Note:** Buth's own "Living Koine" teaching uses fricative [f θ x] for consistency. So the library's choice is the historical NT-era one, not Buth's classroom one. Say so in the docs.
-- **Minor:** some sources write β as bilabial [β] rather than [v] for this period. Optional.
+- **Minor:** some sources write β as bilabial [β] rather than [v] for this period. The letter β is [v]. The diphthong's medial coda before a vowel or a voiced consonant stays the bilabial symbol [β]. [β] is a tolerated hearing of word-final [v], not a second target.
+- **Word-final αυ/ευ/ηυ (done, 2026-10-27):** the target is [v], the same phone as the letter β. [f] is accepted, with a note that [v] is more accurate. Aaron decided this. Allen (via Goldstein's 2014 consonants chapter), Horrocks's note that the pronunciation was partially assimilated to [af, ef] before voiceless consonants, and the usual teaching guides agree that the second element became a fricative and that the next sound affects voicing. None of the pages that could be read settle an isolated or phrase-final αυ/ευ/ηυ as [β], [v], or [f]. The fifteen golden-snapshot forms whose Koine cell changed are listed in CHANGELOG.md. No other scheme's `ipa()` changed.
+- **Still open:** medial Koine αυ/ευ/ηυ before a vowel or a voiced consonant stays [β], not [v]. Koine ηυ stays [e] plus the fricative; a monophthong [e] or [i] was not adopted. ωυ stays two units in every scheme (it is not a diphthong). The `ctx` flag, default off, lets the next word select [f] or [v] for Koine and Modern word-final αυ/ευ/ηυ; phrase-final output matches the isolated word, and `ipa()` ignores the flag. Whether a later version turns that flag on is open.
 
 ### Erasmian
 What the library does: η [eɪ], ω [oʊ], υ [u], ζ [dz], θ [θ], φ [f], χ [x], ει [eɪ], οι [ɔɪ], αυ [aʊ], ευ [ju].
@@ -46,7 +48,7 @@ What the library emits for υι (checked on `υἱός`; the `h` below is the ro
 | Attic | [y i] | `h y i o s` |
 | Erasmian | [w i] | `h w i o s` |
 
-Attic scholarship disagrees about this sequence: a diphthong [yi], especially before a vowel, versus an early monophthong [yː] (Allen's discussion of υἱός). The library keeps the diphthong [y i]. Erasmian [w i] is the usual US seminary classroom value, not a reconstructed [yi]. Koine is the monophthong [y]. None of these notes change the output.
+Attic scholarship disagrees about this sequence: a diphthong [yi], especially before a vowel, versus an early monophthong [yː] (Allen's discussion of υἱός). The library keeps the diphthong [y i]. Erasmian [w i] is the usual US seminary classroom value, not a reconstructed [yi]. Koine is the monophthong [y]. Modern is [i]. `ipa()` is unchanged. The opt-in distance table accepts Erasmian [y i] as a tolerated hearing of [w i] and says that [y i] is the more reconstructed value.
 
 Erasmian ευ is [ju] (`εὐαγγέλιον` → `j u a ŋ g e l i o n`), the common North American classroom value. A reconstructed [eu] is a different convention, and this scheme does not emit it.
 
@@ -76,3 +78,13 @@ Erasmian ευ is [ju] (`εὐαγγέλιον` → `j u a ŋ g e l i o n`), the 
 5. Attic length: done where the spelling shows it (circumflex, macron, iota subscript, geminates). Open: α ι υ under an acute or unaccented.
 
 After items 1, 2, 4 and 5 the detector's phone-bigram tables were rebuilt from the SBLGNT and Rahlfs LXX word counts. The detector uses no audio-derived data.
+
+6. Koine word-final αυ/ευ/ηυ is [v] (2026-10-27). Sources that could be read do not settle [β] vs [v] vs [f] in that position; [f] is tolerated and [v] is the target. The detector folds [β] to [v], so this `ipa()` change does not retune detection.
+
+## 5. Closeness, separate from letter-to-sound
+
+`phone_distance` is opt-in and model-agnostic: it scores a target phone against whatever IPA a recognizer returned. The numbers are the pronunciation playground's hand-weighted feature table (phondist 0.1), not raw PanPhon. A learner goal (`strict`, `gracious`, `lenient`) changes only whether a distance counts as tolerated and how much credit a near miss gets. The note and the advice stay on the scheme's target. `gracious` is the default (tolerated up to 0.33).
+
+Grapheme alternates are a separate, curated list. The rows shipped here are Koine word-final αυ/ευ/ηυ heard as [f] or [β], and Erasmian υι heard as [y i]. They are attached only when `g2p` is called with `alts`. A single-phone near miss such as [ɛ]/[e] or [kʰ]/[k] comes from the feature table, not from that list.
+
+Open for this table: the weights are hand-set, not fitted; [ɥ] has no feature row, so a hearing of [ɥ] is `not-a-match` rather than a guessed vector; the rest of the per-scheme grapheme matrix beyond the two decisions above is not encoded.
