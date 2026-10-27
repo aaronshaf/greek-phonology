@@ -393,8 +393,8 @@ fn sch_note(sc : String, sym : String) -> String {
   if sc == "koine" {
     match sym {
       "ð" => "In Koine reading δ is a soft “th” as in this, air flowing"
-      "β" => "In Koine reading β is a soft “v”, air flowing"
-      "ɣ" => "In Koine reading γ is a soft “gh”, air flowing"
+      "β" => "In Koine reading β is a soft “v” as in van, air flowing"
+      "ɣ" => "In Koine reading γ is a soft “gh”, as in loch but with the voice on, air flowing"
       "ɛ" => "In Koine reading ε is an open “eh” as in bed"
       "y" => "In Koine reading υ is “ü” (lips rounded, tongue forward)"
       "tʰ" => "In Koine reading θ is t with a puff of air"
@@ -404,7 +404,7 @@ fn sch_note(sc : String, sym : String) -> String {
     }
   } else if sc == "attic" {
     match sym {
-      "ɔ" => "In restored Attic ω is a long open “aw”"
+      "ɔ" => "In restored Attic ω is a long open “aw” as in thought"
       "y" => "In restored Attic υ is “ü” (lips rounded, tongue forward)"
       "tʰ" => "In restored Attic θ is t with a puff of air"
       "pʰ" => "In restored Attic φ is p with a puff of air"
@@ -414,14 +414,14 @@ fn sch_note(sc : String, sym : String) -> String {
   } else if sc == "modern" {
     match sym {
       "ð" => "In Modern Greek δ is a soft “th” as in this, air flowing"
-      "ɣ" => "In Modern Greek γ is a soft “gh”, air flowing"
+      "ɣ" => "In Modern Greek γ is a soft “gh”, as in loch but with the voice on, air flowing"
       "θ" => "In Modern Greek θ is “th” as in think"
-      "v" => "In Modern Greek β is “v”"
+      "v" => "In Modern Greek β is “v” as in van"
       _ => ""
     }
   } else if sc == "erasmian" {
     match sym {
-      "ʊ" => "In the Erasmian reading ο/ω/ου glides can end in a short “oo”"
+      "ʊ" => "In the Erasmian reading, ο, ω, and ου can end in a short “oo” as in book"
       "x" => "In the Erasmian reading χ is a “ch” as in loch"
       _ => ""
     }
@@ -503,7 +503,7 @@ fn manner_word(f : Feat) -> String {
   } else if f.gl > 0.0 {
     "a glide"
   } else if f.aff > 0.0 {
-    "an affricate"
+    "a stop released into a hiss"
   } else if f.stri > 0.0 {
     "a hiss"
   } else if f.cont > 0.0 {
@@ -856,11 +856,11 @@ fn alt_rows(scheme : String) -> Array[AltRow] {
   let sc = scheme_short(scheme)
   let out : Array[AltRow] = []
   if sc == "koine" {
-    let note = "f is accepted word-finally, but v is more accurate: it is the voiced beta-type fricative, the same sound as Koine β."
+    let note = "“f” (as in fan) is accepted at the end of a word, but “v” (as in van) is more accurate. It is the same sound as the letter β."
     out.push(alt_row("αυ", "word-end", ["a", "v"], ["a", "f"], "tolerated", note, src_final))
     out.push(alt_row("ευ", "word-end", ["ɛ", "v"], ["ɛ", "f"], "tolerated", note, src_final))
     out.push(alt_row("ηυ", "word-end", ["e", "v"], ["e", "f"], "tolerated", note, src_final))
-    let beta = "β is the bilabial symbol for this fricative. The library target here is v, the phone already used for the letter β."
+    let beta = "“v” (as in van) and β are the same sound here. Nothing needs fixing."
     out.push(alt_row("αυ", "word-end", ["a", "v"], ["a", "β"], "tolerated", beta, src_final))
     out.push(alt_row("ευ", "word-end", ["ɛ", "v"], ["ɛ", "β"], "tolerated", beta, src_final))
     out.push(alt_row("ηυ", "word-end", ["e", "v"], ["e", "β"], "tolerated", beta, src_final))
@@ -872,7 +872,7 @@ fn alt_rows(scheme : String) -> Array[AltRow] {
         ["w", "i"],
         ["y", "i"],
         "tolerated",
-        "w i is the classroom target. y i is accepted, and it is the more reconstructed value.",
+        "The classroom sound is “w” as in we, then “ee” as in machine. “ü” as in German über, then “ee”, is also accepted, and it is closer to the reconstructed pronunciation.",
         src_yi,
       ),
     )

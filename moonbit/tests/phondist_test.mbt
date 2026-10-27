@@ -321,6 +321,8 @@ test "grapheme alternates are opt-in and do not repeat the target" {
   assert_true(f.d > 0.0 && f.d < 0.33)
   let beta = find_alt(end.units[0].alts, ["ɛ", "β"]).unwrap()
   assert_eq(beta.tier, tolerated)
+  assert_true(beta.note.contains("same sound"))
+  assert_true(beta.note.contains("Nothing needs fixing"))
   for a in end.units[0].alts {
     assert_false(heard_is(a, end.units[0].ph))
   }
@@ -330,7 +332,9 @@ test "grapheme alternates are opt-in and do not repeat the target" {
   assert_eq(yi.units[0].ph, ["w", "i"])
   let yalt = find_alt(yi.units[0].alts, ["y", "i"]).unwrap()
   assert_eq(yalt.tier, tolerated)
-  assert_true(yalt.note.contains("y i"))
+  assert_true(yalt.note.contains("as in we"))
+  assert_true(yalt.note.contains("reconstructed"))
+  assert_false(yalt.note.contains("y i"))
   for a in yi.units[0].alts {
     assert_false(heard_is(a, yi.units[0].ph))
   }
@@ -340,4 +344,92 @@ test "grapheme alternates are opt-in and do not repeat the target" {
   let away = @api.phone_distance_json("ð", "d", "koine", "strict")
   assert_true(away.contains("\"tier\":\"not-a-match\""))
   assert_false(has_raw_control(away))
+}
+
+///|
+fn starts_at(cs : Array[Char], i : Int, nd : Array[Char]) -> Bool {
+  if i + nd.length() > cs.length() {
+    return false
+  }
+  for k in 0..<nd.length() {
+    if cs[i + k] != nd[k] {
+      return false
+    }
+  }
+  true
+}
+
+///|
+fn json_strings_for_key(s : String, key : String) -> Array[String] {
+  let needle = "\"" + key + "\":\""
+  let cs = s.to_array()
+  let nd = needle.to_array()
+  let out : Array[String] = []
+  let mut i = 0
+  while i < cs.length() {
+    if starts_at(cs, i, nd) {
+      let mut j = i + nd.length()
+      let mut acc = ""
+      while j < cs.length() && cs[j] != '"' {
+        if cs[j] == '\\' && j + 1 < cs.length() {
+          acc = acc + cs[j + 1].to_string()
+          j += 2
+        } else {
+          acc = acc + cs[j].to_string()
+          j += 1
+        }
+      }
+      out.push(acc)
+      i = j
+    } else {
+      i += 1
+    }
+  }
+  out
+}
+
+///|
+fn jargon_hit(s : String) -> String {
+  let low = s.to_lower()
+  let words = [
+    "library", "target here", "bilabial", "fricative", "beta-type", "affricate",
+    "phone",
+  ]
+  for w in words {
+    if low.contains(w) {
+      return w
+    }
+  }
+  ""
+}
+
+///|
+test "learner notes avoid library jargon and bare phone symbols" {
+  let schemes = ["koine", "attic", "erasmian", "modern"]
+  for sc in schemes {
+    let table = @lib.dist_table_json(sc)
+    let notes = json_strings_for_key(table, "note")
+    if sc == "koine" || sc == "erasmian" {
+      assert_true(notes.length() > 0)
+    }
+    for note in notes {
+      let hit = jargon_hit(note)
+      assert_eq(hit, "", msg=note)
+      assert_true(note.contains("as in"), msg=note)
+    }
+  }
+  for sc in schemes {
+    for t in dist_phones {
+      for h in dist_phones {
+        let r = pd(t, h, sc, "gracious")
+        let hit = jargon_hit(r.note)
+        assert_eq(hit, "", msg=r.note)
+        let adv = jargon_hit(r.advice)
+        assert_eq(adv, "", msg=r.advice)
+        if r.tier != accurate {
+          assert_true(r.note.contains("as in") || r.note.contains("No comparison"), msg=r.note)
+        }
+      }
+    }
+  }
 }
