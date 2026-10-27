@@ -16,6 +16,16 @@ pub fn add_acute(String) -> String
 
 pub fn add_circumflex(String) -> String
 
+pub fn align_lane(Array[String], Array[String], Array[Int32], Array[Array[Int32]], Array[Bool], Array[Int32], Array[Int32]) -> AlignLane
+
+pub fn align_params_default() -> AlignParams
+
+pub fn align_phones_json(String) -> String
+
+pub fn align_sub_cost(String, String, String) -> Double
+
+pub fn align_tokens(Array[HeardToken], AlignLane, AlignParams) -> TokenAlign
+
 pub fn amalgamate(String) -> String
 
 pub fn augmentize(String) -> String
@@ -120,9 +130,17 @@ pub fn scheme_id(String) -> String
 
 pub let schemes : Array[String]
 
+pub fn score_take(AlignPost, AlignLane, Array[String], AlignParams) -> TakeScore
+
+pub fn score_words(AlignPost, AlignLane, TokenAlign, Array[HeardToken], Array[String], AlignParams) -> TakeScore
+
+pub fn soft_tokens(AlignPost, Array[String], AlignParams) -> Array[HeardToken]
+
 pub fn softmax(Array[Double], Double) -> Array[Double]
 
 pub fn split_ws(String) -> Array[String]
+
+pub fn stitch(Array[AlignWindow], Double, AlignParams) -> AlignPost
 
 pub fn syllabify(String) -> Array[Array[String]]
 
@@ -147,6 +165,62 @@ pub fn word_json(String) -> String
 // Errors
 
 // Types and methods
+pub(all) struct AlignLane {
+  tgt : Array[String]
+  phones : Array[String]
+  ids : Array[Int32]
+  alts : Array[Array[Int32]]
+  opt : Array[Bool]
+  start : Array[Int32]
+  wlen : Array[Int32]
+  w_of : Array[Int32]
+}
+
+pub(all) struct AlignPair {
+  h : Int32
+  j : Int32
+  att : Int32
+  shared : Bool
+}
+
+pub(all) struct AlignParams {
+  tau : Double
+  ins : Double
+  qpk : Double
+  inslo : Double
+  sublo : Double
+  rs : Double
+  sk : Double
+  back : Int32
+  floor : Double
+  min_frac : Double
+  minc : Int32
+  merge_gap : Int32
+  win : Double
+  hop : Double
+  edge : Double
+  plain : Bool
+  scheme : String
+}
+pub fn AlignParams::with_back(Self, Int32) -> Self
+pub fn AlignParams::with_plain(Self, Bool) -> Self
+pub fn AlignParams::with_scheme(Self, String) -> Self
+
+pub(all) struct AlignPost {
+  lp : Array[Double]
+  frames : Int32
+  width : Int32
+  spf : Double
+}
+
+pub(all) struct AlignWindow {
+  start : Double
+  frames : Int32
+  width : Int32
+  data : Array[Double]
+  spf : Double
+}
+
 pub(all) struct CreditHit {
   phone : String
   p : Double
@@ -216,6 +290,15 @@ pub(all) struct GUnit {
   marks : Array[Char]
 }
 
+pub(all) struct HeardToken {
+  id : Int32
+  p : String
+  t0 : Int32
+  t1 : Int32
+  pk : Double
+  fr : Array[Int32]
+}
+
 pub(all) struct HearingCredit {
   exact : Double
   near : Double
@@ -248,10 +331,57 @@ pub(all) struct PhoneDistance {
   target : PhoneLabel
 }
 
+pub(all) struct PhoneHit {
+  target : String
+  score : Int32
+  absent : Bool
+  optional : Bool
+  heard : String
+  has_heard : Bool
+  h : Int32
+  t0 : Int32
+  t1 : Int32
+  has_span : Bool
+  shared : Bool
+}
+
 pub(all) struct PhoneLabel {
   say : String
   ex : String
   kind : String
+}
+
+pub(all) struct TakeScore {
+  words : Array[WordScore]
+  overall : Int32
+  cursor_word : Int32
+  last_phone : Int32
+  attempts : Int32
+  tokens : Array[HeardToken]
+  cost : Double
+  align : TokenAlign
+}
+
+pub(all) struct TokenAlign {
+  pairs : Array[AlignPair]
+  k : Int32
+  cost : Double
+  atts : Int32
+  heard_n : Int32
+}
+
+pub(all) struct WordScore {
+  i : Int32
+  score : Int32
+  attempts : Int32
+  evidence : Bool
+  ph : Array[PhoneHit]
+  has_ph : Bool
+  lo : Int32
+  hi : Int32
+  t0 : Double
+  t1 : Double
+  has_time : Bool
 }
 
 // Type aliases

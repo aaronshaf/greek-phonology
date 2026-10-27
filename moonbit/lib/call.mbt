@@ -85,6 +85,7 @@ pub fn call_json(name : String, arg : String, arg2 : String) -> String {
       credit_level_json(combined, arg2)
     }
     "scheme_id" => jstr(scheme_id(arg))
+    "align_phones" => align_phones_json(arg)
     "lookup" => lookup_json(arg)
     "detect" => detect(arg, greek_text=arg2).to_json_string()
     _ => "null"
