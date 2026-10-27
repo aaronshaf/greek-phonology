@@ -18,6 +18,11 @@ pub fn G2pOpts::plain() -> G2pOpts {
 }
 
 ///|
+pub fn G2pOpts::with_alts() -> G2pOpts {
+  { alts: true }
+}
+
+///|
 pub(all) struct G2pAlt {
   heard : Array[String]
   tier : String
@@ -414,17 +419,70 @@ pub fn g2p_words_opts(
   scheme : String,
   opts : G2pOpts,
 ) -> Array[G2pWord] {
-  // `alts` is applied when the JSON is written; cross-word voicing is a later flag.
-  ignore(opts)
   let s = scheme_index(scheme)
   if s < 0 {
     return []
   }
   let out : Array[G2pWord] = []
   for w in split_ws(text) {
-    out.push(one_word(w, s))
+    let word = one_word(w, s)
+    if opts.alts {
+      out.push(with_grapheme_alts(word, scheme))
+    } else {
+      out.push(word)
+    }
   }
   out
+}
+
+///|
+fn unit_key(t : String) -> String {
+  let sb = StringBuilder()
+  for c in t {
+    for ch in nfd_char(c) {
+      if ch == '\u{0345}' || ch == '\u{1FBE}' || is_comb(ch) {
+        continue
+      }
+      let base = fold_lower(ch)
+      if is_gv(base) || is_gc(base) {
+        sb.write_char(base)
+      }
+    }
+  }
+  sb.to_string()
+}
+
+///|
+fn diph_phones(ph : Array[String]) -> Array[String] {
+  if ph.length() > 0 && ph[0] == "h" {
+    let out : Array[String] = []
+    for i in 1..<ph.length() {
+      out.push(ph[i])
+    }
+    out
+  } else {
+    ph
+  }
+}
+
+///|
+fn with_grapheme_alts(w : G2pWord, scheme : String) -> G2pWord {
+  let units : Array[G2pUnit] = []
+  for u in w.units {
+    let alts = grapheme_alts(scheme, unit_key(u.t), u.ctx, diph_phones(u.ph))
+    units.push({
+      t: u.t,
+      k: u.k,
+      ph: u.ph,
+      from: u.from,
+      to: u.to,
+      restored: u.restored,
+      asp: u.asp,
+      ctx: u.ctx,
+      alts,
+    })
+  }
+  { text: w.text, form: w.form, form_used: w.form_used, phones: w.phones, units, }
 }
 
 ///|

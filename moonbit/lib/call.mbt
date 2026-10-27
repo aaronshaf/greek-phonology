@@ -42,6 +42,21 @@ pub fn call_json(name : String, arg : String, arg2 : String) -> String {
       let flags = if parts.length() > 1 { parts[1] } else { "" }
       g2p_json_flags(arg, scheme, flags)
     }
+    "phone_distance" => {
+      let parts = arg2.split("\u{1}").map(fn(v) { v.to_owned() }).collect()
+      let heard = if parts.length() > 0 { parts[0] } else { "" }
+      let scheme = if parts.length() > 1 { parts[1] } else { "" }
+      let goal = if parts.length() > 2 { parts[2] } else { "" }
+      phone_distance_json(arg, heard, scheme, goal)
+    }
+    "phone_credit" => {
+      let parts = arg2.split("\u{1}").map(fn(v) { v.to_owned() }).collect()
+      let scheme = if parts.length() > 0 { parts[0] } else { "" }
+      let goal = if parts.length() > 1 { parts[1] } else { "" }
+      let posterior = if parts.length() > 2 { parts[2] } else { "" }
+      phone_credit_json(arg, scheme, goal, posterior)
+    }
+    "dist_table" => dist_table_json(arg)
     "lookup" => lookup_json(arg)
     "detect" => detect(arg, greek_text=arg2).to_json_string()
     _ => "null"
