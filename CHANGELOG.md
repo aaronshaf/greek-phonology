@@ -5,6 +5,11 @@ Versions match `moonbit/moon.mod` and the npm package `greek-phonology`. Git tag
 ## Unreleased
 
 - 0.3.2 is written in `moonbit/moon.mod` and `packages/npm/package.json`. It has not been published to npm. 0.3.1 and 0.3.0 were not published either. Nothing here publishes or tags.
+- `alignPhonesJson` accepts the log-posterior matrix as a `Float32Array`, `Float64Array`, number array, or base64 of little-endian float32, and `alignSetPost` plus `postRef: true` stores it for the next call. `lanes` soft-decodes once and returns `{ tokens, takes }`. A JSON string of `lp` numbers still works and matches these paths. `ipa()` does not call it.
+- `params.nearMiss: false` or `params.goal: "exact"` scores a phone only from the posterior share on the target or a lane alternate. The default still adds tolerated near-miss credit. The path is unchanged.
+- Equal-cost tokens for one target prefer the identical phone string, then the higher posterior on that target.
+- `params.subCost` (`[["e","i",0.5],["r","l",0.5]]`, either order) replaces the path price for those pairs. The default stays 1 for `e`/`i` and `r`/`l`: the feature table does not tolerate a step of vowel height or an r/l manner change. The same phone string stays 0. The override does not add a credit tier.
+- `attemptCredit` lists every scored attempt (`w`, `att`, `credited`, `score`). Restart lists and the pass/fail gate stay on the page. See `docs/PROPOSALS.md`.
 - Koine [β] and [v] are the same sound in `phone_distance` (tier `accurate`, distance 0, both directions, every learner goal). The note is unchanged: nothing needs fixing. [f] for word-final αυ/ευ/ηυ stays tolerated. With no scheme, [β] against [v] keeps the feature-table distance. `ipa()` is unchanged. Source: Aaron, 2026-10-27, the same decision as the note; see `docs/RESEARCH.md`.
 - Word `score` and `overall` from `align_phones` include a tolerated near miss via `hearing_credit`. An exact phone, or a lane alternate, that clears the posterior floor keeps the old score. `params.goal` changes that credit only. The path still uses the gracious distance. JSON adds `credit`, `level`, `overallCredit`, and `overallLevel`.
 - Alignment substitution stays on `phone_distance`, not the old CLASS list. `e`/`i` and `r`/`l` cost 1. Koine `β`/`v` costs 0.

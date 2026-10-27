@@ -25,9 +25,101 @@ export const hearingCredit = (target, posterior, scheme = "", goal = "") =>
 /** Credit and note for one grapheme unit. `at` < 0 keeps the strongest phone. */
 export const unitHearingCredit = (unit, posterior, scheme = "", goal = "", at = -1) =>
   j(m.unit_hearing_credit_json(JSON.stringify(unit ?? {}), posteriorText(posterior), scheme, goal, String(at)));
-/** Align a recognizer posterior to target phones. `spec` is a JSON string or an object. Opt-in: ipa() does not call it. */
-export const alignPhonesJson = (spec) =>
-  j(m.align_phones_json(typeof spec === "string" ? spec : JSON.stringify(spec ?? {})));
+function isTypedArray(value) {
+  return ArrayBuffer.isView(value) && !(value instanceof DataView);
+}
+function bytesFromBase64(b64) {
+  if (typeof Buffer !== "undefined") {
+    const buf = Buffer.from(b64, "base64");
+    return new Uint8Array(buf.buffer, buf.byteOffset, buf.byteLength);
+  }
+  const bin = atob(b64);
+  const out = new Uint8Array(bin.length);
+  for (let i = 0; i < bin.length; i++) out[i] = bin.charCodeAt(i);
+  return out;
+}
+/** Little-endian float32, base64. */
+function floatsFromBase64(b64) {
+  const bytes = bytesFromBase64(b64);
+  const copy = new Uint8Array(bytes.byteLength);
+  copy.set(bytes);
+  return new Float32Array(copy.buffer);
+}
+function asPosterior(lp) {
+  if (typeof lp === "string") return floatsFromBase64(lp);
+  if (isTypedArray(lp) || Array.isArray(lp)) return lp;
+  return null;
+}
+/**
+ * Store one log-posterior matrix for a later `alignPhonesJson({ postRef: true, ... })`.
+ * `lp` is a number array, Float32Array, Float64Array, or base64 of float32 LE.
+ * The array is kept by reference.
+ */
+export function alignSetPost(lp, T, V, spf = 0.02) {
+  const arr = asPosterior(lp);
+  if (!arr) {
+    m.align_clear_post();
+    return;
+  }
+  const width = V | 0;
+  const frames = (T | 0) > 0 ? T | 0 : width > 0 ? Math.floor(arr.length / width) : 0;
+  m.align_set_post(arr, frames, width, Number(spf) || 0);
+}
+/** Drop the matrix stored by `alignSetPost`. */
+export function alignClearPost() {
+  m.align_clear_post();
+}
+function posteriorOf(spec) {
+  if (!spec || typeof spec !== "object") return null;
+  if (typeof spec.lpB64 === "string") return { lp: spec.lpB64, T: spec.T, V: spec.V, spf: spec.spf };
+  if (typeof spec.postB64 === "string") return { lp: spec.postB64, T: spec.T, V: spec.V, spf: spec.spf };
+  if (isTypedArray(spec.lp) || Array.isArray(spec.lp) || typeof spec.lp === "string") {
+    return { lp: spec.lp, T: spec.T, V: spec.V, spf: spec.spf };
+  }
+  if (isTypedArray(spec.post) || typeof spec.post === "string") {
+    return { lp: spec.post, T: spec.T, V: spec.V, spf: spec.spf };
+  }
+  const post = spec.post;
+  if (post && typeof post === "object") {
+    if (typeof post.lpB64 === "string") {
+      return { lp: post.lpB64, T: post.T ?? spec.T, V: post.V ?? spec.V, spf: post.spf ?? spec.spf };
+    }
+    if (isTypedArray(post.lp) || Array.isArray(post.lp) || typeof post.lp === "string") {
+      return { lp: post.lp, T: post.T ?? spec.T, V: post.V ?? spec.V, spf: post.spf ?? spec.spf };
+    }
+  }
+  return null;
+}
+function withoutPosterior(spec) {
+  const next = { ...spec, postRef: true };
+  delete next.lp;
+  delete next.lpB64;
+  delete next.postB64;
+  if (isTypedArray(spec.post) || typeof spec.post === "string") {
+    delete next.post;
+  } else if (spec.post && typeof spec.post === "object") {
+    const post = { ...spec.post };
+    delete post.lp;
+    delete post.lpB64;
+    next.post = post;
+  }
+  return next;
+}
+/**
+ * Align a recognizer posterior to target phones. `spec` is a JSON string or an object.
+ * A number array, Float32Array, Float64Array, or base64 float32 matrix is handed to
+ * MoonBit without a JSON number list. `lanes` scores every lane from one soft decode.
+ * Opt-in: ipa() does not call it.
+ */
+export function alignPhonesJson(spec) {
+  if (typeof spec === "string") return j(m.align_phones_json(spec));
+  const found = posteriorOf(spec ?? {});
+  if (found && asPosterior(found.lp)) {
+    alignSetPost(found.lp, found.T, found.V, found.spf ?? 0.02);
+    return j(m.align_phones_json(JSON.stringify(withoutPosterior(spec))));
+  }
+  return j(m.align_phones_json(JSON.stringify(spec ?? {})));
+}
 const creditScale = j(m.credit_scale_json());
 /** Default display cutoffs, in percent. Override any of them in creditLevel. */
 export const CREDIT_LEVEL_CLOSE = creditScale.close;
@@ -77,7 +169,8 @@ export function loadLexicon(bytes = readFileSync(new URL("./greek-phonology-lexi
 }
 export const wasmPath = new URL("./greek-phonology.wasm", import.meta.url);
 export default {
-  ipa, g2p, phoneDistance, phoneCredit, hearingCredit, unitHearingCredit, alignPhonesJson, creditLevel,
+  ipa, g2p, phoneDistance, phoneCredit, hearingCredit, unitHearingCredit, alignPhonesJson,
+  alignSetPost, alignClearPost, creditLevel,
   creditBands, optionalPhones,
   CREDIT_LEVEL_CLOSE, CREDIT_LEVEL_LIGHT, CREDIT_LEVEL_MEDIUM, CREDIT_LEVEL_CLEAR, CREDIT_LEVEL_DEEPEST,
   schemeId, distTable, detect, word, lookup, call, loadLexicon, wasmPath,

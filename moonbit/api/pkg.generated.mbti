@@ -2,7 +2,11 @@
 package "aaronshaf/greek-phonology/api"
 
 // Values
+pub fn align_clear_post() -> Unit
+
 pub fn align_phones_json(String) -> String
+
+pub fn align_set_post(Array[Double], Int32, Int32, Double) -> Unit
 
 pub fn call(String, String, String) -> String
 

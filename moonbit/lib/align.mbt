@@ -5,14 +5,25 @@
 // tolerated 0.5, otherwise 1. The deploy-122 CLASS table is not a second price.
 // CLASS priced e/i and r/l at 0.5. This table does not tolerate those pairs
 // (e/i is a full step of vowel height; r and l differ in manner), so they
-// cost 1. A learner goal changes near-miss credit later, not this cost, so
+// cost 1. `params.sub` can replace that price for a pair; the default table
+// stays. A learner goal changes near-miss credit later, not this cost, so
 // the alignment path stays put when a page changes how generously it tints.
+// `near_miss: false` or `goal: "exact"` turns that credit off.
 //
 // The backtrace calls the proved kernel for cursor motion, index checks,
 // the end column, skip length, the restart window, the phone-count floor,
 // and the 0..=100 score clamp. The cost matrix is f64, which the prover
 // does not reason about; cell updates use a strict `<`, matching the
 // reference, and the proved integer min/max cover attempt scores.
+
+///|
+/// One substitution-price override. `a` and `b` match in either order.
+/// An identical phone string stays 0 and is not overridden.
+pub(all) struct SubOverride {
+  a : String
+  b : String
+  cost : Double
+}
 
 ///|
 pub(all) struct AlignParams {
@@ -23,100 +34,102 @@ pub(all) struct AlignParams {
   sublo : Double
   rs : Double
   sk : Double
-  back : Int
+  back : Int32
   floor : Double
   min_frac : Double
-  minc : Int
-  merge_gap : Int
+  minc : Int32
+  merge_gap : Int32
   win : Double
   hop : Double
   edge : Double
   plain : Bool
   scheme : String
   goal : String
+  near_miss : Bool
+  sub : Array[SubOverride]
 }
 
 ///|
 pub(all) struct AlignLane {
   tgt : Array[String]
   phones : Array[String]
-  ids : Array[Int]
-  alts : Array[Array[Int]]
+  ids : Array[Int32]
+  alts : Array[Array[Int32]]
   opt : Array[Bool]
-  start : Array[Int]
-  wlen : Array[Int]
-  w_of : Array[Int]
+  start : Array[Int32]
+  wlen : Array[Int32]
+  w_of : Array[Int32]
 }
 
 ///|
 pub(all) struct AlignPost {
   lp : Array[Double]
-  frames : Int
-  width : Int
+  frames : Int32
+  width : Int32
   spf : Double
 }
 
 ///|
 pub(all) struct AlignWindow {
   start : Double
-  frames : Int
-  width : Int
+  frames : Int32
+  width : Int32
   data : Array[Double]
   spf : Double
 }
 
 ///|
 pub(all) struct HeardToken {
-  id : Int
+  id : Int32
   p : String
-  t0 : Int
-  t1 : Int
+  t0 : Int32
+  t1 : Int32
   pk : Double
-  fr : Array[Int]
+  fr : Array[Int32]
 }
 
 ///|
 pub(all) struct AlignPair {
-  h : Int
-  j : Int
-  att : Int
+  h : Int32
+  j : Int32
+  att : Int32
   shared : Bool
 }
 
 ///|
 pub(all) struct TokenAlign {
   pairs : Array[AlignPair]
-  k : Int
+  k : Int32
   cost : Double
-  atts : Int
-  heard_n : Int
+  atts : Int32
+  heard_n : Int32
 }
 
 ///|
 pub(all) struct PhoneHit {
   target : String
-  score : Int
+  score : Int32
   absent : Bool
   optional : Bool
   heard : String
   has_heard : Bool
-  h : Int
-  t0 : Int
-  t1 : Int
+  h : Int32
+  t0 : Int32
+  t1 : Int32
   has_span : Bool
   shared : Bool
 }
 
 ///|
 pub(all) struct WordScore {
-  i : Int
-  score : Int
-  attempts : Int
+  i : Int32
+  score : Int32
+  attempts : Int32
   evidence : Bool
   ph : Array[PhoneHit]
   has_ph : Bool
-  lo : Int
-  hi : Int
+  lo : Int32
+  hi : Int32
   t0 : Double
   t1 : Double
   has_time : Bool
@@ -125,31 +138,50 @@ pub(all) struct WordScore {
 ///|
 pub(all) struct TakeScore {
   words : Array[WordScore]
-  overall : Int
-  cursor_word : Int
-  last_phone : Int
-  attempts : Int
+  overall : Int32
+  cursor_word : Int32
+  last_phone : Int32
+  attempts : Int32
   tokens : Array[HeardToken]
   cost : Double
   align : TokenAlign
+  attempt_credit : Array[AttemptCredit]
+}
+
+///|
+/// One coherent attempt already scored inside `score_words`.
+/// `w` is the word, `att` the attempt index, `credited` how many phones
+/// cleared 0, and `score` the attempt's word score.
+pub(all) struct AttemptCredit {
+  w : Int32
+  att : Int32
+  credited : Int32
+  score : Int32
+}
+
+///|
+/// One posterior, soft-decoded once, then aligned to several lanes.
+pub(all) struct LaneBatch {
+  tokens : Array[HeardToken]
+  takes : Array[TakeScore]
 }
 
 ///|
 priv struct AttemptAcc {
-  w : Int
-  att : Int
+  w : Int32
+  att : Int32
   ph : Array[AlignPair?]
 }
 
 ///|
 priv struct AttemptRow {
-  w : Int
-  att : Int
+  w : Int32
+  att : Int32
   ph : Array[PhoneHit]
-  credited : Int
-  score : Int
-  lo : Int
-  hi : Int
+  credited : Int32
+  score : Int32
+  lo : Int32
+  hi : Int32
   t0 : Double
   t1 : Double
   has_time : Bool
@@ -176,108 +208,55 @@ pub fn align_params_default() -> AlignParams {
     plain: false,
     scheme: "",
     goal: "",
+    near_miss: true,
+    sub: [],
   }
 }
 
 ///|
 pub fn AlignParams::with_plain(self : AlignParams, plain : Bool) -> AlignParams {
-  {
-    tau: self.tau,
-    ins: self.ins,
-    qpk: self.qpk,
-    inslo: self.inslo,
-    sublo: self.sublo,
-    rs: self.rs,
-    sk: self.sk,
-    back: self.back,
-    floor: self.floor,
-    min_frac: self.min_frac,
-    minc: self.minc,
-    merge_gap: self.merge_gap,
-    win: self.win,
-    hop: self.hop,
-    edge: self.edge,
-    plain,
-    scheme: self.scheme,
-    goal: self.goal,
-  }
+  { ..self, plain, }
 }
 
 ///|
-pub fn AlignParams::with_back(self : AlignParams, back : Int) -> AlignParams {
-  {
-    tau: self.tau,
-    ins: self.ins,
-    qpk: self.qpk,
-    inslo: self.inslo,
-    sublo: self.sublo,
-    rs: self.rs,
-    sk: self.sk,
-    back,
-    floor: self.floor,
-    min_frac: self.min_frac,
-    minc: self.minc,
-    merge_gap: self.merge_gap,
-    win: self.win,
-    hop: self.hop,
-    edge: self.edge,
-    plain: self.plain,
-    scheme: self.scheme,
-    goal: self.goal,
-  }
+pub fn AlignParams::with_back(self : AlignParams, back : Int32) -> AlignParams {
+  { ..self, back, }
 }
 
 ///|
-pub fn AlignParams::with_scheme(self : AlignParams, scheme : String) -> AlignParams {
-  {
-    tau: self.tau,
-    ins: self.ins,
-    qpk: self.qpk,
-    inslo: self.inslo,
-    sublo: self.sublo,
-    rs: self.rs,
-    sk: self.sk,
-    back: self.back,
-    floor: self.floor,
-    min_frac: self.min_frac,
-    minc: self.minc,
-    merge_gap: self.merge_gap,
-    win: self.win,
-    hop: self.hop,
-    edge: self.edge,
-    plain: self.plain,
-    scheme,
-    goal: self.goal,
-  }
+pub fn AlignParams::with_scheme(
+  self : AlignParams,
+  scheme : String,
+) -> AlignParams {
+  { ..self, scheme, }
 }
 
 ///|
 pub fn AlignParams::with_goal(self : AlignParams, goal : String) -> AlignParams {
-  {
-    tau: self.tau,
-    ins: self.ins,
-    qpk: self.qpk,
-    inslo: self.inslo,
-    sublo: self.sublo,
-    rs: self.rs,
-    sk: self.sk,
-    back: self.back,
-    floor: self.floor,
-    min_frac: self.min_frac,
-    minc: self.minc,
-    merge_gap: self.merge_gap,
-    win: self.win,
-    hop: self.hop,
-    edge: self.edge,
-    plain: self.plain,
-    scheme: self.scheme,
-    goal,
-  }
+  { ..self, goal, }
+}
+
+///|
+/// `false` keeps only the posterior share on the target or a lane alternate.
+pub fn AlignParams::with_near_miss(
+  self : AlignParams,
+  near_miss : Bool,
+) -> AlignParams {
+  { ..self, near_miss, }
+}
+
+///|
+/// Replace the table price for the listed pairs. See `align_sub_cost_with`.
+pub fn AlignParams::with_sub(
+  self : AlignParams,
+  sub : Array[SubOverride],
+) -> AlignParams {
+  { ..self, sub, }
 }
 
 ///|
 fn blank_align() -> TokenAlign {
-  { pairs: [], k: 0, cost: 0.0, atts: 0, heard_n: 0 }
+  { pairs: [], k: 0, cost: 0.0, atts: 0, heard_n: 0, }
 }
 
 ///|
@@ -314,12 +293,12 @@ fn is_shared_phone(p : String) -> Bool {
 }
 
 ///|
-fn js_round(x : Double) -> Int {
+fn js_round(x : Double) -> Int32 {
   x.round().to_int()
 }
 
 ///|
-fn clamp_score(score : Int) -> Int {
+fn clamp_score(score : Int32) -> Int32 {
   @kernel.align_clamp_score(score)
 }
 
@@ -335,7 +314,11 @@ fn take_lower(cur : Double, cand : Double) -> Bool {
 /// Tolerated is 0.5. Anything else, including e/i and r/l, is 1.
 /// A learner goal is not consulted: alignment must not move when the page
 /// changes how generously it tints a near miss.
-pub fn align_sub_cost(heard : String, target : String, scheme : String) -> Double {
+pub fn align_sub_cost(
+  heard : String,
+  target : String,
+  scheme : String,
+) -> Double {
   if heard == target {
     ignore(@kernel.align_sub_bucket(true, false, false))
     return 0.0
@@ -353,6 +336,44 @@ pub fn align_sub_cost(heard : String, target : String, scheme : String) -> Doubl
   } else {
     1.0
   }
+}
+
+///|
+/// Same as `align_sub_cost`, unless `over` names the pair.
+/// The two phone strings match in either order. The same string stays 0:
+/// an override cannot charge for an identical phone. The default table still
+/// prices e/i and r/l at 1; a page that wants the old 0.5 passes that pair.
+pub fn align_sub_cost_with(
+  heard : String,
+  target : String,
+  scheme : String,
+  over : Array[SubOverride],
+) -> Double {
+  if heard == target {
+    ignore(@kernel.align_sub_bucket(true, false, false))
+    ignore(@kernel.align_pick_price(false, 0, 0))
+    return 0.0
+  }
+  let mut found = false
+  let mut price = 0.0
+  for row in over {
+    if (row.a == heard && row.b == target) ||
+      (row.a == target && row.b == heard) {
+      found = true
+      price = row.cost
+      break
+    }
+  }
+  if @kernel.align_pick_price(found, 1, 0) == 1 {
+    price
+  } else {
+    align_sub_cost(heard, target, scheme)
+  }
+}
+
+///|
+fn goal_is_exact(goal : String) -> Bool {
+  goal == "exact"
 }
 
 ///|
@@ -396,7 +417,7 @@ pub fn optional_phones_json(list : String) -> String {
 }
 
 ///|
-fn align_matrix_refused(heard : Int, phones : Int) -> Bool {
+fn align_matrix_refused(heard : Int32, phones : Int32) -> Bool {
   if heard > 20000 || phones > 20000 {
     true
   } else {
@@ -405,7 +426,7 @@ fn align_matrix_refused(heard : Int, phones : Int) -> Bool {
 }
 
 ///|
-fn phone_name(lane : AlignLane, j : Int) -> String {
+fn phone_name(lane : AlignLane, j : Int32) -> String {
   if j >= 0 && j < lane.phones.length() {
     lane.phones[j]
   } else if j >= 0 && j < lane.tgt.length() {
@@ -416,7 +437,7 @@ fn phone_name(lane : AlignLane, j : Int) -> String {
 }
 
 ///|
-fn word_of(lane : AlignLane, j : Int) -> Int {
+fn word_of(lane : AlignLane, j : Int32) -> Int32 {
   if j >= 0 && j < lane.w_of.length() {
     lane.w_of[j]
   } else {
@@ -440,7 +461,7 @@ fn lane_ready(lane : AlignLane) -> AlignLane {
       ids[i] = lane.ids[i]
     }
   }
-  let alts : Array[Array[Int]] = []
+  let alts : Array[Array[Int32]] = []
   for i in 0..<n {
     if i < lane.alts.length() {
       alts.push(lane.alts[i])
@@ -476,7 +497,7 @@ fn lane_ready(lane : AlignLane) -> AlignLane {
     }
     xs
   }
-  { tgt: lane.tgt, phones, ids, alts, opt, start: lane.start, wlen, w_of }
+  { tgt: lane.tgt, phones, ids, alts, opt, start: lane.start, wlen, w_of, }
 }
 
 ///|
@@ -485,13 +506,13 @@ fn lane_ready(lane : AlignLane) -> AlignLane {
 pub fn align_lane(
   tgt : Array[String],
   phones : Array[String],
-  ids : Array[Int],
-  alts : Array[Array[Int]],
+  ids : Array[Int32],
+  alts : Array[Array[Int32]],
   opt : Array[Bool],
-  start : Array[Int],
-  wlen : Array[Int],
+  start : Array[Int32],
+  wlen : Array[Int32],
 ) -> AlignLane {
-  lane_ready({ tgt, phones, ids, alts, opt, start, wlen, w_of: [] })
+  lane_ready({ tgt, phones, ids, alts, opt, start, wlen, w_of: [], })
 }
 
 ///|
@@ -505,7 +526,7 @@ pub fn stitch(
   prm : AlignParams,
 ) -> AlignPost {
   if wins.length() == 0 || wins[0].spf <= 0.0 || wins[0].width <= 0 {
-    return { lp: [], frames: 0, width: 0, spf: 0.0 }
+    return { lp: [], frames: 0, width: 0, spf: 0.0, }
   }
   let width = wins[0].width
   let spf = wins[0].spf
@@ -556,11 +577,11 @@ pub fn stitch(
       }
     }
   }
-  { lp, frames, width, spf }
+  { lp, frames, width, spf, }
 }
 
 ///|
-fn vocab_at(vocab : Array[String], k : Int) -> String {
+fn vocab_at(vocab : Array[String], k : Int32) -> String {
   if k >= 0 && k < vocab.length() {
     vocab[k]
   } else {
@@ -618,19 +639,85 @@ pub fn soft_tokens(
         continue
       }
     }
-    out.push({ id: k, p: vocab_at(vocab, k), t0: t, t1: t, pk, fr: [t] })
+    out.push({ id: k, p: vocab_at(vocab, k), t0: t, t1: t, pk, fr: [t], })
   }
   out
+}
+
+///|
+fn target_post_milli(post : AlignPost?, tok : HeardToken, id : Int32) -> Int32 {
+  match post {
+    None => js_round(tok.pk * 1000.0)
+    Some(p) => {
+      if id <= 0 || p.width <= 1 {
+        return js_round(tok.pk * 1000.0)
+      }
+      let mut best = 0.0
+      let t0 = if tok.t0 < 0 { 0 } else { tok.t0 }
+      let mut t1 = tok.t1
+      if t1 >= p.frames {
+        t1 = p.frames - 1
+      }
+      if t1 >= t0 {
+        for t in t0..<=t1 {
+          let o = t * p.width
+          let x = @math.exp(log_at(p, o, id))
+          if x > best {
+            best = x
+          }
+        }
+      }
+      js_round(best * 1000.0)
+    }
+  }
+}
+
+///|
+/// Prefer `cand_h` over `cur_h` for target phone `j` when the path costs match.
+fn better_token(
+  heard : Array[HeardToken],
+  post : AlignPost?,
+  lane : AlignLane,
+  cand_h : Int32,
+  cur_h : Int32,
+  j : Int32,
+) -> Bool {
+  if cand_h < 0 ||
+    cur_h < 0 ||
+    cand_h >= heard.length() ||
+    cur_h >= heard.length() {
+    return false
+  }
+  let target = if j >= 0 && j < lane.tgt.length() { lane.tgt[j] } else { "" }
+  let id = if j >= 0 && j < lane.ids.length() { lane.ids[j] } else { 0 }
+  @kernel.align_tie_take(
+    heard[cur_h].p == target,
+    heard[cand_h].p == target,
+    target_post_milli(post, heard[cur_h], id),
+    target_post_milli(post, heard[cand_h], id),
+  )
 }
 
 ///|
 /// Word-level edit alignment. Moves: match or substitute, delete a target
 /// phone, insert a stray token, restart back at most BACK words (RS), and
 /// skip whole words (SK each). `plain` turns the restart and skip moves off.
+/// When two heard tokens can take the same target at the same cost, the
+/// identical string wins, then the higher posterior on that target.
 pub fn align_tokens(
   heard : Array[HeardToken],
   lane0 : AlignLane,
   prm : AlignParams,
+) -> TokenAlign {
+  align_tokens_at(heard, lane0, prm, None)
+}
+
+///|
+fn align_tokens_at(
+  heard : Array[HeardToken],
+  lane0 : AlignLane,
+  prm : AlignParams,
+  post : AlignPost?,
 ) -> TokenAlign {
   let lane = lane_ready(lane0)
   let n = lane.tgt.length()
@@ -640,7 +727,7 @@ pub fn align_tokens(
   // (heard + 1) * (phones + 1) cells, three arrays. Past the cap, or a side
   // over 20_000, return no pairs and the sentinel cost instead of allocating.
   if align_matrix_refused(h, n) {
-    return { pairs: [], k: 0, cost: inf, atts: 0, heard_n: h }
+    return { pairs: [], k: 0, cost: inf, atts: 0, heard_n: h, }
   }
   let del = Array::make(n, 1.0)
   for jj in 0..<n {
@@ -675,13 +762,13 @@ pub fn align_tokens(
         return cache_c[i]
       }
     }
-    let c = align_sub_cost(hp, tp, prm.scheme)
+    let c = align_sub_cost_with(hp, tp, prm.scheme, prm.sub)
     cache_h.push(hp)
     cache_t.push(tp)
     cache_c.push(c)
     c
   }
-  fn sc(hi : Int, jj : Int) -> Double {
+  fn sc(hi : Int32, jj : Int32) -> Double {
     let tp = if jj - 1 >= 0 && jj - 1 < lane.tgt.length() {
       lane.tgt[jj - 1]
     } else {
@@ -697,7 +784,7 @@ pub fn align_tokens(
       0.0
     }
   }
-  fn ic(hi : Int) -> Double {
+  fn ic(hi : Int32) -> Double {
     prm.ins * (prm.inslo + (1.0 - prm.inslo) * qf[hi])
   }
   let ws = lane.start
@@ -708,20 +795,28 @@ pub fn align_tokens(
   let d : Array[Array[Double]] = Array::makei(h + 1, fn(_) {
     Array::make(n + 1, inf)
   })
-  let bt : Array[Array[Int]] = Array::makei(h + 1, fn(_) { Array::make(n + 1, 0) })
-  let srcm : Array[Array[Int]] = Array::makei(h + 1, fn(_) {
+  let bt : Array[Array[Int32]] = Array::makei(h + 1, fn(_) {
     Array::make(n + 1, 0)
   })
-  fn chain(ii : Int) -> Unit {
+  let srcm : Array[Array[Int32]] = Array::makei(h + 1, fn(_) {
+    Array::make(n + 1, 0)
+  })
+  // Heard index matched to phone j - 1, or -1 when that phone was not matched.
+  // 0 is a real token, so the fill value has to be -1.
+  let mh : Array[Array[Int32]] = Array::makei(h + 1, fn(_) {
+    Array::make(n + 1, -1)
+  })
+  fn chain(ii : Int32) -> Unit {
     for jj in 1..<=n {
       let cand = d[ii][jj - 1] + del[jj - 1]
       if take_lower(d[ii][jj], cand) {
         d[ii][jj] = cand
         bt[ii][jj] = 2
+        mh[ii][jj] = -1
       }
     }
   }
-  fn jumps(ii : Int) -> Unit {
+  fn jumps(ii : Int32) -> Unit {
     for b2 in 0..<w {
       let at = ws[b2]
       if at < 0 || at > n {
@@ -767,6 +862,7 @@ pub fn align_tokens(
         d[ii][at] = b
         bt[ii][at] = btk
         srcm[ii][at] = src
+        mh[ii][at] = -1
       }
     }
   }
@@ -792,15 +888,25 @@ pub fn align_tokens(
     for j in 0..<=n {
       let mut b = d[i - 1][j] + ic(i - 1)
       let mut btk = 1
+      let mut bm = if j == 0 { -1 } else { mh[i - 1][j] }
       if j > 0 {
         let v = d[i - 1][j - 1] + sc(i - 1, j)
+        let cand_h = i - 1
         if take_lower(b, v) {
           b = v
           btk = 0
+          bm = cand_h
+        } else if v == b &&
+          bm >= 0 &&
+          cand_h != bm &&
+          better_token(heard, post, lane, cand_h, bm, j - 1) {
+          btk = 0
+          bm = cand_h
         }
       }
       d[i][j] = b
       bt[i][j] = btk
+      mh[i][j] = bm
     }
     chain(i)
     if !prm.plain {
@@ -839,7 +945,7 @@ pub fn align_tokens(
       cj = step.cj
       att = step.att
     } else if kind == 0 && @kernel.align_emit_ok(ci, cj, h, n) {
-      pairs.push({ h: ci - 1, j: cj - 1, att, shared: false })
+      pairs.push({ h: ci - 1, j: cj - 1, att, shared: false, })
       let step = @kernel.align_bt_match(ci, cj, att, span)
       ci = step.ci
       cj = step.cj
@@ -926,7 +1032,7 @@ pub fn align_tokens(
       if dup {
         continue
       }
-      let np : AlignPair = { h: p.h, j: q, att: p.att, shared: true }
+      let np : AlignPair = { h: p.h, j: q, att: p.att, shared: true, }
       row[q] = Some(np)
       extra.push(np)
       claimed = true
@@ -935,7 +1041,7 @@ pub fn align_tokens(
   for e in extra {
     pairs.push(e)
   }
-  { pairs, k, cost: m, atts: att + 1, heard_n: h }
+  { pairs, k, cost: m, atts: att + 1, heard_n: h, }
 }
 
 ///|
@@ -972,7 +1078,7 @@ fn unmatched_hit(target : String, opt : Bool) -> PhoneHit {
 }
 
 ///|
-fn log_at(post : AlignPost, o : Int, v : Int) -> Double {
+fn log_at(post : AlignPost, o : Int32, v : Int32) -> Double {
   if v >= 0 && v < post.width && o + v >= 0 && o + v < post.lp.length() {
     post.lp[o + v]
   } else {
@@ -987,13 +1093,13 @@ fn phone_score_of(
   vocab : Array[String],
   prm : AlignParams,
   g : HeardToken,
-  j : Int,
-) -> (Int, String) {
+  j : Int32,
+) -> (Int32, String) {
   let mut bestp = 0.0
   let mut mass = 0.0
   let mut hv = 0
   let mut hm = -1.0
-  let ids : Array[Int] = []
+  let ids : Array[Int32] = []
   if j >= 0 && j < lane.ids.length() {
     ids.push(lane.ids[j])
   }
@@ -1053,9 +1159,15 @@ fn phone_score_of(
     }
   }
   // Exact or lane-alternate mass keeps the posterior score. A different phone
-  // below that floor takes hearing_credit, so a tolerated near miss is not a 0.
-  // The goal changes that credit. It does not change align_sub_cost.
-  let score = if raw > 0 || same_id || heard_name == "" {
+  // below that floor takes hearing_credit, unless near-miss credit is off
+  // (`near_miss: false` or `goal: "exact"`). The goal does not change the path.
+  let use_near = @kernel.align_near_miss_on(
+    prm.near_miss,
+    goal_is_exact(prm.goal),
+  )
+  let score = if use_near == false {
+    raw
+  } else if raw > 0 || same_id || heard_name == "" {
     raw
   } else {
     let w = if hm < 0.0 { g.pk } else { hm }
@@ -1071,17 +1183,11 @@ fn near_miss_score(
   weight : Double,
   scheme : String,
   goal : String,
-) -> Int {
+) -> Int32 {
   if target == "" || heard == "" {
     return 0
   }
-  let w = if weight < 0.0 {
-    0.0
-  } else if weight > 1.0 {
-    1.0
-  } else {
-    weight
-  }
+  let w = if weight < 0.0 { 0.0 } else if weight > 1.0 { 1.0 } else { weight }
   let credit = hearing_credit(target, [(heard, w)], scheme, goal)
   if credit.combined <= 0.0 {
     0
@@ -1091,14 +1197,18 @@ fn near_miss_score(
 }
 
 ///|
-fn phones_needed(n : Int, prm : AlignParams) -> Int {
+fn phones_needed(n : Int32, prm : AlignParams) -> Int32 {
   if prm.min_frac == 0.5 && prm.minc >= 1 {
     @kernel.align_phones_needed(n, prm.minc)
   } else if n <= 1 {
     1
   } else {
     let c = (prm.min_frac * n.to_double()).ceil().to_int()
-    if c > prm.minc { c } else { prm.minc }
+    if c > prm.minc {
+      c
+    } else {
+      prm.minc
+    }
   }
 }
 
@@ -1137,7 +1247,7 @@ pub fn score_words(
     if found < 0 {
       let ph : Array[AlignPair?] = Array::make(n, None)
       ph[pr.j] = Some(pr)
-      accs.push({ w, att: pr.att, ph })
+      accs.push({ w, att: pr.att, ph, })
     } else {
       accs[found].ph[pr.j] = Some(pr)
     }
@@ -1150,7 +1260,7 @@ pub fn score_words(
     }
     let wlen = lane.wlen[w]
     let ph : Array[PhoneHit] = []
-    let hs : Array[Int] = []
+    let hs : Array[Int32] = []
     for kk in 0..<wlen {
       let j = lane.start[w] + kk
       let target = phone_name(lane, j)
@@ -1239,8 +1349,16 @@ pub fn score_words(
       score: clamp_score(raw),
       lo,
       hi,
-      t0: if has_time { ft0.to_double() * post.spf } else { 0.0 },
-      t1: if has_time { (ft1 + 1).to_double() * post.spf } else { 0.0 },
+      t0: if has_time {
+        ft0.to_double() * post.spf
+      } else {
+        0.0
+      },
+      t1: if has_time {
+        (ft1 + 1).to_double() * post.spf
+      } else {
+        0.0
+      },
       has_time,
     })
   }
@@ -1271,7 +1389,10 @@ pub fn score_words(
       } else {
         let chosen = @kernel.align_max_score(best_score, attempts[i].score)
         let better = attempts[i].score > best_score ||
-          (attempts[i].score == best_score && attempts[i].att < attempts[best].att)
+          (
+            attempts[i].score == best_score &&
+            attempts[i].att < attempts[best].att
+          )
         if attempts[i].score == chosen && better {
           best = i
           best_score = chosen
@@ -1317,6 +1438,15 @@ pub fn score_words(
   }
   let denom = if words.length() < 1 { 1 } else { words.length() }
   let overall = clamp_score(js_round(sum.to_double() / denom.to_double()))
+  let attempt_credit : Array[AttemptCredit] = []
+  for a in attempts {
+    attempt_credit.push({
+      w: a.w,
+      att: a.att,
+      credited: a.credited,
+      score: a.score,
+    })
+  }
   {
     words,
     overall,
@@ -1326,6 +1456,7 @@ pub fn score_words(
     tokens: [],
     cost: al.cost,
     align: al,
+    attempt_credit,
   }
 }
 
@@ -1338,7 +1469,7 @@ pub fn score_take(
   prm : AlignParams,
 ) -> TakeScore {
   let tokens = soft_tokens(post, vocab, prm)
-  let al = align_tokens(tokens, lane, prm)
+  let al = align_tokens_at(tokens, lane, prm, Some(post))
   let r = score_words(post, lane, al, tokens, vocab, prm)
   {
     words: r.words,
@@ -1349,7 +1480,41 @@ pub fn score_take(
     tokens,
     cost: al.cost,
     align: al,
+    attempt_credit: r.attempt_credit,
   }
+}
+
+///|
+/// Soft-decode once, then align and score each lane. Tokenisation uses `prm`
+/// (`TAU`, `MERGE_GAP`). Each lane uses `lane_prm` when that slot is present,
+/// otherwise `prm`, so scheme, goal, near-miss, and substitution overrides can
+/// differ while the heard tokens stay shared.
+pub fn score_lanes(
+  post : AlignPost,
+  lanes : Array[AlignLane],
+  vocab : Array[String],
+  prm : AlignParams,
+  lane_prm : Array[AlignParams],
+) -> LaneBatch {
+  let tokens = soft_tokens(post, vocab, prm)
+  let takes : Array[TakeScore] = []
+  for i, lane in lanes {
+    let one = if i < lane_prm.length() { lane_prm[i] } else { prm }
+    let al = align_tokens_at(tokens, lane, one, Some(post))
+    let r = score_words(post, lane, al, tokens, vocab, one)
+    takes.push({
+      words: r.words,
+      overall: r.overall,
+      cursor_word: r.cursor_word,
+      last_phone: r.last_phone,
+      attempts: r.attempts,
+      tokens: [],
+      cost: al.cost,
+      align: al,
+      attempt_credit: r.attempt_credit,
+    })
+  }
+  { tokens, takes, }
 }
 
 ///|
@@ -1363,6 +1528,127 @@ fn empty_take() -> TakeScore {
     tokens: [],
     cost: 0.0,
     align: blank_align(),
+    attempt_credit: [],
   }
 }
 
+///|
+priv struct PostSlot {
+  mut lp : Array[Double]
+  mut frames : Int32
+  mut width : Int32
+  mut spf : Double
+  mut ready : Bool
+}
+
+///|
+let post_slot : PostSlot = {
+  lp: [],
+  frames: 0,
+  width: 0,
+  spf: 0.0,
+  ready: false,
+}
+
+///|
+/// Remember one log-posterior matrix. Later `align_phones_json` calls with
+/// `postRef: true` read it and do not parse `lp`. The array is kept by
+/// reference. A Float32Array from JavaScript is accepted.
+pub fn align_set_post(
+  lp : Array[Double],
+  frames : Int32,
+  width : Int32,
+  spf : Double,
+) -> Unit {
+  post_slot.lp = lp
+  post_slot.frames = frames
+  post_slot.width = width
+  post_slot.spf = spf
+  post_slot.ready = true
+}
+
+///|
+pub fn align_clear_post() -> Unit {
+  post_slot.lp = []
+  post_slot.frames = 0
+  post_slot.width = 0
+  post_slot.spf = 0.0
+  post_slot.ready = false
+}
+
+///|
+pub fn align_stored_post() -> AlignPost? {
+  if post_slot.ready {
+    Some({
+      lp: post_slot.lp,
+      frames: post_slot.frames,
+      width: post_slot.width,
+      spf: post_slot.spf,
+    })
+  } else {
+    None
+  }
+}
+
+///|
+fn b64_digit(c : Char) -> Int32 {
+  if c >= 'A' && c <= 'Z' {
+    c.to_int() - 'A'.to_int()
+  } else if c >= 'a' && c <= 'z' {
+    c.to_int() - 'a'.to_int() + 26
+  } else if c >= '0' && c <= '9' {
+    c.to_int() - '0'.to_int() + 52
+  } else if c == '+' || c == '-' {
+    62
+  } else if c == '/' || c == '_' {
+    63
+  } else {
+    -1
+  }
+}
+
+///|
+/// Little-endian float32 values packed as base64. Whitespace is ignored.
+/// A bad character stops the decode and returns the floats already accepted.
+pub fn align_f32le_b64(s : String) -> Array[Double] {
+  let cs = s.to_array()
+  let packed : Array[Char] = []
+  for c in cs {
+    if c != ' ' && c != '\n' && c != '\r' && c != '\t' {
+      packed.push(c)
+    }
+  }
+  let bytes : Array[Int32] = []
+  let mut i = 0
+  while i + 4 <= packed.length() {
+    let c0 = b64_digit(packed[i])
+    let c1 = b64_digit(packed[i + 1])
+    let pad2 = packed[i + 2] == '='
+    let pad3 = packed[i + 3] == '='
+    let c2 = if pad2 { 0 } else { b64_digit(packed[i + 2]) }
+    let c3 = if pad3 { 0 } else { b64_digit(packed[i + 3]) }
+    if c0 < 0 || c1 < 0 || c2 < 0 || c3 < 0 {
+      break
+    }
+    let n = (c0 << 18) | (c1 << 12) | (c2 << 6) | c3
+    bytes.push((n >> 16) & 255)
+    if !pad2 {
+      bytes.push((n >> 8) & 255)
+    }
+    if !pad3 {
+      bytes.push(n & 255)
+    }
+    i = i + 4
+  }
+  let nfloat = bytes.length() / 4
+  let out = Array::make(nfloat, 0.0)
+  for k in 0..<nfloat {
+    let b0 = bytes[k * 4]
+    let b1 = bytes[k * 4 + 1]
+    let b2 = bytes[k * 4 + 2]
+    let b3 = bytes[k * 4 + 3]
+    let bits = b0 | (b1 << 8) | (b2 << 16) | (b3 << 24)
+    out[k] = Float::reinterpret_from_uint(bits.reinterpret_as_uint()).to_double()
+  }
+  out
+}

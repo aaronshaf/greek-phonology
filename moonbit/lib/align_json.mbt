@@ -17,7 +17,7 @@ fn aws(c : Char) -> Bool {
 }
 
 ///|
-fn askip(cs : Array[Char], i : Int) -> Int {
+fn askip(cs : Array[Char], i : Int32) -> Int32 {
   let mut j = i
   while j < cs.length() && aws(cs[j]) {
     j = j + 1
@@ -26,7 +26,7 @@ fn askip(cs : Array[Char], i : Int) -> Int {
 }
 
 ///|
-fn ahex(c : Char) -> Int {
+fn ahex(c : Char) -> Int32 {
   if c >= '0' && c <= '9' {
     c.to_int() - '0'.to_int()
   } else if c >= 'a' && c <= 'f' {
@@ -39,7 +39,7 @@ fn ahex(c : Char) -> Int {
 }
 
 ///|
-fn aword(cs : Array[Char], i : Int, w : String) -> Bool {
+fn aword(cs : Array[Char], i : Int32, w : String) -> Bool {
   let wd = w.to_array()
   if i + wd.length() > cs.length() {
     return false
@@ -53,16 +53,16 @@ fn aword(cs : Array[Char], i : Int, w : String) -> Bool {
 }
 
 ///|
-fn apstr(cs : Array[Char], i0 : Int) -> (AVal, Int)? {
+fn apstr(cs : Array[Char], i0 : Int32) -> (AVal, Int32)? {
   if i0 >= cs.length() || cs[i0] != '"' {
     return None
   }
   let mut j = i0 + 1
-  let mut acc = ""
+  let acc = StringBuilder()
   while j < cs.length() {
     let c = cs[j]
     if c == '"' {
-      return Some((AStr(acc), j + 1))
+      return Some((AStr(acc.to_string()), j + 1))
     }
     if c == '\\' {
       if j + 1 >= cs.length() {
@@ -81,7 +81,7 @@ fn apstr(cs : Array[Char], i0 : Int) -> (AVal, Int)? {
           }
           n = n * 16 + h
         }
-        acc = acc + Int32::unsafe_to_char(n).to_string()
+        acc.write_char(Int32::unsafe_to_char(n))
         j = j + 6
       } else {
         let ch = if e == 'n' {
@@ -97,11 +97,11 @@ fn apstr(cs : Array[Char], i0 : Int) -> (AVal, Int)? {
         } else {
           e
         }
-        acc = acc + ch.to_string()
+        acc.write_char(ch)
         j = j + 2
       }
     } else {
-      acc = acc + c.to_string()
+      acc.write_char(c)
       j = j + 1
     }
   }
@@ -109,7 +109,7 @@ fn apstr(cs : Array[Char], i0 : Int) -> (AVal, Int)? {
 }
 
 ///|
-fn apnum(cs : Array[Char], i0 : Int) -> (AVal, Int)? {
+fn apnum(cs : Array[Char], i0 : Int32) -> (AVal, Int32)? {
   let mut j = i0
   if j < cs.length() && (cs[j] == '-' || cs[j] == '+') {
     j = j + 1
@@ -137,15 +137,13 @@ fn apnum(cs : Array[Char], i0 : Int) -> (AVal, Int)? {
   for k in start..<j {
     s = s + cs[k].to_string()
   }
-  try {
-    Some((ANum(@string.parse_double(s)), j))
-  } catch {
+  Some((ANum(@string.parse_double(s)), j)) catch {
     _ => None
   }
 }
 
 ///|
-fn apval(cs : Array[Char], i0 : Int) -> (AVal, Int)? {
+fn apval(cs : Array[Char], i0 : Int32) -> (AVal, Int32)? {
   let i = askip(cs, i0)
   if i >= cs.length() {
     return None
@@ -169,7 +167,7 @@ fn apval(cs : Array[Char], i0 : Int) -> (AVal, Int)? {
 }
 
 ///|
-fn aparr(cs : Array[Char], i0 : Int) -> (AVal, Int)? {
+fn aparr(cs : Array[Char], i0 : Int32) -> (AVal, Int32)? {
   let mut j = askip(cs, i0 + 1)
   let xs : Array[AVal] = []
   if j < cs.length() && cs[j] == ']' {
@@ -195,7 +193,7 @@ fn aparr(cs : Array[Char], i0 : Int) -> (AVal, Int)? {
 }
 
 ///|
-fn apobj(cs : Array[Char], i0 : Int) -> (AVal, Int)? {
+fn apobj(cs : Array[Char], i0 : Int32) -> (AVal, Int32)? {
   let mut j = askip(cs, i0 + 1)
   let fields : Array[(String, AVal)] = []
   if j < cs.length() && cs[j] == '}' {
@@ -238,12 +236,7 @@ fn aparse(s : String) -> AVal? {
   let cs = s.to_array()
   match apval(cs, 0) {
     None => None
-    Some((v, j)) =>
-      if askip(cs, j) == cs.length() {
-        Some(v)
-      } else {
-        None
-      }
+    Some((v, j)) => if askip(cs, j) == cs.length() { Some(v) } else { None }
   }
 }
 
@@ -270,18 +263,13 @@ fn afind(fields : Array[(String, AVal)], key : String) -> AVal? {
 fn anum(v : AVal) -> Double? {
   match v {
     ANum(n) => Some(n)
-    AStr(s) =>
-      try {
-        Some(@string.parse_double(s))
-      } catch {
-        _ => None
-      }
+    AStr(s) => Some(@string.parse_double(s)) catch { _ => None }
     _ => None
   }
 }
 
 ///|
-fn aint(v : AVal) -> Int? {
+fn aint(v : AVal) -> Int32? {
   match anum(v) {
     Some(n) => Some(n.to_int())
     None => None
@@ -323,10 +311,10 @@ fn anum_list(v : AVal) -> Array[Double]? {
 }
 
 ///|
-fn aint_list(v : AVal) -> Array[Int]? {
+fn aint_list(v : AVal) -> Array[Int32]? {
   match v {
     AArr(xs) => {
-      let out : Array[Int] = []
+      let out : Array[Int32] = []
       for item in xs {
         match aint(item) {
           Some(n) => out.push(n)
@@ -374,10 +362,10 @@ fn abool_list(v : AVal) -> Array[Bool]? {
 }
 
 ///|
-fn aint_list_list(v : AVal) -> Array[Array[Int]]? {
+fn aint_list_list(v : AVal) -> Array[Array[Int32]]? {
   match v {
     AArr(xs) => {
-      let out : Array[Array[Int]] = []
+      let out : Array[Array[Int32]] = []
       for item in xs {
         match aint_list(item) {
           Some(xs2) => out.push(xs2)
@@ -407,7 +395,11 @@ fn fnum(
 }
 
 ///|
-fn fint(fields : Array[(String, AVal)], key : String, fallback : Int) -> Int {
+fn fint(
+  fields : Array[(String, AVal)],
+  key : String,
+  fallback : Int32,
+) -> Int32 {
   match afind(fields, key) {
     Some(v) =>
       match aint(v) {
@@ -457,8 +449,67 @@ fn params_of(v : AVal?, scheme : String) -> AlignParams {
               Some(AStr(s)) => s
               _ => ""
             },
+            near_miss: match afind(f, "nearMiss") {
+              Some(v) =>
+                match abool(v) {
+                  Some(b) => b
+                  None => true
+                }
+              None =>
+                match afind(f, "near_miss") {
+                  Some(v) =>
+                    match abool(v) {
+                      Some(b) => b
+                      None => true
+                    }
+                  None => true
+                }
+            },
+            sub: match afind(f, "subCost") {
+              Some(v) => sub_overrides(v)
+              None =>
+                match afind(f, "sub_cost") {
+                  Some(v) => sub_overrides(v)
+                  None => []
+                }
+            },
           }
         }
+      }
+  }
+}
+
+///|
+fn sub_overrides(v : AVal) -> Array[SubOverride] {
+  match v {
+    AArr(xs) => {
+      let out : Array[SubOverride] = []
+      for item in xs {
+        match item {
+          AArr(pair) =>
+            if pair.length() >= 3 {
+              match (astr(pair[0]), astr(pair[1]), anum(pair[2])) {
+                (Some(a), Some(b), Some(cost)) => out.push({ a, b, cost, })
+                _ => ()
+              }
+            }
+          _ => ()
+        }
+      }
+      out
+    }
+    _ => []
+  }
+}
+
+///|
+fn lp_b64_of(fields : Array[(String, AVal)]) -> Array[Double]? {
+  match afind(fields, "lpB64") {
+    Some(AStr(s)) => Some(align_f32le_b64(s))
+    _ =>
+      match afind(fields, "lp_b64") {
+        Some(AStr(s)) => Some(align_f32le_b64(s))
+        _ => None
       }
   }
 }
@@ -542,7 +593,7 @@ fn windows_of(v : AVal) -> Array[AlignWindow]? {
 }
 
 ///|
-fn lane_with_wof(lane : AlignLane, w_of : Array[Int]) -> AlignLane {
+fn lane_with_wof(lane : AlignLane, w_of : Array[Int32]) -> AlignLane {
   {
     tgt: lane.tgt,
     phones: lane.phones,
@@ -556,7 +607,7 @@ fn lane_with_wof(lane : AlignLane, w_of : Array[Int]) -> AlignLane {
 }
 
 ///|
-fn lookup_id(vocab : Array[String], name : String) -> Int {
+fn lookup_id(vocab : Array[String], name : String) -> Int32 {
   for i in 0..<vocab.length() {
     if vocab[i] == name {
       return i
@@ -658,7 +709,7 @@ fn post_of(fields : Array[(String, AVal)]) -> AlignPost? {
   }
   let lp = match afind(src, "lp") {
     Some(v) => anum_list(v)
-    None => None
+    None => lp_b64_of(src)
   }
   match lp {
     None => None
@@ -696,32 +747,22 @@ fn post_of(fields : Array[(String, AVal)]) -> AlignPost? {
           }
       }
       let spf = fnum(src, "spf", 0.02)
-      Some({ lp: data, frames, width, spf })
+      Some({ lp: data, frames, width, spf, })
     }
   }
 }
 
 ///|
-fn jpct(score : Int) -> String {
-  let s = if score < 0 {
-    0
-  } else if score > 100 {
-    100
-  } else {
-    score
-  }
+fn jpct(score : Int32) -> String {
+  let s = if score < 0 { 0 } else if score > 100 { 100 } else { score }
   let whole = s / 100
   let frac = s % 100
-  let digits = if frac < 10 {
-    "0" + frac.to_string()
-  } else {
-    frac.to_string()
-  }
+  let digits = if frac < 10 { "0" + frac.to_string() } else { frac.to_string() }
   whole.to_string() + "." + digits
 }
 
 ///|
-fn jint_list(xs : Array[Int]) -> String {
+fn jint_list(xs : Array[Int32]) -> String {
   let sb = StringBuilder()
   sb.write_char('[')
   for i, x in xs {
@@ -906,7 +947,39 @@ fn take_out(r : TakeScore) -> String {
     }
     sb.write_string(token_out(t))
   }
-  sb.write_string("],\"cost\":" + jnum(r.cost) + ",\"align\":" + align_out(r.align) + "}")
+  sb.write_string(
+    "],\"cost\":" +
+    jnum(r.cost) +
+    ",\"align\":" +
+    align_out(r.align) +
+    ",\"attemptCredit\":" +
+    attempt_credit_out(r.attempt_credit) +
+    "}",
+  )
+  sb.to_string()
+}
+
+///|
+fn attempt_credit_out(xs : Array[AttemptCredit]) -> String {
+  let sb = StringBuilder()
+  sb.write_char('[')
+  for i, a in xs {
+    if i > 0 {
+      sb.write_char(',')
+    }
+    sb.write_string(
+      "{\"w\":" +
+      a.w.to_string() +
+      ",\"att\":" +
+      a.att.to_string() +
+      ",\"credited\":" +
+      a.credited.to_string() +
+      ",\"score\":" +
+      a.score.to_string() +
+      "}",
+    )
+  }
+  sb.write_char(']')
   sb.to_string()
 }
 
@@ -924,7 +997,93 @@ fn post_out(p : AlignPost) -> String {
 }
 
 ///|
+fn wants_stored_post(f : Array[(String, AVal)]) -> Bool {
+  match afind(f, "postRef") {
+    Some(v) =>
+      match abool(v) {
+        Some(b) => b
+        None => false
+      }
+    None =>
+      match afind(f, "post_ref") {
+        Some(v) =>
+          match abool(v) {
+            Some(b) => b
+            None => false
+          }
+        None => false
+      }
+  }
+}
+
+///|
+fn lane_prm_of(v : AVal, base : AlignParams) -> AlignParams {
+  match afields(v) {
+    None => base
+    Some(f) => {
+      let sch = match afind(f, "scheme") {
+        Some(AStr(s)) => if s == "" { base.scheme } else { s }
+        _ => base.scheme
+      }
+      match afind(f, "params") {
+        Some(_) => params_of(afind(f, "params"), sch)
+        None => if sch == base.scheme { base } else { base.with_scheme(sch) }
+      }
+    }
+  }
+}
+
+///|
+fn parsed_lanes(
+  v : AVal,
+  vocab : Array[String],
+  base : AlignParams,
+) -> (Array[AlignLane], Array[AlignParams])? {
+  match v {
+    AArr(xs) => {
+      let lanes : Array[AlignLane] = []
+      let prms : Array[AlignParams] = []
+      for item in xs {
+        match lane_of(item, vocab) {
+          None => return None
+          Some(ln) => {
+            lanes.push(ln)
+            prms.push(lane_prm_of(item, base))
+          }
+        }
+      }
+      Some((lanes, prms))
+    }
+    _ => None
+  }
+}
+
+///|
+fn lanes_out(batch : LaneBatch) -> String {
+  let sb = StringBuilder()
+  sb.write_string("{\"tokens\":[")
+  for i, t in batch.tokens {
+    if i > 0 {
+      sb.write_char(',')
+    }
+    sb.write_string(token_out(t))
+  }
+  sb.write_string("],\"takes\":[")
+  for i, take in batch.takes {
+    if i > 0 {
+      sb.write_char(',')
+    }
+    sb.write_string(take_out(take))
+  }
+  sb.write_string("]}")
+  sb.to_string()
+}
+
+///|
 /// One JSON call for stitch and score. See `score_take`.
+/// `lanes` scores every lane against one soft decode. `postRef: true` reads
+/// the matrix stored by `align_set_post` instead of a JSON number list.
+/// `lpB64` is little-endian float32 in base64.
 pub fn align_phones_json(spec : String) -> String {
   match aparse(spec) {
     None => take_out(empty_take())
@@ -945,16 +1104,32 @@ pub fn align_phones_json(spec : String) -> String {
             Some(ws) => {
               let total = fnum(f, "totalSec", fnum(f, "total_sec", 0.0))
               let stitched = stitch(ws, total, prm)
-              match afind(f, "lane") {
-                None => post_out(stitched)
-                Some(_) =>
-                  score_spec(f, Some(stitched), prm)
+              let has_lane = match afind(f, "lane") {
+                Some(_) => true
+                None => false
+              }
+              let has_lanes = match afind(f, "lanes") {
+                Some(AArr(xs)) => xs.length() > 0
+                _ => false
+              }
+              if !has_lane && !has_lanes {
+                post_out(stitched)
+              } else {
+                score_spec(f, Some(stitched), prm)
               }
             }
             None => score_spec(f, None, prm)
           }
         }
       }
+  }
+}
+
+///|
+fn resolve_post(f : Array[(String, AVal)], stitched : AlignPost?) -> AlignPost? {
+  match stitched {
+    Some(p) => Some(p)
+    None => if wants_stored_post(f) { align_stored_post() } else { post_of(f) }
   }
 }
 
@@ -972,13 +1147,21 @@ fn score_spec(
       }
     None => [""]
   }
+  let post = resolve_post(f, stitched)
+  let many = match afind(f, "lanes") {
+    Some(v) => parsed_lanes(v, vocab, prm)
+    None => None
+  }
+  match (post, many) {
+    (Some(p), Some((lanes, prms))) =>
+      if lanes.length() > 0 {
+        return lanes_out(score_lanes(p, lanes, vocab, prm, prms))
+      }
+    _ => ()
+  }
   let lane = match afind(f, "lane") {
     Some(v) => lane_of(v, vocab)
     None => None
-  }
-  let post = match stitched {
-    Some(p) => Some(p)
-    None => post_of(f)
   }
   match (post, lane) {
     (Some(p), Some(ln)) => take_out(score_take(p, ln, vocab, prm))

@@ -23,6 +23,8 @@ options(
         "hearing_credit_json",
         "unit_hearing_credit_json",
         "align_phones_json",
+        "align_set_post",
+        "align_clear_post",
         "credit_level_json",
         "credit_scale_json",
         "credit_bands_json",

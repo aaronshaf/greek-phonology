@@ -202,6 +202,17 @@ export interface AlignWord {
   t1: number | null;
 }
 
+export interface AlignAttemptCredit {
+  /** Word index. */
+  w: number;
+  /** Attempt index. A later attempt has a smaller `att` when the aligner restarts. */
+  att: number;
+  /** Phones in this attempt whose score is above 0. */
+  credited: number;
+  /** This attempt's word score, 0–100. */
+  score: number;
+}
+
 export interface AlignTake {
   words: AlignWord[];
   overall: number;
@@ -214,6 +225,14 @@ export interface AlignTake {
   tokens: AlignToken[];
   cost: number;
   align: AlignResult;
+  /** Every coherent attempt, not only the one that became the word score. */
+  attemptCredit: AlignAttemptCredit[];
+}
+
+/** `lanes` scores every lane from one soft decode. Tokens are on this object, not repeated inside each take. */
+export interface AlignLanesResult {
+  tokens: AlignToken[];
+  takes: AlignTake[];
 }
 
 /** Returned when the spec stitches windows and does not pass a lane. */
@@ -288,8 +307,45 @@ export function hearingCredit(
   scheme?: string,
   goal?: LearnerGoal | string,
 ): HearingCredit;
-/** Align heard phones to target words. Accepts the JSON spec string or the same object. A spec with `windows` and no `lane` returns the stitched matrix. */
-export function alignPhonesJson(spec: string | object): AlignTake | AlignMatrix;
+/**
+ * Log-posterior matrix. Pass `lp` as a number array, Float32Array, Float64Array,
+ * or base64 of little-endian float32 so it is not parsed as a JSON number list.
+ * `lanes` is one call for every lane. `postRef: true` uses the matrix from `alignSetPost`.
+ * `params.nearMiss: false` or `params.goal: "exact"` turns near-miss credit off.
+ * `params.subCost` is `[["e","i",0.5], ...]` and overrides the path price in either order.
+ */
+export interface AlignSpec {
+  lp?: ArrayLike<number> | string;
+  lpB64?: string;
+  postB64?: string;
+  post?:
+    | ArrayLike<number>
+    | string
+    | { lp?: ArrayLike<number> | string; lpB64?: string; T?: number; V?: number; spf?: number };
+  postRef?: boolean;
+  T?: number;
+  V?: number;
+  spf?: number;
+  vocab?: string[];
+  lane?: object;
+  lanes?: object[];
+  params?: {
+    goal?: string;
+    scheme?: string;
+    nearMiss?: boolean;
+    subCost?: Array<[string, string, number]>;
+    mode?: string;
+  };
+  windows?: object[];
+  totalSec?: number;
+  scheme?: string;
+}
+/** Align heard phones to target words. A spec with `windows` and no lane returns the stitched matrix. `lanes` returns `{ tokens, takes }`. */
+export function alignPhonesJson(spec: string | AlignSpec): AlignTake | AlignMatrix | AlignLanesResult;
+/** Store a matrix for `alignPhonesJson({ postRef: true, ... })`. `lp` may be base64 float32 LE. */
+export function alignSetPost(lp: ArrayLike<number> | string, T: number, V: number, spf?: number): void;
+/** Drop the matrix stored by `alignSetPost`. */
+export function alignClearPost(): void;
 /** Score a grapheme unit. `at` < 0 (the default) keeps the phone with the highest combined credit. */
 export function unitHearingCredit(
   unit: { ph?: string[]; phones?: string[]; alts?: Array<{ heard: string[]; note?: string }> },
@@ -342,6 +398,8 @@ declare const _default: {
   hearingCredit: typeof hearingCredit;
   unitHearingCredit: typeof unitHearingCredit;
   alignPhonesJson: typeof alignPhonesJson;
+  alignSetPost: typeof alignSetPost;
+  alignClearPost: typeof alignClearPost;
   creditLevel: typeof creditLevel;
   CREDIT_LEVEL_CLOSE: number;
   CREDIT_LEVEL_LIGHT: number;

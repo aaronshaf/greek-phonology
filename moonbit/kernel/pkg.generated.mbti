@@ -28,6 +28,8 @@ pub fn align_max_score(Int32, Int32) -> Int32
 
 pub fn align_min_cost(Int32, Int32) -> Int32
 
+pub fn align_near_miss_on(Bool, Bool) -> Bool
+
 pub fn align_over_cap(Int32, Int32) -> Bool
 
 pub fn align_phones_needed(Int32, Int32) -> Int32
@@ -36,6 +38,8 @@ pub fn align_pick_cost(Int32, Int32, Bool) -> Int32
 
 pub fn align_pick_end(Int32, Int32, Bool, Bool) -> Int32
 
+pub fn align_pick_price(Bool, Int32, Int32) -> Int32
+
 pub fn align_rank(Int32, Int32, Int32, Int32) -> Int32
 
 pub fn align_skip_n(Int32, Int32) -> Int32
@@ -43,6 +47,8 @@ pub fn align_skip_n(Int32, Int32) -> Int32
 pub fn align_step_cap(Int32, Int32) -> Int32
 
 pub fn align_sub_bucket(Bool, Bool, Bool) -> Int32
+
+pub fn align_tie_take(Bool, Bool, Int32, Int32) -> Bool
 
 pub fn alt_match(FixedArray[Int32], Int32, FixedArray[Int32], Int32) -> Bool
 
