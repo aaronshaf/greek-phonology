@@ -8113,7 +8113,7 @@ let ipa_golden_tsv : String =
   #|ὡραιότητα	o r e o t i t a	o r ɛ o t e t a	h ɔː r a i o t ɛː t a	h o ʊ r a ɪ o t e ɪ t a
   #|ὡρίσω	o r i s o	o r i s o	h ɔː r i s ɔː	h o ʊ r i s o ʊ
   #|ὡσαύτως	o s a f t o s	o s a f t o s	h ɔː s a u t ɔː s	h o ʊ s a ʊ t o ʊ s
-  #|Αζαυ	a z a f	a z a β	a z d a u	a d͡z a ʊ
+  #|Αζαυ	a z a f	a z a v	a z d a u	a d͡z a ʊ
   #|Αμεσσαϊ	a m e s s a i	a m ɛ s s a i	a m e sː a i	a m e s s a i
   #|Αμμων	a m m o n	a m m o n	a mː ɔː n	a m m o ʊ n
   #|Δαυίδ	ð a v i ð	ð a β i ð	d a u i d	d a ʊ i d
@@ -8121,8 +8121,8 @@ let ipa_golden_tsv : String =
   #|Εδραϊν	e ð r a i n	ɛ ð r a i n	e d r a i n	e d r a i n
   #|Ἠσαΐας	i s a i a s	e s a i a s	ɛː s a i a s	e ɪ s a i a s
   #|Ἠσαΐου	i s a i u	e s a i u	ɛː s a i uː	e ɪ s a i u
-  #|Ἠσαῦ	i s a f	e s a β	ɛː s a u	e ɪ s a ʊ
-  #|Ησαυ	i s a f	e s a β	ɛː s a u	e ɪ s a ʊ
+  #|Ἠσαῦ	i s a f	e s a v	ɛː s a u	e ɪ s a ʊ
+  #|Ησαυ	i s a f	e s a v	ɛː s a u	e ɪ s a ʊ
   #|Ιαϊρ	i a i r	i a i r	i a i r	i a i r
   #|Κεϊλα	k e i l a	k ɛ i l a	k e i l a	k e i l a
   #|Λευι	l e v i	l ɛ β i	l e u i	l j u i
@@ -8138,23 +8138,23 @@ let ipa_golden_tsv : String =
   #|Μωυσῇ	m o i s i	m o y s e	m ɔː y s ɛː i	m o ʊ u s e ɪ
   #|Μωυσῆν	m o i s i n	m o y s e n	m ɔː y s ɛː n	m o ʊ u s e ɪ n
   #|Μωυσῆς	m o i s i s	m o y s e s	m ɔː y s ɛː s	m o ʊ u s e ɪ s
-  #|Ναβαυ	n a v a f	n a v a β	n a b a u	n a b a ʊ
+  #|Ναβαυ	n a v a f	n a v a v	n a b a u	n a b a ʊ
   #|Ναυαθ	n a v a θ	n a β a tʰ	n a u a tʰ	n a ʊ a θ
   #|Ναυη	n a v i	n a β e	n a u ɛː	n a ʊ e ɪ
   #|Παῦλος	p a v l o s	p a β l o s	p a u l o s	p a ʊ l o s
-  #|Ρααυ	r a a f	r a a β	r a a u	r a a ʊ
-  #|Ραγαυ	r a ɣ a f	r a ɣ a β	r a g a u	r a g a ʊ
-  #|Σαβευ	s a v e f	s a v ɛ β	s a b e u	s a b j u
+  #|Ρααυ	r a a f	r a a v	r a a u	r a a ʊ
+  #|Ραγαυ	r a ɣ a f	r a ɣ a v	r a g a u	r a g a ʊ
+  #|Σαβευ	s a v e f	s a v ɛ v	s a b e u	s a b j u
   #|Σαυα	s a v a	s a β a	s a u a	s a ʊ a
   #|Σαυη	s a v i	s a β e	s a u ɛː	s a ʊ e ɪ
   #|Σεμεϊ	s e m e i	s ɛ m ɛ i	s e m e i	s e m e i
-  #|Χασελευ	x a s e l e f	kʰ a s ɛ l ɛ β	kʰ a s e l e u	x a s e l j u
+  #|Χασελευ	x a s e l e f	kʰ a s ɛ l ɛ v	kʰ a s e l e u	x a s e l j u
   #|ἄγγελοι	a ŋ ʝ e l i	a ŋ ʝ ɛ l y	a ŋ g e l o i	a ŋ g e l ɔ ɪ
   #|ἄγγελον	a ŋ ʝ e l o n	a ŋ ʝ ɛ l o n	a ŋ g e l o n	a ŋ g e l o n
   #|ἄγγελος	a ŋ ʝ e l o s	a ŋ ʝ ɛ l o s	a ŋ g e l o s	a ŋ g e l o s
   #|ἄμπελον	a m b e l o n	a m p ɛ l o n	a m p e l o n	a m p e l o n
   #|ἄμπελος	a m b e l o s	a m p ɛ l o s	a m p e l o s	a m p e l o s
-  #|ἄνευ	a n e f	a n ɛ β	a n e u	a n j u
+  #|ἄνευ	a n e f	a n ɛ v	a n e u	a n j u
   #|ἀγγέλους	a ŋ ʝ e l u s	a ŋ ʝ ɛ l u s	a ŋ g e l uː s	a ŋ g e l u s
   #|ἀγγέλων	a ŋ ʝ e l o n	a ŋ ʝ ɛ l o n	a ŋ g e l ɔː n	a ŋ g e l o ʊ n
   #|ἀλλ	a l l	a l l	a lː	a l l
@@ -8168,7 +8168,7 @@ let ipa_golden_tsv : String =
   #|ἀντιλήμπτωρ	a n d i l i m b t o r	a n t i l e m p t o r	a n t i l ɛː m p t ɔː r	a n t i l e ɪ m p t o ʊ r
   #|ἀπήγγειλεν	a p i ŋ ʝ i l e n	a p e ŋ ʝ i l ɛ n	a p ɛː ŋ g eː l e n	a p e ɪ ŋ g e ɪ l e n
   #|ᾅδου	a ð u	a ð u	h aː i d uː	h a d u
-  #|αιλευ	e l e f	ɛ l ɛ β	a i l e u	a ɪ l j u
+  #|αιλευ	e l e f	ɛ l ɛ v	a i l e u	a ɪ l j u
   #|αὔριον	a v r i o n	a β r i o n	a u r i o n	a ʊ r i o n
   #|αὐλήν	a v l i n	a β l e n	a u l ɛː n	a ʊ l e ɪ n
   #|αὐλῇ	a v l i	a β l e	a u l ɛː i	a ʊ l e ɪ
@@ -8183,7 +8183,7 @@ let ipa_golden_tsv : String =
   #|αὐτῶν	a f t o n	a f t o n	a u t ɔː n	a ʊ t o ʊ n
   #|βασιλείᾳ	v a s i l i a	v a s i l i a	b a s i l eː aː i	b a s i l e ɪ a
   #|βασιλεύς	v a s i l e f s	v a s i l ɛ f s	b a s i l e u s	b a s i l j u s
-  #|βασιλεῦ	v a s i l e f	v a s i l ɛ β	b a s i l e u	b a s i l j u
+  #|βασιλεῦ	v a s i l e f	v a s i l ɛ v	b a s i l e u	b a s i l j u
   #|γῇ	ʝ i	ʝ e	g ɛː i	g e ɪ
   #|δεύτερον	ð e f t e r o n	ð ɛ f t ɛ r o n	d e u t e r o n	d j u t e r o n
   #|ἔμπροσθέν	e m b r o s θ e n	ɛ m p r o s tʰ ɛ n	e m p r o s tʰ e n	e m p r o s θ e n
@@ -8200,7 +8200,7 @@ let ipa_golden_tsv : String =
   #|ἐπορεύθη	e p o r e f θ i	ɛ p o r ɛ f tʰ e	e p o r e u tʰ ɛː	e p o r j u θ e ɪ
   #|εἰσελεύσεται	i s e l e f s e t e	i s ɛ l ɛ f s ɛ t ɛ	eː s e l e u s e t a i	e ɪ s e l j u s e t a ɪ
   #|εἰσήνεγκεν	i s i n e ŋ g e n	i s e n ɛ ŋ k ɛ n	eː s ɛː n e ŋ k e n	e ɪ s e ɪ n e ŋ k e n
-  #|εὖ	e f	ɛ β	e u	j u
+  #|εὖ	e f	ɛ v	e u	j u
   #|εὐαγγέλιον	e v a ŋ ʝ e l i o n	ɛ β a ŋ ʝ ɛ l i o n	e u a ŋ g e l i o n	j u a ŋ g e l i o n
   #|εὐλογεῖτε	e v l o ʝ i t e	ɛ β l o ʝ i t ɛ	e u l o g eː t e	j u l o g e ɪ t e
   #|εὐλογητός	e v l o ʝ i t o s	ɛ β l o ʝ e t o s	e u l o g ɛː t o s	j u l o g e ɪ t o s
@@ -8225,12 +8225,12 @@ let ipa_golden_tsv : String =
   #|ηὑρέθη	i v r e θ i	e β r ɛ tʰ e	h ɛː u r e tʰ ɛː	h e ɪ u r e θ e ɪ
   #|θάλασσα	θ a l a s s a	tʰ a l a s s a	tʰ a l a sː a	θ a l a s s a
   #|θαλάσσης	θ a l a s s i s	tʰ a l a s s e s	tʰ a l a sː ɛː s	θ a l a s s e ɪ s
-  #|θαυ	θ a f	tʰ a β	tʰ a u	θ a ʊ
+  #|θαυ	θ a f	tʰ a v	tʰ a u	θ a ʊ
   #|θεός	θ e o s	tʰ ɛ o s	tʰ e o s	θ e o s
   #|θεῷ	θ e o	tʰ ɛ o	tʰ e ɔː i	θ e o ʊ
   #|ἰσχύι	i s ç i	i s kʰ y	i s kʰ y i	i s x w i
   #|ἱερεύς	i e r e f s	i ɛ r ɛ f s	h i e r e u s	h i e r j u s
-  #|ἱερεῦ	i e r e f	i ɛ r ɛ β	h i e r e u	h i e r j u
+  #|ἱερεῦ	i e r e f	i ɛ r ɛ v	h i e r e u	h i e r j u
   #|καρδίᾳ	k a r ð i a	k a r ð i a	k a r d i aː i	k a r d i a
   #|κατηύθυνεν	k a t i f θ i n e n	k a t e f tʰ y n ɛ n	k a t ɛː u tʰ y n e n	k a t e ɪ u θ u n e n
   #|κόσμος	k o z m o s	k o s m o s	k o s m o s	k o s m o s
@@ -8240,7 +8240,7 @@ let ipa_golden_tsv : String =
   #|οἴκῳ	i k o	y k o	o i k ɔː i	ɔ ɪ k o ʊ
   #|οἰκίᾳ	i k i a	y k i a	o i k i aː i	ɔ ɪ k i a
   #|οὐρανός	u r a n o s	u r a n o s	uː r a n o s	u r a n o s
-  #|ουαυ	u a f	u a β	uː a u	u a ʊ
+  #|ουαυ	u a f	u a v	uː a u	u a ʊ
   #|πάντα	p a n d a	p a n t a	p a n t a	p a n t a
   #|πάντας	p a n d a s	p a n t a s	p a n t a s	p a n t a s
   #|πάντες	p a n d e s	p a n t ɛ s	p a n t e s	p a n t e s
@@ -8275,4 +8275,4 @@ let ipa_golden_tsv : String =
   #|υἱῶν	i o n	y o n	h y i ɔː n	h w i o ʊ n
 
 ///|
-let _ipa_golden_rows : Int32 = ipa_golden_tsv.length()
+let _ipa_golden_rows : Int = ipa_golden_tsv.length()
