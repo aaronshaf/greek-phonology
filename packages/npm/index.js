@@ -25,6 +25,9 @@ export const hearingCredit = (target, posterior, scheme = "", goal = "") =>
 /** Credit and note for one grapheme unit. `at` < 0 keeps the strongest phone. */
 export const unitHearingCredit = (unit, posterior, scheme = "", goal = "", at = -1) =>
   j(m.unit_hearing_credit_json(JSON.stringify(unit ?? {}), posteriorText(posterior), scheme, goal, String(at)));
+/** Align a recognizer posterior to target phones. `spec` is a JSON string or an object. Opt-in: ipa() does not call it. */
+export const alignPhonesJson = (spec) =>
+  j(m.align_phones_json(typeof spec === "string" ? spec : JSON.stringify(spec ?? {})));
 const creditScale = j(m.credit_scale_json());
 /** Default display cutoffs, in percent. Override any of them in creditLevel. */
 export const CREDIT_LEVEL_CLOSE = creditScale.close;
@@ -61,7 +64,7 @@ export function loadLexicon(bytes = readFileSync(new URL("./greek-phonology-lexi
 }
 export const wasmPath = new URL("./greek-phonology.wasm", import.meta.url);
 export default {
-  ipa, g2p, phoneDistance, phoneCredit, hearingCredit, unitHearingCredit, creditLevel,
+  ipa, g2p, phoneDistance, phoneCredit, hearingCredit, unitHearingCredit, alignPhonesJson, creditLevel,
   CREDIT_LEVEL_CLOSE, CREDIT_LEVEL_LIGHT, CREDIT_LEVEL_MEDIUM, CREDIT_LEVEL_CLEAR, CREDIT_LEVEL_DEEPEST,
   schemeId, distTable, detect, word, lookup, call, loadLexicon, wasmPath,
 };

@@ -22,6 +22,7 @@ options(
         "dist_table_json",
         "hearing_credit_json",
         "unit_hearing_credit_json",
+        "align_phones_json",
         "credit_level_json",
         "credit_scale_json",
         "scheme_id",

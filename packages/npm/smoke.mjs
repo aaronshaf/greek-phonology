@@ -1,7 +1,7 @@
 // Local smoke test for the built package. Not part of the published file list.
 import assert from "node:assert/strict";
 import {
-  ipa, g2p, phoneDistance, phoneCredit, hearingCredit, unitHearingCredit, creditLevel,
+  ipa, g2p, phoneDistance, phoneCredit, hearingCredit, unitHearingCredit, alignPhonesJson, creditLevel,
   CREDIT_LEVEL_CLOSE, CREDIT_LEVEL_LIGHT, CREDIT_LEVEL_MEDIUM, CREDIT_LEVEL_CLEAR, CREDIT_LEVEL_DEEPEST,
   schemeId, distTable, detect, call, loadLexicon, lookup, word,
 } from "./index.js";
@@ -56,6 +56,17 @@ assert.match(alt.note, /more accurate/);
 const detected = detect("e n | a r x i");
 assert.equal(typeof detected.probs.koine, "number");
 assert.equal(call("accentuate_verb", "λυομεν"), "λύομεν");
+const one = alignPhonesJson({
+  vocab: ["", "a"],
+  T: 1,
+  V: 2,
+  spf: 0.02,
+  lp: [Math.log(0.2), Math.log(0.8)],
+  lane: { tgt: ["a"], phones: ["a"], start: [0], wlen: [1] },
+});
+assert.ok(one.words[0].score >= 80);
+assert.equal(alignPhonesJson("{").overall, 0);
+assert.deepEqual(alignPhonesJson("{").words, []);
 assert.equal(call("without_accents", "a\tb"), "a\tb");
 const info = word("λόγος");
 assert.ok(Array.isArray(info.syllables));

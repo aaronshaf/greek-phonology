@@ -226,6 +226,15 @@ pub fn scheme_id(name : String) -> String {
 }
 
 ///|
+/// Restart-tolerant alignment of one take. `spec` is JSON: log-posteriors
+/// (`lp`, `T`, `V`, `spf`), `vocab`, `lane`, and optional `params`.
+/// `windows` plus `totalSec` stitches overlapping matrices first.
+/// `ipa()` does not call this.
+pub fn align_phones_json(spec : String) -> String {
+  @lib.align_phones_json(spec)
+}
+
+///|
 pub fn word_json(word : String) -> String {
   run_str(2, word, "")
 }

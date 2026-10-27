@@ -151,6 +151,72 @@ export type BoolCallName =
   | "is_enclitic"
   | "is_proclitic";
 
+export interface AlignToken {
+  id: number;
+  p: string;
+  t0: number;
+  t1: number;
+  pk: number;
+  fr: number[];
+}
+
+export interface AlignPair {
+  h: number;
+  j: number;
+  att: number;
+  shared?: boolean;
+}
+
+export interface AlignResult {
+  pairs: AlignPair[];
+  k: number;
+  cost: number;
+  atts: number;
+  heardN: number;
+}
+
+export interface AlignPhoneHit {
+  target: string;
+  score: number | null;
+  optional?: boolean;
+  heard?: string | null;
+  h?: number;
+  t0?: number;
+  t1?: number;
+  shared?: boolean;
+}
+
+export interface AlignWord {
+  i: number;
+  score: number;
+  attempts: number;
+  evidence: boolean;
+  ph: AlignPhoneHit[] | null;
+  lo: number;
+  hi: number;
+  t0: number | null;
+  t1: number | null;
+}
+
+export interface AlignTake {
+  words: AlignWord[];
+  overall: number;
+  cursorWord: number;
+  lastPhone: number;
+  attempts: number;
+  tokens: AlignToken[];
+  cost: number;
+  align: AlignResult;
+}
+
+/** Returned when the spec stitches windows and does not pass a lane. */
+export interface AlignMatrix {
+  lp: number[];
+  T: number;
+  V: number;
+  spf: number;
+}
+
 export type CallName =
   | StringCallName
   | BoolCallName
@@ -167,6 +233,7 @@ export type CallName =
   | "dist_table"
   | "hearing_credit"
   | "unit_hearing_credit"
+  | "align_phones"
   | "credit_level"
   | "scheme_id";
 
@@ -184,6 +251,8 @@ export type CallResult =
   | PhoneCredit
   | HearingCredit
   | CreditLevel
+  | AlignTake
+  | AlignMatrix
   | null;
 
 export function ipa(text: string, scheme: Scheme | string): string;
@@ -210,6 +279,8 @@ export function hearingCredit(
   scheme?: string,
   goal?: LearnerGoal | string,
 ): HearingCredit;
+/** Align heard phones to target words. Accepts the JSON spec string or the same object. A spec with `windows` and no `lane` returns the stitched matrix. */
+export function alignPhonesJson(spec: string | object): AlignTake | AlignMatrix;
 /** Score a grapheme unit. `at` < 0 (the default) keeps the phone with the highest combined credit. */
 export function unitHearingCredit(
   unit: { ph?: string[]; phones?: string[]; alts?: Array<{ heard: string[]; note?: string }> },
@@ -239,6 +310,7 @@ export function call(name: "word", arg?: string, arg2?: string): WordInfo;
 export function call(name: "lookup", arg?: string, arg2?: string): LookupResult | null;
 export function call(name: "detect", arg?: string, arg2?: string): Detection;
 export function call(name: "check_phrase_accents", arg?: string, arg2?: string): PhraseAccentCheck[];
+export function call(name: "align_phones", arg?: string, arg2?: string): AlignTake | AlignMatrix;
 export function call(name: StringCallName, arg?: string, arg2?: string): string;
 export function call(name: string, arg?: string, arg2?: string): CallResult;
 export function loadLexicon(bytes?: Uint8Array): void;
@@ -251,6 +323,7 @@ declare const _default: {
   phoneCredit: typeof phoneCredit;
   hearingCredit: typeof hearingCredit;
   unitHearingCredit: typeof unitHearingCredit;
+  alignPhonesJson: typeof alignPhonesJson;
   creditLevel: typeof creditLevel;
   CREDIT_LEVEL_CLOSE: number;
   CREDIT_LEVEL_LIGHT: number;

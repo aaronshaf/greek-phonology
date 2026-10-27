@@ -2,6 +2,8 @@
 package "aaronshaf/greek-phonology/api"
 
 // Values
+pub fn align_phones_json(String) -> String
+
 pub fn call(String, String, String) -> String
 
 pub fn credit_level_json(Double, String) -> String
