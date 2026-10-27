@@ -47,7 +47,7 @@ Every function below can be called through `call(name, arg, arg2)`. The most com
 
 **Pronunciation**
 - `ipa(text, scheme)`: Greek to IPA. Phones are separated by spaces and words by `|`. `ipa("θεός", "attic")` → `tʰ e o s`. Attic follows Allen's 4th-century target (ου [uː], length shown where the spelling marks it, geminates as Cː), Erasmian χ is [x], and Modern voices σ to [z] before β γ δ μ ν λ ρ. Koine word-final αυ/ευ/ηυ is [v]; before a voiceless consonant it is [f], and medial before a vowel or voiced consonant it stays [β]. See [docs/RESEARCH.md](docs/RESEARCH.md).
-- `g2p(text, scheme, flags?)`: the same phones, plus one unit per grapheme. Concatenating `units[].t` gives the typed word back. `restored` is true when a phone used a mark the user did not type. Flags are a comma list: `alts` adds tolerated hearings, `ctx` voices word-final αυ/ευ/ηυ from the next word. Both are off by default, and neither changes `ipa()`. Wasm command 6. `g2p("αι", "modern")` → `{v:1, scheme:"modern", lib:"0.3.0", words:[{text:"αι", phones:["e"], units:[{t:"αι", k:"diph", ph:["e"], …}]}]}`.
+- `g2p(text, scheme, flags?)`: the same phones, plus one unit per grapheme. Concatenating `units[].t` gives the typed word back. `restored` is true when a phone used a mark the user did not type. Flags are a comma list: `alts` adds tolerated hearings, `ctx` voices word-final αυ/ευ/ηυ from the next word. Both are off by default, and neither changes `ipa()`. Wasm command 6. `g2p("αι", "modern")` → `{v:1, scheme:"modern", lib:"0.3.1", words:[{text:"αι", phones:["e"], units:[{t:"αι", k:"diph", ph:["e"], …}]}]}`.
 - `phoneDistance(target, heard, scheme?, goal?)`: graded distance between one target phone and one heard phone, for any recognizer's IPA. `goal` is `strict`, `gracious` (default), or `lenient`. It changes `tier` and `sim` only; `d`, `note`, and `advice` stay put. Tiers are `accurate`, `tolerated`, and `not-a-match`. Unknown phones return `not-a-match` and do not throw.
 - `phoneCredit(target, scheme, goal, posterior)`: credit for a comma list of `phone=weight` pairs. An exact hit outranks a near miss, and nothing outside the tolerated tier scores.
 - `hearingCredit(target, posterior, scheme?, goal?)`: the same numbers as `phoneCredit`, plus the note for the best alternate. `posterior` may be the `phone=weight` list or a candidate array (`{phone, p}`, `{phone, probability}`, or `[phone, probability]`).
@@ -114,7 +114,7 @@ Parity tests compare the library with the original TypeScript (its outputs are f
 
 ## Versioning
 
-`moonbit/moon.mod` and the npm package `greek-phonology` use the same version number. Published npm releases are 0.1.0 (2026-10-22 18:08Z) and 0.2.0 (2026-10-22 20:05Z). The working tree is 0.3.0 and has not been published; see [CHANGELOG.md](CHANGELOG.md). This repository has no git tags. Creating tags is a separate push and is not done from documentation changes. The proved-goal count is not a version: CI prints whatever the installed MoonBit and Z3 report.
+`moonbit/moon.mod` and the npm package `greek-phonology` use the same version number. Published npm releases are 0.1.0 (2026-10-22 18:08Z) and 0.2.0 (2026-10-22 20:05Z). The working tree is 0.3.1 and has not been published; see [CHANGELOG.md](CHANGELOG.md). This repository has no git tags. Creating tags is a separate push and is not done from documentation changes. The proved-goal count is not a version: CI prints whatever the installed MoonBit and Z3 report.
 
 ## Data
 
