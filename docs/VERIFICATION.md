@@ -28,11 +28,13 @@ On this change, with moon 0.1.20261023 and Z3 4.13.0:
 
 | | Before | After |
 |---|---|---|
-| Proved goals | 218 valid, 0 invalid, 0 timeout | 221 valid, 0 invalid, 0 timeout |
-| Public functions | 172 | 185 |
-| Tests (`moon test`) | 77 passed | 81 passed |
+| Proved goals | 221 valid, 0 invalid, 0 timeout | 226 valid, 0 invalid, 0 timeout |
+| Public functions | 185 | 198 |
+| Tests (`moon test`) | 81 passed | 93 passed |
 
-The three new goals are the integer decisions in `moonbit/kernel/align.mbt`: equal-cost tie-break (`align_tie_take`), the exact-credit switch (`align_near_miss_on`), and the substitution-price override (`align_pick_price`). The library calls them from `align_tokens`, `phone_score_of`, and `align_sub_cost_with`. The earlier ten goals (cell cap, substitution bucket, goal bounds, tier code, near-miss credit product, display rank, and the rank-drop postconditions) are unchanged.
+The five new goals are in `moonbit/kernel/metric.mbt`. Strict acceptance implies gracious acceptance and that implies lenient (`strict_accepts_implies_looser`). An accurate distance is accepted at every goal (`accurate_band_accepted`). Distance 1 is rejected at every goal (`full_miss_rejected`). The tolerated band 0.250 is an edit at strict and accepted at gracious and lenient (`tolerated_band`). An ungated 0.500 is rejected at every goal (`ungated_rejected`). The library calls them from `goal_of`. The earlier alignment and tier goals are unchanged.
+
+Symmetry of a sourced pair (the distance is the same in both orders) is a test, not a goal. The table is strings, and this prover has no float theory. A not-a-match row is never accepted, and an accurate row is accepted at strict and therefore at gracious. Those are the integer goals above, checked again on the shipped rows in `tests/phondist_rows_test.mbt`.
 
 ## What is proved
 
@@ -45,6 +47,7 @@ The kernel proofs listed in the README still hold (syllables, law of limitation,
 - A caller-supplied substitution price is the one used; otherwise the table price is used.
 - A match or a restart/skip jump lowers the integer rank by at least 1, so those steps cannot cycle.
 - Goal tolerances are 0.20 / 0.33 / 0.42 and credit caps are 0.60 / 0.75 / 0.90, with strict ≤ gracious ≤ lenient on both.
+- Strict acceptance implies gracious acceptance, and that implies lenient. Distance 1 and an ungated 0.500 are never accepted. Distance 0.250 is accepted only from the gracious goal up. An accurate distance (≤ 0.020) is accepted at every goal.
 - A larger integer distance never improves the tier code.
 - Near-miss credit in thousandths is `cap * sim / 1000` and stays inside 0..=cap.
 - The display rank is 0..=5 and a band is reached only at or above its cutoff.

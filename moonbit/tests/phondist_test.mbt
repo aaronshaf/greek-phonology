@@ -21,7 +21,7 @@ let tier_table : Array[(String, String, String, String)] = [
   ("koine", "β", "v", accurate),
   ("koine", "β", "b", tolerated),
   ("koine", "β", "f", nomatch),
-  ("koine", "ɛ", "e", tolerated),
+  ("koine", "ɛ", "e", accurate),
   ("koine", "o", "ɔ", accurate),
   ("koine", "y", "u", tolerated),
   ("koine", "y", "i", tolerated),
@@ -29,15 +29,15 @@ let tier_table : Array[(String, String, String, String)] = [
   ("koine", "ɣ", "g", tolerated),
   ("modern", "ð", "d", tolerated),
   ("modern", "ð", "z", tolerated),
-  ("modern", "θ", "s", tolerated),
+  ("modern", "θ", "s", nomatch),
   ("modern", "θ", "f", nomatch),
-  ("modern", "v", "f", tolerated),
+  ("modern", "v", "f", nomatch),
   ("modern", "v", "b", nomatch),
   ("modern", "o", "ɔ", accurate),
   ("modern", "o", "u", nomatch),
   ("modern", "e", "i", nomatch),
   ("modern", "ɣ", "x", tolerated),
-  ("modern", "s", "z", tolerated),
+  ("modern", "s", "z", nomatch),
   ("attic", "ɔː", "ɔ", accurate),
   ("attic", "ɔː", "o", tolerated),
   ("attic", "uː", "u", accurate),
@@ -47,7 +47,7 @@ let tier_table : Array[(String, String, String, String)] = [
   ("attic", "a", "p", nomatch),
   ("erasmian", "ɪ", "i", tolerated),
   ("erasmian", "ɪ", "e", tolerated),
-  ("erasmian", "ʊ", "u", tolerated),
+  ("erasmian", "ʊ", "u", accurate),
   ("erasmian", "ʊ", "o", tolerated),
   ("erasmian", "o", "u", nomatch),
   ("erasmian", "θ", "t", tolerated),
@@ -169,11 +169,13 @@ test "sane ordering of distances" {
 test "scheme equivalence and long scheme names" {
   assert_eq(pd("o", "ɔ", "grc-koine-reconstructed", "").tier, accurate)
   assert_eq(pd("o", "ɔ", "grc-modern-style", "").tier, accurate)
-  assert_eq(pd("o", "ɔ", "grc-attic-restored", "").tier, tolerated)
+  assert_eq(pd("o", "ɔ", "grc-attic-restored", "").tier, accurate)
   assert_eq(pd("o", "ɔ", "grc-erasmian-us", "").tier, tolerated)
   assert_eq(pd("o", "ɔ", "koine", "").note, "Either sound is correct in this reading.")
   assert_eq(pd("o", "ɔ", "koine", "").d, 0.0)
-  assert_eq(pd("o", "ɔ", "attic", "").note != pd("o", "ɔ", "koine", "").note, true)
+  assert_eq(pd("o", "ɔ", "attic", "").d, 0.02)
+  assert_eq(pd("o", "ɔ", "attic", "").note, "Either sound is correct in this reading.")
+  assert_eq(pd("o", "ɔ", "erasmian", "").d, 0.25)
   let goals = ["strict", "gracious", "lenient", ""]
   for g in goals {
     let bv = pd("β", "v", "koine", g)
@@ -436,7 +438,12 @@ test "learner notes avoid library jargon and bare phone symbols" {
     for note in notes {
       let hit = jargon_hit(note)
       assert_eq(hit, "", msg=note)
-      assert_true(note.contains("as in"), msg=note)
+      let unit_note = note.contains("more accurate") ||
+        note.contains("Nothing needs fixing") ||
+        note.contains("classroom")
+      if unit_note {
+        assert_true(note.contains("as in"), msg=note)
+      }
     }
   }
   for sc in schemes {
@@ -447,7 +454,10 @@ test "learner notes avoid library jargon and bare phone symbols" {
         assert_eq(hit, "", msg=r.note)
         let adv = jargon_hit(r.advice)
         assert_eq(adv, "", msg=r.advice)
-        if r.tier != accurate {
+        let curated = @lib.sourced_curated_note(t, h, sc)
+        if curated != "" {
+          assert_eq(r.note, curated)
+        } else if r.tier != accurate {
           assert_true(r.note.contains("as in") || r.note.contains("No comparison"), msg=r.note)
         }
       }

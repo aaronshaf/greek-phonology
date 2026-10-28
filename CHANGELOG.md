@@ -4,6 +4,7 @@ Versions match `moonbit/moon.mod` and the npm package `greek-phonology`. Git tag
 
 ## Unreleased
 
+- Sourced phonetic-distance rows (E01–E03, E06, E07, E09–E15, E17–E19, E21–E25, E27, E28, E34) are opt-in. Policy rows are marked `"policy": true`. See `docs/DISTANCE_TABLE.md`. `ipa()` and the golden snapshot are unchanged. Koine postnasal stops stay voiceless in `ipa()`; voiced `n d` / `m b` / `ŋ g` is an accurate variant. Gated Koine k/g, t/d, and z/s (E24, E25) are not a match unless the caller passes a target posterior of at least 0.15. Modern medial nasals, doubled consonants, ʝ↔j, and an ι absorbed into ʝ are scored inside alignment.
 - 0.3.2 is written in `moonbit/moon.mod` and `packages/npm/package.json`. It has not been published to npm. 0.3.1 and 0.3.0 were not published either. Nothing here publishes or tags.
 - `alignPhonesJson` accepts the log-posterior matrix as a `Float32Array`, `Float64Array`, number array, or base64 of little-endian float32, and `alignSetPost` plus `postRef: true` stores it for the next call. `lanes` soft-decodes once and returns `{ tokens, takes }`. A JSON string of `lp` numbers still works and matches these paths. `ipa()` does not call it.
 - `params.nearMiss: false` or `params.goal: "exact"` scores a phone only from the posterior share on the target or a lane alternate. The default still adds tolerated near-miss credit. The path is unchanged.

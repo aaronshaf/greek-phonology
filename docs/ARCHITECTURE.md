@@ -14,9 +14,9 @@ The library is the place for letter-to-sound, closeness, and alignment. A playgr
 
 ## Closeness
 
-`phone_distance` is opt-in and model-agnostic. `d`, `note`, and `advice` come from the hand-weighted feature table plus a few scheme equivalences. A learner goal (`strict`, `gracious`, `lenient`) changes only the tier and the credit.
+`phone_distance` is opt-in and model-agnostic. `d`, `note`, and `advice` come from the hand-weighted feature table, a few scheme equivalences, and the sourced rows in [DISTANCE_TABLE.md](DISTANCE_TABLE.md). A learner goal (`strict`, `gracious`, `lenient`) changes only the tier and the credit. `phone_distance_in` adds neighbors and an optional target posterior. Without that posterior, a gated row is not a match.
 
-Koine equivalences: `o`/`ɔ`, and `β`/`v`. The second one is this reconstruction's decision that the letter β and the voiced αυ/ευ/ηυ coda are one sound (Aaron, 2026-10-27; see [RESEARCH.md](RESEARCH.md)). [f] for that coda stays tolerated. With an empty scheme, `β`/`v` keeps the feature-table distance.
+Koine equivalences: `o`/`ɔ`, and `β`/`v`. The second one is this reconstruction's decision that the letter β and the voiced αυ/ευ/ηυ coda are one sound (Aaron, 2026-10-27; see [RESEARCH.md](RESEARCH.md)). [f] for that coda stays tolerated. With an empty scheme, `β`/`v` keeps the feature-table distance. Modern and Koine `o`/`ɔ` stay distance 0, which is stricter than the notation row.
 
 `hearing_credit` is `phone_credit` plus the note. `credit_level` and `credit_bands` are the tint table (8, 30, 60, 85, 95 percent). A page should not keep its own cutoffs.
 
@@ -26,9 +26,11 @@ Koine equivalences: `o`/`ɔ`, and `β`/`v`. The second one is this reconstructio
 
 | Pair | Cost |
 |---|---|
-| Same string, or tier accurate (length, or a scheme equivalence) | 0 |
+| Same string, or tier accurate (length, a scheme equivalence, or a sourced accurate row) | 0 |
 | Tier tolerated | 0.5 |
 | Anything else | 1 |
+
+Modern medial n before d, m before b, and ŋ before g may be deleted or inserted at cost 0.02. One copy of a Modern or Koine doubled consonant (σσ λλ ρρ ττ κκ μμ νν ππ ββ) may be deleted at 0.02. An ι between ʝ or j and a vowel may be deleted or inserted at 0.02. The word score leaves that phone out only when its partner was heard. A word-initial nasal is not optional. `ipa()` is unchanged.
 
 The old CLASS list priced `e`/`i` and `r`/`l` at 0.5. Those pairs are not tolerated here (`e`/`i` is a step of vowel height; `r` and `l` differ in manner), so the cost is 1. CLASS is not a second price list. The JavaScript fixture `packages/npm/test/align_ref.cjs` still has CLASS so the parity test can name that disagreement. A page that still wants that 0.5 on the path passes `params.subCost` (both orders of the pair). The default stays 1 so a caller that does not opt in keeps the feature table. An identical string stays 0. The override is a path price, not a new credit tier. The learner goal does not move the path.
 

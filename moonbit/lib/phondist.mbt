@@ -65,8 +65,18 @@ let accurate_max : Double = 0.02
 ///|
 fn goal_of(goal : String) -> (Double, Double) {
   // Proved: strict <= gracious <= lenient on both tolerance and credit cap.
-  // The floats are those thousandths. A goal does not change d, note, or advice.
+  // Strict acceptance implies the looser goals. Accurate is always accepted.
+  // Distance 1 and an ungated 0.5 are never accepted. 0.25 is gracious-only.
   ignore(@kernel.goal_bounds_ordered())
+  ignore(@kernel.strict_accepts_implies_looser(0))
+  ignore(@kernel.strict_accepts_implies_looser(20))
+  ignore(@kernel.strict_accepts_implies_looser(250))
+  ignore(@kernel.strict_accepts_implies_looser(500))
+  ignore(@kernel.strict_accepts_implies_looser(1000))
+  ignore(@kernel.accurate_band_accepted())
+  ignore(@kernel.full_miss_rejected())
+  ignore(@kernel.tolerated_band(250))
+  ignore(@kernel.ungated_rejected())
   if goal == "strict" {
     (0.20, 0.60)
   } else if goal == "lenient" {
@@ -224,6 +234,10 @@ fn base_feat(sym : String) -> Feat? {
     "ç" => Some(cons(sym, "palatal", 0, 1, 0, 0, 0, 0, 0.0, 0, 0))
     "ʝ" => Some(cons(sym, "palatal", 1, 1, 0, 0, 0, 0, 0.0, 0, 0))
     "j" => Some(cons(sym, "palatal", 1, 1, 0, 1, 0, 0, 0.0, 0, 1))
+    "c" => Some(cons(sym, "palatal", 0, 0, 0, 0, 0, 0, 0.0, 0, 0))
+    "ɲ" => Some(cons(sym, "palatal", 1, 0, 1, 1, 0, 0, 0.0, 0, 0))
+    "ʎ" => Some(cons(sym, "palatal", 1, 1, 0, 1, 0, 1, 0.0, 0, 0))
+    "ɟ" => Some(cons(sym, "palatal", 1, 0, 0, 0, 0, 0, 0.0, 0, 0))
     "k" => Some(cons(sym, "velar", 0, 0, 0, 0, 0, 0, 0.0, 0, 0))
     "g" => Some(cons(sym, "velar", 1, 0, 0, 0, 0, 0, 0.0, 0, 0))
     "x" => Some(cons(sym, "velar", 0, 1, 0, 0, 0, 0, 0.0, 0, 0))
@@ -484,6 +498,10 @@ fn label_of(sym : String) -> (String, String, String) {
     "r" => ("rolled r", "Spanish perro", "a rolled “r”")
     "ɾ" => ("tapped r", "Spanish pero", "a quick tapped “r”")
     "j" => ("y", "yes", "a gliding “y”")
+    "c" => ("ky", "cue", "a stop made further forward, as in cue")
+    "ɲ" => ("ny", "canyon", "an “n” made further forward, as in canyon")
+    "ʎ" => ("ly", "million", "an “l” made further forward, as in million")
+    "ɟ" => ("gy", "argue", "a voiced stop made further forward")
     "w" => ("w", "we", "a gliding “w”")
     "β" => ("v", "van, but with both lips", "a soft, voiced “v” with both lips and air flowing")
     "ɸ" => ("f", "fan, but with both lips", "a soft “f” with both lips")
@@ -658,6 +676,21 @@ pub fn phone_distance(
   scheme : String,
   goal : String,
 ) -> PhoneDistance {
+  phone_distance_in(target, heard, scheme, goal, PhoneSituation::absent())
+}
+
+///|
+/// Same as `phone_distance`, plus neighbors and an optional target posterior.
+/// `sit.posterior` below 0 means no confidence gate. A gated Koine row is then
+/// not-a-match. Neighbors select palatal, velar, postnasal, and diphthong rows.
+/// `ipa()` does not call this.
+pub fn phone_distance_in(
+  target : String,
+  heard : String,
+  scheme : String,
+  goal : String,
+  sit : PhoneSituation,
+) -> PhoneDistance {
   match (norm_phone(target), norm_phone(heard)) {
     (Some((ts, tlen)), Some((hs, hlen))) => {
       let tf = with_len(lookup_feat(ts).unwrap(), tlen)
@@ -670,6 +703,19 @@ pub fn phone_distance(
         let capped = dmin(d, accurate_max)
         d = if same { capped } else { 0.0 }
       }
+      let kept_equiv = !same && d == 0.0
+      let (d2, row_note) = apply_sourced_distance(
+        target,
+        heard,
+        ts,
+        hs,
+        scheme,
+        d,
+        same,
+        kept_equiv,
+        sit,
+      )
+      d = d2
       let (tol, _) = goal_of(goal)
       let tier = if d <= accurate_max {
         "accurate"
@@ -707,7 +753,7 @@ pub fn phone_distance(
         dt.kind +
         "."
       }
-      let advice = if tier == "accurate" {
+      let advice0 = if tier == "accurate" {
         ""
       } else if sch != "" {
         if how == "" {
@@ -720,11 +766,14 @@ pub fn phone_distance(
       } else {
         ""
       }
+      // A sourced note replaces the feature-table sentence. It does not change with the goal.
+      let note_out = if row_note != "" { row_note } else { note }
+      let advice = if row_note != "" { "" } else { advice0 }
       {
         d: round3(d),
         sim: sim_of(d, tol),
         tier,
-        note,
+        note: note_out,
         advice,
         said: dh,
         target: dt,
@@ -742,6 +791,21 @@ pub fn phone_credit(
   scheme : String,
   goal : String,
 ) -> PhoneCredit {
+  phone_credit_in(target, phones, weights, scheme, goal, PhoneSituation::absent())
+}
+
+///|
+/// Same numbers as `phone_credit`. `base` supplies neighbors and, when its
+/// posterior is at least 0, the confidence gate. A negative posterior means
+/// "read the gate from the target phone's weight in `weights`".
+pub fn phone_credit_in(
+  target : String,
+  phones : Array[String],
+  weights : Array[Double],
+  scheme : String,
+  goal : String,
+  base : PhoneSituation,
+) -> PhoneCredit {
   let (_, cap0) = goal_of(goal)
   let tn = norm_phone(target)
   let mut exact = 0.0
@@ -751,6 +815,28 @@ pub fn phone_credit(
     phones.length()
   } else {
     weights.length()
+  }
+  // Gate on the target phone's own posterior. No target in the list means no gate.
+  let mut target_p = -1.0
+  for i in 0..<n {
+    if weights[i] <= 0.0 {
+      continue
+    }
+    match (tn, norm_phone(phones[i])) {
+      (Some((ts, _)), Some((hs, _))) =>
+        if hs == ts && weights[i] > target_p {
+          target_p = weights[i]
+        }
+      _ => ()
+    }
+  }
+  let posterior = if base.posterior >= 0.0 { base.posterior } else { target_p }
+  let sit : PhoneSituation = {
+    left: base.left,
+    right: base.right,
+    right2: base.right2,
+    place: base.place,
+    posterior,
   }
   for i in 0..<n {
     let p = weights[i]
@@ -762,7 +848,7 @@ pub fn phone_credit(
         if hs == ts {
           exact += p
         } else {
-          let x = phone_distance(target, phones[i], scheme, goal)
+          let x = phone_distance_in(target, phones[i], scheme, goal, sit)
           if x.tier == "accurate" {
             exact += p
           } else if x.sim > 0.0 {
@@ -846,6 +932,7 @@ priv struct AltRow {
   tier : String
   note : String
   src : String
+  fixed : Double
 }
 
 ///|
@@ -858,7 +945,21 @@ fn alt_row(
   note : String,
   src : String,
 ) -> AltRow {
-  { key, when, target, heard, tier, note, src }
+  { key, when, target, heard, tier, note, src, fixed: -1.0 }
+}
+
+///|
+fn alt_fixed(
+  key : String,
+  when : String,
+  target : Array[String],
+  heard : Array[String],
+  tier : String,
+  note : String,
+  src : String,
+  fixed : Double,
+) -> AltRow {
+  { key, when, target, heard, tier, note, src, fixed, }
 }
 
 ///|
@@ -880,6 +981,17 @@ fn alt_rows(scheme : String) -> Array[AltRow] {
     out.push(alt_row("αυ", "word-end", ["a", "v"], ["a", "β"], "accurate", beta, src_final))
     out.push(alt_row("ευ", "word-end", ["ɛ", "v"], ["ɛ", "β"], "accurate", beta, src_final))
     out.push(alt_row("ηυ", "word-end", ["e", "v"], ["e", "β"], "accurate", beta, src_final))
+    let off = note_e19 + " “eh” (as in bed) is more accurate for Koine than “ah” (as in father) then “ee” (as in machine)."
+    let src_k = "Horrocks, Koine vowels: αι = [e], ει = [i], οι and υ = [y] [V]. The offglide hearing is tolerated."
+    out.push(alt_fixed("αι", "any", ["ɛ"], ["a", "i"], "tolerated", off, src_k, 0.25))
+    out.push(alt_fixed("ει", "any", ["i"], ["e", "i"], "tolerated", off, src_k, 0.25))
+    out.push(alt_fixed("οι", "any", ["y"], ["o", "i"], "tolerated", off, src_k, 0.25))
+  } else if sc == "attic" {
+    let off = note_e19 + " The diphthong is the target. “eh” (as in bed) for αι, and “ü” (as in German über) for οι, is accepted."
+    let src_a = "Policy. Allen treats οι as a diphthong [V]. Horrocks gives the Koine monophthong values [V]. αυ and ευ have no single monophthong phone in that note."
+    out.push(alt_fixed("αι", "any", ["a", "i"], ["e"], "tolerated", off, src_a, 0.25))
+    out.push(alt_fixed("αι", "any", ["a", "i"], ["ɛ"], "tolerated", off, src_a, 0.25))
+    out.push(alt_fixed("οι", "any", ["o", "i"], ["y"], "tolerated", off, src_a, 0.25))
   } else if sc == "erasmian" {
     out.push(
       alt_row(
@@ -923,7 +1035,7 @@ fn grapheme_alts(
       out.push({
         heard: row.heard,
         tier: row.tier,
-        d: seq_d(scheme, phones, row.heard),
+        d: if row.fixed >= 0.0 { row.fixed } else { seq_d(scheme, phones, row.heard) },
         note: row.note,
         src: row.src,
       })
@@ -938,13 +1050,7 @@ fn jlabel(l : PhoneLabel) -> String {
 }
 
 ///|
-pub fn phone_distance_json(
-  target : String,
-  heard : String,
-  scheme : String,
-  goal : String,
-) -> String {
-  let r = phone_distance(target, heard, scheme, goal)
+fn distance_json(r : PhoneDistance) -> String {
   "{\"d\":" +
   jdec3(r.d) +
   ",\"sim\":" +
@@ -960,6 +1066,28 @@ pub fn phone_distance_json(
   ",\"target\":" +
   jlabel(r.target) +
   "}"
+}
+
+///|
+pub fn phone_distance_json(
+  target : String,
+  heard : String,
+  scheme : String,
+  goal : String,
+) -> String {
+  distance_json(phone_distance(target, heard, scheme, goal))
+}
+
+///|
+/// `situation` is `left,right,right2,place,posterior`. Empty posterior means no gate.
+pub fn phone_distance_in_json(
+  target : String,
+  heard : String,
+  scheme : String,
+  goal : String,
+  situation : String,
+) -> String {
+  distance_json(phone_distance_in(target, heard, scheme, goal, situation_of(situation)))
 }
 
 ///|
@@ -1102,7 +1230,7 @@ pub fn dist_table_json(scheme : String) -> String {
       ",\"tier\":" +
       jstr(row.tier) +
       ",\"d\":" +
-      jdec3(seq_d(scheme, row.target, row.heard)) +
+      jdec3(if row.fixed >= 0.0 { row.fixed } else { seq_d(scheme, row.target, row.heard) }) +
       ",\"note\":" +
       jstr(row.note) +
       ",\"src\":" +
@@ -1110,7 +1238,9 @@ pub fn dist_table_json(scheme : String) -> String {
       "}",
     )
   }
-  sb.write_string("]}")
+  sb.write_string("],\"sourced\":")
+  sb.write_string(sourced_rows_json(scheme))
+  sb.write_string("}")
   sb.to_string()
 }
 

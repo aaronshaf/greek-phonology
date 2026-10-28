@@ -42,6 +42,8 @@ pub fn out_len() -> Int32
 
 pub fn phone_credit_json(String, String, String, String) -> String
 
+pub fn phone_distance_in_json(String, String, String, String, String) -> String
+
 pub fn phone_distance_json(String, String, String, String) -> String
 
 pub fn run(Int32) -> Int32
