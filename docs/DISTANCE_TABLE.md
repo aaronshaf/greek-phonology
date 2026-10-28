@@ -1,6 +1,24 @@
 # Sourced phonetic distance rows
 
-Opt-in. `ipa()` does not read this table, and the golden `ipa()` snapshot is unchanged. A recognizer's phone strings are scored as they arrive. The hand-weighted feature table is still the default. A row below replaces that distance only for its scheme and context.
+**Default off.** Existing callers keep the outputs they had before these rows existed.
+
+`phone_distance`, `phone_distance_json`, `phone_credit`, `phone_credit_json`, `hearing_credit`, `align_sub_cost`, `align_tokens`, `dist_table_json`, and `g2p` with `alts` stay on the hand-weighted feature table, the Koine and Modern `o`/`ɔ` equivalence, the Koine `β`/`v` equivalence, and the grapheme alternates that already shipped (word-final αυ/ευ/ηυ, Erasmian υι). A row below does not change those results.
+
+`ipa()` does not read this table. The golden `ipa()` snapshot is unchanged.
+
+## How to opt in
+
+| What you want | Call |
+|---|---|
+| One pair, including neighbors and a gate | `phone_distance_in`, or `phone_distance_in_json` |
+| Credit that uses the rows and the confidence gate | `phone_credit_in` |
+| The JSON catalog, including `"sourced"` and `"policy": true` | `dist_table_sourced_json` |
+| A short sequence (optional nasal, geminate, offglide) | `sequence_distance` |
+| Alignment path cost, cheap nasal/geminate/ι edits, and near-miss credit from the rows | `AlignParams::with_sourced(true)`, or JSON `params.sourced: true` |
+| The substitution price of one pair, with no neighbors | `align_sub_cost_in` |
+| Koine/Attic diphthong alternates (E19) on a g2p unit | `G2pOpts::with_alts().with_sourced(true)`, or flags `alts,sourced` |
+
+`PhoneSituation::absent()` still applies every row that does not need a neighbor or an open gate. Pass `left`, `right`, `right2`, and `place` when the row says it does. The string form is `left,right,right2,place,posterior`.
 
 A learner goal changes acceptance and credit only. Distances: strict 0.20, gracious 0.33, lenient 0.42. Credit caps stay 0.60 / 0.75 / 0.90.
 
@@ -17,7 +35,7 @@ Koine and Modern `o`/`ɔ` stay distance 0, and Koine `β`/`v` stays distance 0. 
 
 Marks: **[V]** means the passage was opened and read. Nothing marked recalled is quoted here.
 
-Call `phone_distance_in` with a `PhoneSituation` when a row needs neighbors or a gate. `left`, `right`, and `right2` are the phones around the target. `place` is `initial`, `medial`, or `final`. `posterior` is the recognizer's probability of the **target** phone. Below 0 means no gate, and a gated row is then not a match. `phone_credit` reads that probability from the candidate list. The string form is `left,right,right2,place,posterior`.
+`left`, `right`, and `right2` are the phones around the target. `place` is `initial`, `medial`, or `final`. `posterior` is the recognizer's probability of the **target** phone. Below 0 means no gate, and a gated row is then not a match. `phone_credit_in` reads that probability from the candidate list when the posterior on the situation is negative. `phone_credit` does not.
 
 ## Shipped historical rows
 
@@ -51,7 +69,7 @@ E17 keeps the existing Koine word-final decision: `[f]` for word-final αυ/ευ
 
 E22's runtime note says “and later the air keeps flowing” so the learner note does not use the word the style test rejects. The claim is the sentence in the table above.
 
-E06 and E02 and E14 and E01 are applied inside alignment, not only as a pair lookup. A medial nasal deletes or inserts at path cost 0.02. One copy of a doubled consonant deletes at 0.02, and the word score drops that copy only when the other copy was heard. An ι between ʝ/j and a vowel does the same. ʝ↔j and, in palatal context, k↔c are accurate substitutions (path cost 0). A word-initial nasal is not optional.
+E06 and E02 and E14 and E01 are applied inside alignment only when the caller opts in (`AlignParams::with_sourced(true)` or `params.sourced: true`). The default path does not. A medial nasal then deletes or inserts at path cost 0.02. One copy of a doubled consonant deletes at 0.02, and the word score drops that copy only when the other copy was heard. An ι between ʝ/j and a vowel does the same. ʝ↔j and, in palatal context, k↔c are accurate substitutions (path cost 0). A word-initial nasal is not optional.
 
 ## Policy rows
 

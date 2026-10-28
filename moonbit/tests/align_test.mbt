@@ -616,6 +616,7 @@ test "a quiet take still scores, and a peak under the floor does not" {
     goal: "",
     near_miss: true,
     sub: [],
+    sourced: false,
   }
   let floored = @lib.score_take(
     { lp, frames: 1, width: v, spf: 0.02, },

@@ -34,6 +34,8 @@ On this change, with moon 0.1.20261023 and Z3 4.13.0:
 
 The five new goals are in `moonbit/kernel/metric.mbt`. Strict acceptance implies gracious acceptance and that implies lenient (`strict_accepts_implies_looser`). An accurate distance is accepted at every goal (`accurate_band_accepted`). Distance 1 is rejected at every goal (`full_miss_rejected`). The tolerated band 0.250 is an edit at strict and accepted at gracious and lenient (`tolerated_band`). An ungated 0.500 is rejected at every goal (`ungated_rejected`). The library calls them from `goal_of`. The earlier alignment and tier goals are unchanged.
 
+`sourced_distance_buckets` is one more goal: a sourced full miss is substitution bucket 2 and an accurate sourced row is bucket 0. `align_sub_cost` calls it. With Z3 4.13.0 the kernel reports 227 valid goals. The sourced rows themselves stay out of the default `phone_distance` path.
+
 Symmetry of a sourced pair (the distance is the same in both orders) is a test, not a goal. The table is strings, and this prover has no float theory. A not-a-match row is never accepted, and an accurate row is accepted at strict and therefore at gracious. Those are the integer goals above, checked again on the shipped rows in `tests/phondist_rows_test.mbt`.
 
 ## What is proved

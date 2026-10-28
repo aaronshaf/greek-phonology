@@ -21,7 +21,7 @@ let tier_table : Array[(String, String, String, String)] = [
   ("koine", "β", "v", accurate),
   ("koine", "β", "b", tolerated),
   ("koine", "β", "f", nomatch),
-  ("koine", "ɛ", "e", accurate),
+  ("koine", "ɛ", "e", tolerated),
   ("koine", "o", "ɔ", accurate),
   ("koine", "y", "u", tolerated),
   ("koine", "y", "i", tolerated),
@@ -29,15 +29,15 @@ let tier_table : Array[(String, String, String, String)] = [
   ("koine", "ɣ", "g", tolerated),
   ("modern", "ð", "d", tolerated),
   ("modern", "ð", "z", tolerated),
-  ("modern", "θ", "s", nomatch),
+  ("modern", "θ", "s", tolerated),
   ("modern", "θ", "f", nomatch),
-  ("modern", "v", "f", nomatch),
+  ("modern", "v", "f", tolerated),
   ("modern", "v", "b", nomatch),
   ("modern", "o", "ɔ", accurate),
   ("modern", "o", "u", nomatch),
   ("modern", "e", "i", nomatch),
   ("modern", "ɣ", "x", tolerated),
-  ("modern", "s", "z", nomatch),
+  ("modern", "s", "z", tolerated),
   ("attic", "ɔː", "ɔ", accurate),
   ("attic", "ɔː", "o", tolerated),
   ("attic", "uː", "u", accurate),
@@ -47,7 +47,7 @@ let tier_table : Array[(String, String, String, String)] = [
   ("attic", "a", "p", nomatch),
   ("erasmian", "ɪ", "i", tolerated),
   ("erasmian", "ɪ", "e", tolerated),
-  ("erasmian", "ʊ", "u", accurate),
+  ("erasmian", "ʊ", "u", tolerated),
   ("erasmian", "ʊ", "o", tolerated),
   ("erasmian", "o", "u", nomatch),
   ("erasmian", "θ", "t", tolerated),
@@ -169,13 +169,11 @@ test "sane ordering of distances" {
 test "scheme equivalence and long scheme names" {
   assert_eq(pd("o", "ɔ", "grc-koine-reconstructed", "").tier, accurate)
   assert_eq(pd("o", "ɔ", "grc-modern-style", "").tier, accurate)
-  assert_eq(pd("o", "ɔ", "grc-attic-restored", "").tier, accurate)
+  assert_eq(pd("o", "ɔ", "grc-attic-restored", "").tier, tolerated)
   assert_eq(pd("o", "ɔ", "grc-erasmian-us", "").tier, tolerated)
   assert_eq(pd("o", "ɔ", "koine", "").note, "Either sound is correct in this reading.")
   assert_eq(pd("o", "ɔ", "koine", "").d, 0.0)
-  assert_eq(pd("o", "ɔ", "attic", "").d, 0.02)
-  assert_eq(pd("o", "ɔ", "attic", "").note, "Either sound is correct in this reading.")
-  assert_eq(pd("o", "ɔ", "erasmian", "").d, 0.25)
+  assert_eq(pd("o", "ɔ", "attic", "").note != pd("o", "ɔ", "koine", "").note, true)
   let goals = ["strict", "gracious", "lenient", ""]
   for g in goals {
     let bv = pd("β", "v", "koine", g)
@@ -438,12 +436,7 @@ test "learner notes avoid library jargon and bare phone symbols" {
     for note in notes {
       let hit = jargon_hit(note)
       assert_eq(hit, "", msg=note)
-      let unit_note = note.contains("more accurate") ||
-        note.contains("Nothing needs fixing") ||
-        note.contains("classroom")
-      if unit_note {
-        assert_true(note.contains("as in"), msg=note)
-      }
+      assert_true(note.contains("as in"), msg=note)
     }
   }
   for sc in schemes {
@@ -454,13 +447,62 @@ test "learner notes avoid library jargon and bare phone symbols" {
         assert_eq(hit, "", msg=r.note)
         let adv = jargon_hit(r.advice)
         assert_eq(adv, "", msg=r.advice)
-        let curated = @lib.sourced_curated_note(t, h, sc)
-        if curated != "" {
-          assert_eq(r.note, curated)
-        } else if r.tier != accurate {
+        if r.tier != accurate {
           assert_true(r.note.contains("as in") || r.note.contains("No comparison"), msg=r.note)
         }
       }
     }
   }
+}
+
+///|
+test "default distances stay pre-table and the sourced path is opt-in" {
+  let modern = [("θ", "s", 0.2), ("v", "f", 0.28), ("s", "z", 0.28)]
+  for row in modern {
+    let (t, h, d0) = row
+    let old = pd(t, h, "modern", "gracious")
+    let neu = @lib.phone_distance_in(
+      t,
+      h,
+      "modern",
+      "gracious",
+      @lib.PhoneSituation::absent(),
+    )
+    assert_eq(old.tier, tolerated, msg=t + "/" + h)
+    assert_true(near(old.d, d0), msg=t + "/" + h)
+    assert_eq(neu.tier, nomatch, msg=t + "/" + h)
+    assert_true(near(neu.d, 1.0), msg=t + "/" + h)
+    assert_true(near(@lib.align_sub_cost(h, t, "modern"), 0.5), msg=t)
+    assert_true(near(@lib.align_sub_cost_in(h, t, "modern"), 1.0), msg=t)
+  }
+  let vowels = [
+    ("koine", "ɛ", "e", 0.16),
+    ("attic", "o", "ɔ", 0.16),
+    ("erasmian", "ʊ", "u", 0.19),
+  ]
+  for row in vowels {
+    let (sc, t, h, d0) = row
+    let old = pd(t, h, sc, "gracious")
+    let neu = @lib.phone_distance_in(t, h, sc, "gracious", @lib.PhoneSituation::absent())
+    assert_eq(old.tier, tolerated, msg=sc + " " + t)
+    assert_true(near(old.d, d0), msg=sc + " " + t)
+    assert_eq(neu.tier, accurate, msg=sc + " " + t)
+    assert_true(near(neu.d, 0.02), msg=sc + " " + t)
+    assert_true(near(@lib.align_sub_cost(h, t, sc), 0.5), msg=sc)
+    assert_true(near(@lib.align_sub_cost_in(h, t, sc), 0.0), msg=sc)
+  }
+  let plain = @lib.dist_table_json("modern")
+  assert_false(plain.contains("\"sourced\""))
+  assert_false(plain.contains("\"id\":\"E27\""))
+  let catalog = @lib.dist_table_sourced_json("koine")
+  assert_true(catalog.contains("\"sourced\""))
+  assert_true(catalog.contains("\"id\":\"E11\""))
+  let bare = @lib.g2p_words_opts("αι", "koine", @lib.G2pOpts::with_alts())[0]
+  assert_eq(bare.units[0].alts.length(), 0)
+  let on = @lib.g2p_words_opts(
+    "αι",
+    "koine",
+    @lib.G2pOpts::with_alts().with_sourced(true),
+  )[0]
+  assert_true(on.units[0].alts.length() > 0)
 }
