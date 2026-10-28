@@ -13,6 +13,16 @@ fn at(
 }
 
 ///|
+fn row_pd(
+  t : String,
+  h : String,
+  sc : String,
+  goal : String,
+) -> @lib.PhoneDistance {
+  at(t, h, sc, goal, @lib.PhoneSituation::absent())
+}
+
+///|
 fn sit_right(right : String) -> @lib.PhoneSituation {
   { left: "", right, right2: "", place: "", posterior: -1.0 }
 }
@@ -41,8 +51,8 @@ test "E01 ʝ and j are one sound in Modern and Koine" {
   let note = "γ before ι/ε is a palatal buzz [ʝ], like a soft y."
   for sc in ["modern", "koine", "grc-modern-style", "grc-koine-reconstructed"] {
     for g in ["strict", "gracious", "lenient"] {
-      let a = pd("ʝ", "j", sc, g)
-      let b = pd("j", "ʝ", sc, g)
+      let a = row_pd("ʝ", "j", sc, g)
+      let b = row_pd("j", "ʝ", sc, g)
       assert_eq(a.tier, accurate)
       assert_eq(b.tier, accurate)
       assert_true(near(a.d, 0.02))
@@ -53,8 +63,8 @@ test "E01 ʝ and j are one sound in Modern and Koine" {
       assert_eq(a.advice, "")
     }
   }
-  assert_eq(pd("ʝ", "j", "attic", "gracious").tier != accurate, true)
-  assert_eq(pd("ʝ", "j", "", "strict").note, pd("ʝ", "j", "", "lenient").note)
+  assert_eq(row_pd("ʝ", "j", "attic", "gracious").tier != accurate, true)
+  assert_eq(row_pd("ʝ", "j", "", "strict").note, row_pd("ʝ", "j", "", "lenient").note)
 }
 
 ///|
@@ -95,7 +105,7 @@ test "E03 Koine postnasal voicing is accurate and the default stays voiceless" {
   assert_eq(at("p", "b", "koine", "strict", sit_left("m")).tier, accurate)
   assert_eq(at("k", "g", "koine", "strict", sit_left("ŋ")).tier, accurate)
   assert_eq(at("b", "p", "koine", "strict", sit_left("m")).tier, accurate)
-  let bare = pd("t", "d", "koine", "gracious")
+  let bare = row_pd("t", "d", "koine", "gracious")
   assert_eq(bare.tier, nomatch)
   assert_true(near(bare.d, 0.5))
   let seq = @lib.sequence_distance(["n", "t"], ["n", "d"], "koine", "strict")
@@ -105,16 +115,16 @@ test "E03 Koine postnasal voicing is accurate and the default stays voiceless" {
 
 ///|
 test "E07 Attic consonant geminate is tolerated and vowel length stays accurate" {
-  let s = pd("sː", "s", "attic", "gracious")
+  let s = row_pd("sː", "s", "attic", "gracious")
   assert_eq(s.tier, tolerated)
   assert_true(near(s.d, 0.25))
   assert_true(s.note.contains("long consonant"))
-  assert_eq(pd("sː", "s", "attic", "strict").tier, nomatch)
-  assert_eq(pd("s", "sː", "attic", "gracious").tier, tolerated)
-  assert_eq(pd("ɔː", "ɔ", "attic", "strict").tier, accurate)
-  assert_eq(pd("uː", "u", "attic", "strict").tier, accurate)
-  assert_true(pd("sː", "s", "", "").d <= 0.02)
-  let table = @lib.dist_table_json("attic")
+  assert_eq(row_pd("sː", "s", "attic", "strict").tier, nomatch)
+  assert_eq(row_pd("s", "sː", "attic", "gracious").tier, tolerated)
+  assert_eq(row_pd("ɔː", "ɔ", "attic", "strict").tier, accurate)
+  assert_eq(row_pd("uː", "u", "attic", "strict").tier, accurate)
+  assert_true(row_pd("sː", "s", "", "").d <= 0.02)
+  let table = @lib.dist_table_sourced_json("attic")
   assert_true(table.contains("\"id\":\"E07\""))
   assert_true(table.contains("\"policy\":true"))
 }
@@ -127,26 +137,26 @@ test "E09 velar nasal only, E10 tap, E11 notation twins" {
   assert_true(velar.note.contains("[ŋ]"))
   assert_eq(at("ŋ", "n", "koine", "strict", sit_right("ɣ")).tier, accurate)
   assert_eq(at("n", "ŋ", "attic", "strict", sit_right("x")).tier, accurate)
-  assert_eq(pd("n", "ŋ", "modern", "lenient").tier, nomatch)
+  assert_eq(row_pd("n", "ŋ", "modern", "lenient").tier, nomatch)
   assert_eq(at("n", "ŋ", "modern", "gracious", sit_right("p")).tier, nomatch)
-  assert_eq(pd("n", "m", "modern", "gracious").tier, nomatch)
+  assert_eq(row_pd("n", "m", "modern", "gracious").tier, nomatch)
   for sc in ["modern", "koine", "attic", "erasmian"] {
-    let tap = pd("r", "ɾ", sc, "strict")
+    let tap = row_pd("r", "ɾ", sc, "strict")
     assert_eq(tap.tier, accurate, msg=sc)
     assert_true(near(tap.d, 0.02))
-    assert_eq(pd("ɾ", "r", sc, "gracious").d, tap.d)
+    assert_eq(row_pd("ɾ", "r", sc, "gracious").d, tap.d)
   }
-  assert_eq(pd("e", "ɛ", "koine", "strict").tier, accurate)
-  assert_eq(pd("ɛ", "e", "modern", "strict").tier, accurate)
-  assert_eq(pd("i", "ɪ", "attic", "strict").tier, accurate)
-  assert_eq(pd("u", "ʊ", "erasmian", "strict").tier, accurate)
-  assert_true(near(pd("i", "ɪ", "erasmian", "gracious").d, 0.25))
-  assert_eq(pd("ɪ", "i", "erasmian", "strict").tier, nomatch)
-  assert_eq(pd("ɪ", "i", "erasmian", "gracious").tier, tolerated)
-  assert_true(near(pd("o", "ɔ", "erasmian", "gracious").d, 0.25))
-  assert_eq(pd("o", "ɔ", "koine", "strict").d, 0.0)
-  assert_eq(pd("o", "ɔ", "modern", "strict").d, 0.0)
-  let policy = @lib.dist_table_json("erasmian")
+  assert_eq(row_pd("e", "ɛ", "koine", "strict").tier, accurate)
+  assert_eq(row_pd("ɛ", "e", "modern", "strict").tier, accurate)
+  assert_eq(row_pd("i", "ɪ", "attic", "strict").tier, accurate)
+  assert_eq(row_pd("u", "ʊ", "erasmian", "strict").tier, accurate)
+  assert_true(near(row_pd("i", "ɪ", "erasmian", "gracious").d, 0.25))
+  assert_eq(row_pd("ɪ", "i", "erasmian", "strict").tier, nomatch)
+  assert_eq(row_pd("ɪ", "i", "erasmian", "gracious").tier, tolerated)
+  assert_true(near(row_pd("o", "ɔ", "erasmian", "gracious").d, 0.25))
+  assert_eq(row_pd("o", "ɔ", "koine", "strict").d, 0.0)
+  assert_eq(row_pd("o", "ɔ", "modern", "strict").d, 0.0)
+  let policy = @lib.dist_table_sourced_json("erasmian")
   assert_true(policy.contains("\"id\":\"E11\""))
   assert_true(policy.contains("\"policy\":true"))
 }
@@ -158,11 +168,11 @@ test "E12 chi, E13 palatal allophones the 41-phone set cannot emit" {
   assert_true(near(front.d, 0.02))
   assert_true(front.note.contains("[ç]"))
   assert_eq(at("ç", "x", "koine", "strict", sit_right("e")).tier, accurate)
-  let outside = pd("x", "ç", "modern", "gracious")
+  let outside = row_pd("x", "ç", "modern", "gracious")
   assert_eq(outside.tier, tolerated)
   assert_true(near(outside.d, 0.25))
-  assert_eq(pd("x", "ç", "modern", "strict").tier, nomatch)
-  assert_eq(pd("ç", "x", "koine", "strict").tier, nomatch)
+  assert_eq(row_pd("x", "ç", "modern", "strict").tier, nomatch)
+  assert_eq(row_pd("ç", "x", "koine", "strict").tier, nomatch)
   let pal : @lib.PhoneSituation = { left: "", right: "i", right2: "a", place: "", posterior: -1.0 }
   assert_eq(at("k", "c", "modern", "strict", pal).tier, accurate)
   assert_eq(at("c", "k", "modern", "strict", sit_right("e")).tier, accurate)
@@ -171,8 +181,8 @@ test "E12 chi, E13 palatal allophones the 41-phone set cannot emit" {
   assert_eq(at("ɣ", "ʝ", "modern", "strict", sit_right("i")).tier, accurate)
   assert_eq(at("ɣ", "ɟ", "modern", "strict", pal).tier, accurate)
   assert_true(near(at("k", "c", "modern", "gracious", sit_right("i")).d, 0.02))
-  assert_eq(pd("k", "c", "modern", "lenient").tier, nomatch)
-  assert_eq(pd("n", "ɲ", "modern", "gracious").tier, nomatch)
+  assert_eq(row_pd("k", "c", "modern", "lenient").tier, nomatch)
+  assert_eq(row_pd("n", "ɲ", "modern", "gracious").tier, nomatch)
   assert_eq(at("k", "c", "koine", "gracious", sit_right("i")).tier != accurate, true)
   assert_true(@lib.phone_known("c"))
   assert_true(@lib.phone_known("ɲ"))
@@ -193,8 +203,8 @@ test "E14 absorbed iota and E15 glide before a vowel" {
   assert_true(near(glide.d, 0.02))
   assert_true(glide.note.contains("glide"))
   assert_eq(at("j", "i", "modern", "strict", sit_right("o")).tier, accurate)
-  assert_eq(pd("i", "j", "modern", "gracious").tier, nomatch)
-  assert_eq(pd("i", "j", "koine", "gracious").tier, tolerated)
+  assert_eq(row_pd("i", "j", "modern", "gracious").tier, nomatch)
+  assert_eq(row_pd("i", "j", "koine", "gracious").tier, tolerated)
 }
 
 ///|
@@ -217,7 +227,7 @@ test "E17 diphthong voicing, E18 beta, E19 monophthong and offglide" {
   )
   assert_eq(wrong.tier, tolerated)
   assert_true(near(wrong.d, 0.25))
-  assert_eq(pd("f", "v", "modern", "lenient").tier, nomatch)
+  assert_eq(row_pd("f", "v", "modern", "lenient").tier, nomatch)
   assert_eq(
     at(
       "v",
@@ -228,22 +238,22 @@ test "E17 diphthong voicing, E18 beta, E19 monophthong and offglide" {
     ).tier,
     tolerated,
   )
-  assert_eq(pd("v", "f", "modern", "gracious").tier, nomatch)
-  assert_eq(pd("β", "v", "koine", "strict").d, 0.0)
-  assert_eq(pd("β", "v", "koine", "strict").tier, accurate)
+  assert_eq(row_pd("v", "f", "modern", "gracious").tier, nomatch)
+  assert_eq(row_pd("β", "v", "koine", "strict").d, 0.0)
+  assert_eq(row_pd("β", "v", "koine", "strict").tier, accurate)
   let off = @lib.sequence_distance(["ɛ"], ["a", "i"], "koine", "gracious")
   assert_eq(off.tier, tolerated)
   assert_true(near(off.d, 0.25))
   assert_eq(@lib.sequence_distance(["ɛ"], ["a", "i"], "koine", "strict").tier, nomatch)
   assert_eq(@lib.sequence_distance(["i"], ["e", "i"], "koine", "gracious").tier, tolerated)
   assert_eq(@lib.sequence_distance(["y"], ["o", "i"], "koine", "gracious").tier, tolerated)
-  assert_eq(pd("ɛ", "e", "koine", "strict").tier, accurate)
+  assert_eq(row_pd("ɛ", "e", "koine", "strict").tier, accurate)
   let attic = @lib.sequence_distance(["a", "i"], ["ɛ"], "attic", "gracious")
   assert_eq(attic.tier, tolerated)
   assert_true(near(attic.d, 0.25))
   assert_eq(@lib.sequence_distance(["a", "i"], ["e"], "attic", "strict").tier, nomatch)
   assert_eq(@lib.sequence_distance(["o", "i"], ["y"], "attic", "gracious").tier, tolerated)
-  let opts = @lib.G2pOpts::with_alts()
+  let opts = @lib.G2pOpts::with_alts().with_sourced(true)
   let ai = @lib.g2p_words_opts("αι", "koine", opts)[0]
   let mut saw = false
   for alt in ai.units[0].alts {
@@ -270,21 +280,21 @@ test "E17 diphthong voicing, E18 beta, E19 monophthong and offglide" {
 
 ///|
 test "E21 E22 E23 aspiration, and the gate on E24 and E25" {
-  assert_eq(pd("kʰ", "k", "koine", "gracious").tier, tolerated)
-  assert_eq(pd("kʰ", "k", "koine", "strict").tier, nomatch)
-  assert_true(near(pd("t", "tʰ", "koine", "gracious").d, 0.25))
-  assert_true(pd("kʰ", "k", "koine", "strict").note.contains("puff of breath"))
-  assert_eq(pd("tʰ", "t", "attic", "gracious").tier, tolerated)
-  assert_eq(pd("pʰ", "p", "attic", "strict").tier, nomatch)
-  assert_true(pd("tʰ", "t", "attic", "gracious").note.contains("puff"))
-  assert_eq(pd("θ", "tʰ", "koine", "strict").tier, accurate)
-  assert_eq(pd("x", "kʰ", "koine", "strict").tier, accurate)
-  assert_eq(pd("f", "pʰ", "koine", "gracious").tier, accurate)
-  assert_eq(pd("ɸ", "f", "koine", "strict").tier, accurate)
-  assert_eq(pd("pʰ", "ɸ", "koine", "strict").tier, accurate)
-  assert_true(near(pd("θ", "tʰ", "koine", "").d, 0.02))
-  assert_true(pd("θ", "tʰ", "koine", "strict").note.contains("aspirated stops in early Koine"))
-  let shut = pd("k", "g", "koine", "gracious")
+  assert_eq(row_pd("kʰ", "k", "koine", "gracious").tier, tolerated)
+  assert_eq(row_pd("kʰ", "k", "koine", "strict").tier, nomatch)
+  assert_true(near(row_pd("t", "tʰ", "koine", "gracious").d, 0.25))
+  assert_true(row_pd("kʰ", "k", "koine", "strict").note.contains("puff of breath"))
+  assert_eq(row_pd("tʰ", "t", "attic", "gracious").tier, tolerated)
+  assert_eq(row_pd("pʰ", "p", "attic", "strict").tier, nomatch)
+  assert_true(row_pd("tʰ", "t", "attic", "gracious").note.contains("puff"))
+  assert_eq(row_pd("θ", "tʰ", "koine", "strict").tier, accurate)
+  assert_eq(row_pd("x", "kʰ", "koine", "strict").tier, accurate)
+  assert_eq(row_pd("f", "pʰ", "koine", "gracious").tier, accurate)
+  assert_eq(row_pd("ɸ", "f", "koine", "strict").tier, accurate)
+  assert_eq(row_pd("pʰ", "ɸ", "koine", "strict").tier, accurate)
+  assert_true(near(row_pd("θ", "tʰ", "koine", "").d, 0.02))
+  assert_true(row_pd("θ", "tʰ", "koine", "strict").note.contains("aspirated stops in early Koine"))
+  let shut = row_pd("k", "g", "koine", "gracious")
   assert_eq(shut.tier, nomatch)
   assert_true(near(shut.d, 0.5))
   let open = at("k", "g", "koine", "gracious", sit_gate(0.15))
@@ -297,15 +307,29 @@ test "E21 E22 E23 aspiration, and the gate on E24 and E25" {
   let zs = at("z", "s", "koine", "gracious", sit_gate(0.4))
   assert_eq(zs.tier, tolerated)
   assert_true(zs.note.contains("[z]"))
-  assert_eq(pd("z", "s", "koine", "gracious").tier, nomatch)
-  assert_eq(pd("z", "s", "koine", "lenient").tier, nomatch)
+  assert_eq(row_pd("z", "s", "koine", "gracious").tier, nomatch)
+  assert_eq(row_pd("z", "s", "koine", "lenient").tier, nomatch)
   assert_eq(at("z", "s", "modern", "gracious", sit_gate(0.9)).tier, nomatch)
-  assert_true(pd("k", "g", "attic", "gracious").d > 0.25)
-  let credit = @lib.phone_credit("k", ["g", "k"], [0.8, 0.16], "koine", "gracious")
+  assert_true(row_pd("k", "g", "attic", "gracious").d > 0.25)
+  let credit = @lib.phone_credit_in(
+    "k",
+    ["g", "k"],
+    [0.8, 0.16],
+    "koine",
+    "gracious",
+    @lib.PhoneSituation::absent(),
+  )
   assert_true(credit.combined > 0.0)
-  let no_target = @lib.phone_credit("k", ["g"], [0.9], "koine", "gracious")
+  let no_target = @lib.phone_credit_in(
+    "k",
+    ["g"],
+    [0.9],
+    "koine",
+    "gracious",
+    @lib.PhoneSituation::absent(),
+  )
   assert_eq(no_target.combined, 0.0)
-  let table = @lib.dist_table_json("koine")
+  let table = @lib.dist_table_sourced_json("koine")
   assert_true(table.contains("\"id\":\"E24\""))
   assert_true(table.contains("\"id\":\"E25\""))
   assert_true(table.contains("\"policy\":true"))
@@ -315,31 +339,31 @@ test "E21 E22 E23 aspiration, and the gate on E24 and E25" {
 test "E27 Modern voicing is not a match, E28 gamma, E34 contrasts" {
   for pair in [("t", "d"), ("k", "g"), ("p", "b"), ("z", "s"), ("f", "v"), ("ð", "θ")] {
     let (a, b) = pair
-    assert_eq(pd(a, b, "modern", "lenient").tier, nomatch, msg=a)
-    assert_true(near(pd(a, b, "modern", "gracious").d, 1.0))
-    assert_eq(pd(b, a, "modern", "strict").tier, nomatch)
+    assert_eq(row_pd(a, b, "modern", "lenient").tier, nomatch, msg=a)
+    assert_true(near(row_pd(a, b, "modern", "gracious").d, 1.0))
+    assert_eq(row_pd(b, a, "modern", "strict").tier, nomatch)
   }
-  assert_eq(pd("ð", "d", "modern", "gracious").tier, tolerated)
-  assert_eq(pd("ɣ", "x", "modern", "gracious").tier, tolerated)
-  let gamma = pd("ɣ", "g", "modern", "gracious")
+  assert_eq(row_pd("ð", "d", "modern", "gracious").tier, tolerated)
+  assert_eq(row_pd("ɣ", "x", "modern", "gracious").tier, tolerated)
+  let gamma = row_pd("ɣ", "g", "modern", "gracious")
   assert_eq(gamma.tier, tolerated)
   assert_true(near(gamma.d, 0.25))
   assert_true(gamma.note.contains("air keep flowing"))
-  assert_eq(pd("ɣ", "g", "modern", "strict").tier, nomatch)
-  assert_eq(pd("g", "ɣ", "koine", "gracious").tier, tolerated)
+  assert_eq(row_pd("ɣ", "g", "modern", "strict").tier, nomatch)
+  assert_eq(row_pd("g", "ɣ", "koine", "gracious").tier, tolerated)
   for sc in ["modern", "koine", "attic", "erasmian"] {
-    assert_eq(pd("k", "t", sc, "lenient").tier, nomatch, msg=sc)
-    assert_eq(pd("r", "l", sc, "lenient").tier, nomatch)
-    assert_eq(pd("l", "r", sc, "gracious").tier, nomatch)
-    assert_eq(pd("a", "e", sc, "lenient").tier, nomatch)
-    assert_eq(pd("a", "o", sc, "lenient").tier, nomatch)
-    assert_eq(pd("u", "i", sc, "lenient").tier, nomatch)
-    assert_eq(pd("s", "θ", sc, "strict").tier, nomatch)
-    assert_eq(pd("n", "l", sc, "gracious").tier, nomatch)
-    assert_true(near(pd("k", "t", sc, "").d, 1.0))
+    assert_eq(row_pd("k", "t", sc, "lenient").tier, nomatch, msg=sc)
+    assert_eq(row_pd("r", "l", sc, "lenient").tier, nomatch)
+    assert_eq(row_pd("l", "r", sc, "gracious").tier, nomatch)
+    assert_eq(row_pd("a", "e", sc, "lenient").tier, nomatch)
+    assert_eq(row_pd("a", "o", sc, "lenient").tier, nomatch)
+    assert_eq(row_pd("u", "i", sc, "lenient").tier, nomatch)
+    assert_eq(row_pd("s", "θ", sc, "strict").tier, nomatch)
+    assert_eq(row_pd("n", "l", sc, "gracious").tier, nomatch)
+    assert_true(near(row_pd("k", "t", sc, "").d, 1.0))
   }
-  assert_true(pd("k", "t", "", "").d < 1.0)
-  assert_eq(pd("e", "i", "modern", "gracious").tier, nomatch)
+  assert_true(row_pd("k", "t", "", "").d < 1.0)
+  assert_eq(row_pd("e", "i", "modern", "gracious").tier, nomatch)
 }
 
 ///|
@@ -358,9 +382,9 @@ test "strict acceptance implies gracious acceptance on the sourced rows" {
   ]
   for row in rows {
     let (t, h, sc) = row
-    let s = pd(t, h, sc, "strict")
-    let g = pd(t, h, sc, "gracious")
-    let l = pd(t, h, sc, "lenient")
+    let s = row_pd(t, h, sc, "strict")
+    let g = row_pd(t, h, sc, "gracious")
+    let l = row_pd(t, h, sc, "lenient")
     if accepts("strict", s.tier) {
       assert_true(accepts("gracious", g.tier), msg=t)
     }
@@ -370,7 +394,7 @@ test "strict acceptance implies gracious acceptance on the sourced rows" {
     assert_eq(s.d, g.d)
     assert_eq(g.d, l.d)
     assert_eq(s.note, g.note)
-    assert_true(near(pd(t, h, sc, "strict").d, pd(h, t, sc, "lenient").d))
+    assert_true(near(row_pd(t, h, sc, "strict").d, row_pd(h, t, sc, "lenient").d))
     if s.tier == nomatch {
       assert_eq(s.sim, 0.0)
     }
@@ -379,7 +403,7 @@ test "strict acceptance implies gracious acceptance on the sourced rows" {
 
 ///|
 fn modern_prm() -> @lib.AlignParams {
-  prm().with_scheme("modern")
+  prm().with_scheme("modern").with_sourced(true)
 }
 
 ///|
@@ -414,7 +438,7 @@ test "alignment scores optional nasal, geminate collapse, and ʝ as j" {
   let koine_gem = take_of(
     lane_custom([["s", "s", "a"]], []),
     ["s", "a", "_"],
-    prm().with_scheme("koine"),
+    prm().with_scheme("koine").with_sourced(true),
   )
   assert_true(koine_gem.cost <= 0.021, msg=koine_gem.cost.to_string())
   assert_true(koine_gem.words[0].score >= 80)

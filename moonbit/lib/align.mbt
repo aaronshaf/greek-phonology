@@ -2,7 +2,9 @@
 // target grapheme units. Opt-in: ipa(), g2p, and detect never call it.
 //
 // Substitution cost comes from phone_distance at the gracious goal: accurate 0,
-// tolerated 0.5, otherwise 1. The deploy-122 CLASS table is not a second price.
+// tolerated 0.5, otherwise 1. Sourced rows, cheap nasal and geminate edits,
+// and ʝ≡j stay off unless `params.sourced` is true. The deploy-122 CLASS
+// table is not a second price.
 // CLASS priced e/i and r/l at 0.5. This table does not tolerate those pairs
 // (e/i is a full step of vowel height; r and l differ in manner), so they
 // cost 1. `params.sub` can replace that price for a pair; the default table
@@ -47,6 +49,7 @@ pub(all) struct AlignParams {
   goal : String
   near_miss : Bool
   sub : Array[SubOverride]
+  sourced : Bool
 }
 
 ///|
@@ -210,6 +213,7 @@ pub fn align_params_default() -> AlignParams {
     goal: "",
     near_miss: true,
     sub: [],
+    sourced: false,
   }
 }
 
@@ -252,6 +256,14 @@ pub fn AlignParams::with_sub(
   sub : Array[SubOverride],
 ) -> AlignParams {
   { ..self, sub, }
+}
+
+///|
+/// Turn on the sourced distance rows for this path: substitution buckets from
+/// `phone_distance_in`, and the cheap nasal, geminate, and absorbed-ι edits.
+/// Default `align_params_default` leaves this off.
+pub fn AlignParams::with_sourced(self : AlignParams, sourced : Bool) -> AlignParams {
+  { ..self, sourced, }
 }
 
 ///|
@@ -321,9 +333,44 @@ pub fn align_sub_cost(
 ) -> Double {
   if heard == target {
     ignore(@kernel.align_sub_bucket(true, false, false))
+    ignore(@kernel.sourced_distance_buckets())
     return 0.0
   }
   let dist = phone_distance(target, heard, scheme, "gracious")
+  let bucket = @kernel.align_sub_bucket(
+    false,
+    dist.tier == "accurate",
+    dist.tier == "tolerated",
+  )
+  if bucket == 0 {
+    0.0
+  } else if bucket == 1 {
+    0.5
+  } else {
+    1.0
+  }
+}
+
+///|
+/// Same buckets as `align_sub_cost`, priced from `phone_distance_in` with no
+/// neighbors and no confidence gate. The default `align_sub_cost` does not
+/// call this.
+pub fn align_sub_cost_in(
+  heard : String,
+  target : String,
+  scheme : String,
+) -> Double {
+  if heard == target {
+    ignore(@kernel.align_sub_bucket(true, false, false))
+    return 0.0
+  }
+  let dist = phone_distance_in(
+    target,
+    heard,
+    scheme,
+    "gracious",
+    PhoneSituation::absent(),
+  )
   let bucket = @kernel.align_sub_bucket(
     false,
     dist.tier == "accurate",
@@ -935,7 +982,7 @@ fn align_tokens_at(
         del[jj] = 1.0
       }
     }
-    if sourced_delete(prm.scheme, lane, jj) {
+    if prm.sourced && sourced_delete(prm.scheme, lane, jj) {
       del[jj] = 0.02
     }
   }
@@ -944,17 +991,30 @@ fn align_tokens_at(
     let q = if prm.qpk <= 0.0 { 1.0 } else { heard[i].pk / prm.qpk }
     qf[i] = if q < 1.0 { q } else { 1.0 }
   }
+  let cache_h : Array[String] = []
+  let cache_t : Array[String] = []
+  let cache_c : Array[Double] = []
+  fn sub_of(hp : String, tp : String) -> Double {
+    for i in 0..<cache_h.length() {
+      if cache_h[i] == hp && cache_t[i] == tp {
+        return cache_c[i]
+      }
+    }
+    let c = align_sub_cost_with(hp, tp, prm.scheme, prm.sub)
+    cache_h.push(hp)
+    cache_t.push(tp)
+    cache_c.push(c)
+    c
+  }
   fn sc(hi : Int32, jj : Int32) -> Double {
     let tp = if jj - 1 >= 0 && jj - 1 < lane.tgt.length() {
       lane.tgt[jj - 1]
     } else {
       ""
     }
-    let left = if jj >= 2 { phone_name(lane, jj - 2) } else { "" }
-    let right = if jj >= 0 && jj < lane.tgt.length() { phone_name(lane, jj) } else { "" }
-    let right2 = if jj + 1 < lane.tgt.length() { phone_name(lane, jj + 1) } else { "" }
-    let place = if jj >= 1 { place_at(lane, jj - 1) } else { "" }
-    let mut c = if heard[hi].p == tp {
+    let mut c = if !prm.sourced {
+      sub_of(heard[hi].p, tp)
+    } else if heard[hi].p == tp {
       0.0
     } else {
       let mut overridden = false
@@ -969,6 +1029,18 @@ fn align_tokens_at(
       if overridden {
         price
       } else {
+        let left = if jj >= 2 { phone_name(lane, jj - 2) } else { "" }
+        let right = if jj >= 0 && jj < lane.tgt.length() {
+          phone_name(lane, jj)
+        } else {
+          ""
+        }
+        let right2 = if jj + 1 < lane.tgt.length() {
+          phone_name(lane, jj + 1)
+        } else {
+          ""
+        }
+        let place = if jj >= 1 { place_at(lane, jj - 1) } else { "" }
         bucket_cost(
           heard[hi].p,
           tp,
@@ -1088,7 +1160,7 @@ fn align_tokens_at(
   }
   for i in 1..<=h {
     for j in 0..<=n {
-      let ins_c = if sourced_insert(prm.scheme, heard, lane, i - 1, j) {
+      let ins_c = if prm.sourced && sourced_insert(prm.scheme, heard, lane, i - 1, j) {
         0.02
       } else {
         ic(i - 1)
@@ -1385,6 +1457,7 @@ fn phone_score_of(
       prm.scheme,
       prm.goal,
       sit_at(lane, j, bestp),
+      prm.sourced,
     )
   }
   (clamp_score(score), heard_name)
@@ -1398,16 +1471,21 @@ fn near_miss_score(
   scheme : String,
   goal : String,
   sit : PhoneSituation,
+  use_rows : Bool,
 ) -> Int32 {
   if target == "" || heard == "" {
     return 0
   }
   let w = if weight < 0.0 { 0.0 } else if weight > 1.0 { 1.0 } else { weight }
-  let credit = phone_credit_in(target, [heard], [w], scheme, goal, sit)
-  if credit.combined <= 0.0 {
+  let combined = if use_rows {
+    phone_credit_in(target, [heard], [w], scheme, goal, sit).combined
+  } else {
+    hearing_credit(target, [(heard, w)], scheme, goal).combined
+  }
+  if combined <= 0.0 {
     0
   } else {
-    clamp_score(js_round(credit.combined * 100.0))
+    clamp_score(js_round(combined * 100.0))
   }
 }
 
@@ -1486,8 +1564,8 @@ pub fn score_words(
       }
       match a.ph[j] {
         None => {
-          let opt2 = opt || sourced_excuse(prm.scheme, lane, j, a.ph)
-          ph.push(unmatched_hit(target, opt2))
+          let excused = prm.sourced && sourced_excuse(prm.scheme, lane, j, a.ph)
+          ph.push(unmatched_hit(target, opt || excused))
         }
         Some(pr) =>
           if pr.h < 0 || pr.h >= heard.length() {

@@ -11,23 +11,31 @@
 pub(all) struct G2pOpts {
   alts : Bool
   cross_word : Bool
+  sourced : Bool
 }
 
 ///|
 pub fn G2pOpts::plain() -> G2pOpts {
-  { alts: false, cross_word: false }
+  { alts: false, cross_word: false, sourced: false }
 }
 
 ///|
 pub fn G2pOpts::with_alts() -> G2pOpts {
-  { alts: true, cross_word: false }
+  { alts: true, cross_word: false, sourced: false }
 }
 
 ///|
 /// Word-final αυ/ευ/ηυ takes the next word's first letter into account.
 /// Off by default, and `ipa()` never reads this flag.
 pub fn G2pOpts::contextual() -> G2pOpts {
-  { alts: false, cross_word: true }
+  { alts: false, cross_word: true, sourced: false }
+}
+
+///|
+/// Attach the sourced diphthong alternates (E19) as well as the older `alts`.
+/// Default `with_alts()` does not. `ipa()` never reads this flag.
+pub fn G2pOpts::with_sourced(self : G2pOpts, sourced : Bool) -> G2pOpts {
+  { ..self, sourced, }
 }
 
 ///|
@@ -445,7 +453,7 @@ pub fn g2p_words_opts(
   }
   let out : Array[G2pWord] = []
   for w in voiced {
-    out.push(with_grapheme_alts(w, scheme))
+    out.push(with_grapheme_alts(w, scheme, opts.sourced))
   }
   out
 }
@@ -580,10 +588,10 @@ fn diph_phones(ph : Array[String]) -> Array[String] {
 }
 
 ///|
-fn with_grapheme_alts(w : G2pWord, scheme : String) -> G2pWord {
+fn with_grapheme_alts(w : G2pWord, scheme : String, sourced : Bool) -> G2pWord {
   let units : Array[G2pUnit] = []
   for u in w.units {
-    let alts = grapheme_alts(scheme, unit_key(u.t), u.ctx, diph_phones(u.ph))
+    let alts = grapheme_alts(scheme, unit_key(u.t), u.ctx, diph_phones(u.ph), sourced)
     units.push({
       t: u.t,
       k: u.k,
@@ -702,20 +710,24 @@ fn word_json_g2p(w : G2pWord, alts : Bool) -> String {
 fn opts_of(flags : String) -> G2pOpts {
   let mut alts = false
   let mut cross_word = false
+  let mut sourced = false
   for part in flags.split(",") {
     let p = part.to_owned()
     if p == "alts" || p == "alts=1" {
       alts = true
     } else if p == "ctx" || p == "ctx=1" {
       cross_word = true
+    } else if p == "sourced" || p == "sourced=1" {
+      sourced = true
     }
   }
-  { alts, cross_word, }
+  { alts, cross_word, sourced, }
 }
 
 ///|
 /// JSON for `g2p_words`. `flags` is a comma list. `alts` adds an `alts` array on each unit.
-/// `ctx` voices word-final αυ/ευ/ηυ from the next word. Default flags change nothing.
+/// `ctx` voices word-final αυ/ευ/ηυ from the next word. `sourced` adds the E19
+/// diphthong spans on top of `alts`. Default flags change nothing.
 pub fn g2p_json_flags(text : String, scheme : String, flags : String) -> String {
   let opts = opts_of(flags)
   let sname = scheme

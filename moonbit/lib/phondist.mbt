@@ -1,7 +1,10 @@
-// Phonetic distance table. Opt-in: ipa() never calls it.
+// Phonetic distance. ipa() never calls it.
 // Port of the playground's phondist.js (hand-weighted articulatory features).
-// A learner goal changes the tier and the credit only. d, note, and advice do not change.
-// Unknown phones return d = 1 and tier "not-a-match"; they never throw.
+// phone_distance is that feature table plus the scheme equivalences.
+// Sourced rows stay off unless the caller uses phone_distance_in,
+// phone_credit_in, dist_table_sourced_json, sequence_distance, or
+// AlignParams::with_sourced. A learner goal changes the tier and the credit
+// only. Unknown phones return d = 1 and tier "not-a-match"; they never throw.
 
 ///|
 pub(all) struct PhoneLabel {
@@ -670,26 +673,41 @@ fn unknown_distance(target : String, heard : String) -> PhoneDistance {
 }
 
 ///|
+/// Feature-table distance, plus the scheme equivalences (Koine and Modern
+/// `o`/`ɔ`, Koine `β`/`v`). Sourced rows are not applied. `ipa()` does not
+/// call this.
 pub fn phone_distance(
   target : String,
   heard : String,
   scheme : String,
   goal : String,
 ) -> PhoneDistance {
-  phone_distance_in(target, heard, scheme, goal, PhoneSituation::absent())
+  distance_of(target, heard, scheme, goal, PhoneSituation::absent(), false)
 }
 
 ///|
-/// Same as `phone_distance`, plus neighbors and an optional target posterior.
-/// `sit.posterior` below 0 means no confidence gate. A gated Koine row is then
-/// not-a-match. Neighbors select palatal, velar, postnasal, and diphthong rows.
-/// `ipa()` does not call this.
+/// Feature-table distance, then the sourced rows. `sit` selects palatal,
+/// velar, postnasal, and diphthong rows, and the confidence gate.
+/// `sit.posterior` below 0 means no gate, and a gated Koine row is then
+/// not-a-match. `ipa()` does not call this.
 pub fn phone_distance_in(
   target : String,
   heard : String,
   scheme : String,
   goal : String,
   sit : PhoneSituation,
+) -> PhoneDistance {
+  distance_of(target, heard, scheme, goal, sit, true)
+}
+
+///|
+fn distance_of(
+  target : String,
+  heard : String,
+  scheme : String,
+  goal : String,
+  sit : PhoneSituation,
+  use_rows : Bool,
 ) -> PhoneDistance {
   match (norm_phone(target), norm_phone(heard)) {
     (Some((ts, tlen)), Some((hs, hlen))) => {
@@ -703,19 +721,23 @@ pub fn phone_distance_in(
         let capped = dmin(d, accurate_max)
         d = if same { capped } else { 0.0 }
       }
-      let kept_equiv = !same && d == 0.0
-      let (d2, row_note) = apply_sourced_distance(
-        target,
-        heard,
-        ts,
-        hs,
-        scheme,
-        d,
-        same,
-        kept_equiv,
-        sit,
-      )
-      d = d2
+      let mut row_note = ""
+      if use_rows {
+        let kept_equiv = !same && d == 0.0
+        let (d2, note) = apply_sourced_distance(
+          target,
+          heard,
+          ts,
+          hs,
+          scheme,
+          d,
+          same,
+          kept_equiv,
+          sit,
+        )
+        d = d2
+        row_note = note
+      }
       let (tol, _) = goal_of(goal)
       let tier = if d <= accurate_max {
         "accurate"
@@ -791,13 +813,14 @@ pub fn phone_credit(
   scheme : String,
   goal : String,
 ) -> PhoneCredit {
-  phone_credit_in(target, phones, weights, scheme, goal, PhoneSituation::absent())
+  credit_scored(target, phones, weights, scheme, goal, PhoneSituation::absent(), false)
 }
 
 ///|
-/// Same numbers as `phone_credit`. `base` supplies neighbors and, when its
+/// Credit using the sourced rows. `base` supplies neighbors and, when its
 /// posterior is at least 0, the confidence gate. A negative posterior means
 /// "read the gate from the target phone's weight in `weights`".
+/// `phone_credit` does not call this.
 pub fn phone_credit_in(
   target : String,
   phones : Array[String],
@@ -805,6 +828,19 @@ pub fn phone_credit_in(
   scheme : String,
   goal : String,
   base : PhoneSituation,
+) -> PhoneCredit {
+  credit_scored(target, phones, weights, scheme, goal, base, true)
+}
+
+///|
+fn credit_scored(
+  target : String,
+  phones : Array[String],
+  weights : Array[Double],
+  scheme : String,
+  goal : String,
+  base : PhoneSituation,
+  use_rows : Bool,
 ) -> PhoneCredit {
   let (_, cap0) = goal_of(goal)
   let tn = norm_phone(target)
@@ -816,27 +852,31 @@ pub fn phone_credit_in(
   } else {
     weights.length()
   }
-  // Gate on the target phone's own posterior. No target in the list means no gate.
-  let mut target_p = -1.0
-  for i in 0..<n {
-    if weights[i] <= 0.0 {
-      continue
+  // The gate is opt-in. phone_credit never reads a posterior.
+  let sit = if use_rows {
+    let mut target_p = -1.0
+    for i in 0..<n {
+      if weights[i] <= 0.0 {
+        continue
+      }
+      match (tn, norm_phone(phones[i])) {
+        (Some((ts, _)), Some((hs, _))) =>
+          if hs == ts && weights[i] > target_p {
+            target_p = weights[i]
+          }
+        _ => ()
+      }
     }
-    match (tn, norm_phone(phones[i])) {
-      (Some((ts, _)), Some((hs, _))) =>
-        if hs == ts && weights[i] > target_p {
-          target_p = weights[i]
-        }
-      _ => ()
+    let posterior = if base.posterior >= 0.0 { base.posterior } else { target_p }
+    {
+      left: base.left,
+      right: base.right,
+      right2: base.right2,
+      place: base.place,
+      posterior,
     }
-  }
-  let posterior = if base.posterior >= 0.0 { base.posterior } else { target_p }
-  let sit : PhoneSituation = {
-    left: base.left,
-    right: base.right,
-    right2: base.right2,
-    place: base.place,
-    posterior,
+  } else {
+    PhoneSituation::absent()
   }
   for i in 0..<n {
     let p = weights[i]
@@ -848,7 +888,11 @@ pub fn phone_credit_in(
         if hs == ts {
           exact += p
         } else {
-          let x = phone_distance_in(target, phones[i], scheme, goal, sit)
+          let x = if use_rows {
+            phone_distance_in(target, phones[i], scheme, goal, sit)
+          } else {
+            phone_distance(target, phones[i], scheme, goal)
+          }
           if x.tier == "accurate" {
             exact += p
           } else if x.sim > 0.0 {
@@ -981,17 +1025,6 @@ fn alt_rows(scheme : String) -> Array[AltRow] {
     out.push(alt_row("αυ", "word-end", ["a", "v"], ["a", "β"], "accurate", beta, src_final))
     out.push(alt_row("ευ", "word-end", ["ɛ", "v"], ["ɛ", "β"], "accurate", beta, src_final))
     out.push(alt_row("ηυ", "word-end", ["e", "v"], ["e", "β"], "accurate", beta, src_final))
-    let off = note_e19 + " “eh” (as in bed) is more accurate for Koine than “ah” (as in father) then “ee” (as in machine)."
-    let src_k = "Horrocks, Koine vowels: αι = [e], ει = [i], οι and υ = [y] [V]. The offglide hearing is tolerated."
-    out.push(alt_fixed("αι", "any", ["ɛ"], ["a", "i"], "tolerated", off, src_k, 0.25))
-    out.push(alt_fixed("ει", "any", ["i"], ["e", "i"], "tolerated", off, src_k, 0.25))
-    out.push(alt_fixed("οι", "any", ["y"], ["o", "i"], "tolerated", off, src_k, 0.25))
-  } else if sc == "attic" {
-    let off = note_e19 + " The diphthong is the target. “eh” (as in bed) for αι, and “ü” (as in German über) for οι, is accepted."
-    let src_a = "Policy. Allen treats οι as a diphthong [V]. Horrocks gives the Koine monophthong values [V]. αυ and ευ have no single monophthong phone in that note."
-    out.push(alt_fixed("αι", "any", ["a", "i"], ["e"], "tolerated", off, src_a, 0.25))
-    out.push(alt_fixed("αι", "any", ["a", "i"], ["ɛ"], "tolerated", off, src_a, 0.25))
-    out.push(alt_fixed("οι", "any", ["o", "i"], ["y"], "tolerated", off, src_a, 0.25))
   } else if sc == "erasmian" {
     out.push(
       alt_row(
@@ -1005,6 +1038,33 @@ fn alt_rows(scheme : String) -> Array[AltRow] {
       ),
     )
   }
+  out
+}
+
+///|
+/// E19 diphthong spans. Off until g2p is asked for sourced alternates.
+fn push_sourced_alts(out : Array[AltRow], sc : String) -> Unit {
+  if sc == "koine" {
+    let off = note_e19 +
+      " “eh” (as in bed) is more accurate for Koine than “ah” (as in father) then “ee” (as in machine)."
+    let src_k = "Horrocks, Koine vowels: αι = [e], ει = [i], οι and υ = [y] [V]. The offglide hearing is tolerated."
+    out.push(alt_fixed("αι", "any", ["ɛ"], ["a", "i"], "tolerated", off, src_k, 0.25))
+    out.push(alt_fixed("ει", "any", ["i"], ["e", "i"], "tolerated", off, src_k, 0.25))
+    out.push(alt_fixed("οι", "any", ["y"], ["o", "i"], "tolerated", off, src_k, 0.25))
+  } else if sc == "attic" {
+    let off = note_e19 +
+      " The diphthong is the target. “eh” (as in bed) for αι, and “ü” (as in German über) for οι, is accepted."
+    let src_a = "Policy. Allen treats οι as a diphthong [V]. Horrocks gives the Koine monophthong values [V]. αυ and ευ have no single monophthong phone in that note."
+    out.push(alt_fixed("αι", "any", ["a", "i"], ["e"], "tolerated", off, src_a, 0.25))
+    out.push(alt_fixed("αι", "any", ["a", "i"], ["ɛ"], "tolerated", off, src_a, 0.25))
+    out.push(alt_fixed("οι", "any", ["o", "i"], ["y"], "tolerated", off, src_a, 0.25))
+  }
+}
+
+///|
+fn alt_rows_sourced(scheme : String) -> Array[AltRow] {
+  let out = alt_rows(scheme)
+  push_sourced_alts(out, scheme_short(scheme))
   out
 }
 
@@ -1025,9 +1085,11 @@ fn grapheme_alts(
   key : String,
   ctx : String,
   phones : Array[String],
+  sourced : Bool,
 ) -> Array[G2pAlt] {
   let out : Array[G2pAlt] = []
-  for row in alt_rows(scheme) {
+  let rows = if sourced { alt_rows_sourced(scheme) } else { alt_rows(scheme) }
+  for row in rows {
     if row.key == key &&
       when_matches(row.when, ctx) &&
       phones_eq(row.target, phones) &&
@@ -1191,6 +1253,18 @@ fn sch_pairs(sc : String) -> Array[(String, String)] {
 
 ///|
 pub fn dist_table_json(scheme : String) -> String {
+  dist_table_body(scheme, false)
+}
+
+///|
+/// Same catalog as `dist_table_json`, plus the sourced rows and the E19
+/// diphthong spans. `phone_distance` does not read this.
+pub fn dist_table_sourced_json(scheme : String) -> String {
+  dist_table_body(scheme, true)
+}
+
+///|
+fn dist_table_body(scheme : String, sourced : Bool) -> String {
   let sc = scheme_short(scheme)
   let sb = StringBuilder()
   sb.write_string(
@@ -1213,7 +1287,12 @@ pub fn dist_table_json(scheme : String) -> String {
   }
   sb.write_string("},\"units\":[")
   let mut n = 0
-  for row in alt_rows(scheme) {
+  let unit_rows = if sourced {
+    alt_rows_sourced(scheme)
+  } else {
+    alt_rows(scheme)
+  }
+  for row in unit_rows {
     if n > 0 {
       sb.write_char(',')
     }
@@ -1238,9 +1317,13 @@ pub fn dist_table_json(scheme : String) -> String {
       "}",
     )
   }
-  sb.write_string("],\"sourced\":")
-  sb.write_string(sourced_rows_json(scheme))
-  sb.write_string("}")
+  if sourced {
+    sb.write_string("],\"sourced\":")
+    sb.write_string(sourced_rows_json(scheme))
+    sb.write_string("}")
+  } else {
+    sb.write_string("]}")
+  }
   sb.to_string()
 }
 

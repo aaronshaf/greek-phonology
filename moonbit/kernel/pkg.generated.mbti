@@ -118,6 +118,8 @@ pub fn round_trip_ordinary(FixedArray[Int32], Int32, Int32, Int32, FixedArray[In
 
 pub fn share(Int64, Int64, Int64) -> Int64
 
+pub fn sourced_distance_buckets() -> Bool
+
 pub fn stop_class(Int32) -> Int32
 
 pub fn strict_accepts_implies_looser(Int32) -> Bool

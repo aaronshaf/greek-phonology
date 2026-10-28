@@ -473,6 +473,14 @@ fn params_of(v : AVal?, scheme : String) -> AlignParams {
                   None => []
                 }
             },
+            sourced: match afind(f, "sourced") {
+              Some(v) =>
+                match abool(v) {
+                  Some(b) => b
+                  None => false
+                }
+              None => false
+            },
           }
         }
       }

@@ -32,6 +32,8 @@ pub fn align_stored_post() -> AlignPost?
 
 pub fn align_sub_cost(String, String, String) -> Double
 
+pub fn align_sub_cost_in(String, String, String) -> Double
+
 pub fn align_sub_cost_with(String, String, String, Array[SubOverride]) -> Double
 
 pub fn align_tokens(Array[HeardToken], AlignLane, AlignParams) -> TokenAlign
@@ -79,6 +81,8 @@ pub fn detect_free(String) -> Detection
 pub fn detect_text(String, String) -> Detection
 
 pub fn dist_table_json(String) -> String
+
+pub fn dist_table_sourced_json(String) -> String
 
 pub fn extract_consonant_clusters(String) -> Array[String]
 
@@ -236,12 +240,14 @@ pub(all) struct AlignParams {
   goal : String
   near_miss : Bool
   sub : Array[SubOverride]
+  sourced : Bool
 }
 pub fn AlignParams::with_back(Self, Int32) -> Self
 pub fn AlignParams::with_goal(Self, String) -> Self
 pub fn AlignParams::with_near_miss(Self, Bool) -> Self
 pub fn AlignParams::with_plain(Self, Bool) -> Self
 pub fn AlignParams::with_scheme(Self, String) -> Self
+pub fn AlignParams::with_sourced(Self, Bool) -> Self
 pub fn AlignParams::with_sub(Self, Array[SubOverride]) -> Self
 
 pub(all) struct AlignPost {
@@ -311,10 +317,12 @@ pub(all) struct G2pAlt {
 pub(all) struct G2pOpts {
   alts : Bool
   cross_word : Bool
+  sourced : Bool
 }
 pub fn G2pOpts::contextual() -> Self
 pub fn G2pOpts::plain() -> Self
 pub fn G2pOpts::with_alts() -> Self
+pub fn G2pOpts::with_sourced(Self, Bool) -> Self
 
 pub(all) struct G2pUnit {
   t : String

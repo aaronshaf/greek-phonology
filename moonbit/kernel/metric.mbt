@@ -180,6 +180,17 @@ pub fn ungated_rejected() -> Bool where {
 }
 
 ///|
+/// A sourced full miss (not the same phone, not accurate, not tolerated)
+/// is substitution bucket 2. An accurate sourced row is bucket 0.
+/// The default feature path does not feed these rows in.
+pub fn sourced_distance_buckets() -> Bool where {
+  proof_ensure: result => result == true,
+} {
+  align_sub_bucket(false, false, false) == 2 &&
+  align_sub_bucket(false, true, false) == 0
+}
+
+///|
 /// Near-miss credit in thousandths, `cap * sim / 1000`, with `sim` in 0..=1000.
 /// Proved: the result stays inside 0..=cap and equals that product.
 pub fn near_credit_milli(cap_milli : Int, sim_milli : Int) -> Int where {
