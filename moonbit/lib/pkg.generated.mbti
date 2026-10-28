@@ -122,9 +122,15 @@ pub fn optional_phones_json(String) -> String
 
 pub fn phone_credit(String, Array[String], Array[Double], String, String) -> PhoneCredit
 
+pub fn phone_credit_in(String, Array[String], Array[Double], String, String, PhoneSituation) -> PhoneCredit
+
 pub fn phone_credit_json(String, String, String, String) -> String
 
 pub fn phone_distance(String, String, String, String) -> PhoneDistance
+
+pub fn phone_distance_in(String, String, String, String, PhoneSituation) -> PhoneDistance
+
+pub fn phone_distance_in_json(String, String, String, String, String) -> String
 
 pub fn phone_distance_json(String, String, String, String) -> String
 
@@ -156,9 +162,13 @@ pub fn score_take(AlignPost, AlignLane, Array[String], AlignParams) -> TakeScore
 
 pub fn score_words(AlignPost, AlignLane, TokenAlign, Array[HeardToken], Array[String], AlignParams) -> TakeScore
 
+pub fn sequence_distance(Array[String], Array[String], String, String) -> PhoneDistance
+
 pub fn soft_tokens(AlignPost, Array[String], AlignParams) -> Array[HeardToken]
 
 pub fn softmax(Array[Double], Double) -> Array[Double]
+
+pub fn sourced_curated_note(String, String, String) -> String
 
 pub fn split_ws(String) -> Array[String]
 
@@ -396,6 +406,16 @@ pub(all) struct PhoneLabel {
   ex : String
   kind : String
 }
+
+pub(all) struct PhoneSituation {
+  left : String
+  right : String
+  right2 : String
+  place : String
+  posterior : Double
+}
+pub fn PhoneSituation::absent() -> Self
+pub fn PhoneSituation::with_posterior(Double) -> Self
 
 pub(all) struct SubOverride {
   a : String

@@ -8,6 +8,8 @@ pub fn accent_target(FixedArray[Int32], FixedArray[Int32], Int32) -> Int32
 
 pub fn accents_written(Int32, Int32) -> Int32
 
+pub fn accurate_band_accepted() -> Bool
+
 pub fn align_bt_delete(Int32, Int32, Int32, Int32) -> AlignCursor
 
 pub fn align_bt_insert(Int32, Int32, Int32, Int32) -> AlignCursor
@@ -66,6 +68,8 @@ pub fn enclitic_keeps(Int32, Int32, Bool) -> Bool
 
 pub fn extra_acute(Int32, Bool, Bool, Bool) -> Bool
 
+pub fn full_miss_rejected() -> Bool
+
 pub fn g2p_adv(Int32, FixedArray[Int32], FixedArray[Int32], Int32) -> Int32
 
 pub fn g2p_step(Int32, FixedArray[Int32], FixedArray[Int32], FixedArray[Int32], Int32, FixedArray[Int32]) -> Int32
@@ -116,6 +120,8 @@ pub fn share(Int64, Int64, Int64) -> Int64
 
 pub fn stop_class(Int32) -> Int32
 
+pub fn strict_accepts_implies_looser(Int32) -> Bool
+
 pub fn syllable_cut(FixedArray[Int32], Int32, Int32, Int32) -> Int32
 
 pub fn tally_hit(Int32, Int32, Bool) -> Int32
@@ -125,6 +131,10 @@ pub fn tier_code(Int32, Int32) -> Int32
 pub fn tier_worsens(Int32, Int32, Int32) -> Bool
 
 pub fn to_grave(Int32, Bool, Bool) -> Bool
+
+pub fn tolerated_band(Int32) -> Bool
+
+pub fn ungated_rejected() -> Bool
 
 pub fn unrender_marks(FixedArray[Int32], Int32, Bool, FixedArray[Int32]) -> Int32
 

@@ -60,7 +60,7 @@ fn vocab_with(phones : Array[String], extra : Array[String]) -> Array[String] {
 ///|
 let extra_phones : Array[String] = [
   "a", "e", "ɛ", "i", "o", "u", "n", "r", "l", "s", "k", "kʰ", "ɣ", "m", "ɸ",
-  "p", "t", "b", "d",
+  "p", "t", "b", "d", "j", "ʝ", "c", "ŋ", "ɾ",
 ]
 
 ///|

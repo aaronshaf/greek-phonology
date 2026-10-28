@@ -699,6 +699,194 @@ fn better_token(
 }
 
 ///|
+fn word_initial_phone(lane : AlignLane, j : Int) -> Bool {
+  if j < 0 {
+    return false
+  }
+  let w = word_of(lane, j)
+  if w < 0 || w >= lane.start.length() {
+    return false
+  }
+  lane.start[w] == j
+}
+
+///|
+fn same_word_phones(lane : AlignLane, i : Int, j : Int) -> Bool {
+  i >= 0 && j >= 0 && i < lane.tgt.length() && j < lane.tgt.length() && word_of(lane, i) == word_of(lane, j)
+}
+
+///|
+fn place_at(lane : AlignLane, j : Int) -> String {
+  if j < 0 || j >= lane.tgt.length() {
+    return ""
+  }
+  let w = word_of(lane, j)
+  if w < 0 || w >= lane.start.length() {
+    return ""
+  }
+  let start = lane.start[w]
+  let len = if w < lane.wlen.length() { lane.wlen[w] } else { 0 }
+  if j == start {
+    "initial"
+  } else if len > 0 && j == start + len - 1 {
+    "final"
+  } else {
+    "medial"
+  }
+}
+
+///|
+/// Medial nasal before its stop, one copy of a doubled consonant, or ι
+/// absorbed into ʝ. Cost 0.02 in the path. Not word-initial for the nasal.
+fn sourced_delete(scheme : String, lane : AlignLane, j : Int) -> Bool {
+  let sc = scheme_short(scheme)
+  if j < 0 || j >= lane.tgt.length() {
+    return false
+  }
+  let p = bare_phone(phone_name(lane, j))
+  let next = if j + 1 < lane.tgt.length() {
+    bare_phone(phone_name(lane, j + 1))
+  } else {
+    ""
+  }
+  let prev = if j > 0 { bare_phone(phone_name(lane, j - 1)) } else { "" }
+  if sc == "modern" &&
+    !word_initial_phone(lane, j) &&
+    same_word_phones(lane, j, j + 1) &&
+    nasal_before_stop(p, next) {
+    return true
+  }
+  if (sc == "modern" || sc == "koine") && geminate_sym(p) {
+    if same_word_phones(lane, j, j + 1) && p == next {
+      return true
+    }
+    if j > 0 && same_word_phones(lane, j - 1, j) && p == prev {
+      return true
+    }
+  }
+  if sc == "modern" &&
+    p == "i" &&
+    j > 0 &&
+    same_word_phones(lane, j - 1, j) &&
+    same_word_phones(lane, j, j + 1) {
+    let pal = prev == "ʝ" || prev == "j"
+    if pal && is_vowel_sym(next) {
+      return true
+    }
+  }
+  false
+}
+
+///|
+fn sourced_insert(
+  scheme : String,
+  heard : Array[HeardToken],
+  lane : AlignLane,
+  hi : Int,
+  j : Int,
+) -> Bool {
+  let sc = scheme_short(scheme)
+  if sc != "modern" || hi < 0 || hi >= heard.length() || j < 0 || j >= lane.tgt.length() {
+    return false
+  }
+  if word_initial_phone(lane, j) {
+    return false
+  }
+  let hp = bare_phone(heard[hi].p)
+  let next_h = if hi + 1 < heard.length() {
+    bare_phone(heard[hi + 1].p)
+  } else {
+    ""
+  }
+  let prev_h = if hi > 0 { bare_phone(heard[hi - 1].p) } else { "" }
+  let next_t = bare_phone(phone_name(lane, j))
+  let prev_t = if j > 0 { bare_phone(phone_name(lane, j - 1)) } else { "" }
+  if nasal_before_stop(hp, next_t) && next_h == next_t {
+    return true
+  }
+  if hp == "i" {
+    let prev_pal = prev_h == "ʝ" || prev_h == "j" || prev_t == "ʝ" || prev_t == "j"
+    if prev_pal && is_vowel_sym(next_h) && is_vowel_sym(next_t) {
+      return true
+    }
+  }
+  false
+}
+
+///|
+fn pair_was_hit(matched : Array[AlignPair?], k : Int) -> Bool {
+  if k < 0 || k >= matched.length() {
+    return false
+  }
+  match matched[k] {
+    Some(_) => true
+    None => false
+  }
+}
+
+///|
+/// Leave a sourced optional phone out of the word mean only when its partner
+/// was actually heard. Deleting both copies of a geminate is still a miss.
+fn sourced_excuse(
+  scheme : String,
+  lane : AlignLane,
+  j : Int,
+  matched : Array[AlignPair?],
+) -> Bool {
+  if !sourced_delete(scheme, lane, j) {
+    return false
+  }
+  let p = bare_phone(phone_name(lane, j))
+  let next = if j + 1 < lane.tgt.length() {
+    bare_phone(phone_name(lane, j + 1))
+  } else {
+    ""
+  }
+  let prev = if j > 0 { bare_phone(phone_name(lane, j - 1)) } else { "" }
+  if nasal_before_stop(p, next) {
+    return pair_was_hit(matched, j + 1)
+  }
+  if p == "i" && (prev == "ʝ" || prev == "j") {
+    return pair_was_hit(matched, j - 1) || pair_was_hit(matched, j + 1)
+  }
+  if geminate_sym(p) {
+    let next_ok = p == next && pair_was_hit(matched, j + 1)
+    let prev_ok = p == prev && pair_was_hit(matched, j - 1)
+    return next_ok || prev_ok
+  }
+  false
+}
+
+///|
+fn sit_at(lane : AlignLane, j : Int, posterior : Double) -> PhoneSituation {
+  let left = if j > 0 { phone_name(lane, j - 1) } else { "" }
+  let right = if j + 1 < lane.tgt.length() { phone_name(lane, j + 1) } else { "" }
+  let right2 = if j + 2 < lane.tgt.length() { phone_name(lane, j + 2) } else { "" }
+  { left, right, right2, place: place_at(lane, j), posterior, }
+}
+
+///|
+fn bucket_cost(heard : String, target : String, scheme : String, sit : PhoneSituation) -> Double {
+  if heard == target {
+    ignore(@kernel.align_sub_bucket(true, false, false))
+    return 0.0
+  }
+  let dist = phone_distance_in(target, heard, scheme, "gracious", sit)
+  let bucket = @kernel.align_sub_bucket(
+    false,
+    dist.tier == "accurate",
+    dist.tier == "tolerated",
+  )
+  if bucket == 0 {
+    0.0
+  } else if bucket == 1 {
+    0.5
+  } else {
+    1.0
+  }
+}
+
+///|
 /// Word-level edit alignment. Moves: match or substitute, delete a target
 /// phone, insert a stray token, restart back at most BACK words (RS), and
 /// skip whole words (SK each). `plain` turns the restart and skip moves off.
@@ -747,26 +935,14 @@ fn align_tokens_at(
         del[jj] = 1.0
       }
     }
+    if sourced_delete(prm.scheme, lane, jj) {
+      del[jj] = 0.02
+    }
   }
   let qf = Array::make(h, 1.0)
   for i in 0..<h {
     let q = if prm.qpk <= 0.0 { 1.0 } else { heard[i].pk / prm.qpk }
     qf[i] = if q < 1.0 { q } else { 1.0 }
-  }
-  let cache_h : Array[String] = []
-  let cache_t : Array[String] = []
-  let cache_c : Array[Double] = []
-  fn sub_of(hp : String, tp : String) -> Double {
-    for i in 0..<cache_h.length() {
-      if cache_h[i] == hp && cache_t[i] == tp {
-        return cache_c[i]
-      }
-    }
-    let c = align_sub_cost_with(hp, tp, prm.scheme, prm.sub)
-    cache_h.push(hp)
-    cache_t.push(tp)
-    cache_c.push(c)
-    c
   }
   fn sc(hi : Int32, jj : Int32) -> Double {
     let tp = if jj - 1 >= 0 && jj - 1 < lane.tgt.length() {
@@ -774,7 +950,33 @@ fn align_tokens_at(
     } else {
       ""
     }
-    let mut c = sub_of(heard[hi].p, tp)
+    let left = if jj >= 2 { phone_name(lane, jj - 2) } else { "" }
+    let right = if jj >= 0 && jj < lane.tgt.length() { phone_name(lane, jj) } else { "" }
+    let right2 = if jj + 1 < lane.tgt.length() { phone_name(lane, jj + 1) } else { "" }
+    let place = if jj >= 1 { place_at(lane, jj - 1) } else { "" }
+    let mut c = if heard[hi].p == tp {
+      0.0
+    } else {
+      let mut overridden = false
+      let mut price = 0.0
+      for row in prm.sub {
+        if (row.a == heard[hi].p && row.b == tp) || (row.a == tp && row.b == heard[hi].p) {
+          overridden = true
+          price = row.cost
+          break
+        }
+      }
+      if overridden {
+        price
+      } else {
+        bucket_cost(
+          heard[hi].p,
+          tp,
+          prm.scheme,
+          { left, right, right2, place, posterior: -1.0 },
+        )
+      }
+    }
     if jj - 1 >= 0 && jj - 1 < del.length() && del[jj - 1] < 1.0 && c > 0.0 {
       c = if c < 1.0 { 1.2 } else { 1.5 }
     }
@@ -886,7 +1088,12 @@ fn align_tokens_at(
   }
   for i in 1..<=h {
     for j in 0..<=n {
-      let mut b = d[i - 1][j] + ic(i - 1)
+      let ins_c = if sourced_insert(prm.scheme, heard, lane, i - 1, j) {
+        0.02
+      } else {
+        ic(i - 1)
+      }
+      let mut b = d[i - 1][j] + ins_c
       let mut btk = 1
       let mut bm = if j == 0 { -1 } else { mh[i - 1][j] }
       if j > 0 {
@@ -1171,7 +1378,14 @@ fn phone_score_of(
     raw
   } else {
     let w = if hm < 0.0 { g.pk } else { hm }
-    near_miss_score(phone_name(lane, j), heard_name, w, prm.scheme, prm.goal)
+    near_miss_score(
+      phone_name(lane, j),
+      heard_name,
+      w,
+      prm.scheme,
+      prm.goal,
+      sit_at(lane, j, bestp),
+    )
   }
   (clamp_score(score), heard_name)
 }
@@ -1183,12 +1397,13 @@ fn near_miss_score(
   weight : Double,
   scheme : String,
   goal : String,
+  sit : PhoneSituation,
 ) -> Int32 {
   if target == "" || heard == "" {
     return 0
   }
   let w = if weight < 0.0 { 0.0 } else if weight > 1.0 { 1.0 } else { weight }
-  let credit = hearing_credit(target, [(heard, w)], scheme, goal)
+  let credit = phone_credit_in(target, [heard], [w], scheme, goal, sit)
   if credit.combined <= 0.0 {
     0
   } else {
@@ -1270,7 +1485,10 @@ pub fn score_words(
         continue
       }
       match a.ph[j] {
-        None => ph.push(unmatched_hit(target, opt))
+        None => {
+          let opt2 = opt || sourced_excuse(prm.scheme, lane, j, a.ph)
+          ph.push(unmatched_hit(target, opt2))
+        }
         Some(pr) =>
           if pr.h < 0 || pr.h >= heard.length() {
             ph.push(unmatched_hit(target, opt))

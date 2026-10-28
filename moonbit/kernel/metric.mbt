@@ -123,6 +123,63 @@ pub fn tier_worsens(d0 : Int, d1 : Int, tol_milli : Int) -> Bool where {
 }
 
 ///|
+/// Strict acceptance implies gracious acceptance, and that implies lenient.
+/// The tier code only improves (a smaller code) as the tolerance grows.
+/// Proved for every distance in 0..=1000 thousandths.
+pub fn strict_accepts_implies_looser(d_milli : Int) -> Bool where {
+  proof_require: d_milli >= 0 && d_milli <= 1000,
+  proof_ensure: result => result == true,
+} {
+  let s = tier_code(d_milli, goal_tol_milli(0))
+  let g = tier_code(d_milli, goal_tol_milli(1))
+  let l = tier_code(d_milli, goal_tol_milli(2))
+  (s == 2 || g != 2) && (g == 2 || l != 2) && s >= g && g >= l
+}
+
+///|
+/// An accurate distance (at most 0.020) is accepted at every learner goal.
+pub fn accurate_band_accepted() -> Bool where {
+  proof_ensure: result => result == true,
+} {
+  tier_code(0, goal_tol_milli(0)) == 0 &&
+  tier_code(20, goal_tol_milli(0)) == 0 &&
+  tier_code(20, goal_tol_milli(1)) == 0 &&
+  tier_code(20, goal_tol_milli(2)) == 0
+}
+
+///|
+/// A full miss (distance 1) is rejected at strict, gracious, and lenient.
+pub fn full_miss_rejected() -> Bool where {
+  proof_ensure: result => result == true,
+} {
+  tier_code(1000, goal_tol_milli(0)) == 2 &&
+  tier_code(1000, goal_tol_milli(1)) == 2 &&
+  tier_code(1000, goal_tol_milli(2)) == 2
+}
+
+///|
+/// The tolerated band used by the sourced table (0.250) is an edit at strict
+/// and accepted at gracious and lenient.
+pub fn tolerated_band(d_milli : Int) -> Bool where {
+  proof_require: d_milli == 250,
+  proof_ensure: result => result == true,
+} {
+  tier_code(d_milli, goal_tol_milli(0)) == 2 &&
+  tier_code(d_milli, goal_tol_milli(1)) == 1 &&
+  tier_code(d_milli, goal_tol_milli(2)) == 1
+}
+
+///|
+/// An ungated confidence row (distance 0.500) is over every tolerance.
+pub fn ungated_rejected() -> Bool where {
+  proof_ensure: result => result == true,
+} {
+  tier_code(500, goal_tol_milli(0)) == 2 &&
+  tier_code(500, goal_tol_milli(1)) == 2 &&
+  tier_code(500, goal_tol_milli(2)) == 2
+}
+
+///|
 /// Near-miss credit in thousandths, `cap * sim / 1000`, with `sim` in 0..=1000.
 /// Proved: the result stays inside 0..=cap and equals that product.
 pub fn near_credit_milli(cap_milli : Int, sim_milli : Int) -> Int where {

@@ -168,6 +168,19 @@ pub fn phone_distance_json(
 }
 
 ///|
+/// Same as `phone_distance_json`. `situation` is `left,right,right2,place,posterior`.
+/// An empty posterior leaves the confidence gate shut.
+pub fn phone_distance_in_json(
+  target : String,
+  heard : String,
+  scheme : String,
+  goal : String,
+  situation : String,
+) -> String {
+  @lib.phone_distance_in_json(target, heard, scheme, goal, situation)
+}
+
+///|
 /// Credit for a recognizer posterior. `posterior` is `phone=weight` pairs separated by commas.
 pub fn phone_credit_json(
   target : String,

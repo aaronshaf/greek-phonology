@@ -49,6 +49,14 @@ pub fn call_json(name : String, arg : String, arg2 : String) -> String {
       let goal = if parts.length() > 2 { parts[2] } else { "" }
       phone_distance_json(arg, heard, scheme, goal)
     }
+    "phone_distance_in" => {
+      let parts = arg2.split("\u{1}").map(fn(v) { v.to_owned() }).collect()
+      let heard = if parts.length() > 0 { parts[0] } else { "" }
+      let scheme = if parts.length() > 1 { parts[1] } else { "" }
+      let goal = if parts.length() > 2 { parts[2] } else { "" }
+      let situation = if parts.length() > 3 { parts[3] } else { "" }
+      phone_distance_in_json(arg, heard, scheme, goal, situation)
+    }
     "phone_credit" => {
       let parts = arg2.split("\u{1}").map(fn(v) { v.to_owned() }).collect()
       let scheme = if parts.length() > 0 { parts[0] } else { "" }
