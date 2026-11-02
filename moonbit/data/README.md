@@ -9,3 +9,7 @@ the wasm/JS. A release wasm build is 178,373 bytes (66,993 bytes gzipped) with m
 
 `word_counts.tsv.gz` (form, NT count, LXX count) is the build input for the detector's phone-bigram
 tables (`tools/gen_data.py`); it is not needed at runtime. Rebuild both with `tools/build_lexicon.py`.
+
+`reliability-v1.json` is the per-phone aggregate for model ft-AC-20mb-lo (counts and rates only, no clips).
+`tools/gen_tol.py` compiles it into `lib/tol_data.mbt`. The runtime table is that MoonBit file.
+There is no Koine test set in it. See `docs/TOLERANCE.md`.

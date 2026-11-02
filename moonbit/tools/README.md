@@ -12,6 +12,7 @@ Run them from `moonbit/` unless a script says otherwise.
 | `build_lexicon.py` | `python3 tools/build_lexicon.py SBLGNT.tsv LXX.csv` | `data/greek-phonology-lexicon.bin`, `data/word_counts.tsv.gz`, `lib/lex_alpha_gen.mbt` | No. Needs an SBLGNT word TSV (form in column 0, count in column 4) and Rahlfs `text_accented.csv`. |
 | `gen_data.py` | `python3 tools/gen_data.py greek_decomp.tsv phone_bigrams.json lib/data_gen.mbt` | `lib/data_gen.mbt` | No. Neither `greek_decomp.tsv` nor `phone_bigrams.json` is in the repo. |
 | `gen_conf.py` | `python3 tools/gen_conf.py data/conf_tables.json phone_bigrams.json lib/conf_gen.mbt` | `lib/conf_gen.mbt` | Partly. `data/conf_tables.json` is here. `phone_bigrams.json` is not, and it supplies `nl_vocab`. |
+| `gen_tol.py` | `python3 tools/gen_tol.py` | `lib/tol_data.mbt` | Yes. Reads `data/reliability-v1.json`. |
 
 `gen_data.py` and `gen_conf.py` were not re-run. A regenerated `data_gen.mbt` would not be byte-identical without the original `phone_bigrams.json` (per-scheme phone unigram and bigram counts) and `greek_decomp.tsv`, so those files were left as they are. `gen_data.py` no longer emits `lm_vocab_size`; the library never read it. `gen_conf.py` writes an empty map as `Map([])`.
 

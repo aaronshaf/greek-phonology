@@ -24,6 +24,10 @@ Computed by `moonbit/tools/coverage.py`. It is a report, not a ratchet. A drop d
 
 One function can have several goals, so goals divided by public functions can be greater than 1. It is not "the fraction of functions that have a proof."
 
+`tolerance` adds proved goals in `moonbit/kernel/tol.mbt`. A weight in thousandths stays in 0..=1000. A position or stress slice is used only at 20 or more observations and only below the phone count (`tol_use_slice`, `tol_sparse_position_backs_off`). A phone or class needs 8 (`tol_use_phone`). Shrinkage is `(n * slice + 8 * parent) / (n + 8)` (`tol_shrink`). When both contexts are used, the picked weight is at or under each (`tol_lenient_pick`). The neutral default is 0.500. A length miss and an accepted confusion cost 0 (`tol_miss_milli`). Bands are below 0.350, below 0.600, and the rest (`tol_band`). The Attic onset-aspirate mix, 0/41 then 0/25 then 0/23, is weight 4 thousandths (`tol_aspirate_onset_low`). The library calls these from `tolerance`. Two-call lemmas that unfolded `tol_decide` timed out and were not kept; the same facts are property-tested in `tests/tolerance_test.mbt`. The string table is not a proof goal.
+
+On this change, with moon 0.1.20261029 and Z3 4.13.0 the kernel reports **252** valid goals, 0 invalid, 0 timeout. The earlier note below is the count from moon 0.1.20261023:
+
 On this change, with moon 0.1.20261023 and Z3 4.13.0:
 
 | | Before | After |

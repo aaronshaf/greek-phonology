@@ -190,6 +190,16 @@ pub fn syllable_cuts(Array[GUnit]) -> Array[Int32]
 
 pub fn tokenize(String) -> Array[String]
 
+pub fn tolerance(String, TolContext, String) -> Tolerance
+
+pub fn tolerance_json(String, String, String) -> String
+
+pub fn tolerance_meta_json() -> String
+
+pub fn tolerance_word(String, String, String) -> Array[TolWord]
+
+pub fn tolerance_word_json(String, String, String) -> String
+
 pub fn unit_hearing_credit(G2pUnit, Array[(String, Double)], String, String, Int32) -> HearingCredit
 
 pub fn unit_hearing_credit_json(String, String, String, String, String) -> String
@@ -453,6 +463,57 @@ pub(all) struct TokenAlign {
   cost : Double
   atts : Int32
   heard_n : Int32
+}
+
+pub(all) struct TolContext {
+  position : String
+  stress : String
+}
+pub fn TolContext::of(String, String) -> Self
+pub fn TolContext::plain() -> Self
+
+pub(all) struct TolPhone {
+  phone : String
+  position : String
+  stress : String
+  weight : Double
+  accept : Array[String]
+  rung : String
+  band : String
+  miss : Double
+}
+
+pub(all) struct TolUnit {
+  t : String
+  k : String
+  from : Int32
+  to : Int32
+  weight : Double
+  band : String
+  phones : Array[TolPhone]
+  group : String
+  group_weight : Double
+  group_accept : Array[String]
+}
+
+pub(all) struct TolWord {
+  text : String
+  phones : Int32
+  scored : Int32
+  penalty : Double
+  units : Array[TolUnit]
+}
+
+pub(all) struct Tolerance {
+  weight : Double
+  accept : Array[String]
+  rung : String
+  band : String
+  n : Int32
+  set : String
+  model : String
+  sha256 : String
+  data : String
 }
 
 pub(all) struct WordScore {

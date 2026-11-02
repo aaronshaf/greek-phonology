@@ -54,6 +54,12 @@ pub fn run_str(Int32, String, String) -> String
 
 pub fn scheme_id(String) -> String
 
+pub fn tolerance_json(String, String, String) -> String
+
+pub fn tolerance_meta_json() -> String
+
+pub fn tolerance_word_json(String, String, String) -> String
+
 pub fn unit_hearing_credit_json(String, String, String, String, String) -> String
 
 pub fn word_json(String) -> String

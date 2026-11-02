@@ -229,12 +229,16 @@ const TOOLS = [
   ["ipa", "Greek text → IPA in a chosen pronunciation.", "εὐαγγέλιον τοῦ θεοῦ", SCHEME_OPTS],
   ["respell", "English spelling of that reading. Hyphens split syllables, and each accented syllable is in capitals. Koine ἄρτος is AR-tos. A second accent is capitalized too.", "ἄνθρωπός τις", SCHEME_OPTS],
   ["detect", "Which pronunciation does this IPA sound like? (without the Greek text)", "e v a ŋ ɟ e l i o n"],
+  ["tolerance_word", "How much to trust a miss, per letter, for the on-device model. Lenient means the model is unreliable there, so a miss is down-weighted. θ in Attic is lenient. There is no Koine test set; Koine uses the Attic rows.", "θεός", SCHEME_OPTS],
 ];
 const item = (lab, val, cls = "") => `<div class="it">${lab ? `<span class="lab">${esc(lab)}</span>` : ""}<span class="${cls}">${val}</span></div>`;
 const PERSONS = ["1st sg", "2nd sg", "3rd sg", "1st pl", "2nd pl", "3rd pl"];
 function pretty(name, v) {
   if (v === null || v === undefined) return item("", "not found");
   if (name === "ipa") return `<div class="it">${ipaHtml(v)}</div>`;
+  if (name === "tolerance_word" && v && Array.isArray(v.words)) {
+    return v.words.map((w) => (w.units || []).map((u) => item(u.t, esc(u.band + " " + u.weight))).join("")).join("");
+  }
   if (name === "detect") return Object.entries(v.probs).sort((a, b) => b[1] - a[1]).map(([k, p]) => item(k, (100 * p).toFixed(1) + "%")).join("");
   if (name === "check_phrase_accents") return v.map((x) => item("", `${esc(x.word)} ${x.ok ? '<span class="ok">✓</span>' : `<span class="bad">→ ${esc(x.expected)}</span>`}`)).join("");
   if (name === "conjugate") return v.map((f, i) => item(PERSONS[i] || "", esc(f))).join("");

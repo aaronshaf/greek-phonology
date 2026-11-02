@@ -70,7 +70,7 @@ pub(all) struct G2pWord {
 }
 
 ///|
-let lib_version : String = "0.4.0"
+let lib_version : String = "0.5.0"
 
 ///|
 priv struct Cls {

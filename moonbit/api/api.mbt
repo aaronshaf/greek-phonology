@@ -251,6 +251,36 @@ pub fn optional_phones_json(list : String) -> String {
 }
 
 ///|
+/// How much a miss of one phone should count. `context` is `position,stress`
+/// (`onset`, `nucleus`, `coda` and `stressed` or `unstressed`). Weight 1 trusts
+/// a miss fully. Koine and Erasmian use the Attic rows. There is no Koine test set.
+/// `ipa()` does not call this.
+pub fn tolerance_json(
+  phone : String,
+  context : String,
+  scheme : String,
+) -> String {
+  @lib.tolerance_json(phone, context, scheme)
+}
+
+///|
+/// Per-letter tolerance for colouring and scoring. `heard` is space-separated
+/// IPA in target-phone order, or empty to only colour. `ipa()` does not call this.
+pub fn tolerance_word_json(
+  text : String,
+  scheme : String,
+  heard : String,
+) -> String {
+  @lib.tolerance_word_json(text, scheme, heard)
+}
+
+///|
+/// Reliability-table version, model id, and sha256.
+pub fn tolerance_meta_json() -> String {
+  @lib.tolerance_meta_json()
+}
+
+///|
 /// Short scheme id (`modern`, `koine`, `attic`, `erasmian`) for a page id or a long id. Unknown returns "".
 pub fn scheme_id(name : String) -> String {
   @lib.scheme_id(name)

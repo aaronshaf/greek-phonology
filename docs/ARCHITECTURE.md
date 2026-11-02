@@ -12,6 +12,10 @@ The library is the place for letter-to-sound, closeness, and alignment. A playgr
 
 `ipa(text, scheme)` is the stable surface. Four schemes. Grapheme units (`g2p`) tile the typed word and can attach curated alternates (`alts`) or cross-word voicing (`ctx`). Both flags default off and do not change `ipa()`. `respell(text, scheme)` spells that same reading for an English reader: hyphens from `syllabify`, every written accent (`accented_syllables`) in capitals, and `g2p` phones written from `phone_label`'s `say`. Copying a character and capitalizing a syllable go through proved kernel decisions. It does not change `ipa()`.
 
+## Model tolerance
+
+`tolerance` is opt-in and is not a distance. It answers how much a miss from ft-AC-20mb-lo should count, given the syllable position and the written stress. The weight is a shrunk Wilson lower bound: 1 trusts the miss, and a lower weight down-weights it. Modern uses the FLEURS rows. Attic, Koine, and Erasmian use the Attic rows. There is no Koine test set. `toleranceWord` paints that weight onto `g2p` units. `ipa()` does not call either one. The design is in [TOLERANCE.md](TOLERANCE.md).
+
 ## Closeness
 
 `phone_distance` is opt-in and model-agnostic. `d`, `note`, and `advice` come from the hand-weighted feature table and a few scheme equivalences. The sourced rows in [DISTANCE_TABLE.md](DISTANCE_TABLE.md) are default off. `phone_distance_in` is how a caller turns them on, and it also takes neighbors and an optional target posterior. Without that posterior, a gated row is not a match. A learner goal (`strict`, `gracious`, `lenient`) changes only the tier and the credit.

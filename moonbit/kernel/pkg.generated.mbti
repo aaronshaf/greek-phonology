@@ -142,6 +142,48 @@ pub fn tier_worsens(Int32, Int32, Int32) -> Bool
 
 pub fn to_grave(Int32, Bool, Bool) -> Bool
 
+pub fn tol_aspirate_onset_low() -> Bool
+
+pub fn tol_band(Int32) -> Int32
+
+pub fn tol_band_lenient() -> Int32
+
+pub fn tol_band_strict() -> Int32
+
+pub fn tol_clamp(Int32) -> Int32
+
+pub fn tol_decide(Int32, Int32, Int32, Int32, Int32, Int32, Int32, Int32) -> Int32
+
+pub fn tol_decided_source(Int32) -> Int32
+
+pub fn tol_decided_weight(Int32) -> Int32
+
+pub fn tol_default_milli() -> Int32
+
+pub fn tol_defaults() -> Bool
+
+pub fn tol_length_miss_is_free(Int32) -> Bool
+
+pub fn tol_length_miss_milli() -> Int32
+
+pub fn tol_lenient_pick(Bool, Int32, Bool, Int32) -> Int32
+
+pub fn tol_min_phone() -> Int32
+
+pub fn tol_min_slice() -> Int32
+
+pub fn tol_miss_milli(Int32, Bool, Bool) -> Int32
+
+pub fn tol_shrink(Int32, Int32, Int32, Int32) -> Int32
+
+pub fn tol_shrink_k() -> Int32
+
+pub fn tol_sparse_position_backs_off() -> Bool
+
+pub fn tol_use_phone(Int32) -> Bool
+
+pub fn tol_use_slice(Int32, Int32) -> Bool
+
 pub fn tolerated_band(Int32) -> Bool
 
 pub fn ungated_rejected() -> Bool

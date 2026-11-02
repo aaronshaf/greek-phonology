@@ -142,6 +142,16 @@ export function creditBands(scale) {
 /** Rough breathing `h` (and `hː`) is optional. Pass phones as an array or a comma list. */
 export const optionalPhones = (phones) =>
   j(m.optional_phones_json(Array.isArray(phones) ? phones.join(",") : String(phones ?? "")));
+/**
+ * How much a miss of one phone should count for ft-AC-20mb-lo. Weight 1 trusts a miss fully.
+ * `position` is onset, nucleus, or coda. `stress` is stressed or unstressed. Both may be empty.
+ * Koine and Erasmian use the Attic rows. There is no Koine test set. ipa() does not call this.
+ */
+export const tolerance = (phone, scheme = "", position = "", stress = "") =>
+  j(m.tolerance_json(String(phone ?? ""), [position ?? "", stress ?? ""].join(","), scheme ?? ""));
+/** Per-letter tolerance. `heard` is space-separated IPA in target order, or empty to only colour. */
+export const toleranceWord = (text, scheme = "", heard = "") =>
+  j(m.tolerance_word_json(String(text ?? ""), scheme ?? "", heard ?? ""));
 /** Display level for a combined credit in [0, 1]. */
 export function creditLevel(combined, scale) {
   if (!scale) return j(m.credit_level_json(combined, ""));
@@ -176,4 +186,5 @@ export default {
   creditBands, optionalPhones,
   CREDIT_LEVEL_CLOSE, CREDIT_LEVEL_LIGHT, CREDIT_LEVEL_MEDIUM, CREDIT_LEVEL_CLEAR, CREDIT_LEVEL_DEEPEST,
   schemeId, distTable, detect, word, lookup, call, loadLexicon, wasmPath,
+  tolerance, toleranceWord,
 };

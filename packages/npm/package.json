@@ -1,6 +1,6 @@
 {
   "name": "greek-phonology",
-  "version": "0.4.0",
+  "version": "0.5.0",
   "description": "Ancient Greek to IPA in four pronunciation schemes, an English respelling, pronunciation-scheme detection, syllables and accents. MoonBit build (JS + Wasm), no dependencies.",
   "type": "module",
   "main": "./index.js",

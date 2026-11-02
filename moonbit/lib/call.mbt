@@ -83,6 +83,19 @@ pub fn call_json(name : String, arg : String, arg2 : String) -> String {
     }
     "credit_bands" => credit_bands_json(arg)
     "optional_phones" => optional_phones_json(arg)
+    "tolerance" => {
+      let parts = arg2.split("\u{1}").map(fn(v) { v.to_owned() }).collect()
+      let scheme = if parts.length() > 0 { parts[0] } else { "" }
+      let context = if parts.length() > 1 { parts[1] } else { "" }
+      tolerance_json(arg, context, scheme)
+    }
+    "tolerance_word" => {
+      let parts = arg2.split("\u{1}").map(fn(v) { v.to_owned() }).collect()
+      let scheme = if parts.length() > 0 { parts[0] } else { "" }
+      let heard = if parts.length() > 1 { parts[1] } else { "" }
+      tolerance_word_json(arg, scheme, heard)
+    }
+    "tolerance_meta" => tolerance_meta_json()
     "credit_level" => {
       let combined = if arg == "" {
         0.0

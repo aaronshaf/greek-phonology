@@ -110,8 +110,7 @@ test "units: diphthong, digraph, geminate, punctuation, unreadable" {
 test "units JSON matches a small word and the alts flag is opt-in" {
   let bare = @lib.g2p_json("αι", "modern")
   assert_eq(
-    bare,
-    "{\"v\":1,\"scheme\":\"modern\",\"lib\":\"0.4.0\",\"words\":[{\"text\":\"αι\",\"form\":\"αι\",\"form_used\":\"typed\",\"phones\":[\"e\"],\"units\":[{\"t\":\"αι\",\"k\":\"diph\",\"ph\":[\"e\"],\"from\":0,\"to\":2,\"restored\":false}]}]}",
+    bare, "{\"v\":1,\"scheme\":\"modern\",\"lib\":\"0.5.0\",\"words\":[{\"text\":\"αι\",\"form\":\"αι\",\"form_used\":\"typed\",\"phones\":[\"e\"],\"units\":[{\"t\":\"αι\",\"k\":\"diph\",\"ph\":[\"e\"],\"from\":0,\"to\":2,\"restored\":false}]}]}",
   )
   let flagged = @lib.g2p_json_flags("αι", "modern", "alts")
   assert_true(flagged.contains("\"alts\":[]"))

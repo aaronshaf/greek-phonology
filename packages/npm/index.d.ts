@@ -264,7 +264,10 @@ export type CallName =
   | "credit_level"
   | "credit_bands"
   | "optional_phones"
-  | "scheme_id";
+  | "scheme_id"
+  | "tolerance"
+  | "tolerance_word"
+  | "tolerance_meta";
 
 export type CallResult =
   | string
@@ -378,6 +381,91 @@ export interface CreditBand {
 export function creditBands(scale?: CreditScale): CreditBand[];
 /** Rough breathing `h` is optional. Other phones, including `pʰ`, are not. */
 export function optionalPhones(phones: string[] | string): boolean[];
+
+/** Syllable position and stress for `tolerance`. Empty strings skip that slice. */
+export interface TolContext {
+  position?: "" | "onset" | "nucleus" | "coda";
+  stress?: "" | "stressed" | "unstressed";
+}
+
+/**
+ * How much a miss of `phone` should count. `weight` is 0..=1.
+ * 1 trusts a miss fully. Lower down-weights it.
+ * `accept` lists hearings to treat as not a miss. `∅` means the model deleted the phone.
+ */
+export interface Tolerance {
+  weight: number;
+  accept: string[];
+  rung: "position" | "stress" | "position+stress" | "phone" | "class" | "default";
+  band: "lenient" | "mixed" | "strict";
+  n: number;
+  set: "attic" | "fleurs" | "";
+  model: string;
+  sha256: string;
+  data: string;
+}
+
+export interface TolPhone {
+  phone: string;
+  position: string;
+  stress: string;
+  weight: number;
+  accept: string[];
+  rung: string;
+  band: "lenient" | "mixed" | "strict";
+  /** 0 when the hearing matches or is accepted. -1 when `heard` was empty. */
+  miss: number;
+}
+
+export interface TolUnit {
+  t: string;
+  k: string;
+  from: number;
+  to: number;
+  weight: number;
+  band: "lenient" | "mixed" | "strict";
+  phones: TolPhone[];
+  group: string;
+  group_weight: number;
+  group_accept: string[];
+}
+
+export interface TolWord {
+  text: string;
+  phones: number;
+  scored: number;
+  /** Sum of miss weights, or -1 when nothing was scored. */
+  penalty: number;
+  units: TolUnit[];
+}
+
+/**
+ * Opt-in weight for one phone. Koine and Erasmian use the Attic rows.
+ * There is no Koine test set. `ipa()` does not call this.
+ */
+export function tolerance(
+  phone: string,
+  scheme?: Scheme | string,
+  position?: string,
+  stress?: string,
+): Tolerance;
+
+/**
+ * Per-letter weights for colouring, and a penalty when `heard` is set.
+ * `heard` is space-separated IPA in target-phone order. Empty only colours.
+ */
+export function toleranceWord(text: string, scheme?: Scheme | string, heard?: string): {
+  v: 1;
+  lib: string;
+  data: string;
+  version: number;
+  generated: string;
+  model: string;
+  sha256: string;
+  scheme: string;
+  koine: string;
+  words: TolWord[];
+};
 /** Short id for a page id (`koine`, `attic`, `erasmian`, `modern`) or a long id. Unknown is `""`. */
 export function schemeId(name: string): Scheme | "";
 export function distTable(scheme: Scheme | string): unknown;
@@ -392,6 +480,17 @@ export function call(name: "lookup", arg?: string, arg2?: string): LookupResult 
 export function call(name: "detect", arg?: string, arg2?: string): Detection;
 export function call(name: "check_phrase_accents", arg?: string, arg2?: string): PhraseAccentCheck[];
 export function call(name: "align_phones", arg?: string, arg2?: string): AlignTake | AlignMatrix;
+export function call(name: "tolerance", arg?: string, arg2?: string): Tolerance;
+export function call(name: "tolerance_word", arg?: string, arg2?: string): ReturnType<typeof toleranceWord>;
+export function call(name: "tolerance_meta", arg?: string, arg2?: string): {
+  data: string;
+  version: number;
+  generated: string;
+  model: string;
+  sha256: string;
+  lib: string;
+  koine: string;
+};
 export function call(name: StringCallName, arg?: string, arg2?: string): string;
 export function call(name: string, arg?: string, arg2?: string): CallResult;
 export function loadLexicon(bytes?: Uint8Array): void;
@@ -415,6 +514,8 @@ declare const _default: {
   CREDIT_LEVEL_CLEAR: number;
   CREDIT_LEVEL_DEEPEST: number;
   schemeId: typeof schemeId;
+  tolerance: typeof tolerance;
+  toleranceWord: typeof toleranceWord;
   distTable: typeof distTable;
   detect: typeof detect;
   word: typeof word;
