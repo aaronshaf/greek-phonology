@@ -15,6 +15,7 @@ options(
       "exports": [
         "detect_json",
         "ipa",
+        "respell",
         "g2p_json",
         "g2p_json_flags",
         "phone_distance_json",

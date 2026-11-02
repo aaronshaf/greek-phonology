@@ -156,6 +156,8 @@ pub fn remove_numbers(String) -> String
 
 pub fn remove_punctuation(String) -> String
 
+pub fn respell(String, String) -> String
+
 pub fn scheme_id(String) -> String
 
 pub let schemes : Array[String]

@@ -1,6 +1,6 @@
 name = "aaronshaf/greek-phonology"
 
-version = "0.3.2"
+version = "0.4.0"
 
 readme = "README.md"
 
@@ -8,6 +8,6 @@ license = "MIT"
 
 keywords = [ "greek", "ipa", "pronunciation", "phonology" ]
 
-description = "Ancient Greek to IPA in four pronunciation schemes, scheme detection, syllables and accents"
+description = "Ancient Greek to IPA in four pronunciation schemes, English respelling, scheme detection, syllables and accents"
 
 preferred_target = "wasm"

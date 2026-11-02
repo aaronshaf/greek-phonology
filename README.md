@@ -2,7 +2,7 @@
 
 [![npm](https://img.shields.io/npm/v/greek-phonology)](https://www.npmjs.com/package/greek-phonology)
 
-greek-phonology helps you work with how Ancient Greek sounds. It turns Greek text into IPA under four pronunciation schemes (Modern, Koine, restored Attic, Erasmian), and guesses which scheme a speaker used from their IPA. It also splits words into syllables, checks and places accents, and looks words up in a built-in New Testament and Septuagint word list. It is written in [MoonBit](https://www.moonbitlang.com) and ships as WebAssembly and JavaScript, with no server and no dependencies. Try it in the [playground](https://aaronshaf.github.io/greek-phonology/).
+greek-phonology helps you work with how Ancient Greek sounds. It turns Greek text into IPA under four pronunciation schemes (Modern, Koine, restored Attic, Erasmian), spells that reading in English syllables, and guesses which scheme a speaker used from their IPA. It also splits words into syllables, checks and places accents, and looks words up in a built-in New Testament and Septuagint word list. It is written in [MoonBit](https://www.moonbitlang.com) and ships as WebAssembly and JavaScript, with no server and no dependencies. Try it in the [playground](https://aaronshaf.github.io/greek-phonology/).
 
 ## Install
 
@@ -15,8 +15,9 @@ npm install greek-phonology
 JavaScript (ESM, Node 18+):
 
 ```js
-import { ipa, detect, call, loadLexicon, lookup } from "greek-phonology";
+import { ipa, respell, detect, call, loadLexicon, lookup } from "greek-phonology";
 ipa("ἐν ἀρχῇ ἦν ὁ λόγος", "koine");       // "ɛ n | a r kʰ e | e n | o | l o ɣ o s"
+respell("ἄρτος", "koine");                // "AR-tos"
 detect("e n | a r x i").probs;             // { modern: …, koine: …, attic: …, erasmian: … }
 call("accentuate_verb", "λυομεν");         // "λύομεν"
 loadLexicon(); lookup("λογος").form;       // "λόγος"
@@ -47,7 +48,8 @@ Every function below can be called through `call(name, arg, arg2)`. The most com
 
 **Pronunciation**
 - `ipa(text, scheme)`: Greek to IPA. Phones are separated by spaces and words by `|`. `ipa("θεός", "attic")` → `tʰ e o s`. Attic follows Allen's 4th-century target (ου [uː], length shown where the spelling marks it, geminates as Cː), Erasmian χ is [x], and Modern voices σ to [z] before β γ δ μ ν λ ρ. Koine word-final αυ/ευ/ηυ is [v]; before a voiceless consonant it is [f], and medial before a vowel or voiced consonant it stays [β]. See [docs/RESEARCH.md](docs/RESEARCH.md).
-- `g2p(text, scheme, flags?)`: the same phones, plus one unit per grapheme. Concatenating `units[].t` gives the typed word back. `restored` is true when a phone used a mark the user did not type. Flags are a comma list: `alts` adds tolerated hearings, `ctx` voices word-final αυ/ευ/ηυ from the next word. Both are off by default, and neither changes `ipa()`. Wasm command 6. `g2p("αι", "modern")` → `{v:1, scheme:"modern", lib:"0.3.2", words:[{text:"αι", phones:["e"], units:[{t:"αι", k:"diph", ph:["e"], …}]}]}`.
+- `respell(text, scheme)`: the same reading, spelled for someone who does not read IPA. Syllables are joined with hyphens and the accented syllable is in capitals. `respell("ἄρτος", "koine")` → `AR-tos`. `respell("Ἐν ἀρχῇ ἦν ὁ λόγος", "koine")` → `en ar-KHAY AYN o LO-ghos`. Spaces and punctuation stay where they are, including `,` `.` `;` and `·`. Spellings follow the `say` labels (`th`, `kh`, `ee`, `oo`, `ay`, `gh`), shortened where the label is a description (`ah` is `a`, a rolled r is `r`, `k + puff` is `kh`). Koine η is `ay` and ει is `ee`, because those are the sounds `ipa()` uses. Vowel length is not marked. An unknown character is copied. An unknown scheme returns `""`.
+- `g2p(text, scheme, flags?)`: the same phones, plus one unit per grapheme. Concatenating `units[].t` gives the typed word back. `restored` is true when a phone used a mark the user did not type. Flags are a comma list: `alts` adds tolerated hearings, `ctx` voices word-final αυ/ευ/ηυ from the next word. Both are off by default, and neither changes `ipa()`. Wasm command 6. `g2p("αι", "modern")` → `{v:1, scheme:"modern", lib:"0.4.0", words:[{text:"αι", phones:["e"], units:[{t:"αι", k:"diph", ph:["e"], …}]}]}`.
 - `phoneDistance(target, heard, scheme?, goal?)`: graded distance between one target phone and one heard phone, for any recognizer's IPA. `goal` is `strict`, `gracious` (default), or `lenient`. It changes `tier` and `sim` only; `d`, `note`, and `advice` stay put. Tiers are `accurate`, `tolerated`, and `not-a-match`. Unknown phones return `not-a-match` and do not throw. This call stays on the hand-weighted feature table. Sourced rows, including the policy rows, are default off; see [docs/DISTANCE_TABLE.md](docs/DISTANCE_TABLE.md). `phoneDistanceIn` is the opt-in. It takes `left,right,right2,place,posterior` when a row needs neighbors or a confidence gate. With no posterior, a gated row is not a match.
 - `phoneCredit(target, scheme, goal, posterior)`: credit for a comma list of `phone=weight` pairs. An exact hit outranks a near miss, and nothing outside the tolerated tier scores.
 - `hearingCredit(target, posterior, scheme?, goal?)`: the same numbers as `phoneCredit`, plus the note for the best alternate. `posterior` may be the `phone=weight` list or a candidate array (`{phone, p}`, `{phone, probability}`, or `[phone, probability]`).
@@ -120,7 +122,7 @@ Parity tests compare the library with the original TypeScript (its outputs are f
 
 ## Versioning
 
-`moonbit/moon.mod` and the npm package `greek-phonology` use the same version number. Published npm releases are 0.1.0 (2026-10-22 18:08Z) and 0.2.0 (2026-10-22 20:05Z). The working tree is 0.3.2 and has not been published; see [CHANGELOG.md](CHANGELOG.md). This repository has no git tags. Creating tags is a separate push and is not done from documentation changes. The proved-goal count is not a version: `moon prove` on your machine prints whatever MoonBit and Z3 you installed.
+`moonbit/moon.mod` and the npm package `greek-phonology` use the same version number. Published npm releases are 0.1.0 (2026-10-22 18:08Z) and 0.2.0 (2026-10-22 20:05Z). The working tree is 0.4.0 and has not been published; see [CHANGELOG.md](CHANGELOG.md). This repository has no git tags. Creating tags is a separate push and is not done from documentation changes. The proved-goal count is not a version: `moon prove` on your machine prints whatever MoonBit and Z3 you installed.
 
 ## Check locally
 

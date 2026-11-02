@@ -46,6 +46,8 @@ pub fn phone_distance_in_json(String, String, String, String, String) -> String
 
 pub fn phone_distance_json(String, String, String, String) -> String
 
+pub fn respell(String, String) -> String
+
 pub fn run(Int32) -> Int32
 
 pub fn run_str(Int32, String, String) -> String

@@ -145,6 +145,12 @@ pub fn ipa(text : String, scheme : String) -> String {
 }
 
 ///|
+/// English-friendly respelling. Syllables are hyphenated and the accented syllable is capitalized.
+pub fn respell(text : String, scheme : String) -> String {
+  @lib.respell(text, scheme)
+}
+
+///|
 /// Grapheme units for `text` in `scheme`.
 pub fn g2p_json(text : String, scheme : String) -> String {
   run_str(6, text, scheme)

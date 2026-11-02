@@ -6,6 +6,8 @@ const m = require("./greek-phonology.cjs");
 const j = (s) => JSON.parse(s);
 /** Greek text to space-separated IPA in one scheme. */
 export const ipa = (text, scheme) => m.ipa(text, scheme);
+/** English-friendly respelling. Hyphenated syllables; the accented syllable is in capitals. */
+export const respell = (text, scheme) => m.respell(text, scheme);
 /** Grapheme units for one reading. flags is a comma list: "alts", "ctx". Both default off. */
 export const g2p = (text, scheme, flags = "") => j(m.g2p_json_flags(text, scheme, flags));
 /** Graded distance between a target phone and a heard phone. goal: strict | gracious | lenient. */
@@ -169,7 +171,7 @@ export function loadLexicon(bytes = readFileSync(new URL("./greek-phonology-lexi
 }
 export const wasmPath = new URL("./greek-phonology.wasm", import.meta.url);
 export default {
-  ipa, g2p, phoneDistance, phoneCredit, hearingCredit, unitHearingCredit, alignPhonesJson,
+  ipa, respell, g2p, phoneDistance, phoneCredit, hearingCredit, unitHearingCredit, alignPhonesJson,
   alignSetPost, alignClearPost, creditLevel,
   creditBands, optionalPhones,
   CREDIT_LEVEL_CLOSE, CREDIT_LEVEL_LIGHT, CREDIT_LEVEL_MEDIUM, CREDIT_LEVEL_CLEAR, CREDIT_LEVEL_DEEPEST,

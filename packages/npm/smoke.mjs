@@ -1,12 +1,20 @@
 // Local smoke test for the built package. Not part of the published file list.
 import assert from "node:assert/strict";
 import {
-  ipa, g2p, phoneDistance, phoneCredit, hearingCredit, unitHearingCredit, alignPhonesJson, creditLevel,
+  ipa, respell, g2p, phoneDistance, phoneCredit, hearingCredit, unitHearingCredit, alignPhonesJson, creditLevel,
   CREDIT_LEVEL_CLOSE, CREDIT_LEVEL_LIGHT, CREDIT_LEVEL_MEDIUM, CREDIT_LEVEL_CLEAR, CREDIT_LEVEL_DEEPEST,
   schemeId, distTable, detect, call, loadLexicon, lookup, word,
 } from "./index.js";
 
 assert.equal(ipa("θεός", "attic"), "tʰ e o s");
+assert.equal(respell("ἄρτος", "koine"), "AR-tos");
+assert.equal(respell("λόγος", "koine"), "LO-ghos");
+assert.equal(respell("θεός", "koine"), "the-OS");
+assert.equal(respell("ἀγάπη", "koine"), "a-GHA-pay");
+assert.equal(respell("Ἐν ἀρχῇ ἦν ὁ λόγος", "koine"), "en ar-KHAY AYN o LO-ghos");
+assert.equal(respell("ἄρτος, λόγος.", "koine"), "AR-tos, LO-ghos.");
+assert.equal(respell("ἄρτος", "nope"), "");
+assert.equal(respell("hello", "koine"), "hello");
 const units = g2p("αι", "modern");
 assert.equal(units.v, 1);
 assert.equal(units.words[0].units.map((u) => u.t).join(""), "αι");

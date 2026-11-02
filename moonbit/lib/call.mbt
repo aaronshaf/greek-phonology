@@ -36,6 +36,7 @@ pub fn call_json(name : String, arg : String, arg2 : String) -> String {
     "syllabify" => syllabify_json(arg)
     "word" => word_json(arg)
     "ipa" => jstr(ipa(arg, arg2))
+    "respell" => jstr(respell(arg, arg2))
     "g2p_json" => {
       let parts = arg2.split("\u{1}").map(fn(v) { v.to_owned() }).collect()
       let scheme = if parts.length() > 0 && parts[0] != "" { parts[0] } else { "" }

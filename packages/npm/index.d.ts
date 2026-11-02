@@ -143,7 +143,8 @@ export type StringCallName =
   | "lexical_phrase"
   | "verb_stem"
   | "augmentize"
-  | "ipa";
+  | "ipa"
+  | "respell";
 
 export type BoolCallName =
   | "contains_circumflex"
@@ -284,6 +285,12 @@ export type CallResult =
   | null;
 
 export function ipa(text: string, scheme: Scheme | string): string;
+/**
+ * English-friendly pronunciation. Syllables are joined by hyphens and the
+ * accented syllable is in capitals. `respell("ἄρτος", "koine")` is `"AR-tos"`.
+ * Spaces and punctuation stay in place. An unknown scheme returns `""`.
+ */
+export function respell(text: string, scheme: Scheme | string): string;
 /** Units that tile `text`. `flags` is a comma list; `alts` and `ctx` are opt-in and default off. */
 export function g2p(text: string, scheme: Scheme | string, flags?: string): G2pResult;
 /** `goal` changes tier and sim only. Empty `goal` is gracious. */
@@ -392,6 +399,7 @@ export const wasmPath: URL;
 
 declare const _default: {
   ipa: typeof ipa;
+  respell: typeof respell;
   g2p: typeof g2p;
   phoneDistance: typeof phoneDistance;
   phoneCredit: typeof phoneCredit;
