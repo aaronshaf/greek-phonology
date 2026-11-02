@@ -6,7 +6,7 @@ const m = require("./greek-phonology.cjs");
 const j = (s) => JSON.parse(s);
 /** Greek text to space-separated IPA in one scheme. */
 export const ipa = (text, scheme) => m.ipa(text, scheme);
-/** English-friendly respelling. Hyphenated syllables; the accented syllable is in capitals. */
+/** English-friendly respelling. Hyphenated syllables; each accented syllable is in capitals. */
 export const respell = (text, scheme) => m.respell(text, scheme);
 /** Grapheme units for one reading. flags is a comma list: "alts", "ctx". Both default off. */
 export const g2p = (text, scheme, flags = "") => j(m.g2p_json_flags(text, scheme, flags));

@@ -60,6 +60,8 @@ pub fn argmax4(Int64, Int64, Int64, Int64) -> Int32
 
 pub fn contract_core(FixedArray[Int32], FixedArray[Int32], Int32, FixedArray[Int32], Int32, FixedArray[Int32]) -> Int32
 
+pub fn copy_code(Int32) -> Int32
+
 pub fn credit_level_rank(Int32, Int32, Int32, Int32, Int32, Int32) -> Int32
 
 pub fn decoded_pos(Int32, Int32) -> Int32
@@ -114,6 +116,8 @@ pub fn recessive_pos(Int32, Bool) -> Int32
 
 pub fn render_marks(FixedArray[Int32], Int32, Int32, FixedArray[Int32]) -> Int32
 
+pub fn respell_take(Bool, Bool, Bool) -> Bool
+
 pub fn round_trip_ordinary(FixedArray[Int32], Int32, Int32, Int32, FixedArray[Int32], FixedArray[Int32]) -> Int32
 
 pub fn share(Int64, Int64, Int64) -> Int64
@@ -124,7 +128,11 @@ pub fn stop_class(Int32) -> Int32
 
 pub fn strict_accepts_implies_looser(Int32) -> Bool
 
+pub fn syllable_caps(Int32) -> Bool
+
 pub fn syllable_cut(FixedArray[Int32], Int32, Int32, Int32) -> Int32
+
+pub fn syllable_hyphens(Int32) -> Int32
 
 pub fn tally_hit(Int32, Int32, Bool) -> Int32
 

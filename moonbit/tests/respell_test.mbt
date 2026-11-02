@@ -64,30 +64,80 @@ test "respell golden: twenty koine words and John 1:1" {
 }
 
 ///|
-test "the capital syllable is the accent word() reports" {
+/// Capital syllables are exactly the written accents (0, 1, or 2).
+test "capital syllables match accented_syllables" {
   let words = [
-    "ἄρτος", "λόγος", "θεός", "ἀγάπη", "ἄνθρωπος",
-    "εὖ", "τις", "ἐν", "θεὸς", "πνεῦμα", "μαθητής", "καὶ",
-    "πρὸς",
+    "ἄρτος", "λόγος", "θεός", "ἀγάπη", "ἄνθρωπος", "ἄνθρωπός",
+    "εὖ", "τις", "ἐν", "ὁ", "μου", "θεὸς", "πνεῦμα", "μαθητής",
+    "καὶ", "πρὸς", "σῶμά", "σῶμα",
   ]
   for w in words {
     let spelled = @lib.respell(w, "koine")
     let parts = spelled.split("-").map(fn(v) { v.to_owned() }).collect()
     let n = @lib.syllabify(w).length()
+    let marks = @lib.accented_syllables(w)
     assert_eq(parts.length(), n, msg=w + " " + spelled)
-    match @lib.accent(w) {
-      Some((pos, _)) => {
-        let stress = n - pos
-        for i, p in parts {
-          if i == stress {
-            assert_true(all_caps(p), msg=w + " " + spelled)
-          } else {
-            assert_false(any_caps(p), msg=w + " " + spelled)
-          }
-        }
+    assert_true(marks.length() <= 2, msg=w)
+    for i, p in parts {
+      if marks.contains(i) {
+        assert_true(all_caps(p), msg=w + " " + spelled)
+      } else {
+        assert_false(any_caps(p), msg=w + " " + spelled)
       }
-      None => assert_false(any_caps(spelled), msg=w + " " + spelled)
     }
+    match @lib.accent(w) {
+      Some((pos, _)) => assert_true(marks.contains(n - pos), msg=w)
+      None => assert_eq(marks.length(), 0, msg=w)
+    }
+  }
+  assert_eq(@lib.accented_syllables("ἄνθρωπός"), [0, 2])
+  assert_eq(@lib.accented_syllables("τις"), [])
+  assert_eq(@lib.accented_syllables("μου"), [])
+  assert_eq(@lib.accented_syllables("ἐν"), [])
+  assert_eq(@lib.respell("ἄνθρωπός τις", "koine"), "AN-thro-POS tees")
+  assert_eq(@lib.respell("σῶμά μου", "koine"), "SO-MA moo")
+  assert_eq(@lib.respell("τις", "koine"), "tees")
+  assert_eq(@lib.respell("μου", "koine"), "moo")
+  assert_eq(@lib.respell("ἐν", "koine"), "en")
+  assert_eq(@lib.respell("ὁ", "koine"), "o")
+}
+
+///|
+test "separators stay in place and every input returns a string" {
+  let copies = ["", " ", ", ", ".\n", "hello ", "🙂", "()", "\t", "123", "·", ";"]
+  let words = ["ἄρτος", "λόγος", "τις", "ἐν", "ἄνθρωπός", "μου"]
+  for c in copies {
+    assert_eq(@lib.respell(c, "koine"), c, msg=c)
+    for w in words {
+      let mid = @lib.respell(w, "koine")
+      assert_eq(@lib.respell(c + w, "koine"), c + mid, msg=c + w)
+      assert_eq(@lib.respell(w + c, "koine"), mid + c, msg=w + c)
+      assert_eq(@lib.respell(c + w + c, "koine"), c + mid + c, msg=c)
+    }
+  }
+  assert_eq(
+    @lib.respell("ἄρτος, λόγος.", "koine"),
+    @lib.respell("ἄρτος", "koine") + ", " + @lib.respell("λόγος", "koine") + ".",
+  )
+  let bits = [
+    "ἄ", "ρ", "τος", " ", ",", ".", "·", ";", "🙂", "a", "1", "\n", "\t", "ἐν",
+    "τις",
+  ]
+  let mut i = 0
+  while i < 40 {
+    let mut s = ""
+    let mut k = 0
+    while k < 8 {
+      let n = (i * 3 + k * 5) % bits.length()
+      s = s + bits[n]
+      k = k + 1
+    }
+    for scheme in @lib.schemes {
+      ignore(@lib.respell(s, scheme))
+    }
+    ignore(@lib.respell(s, "nope"))
+    ignore(@lib.respell(s, ""))
+    i = i + 1
   }
 }
 

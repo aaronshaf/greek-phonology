@@ -10,7 +10,7 @@ The library is the place for letter-to-sound, closeness, and alignment. A playgr
 
 ## Letter to sound
 
-`ipa(text, scheme)` is the stable surface. Four schemes. Grapheme units (`g2p`) tile the typed word and can attach curated alternates (`alts`) or cross-word voicing (`ctx`). Both flags default off and do not change `ipa()`. `respell(text, scheme)` spells that same reading for an English reader: hyphens from `syllabify`, capitals from the accent `word()` reports, and `g2p` phones written from `phone_label`'s `say`. It does not change `ipa()`.
+`ipa(text, scheme)` is the stable surface. Four schemes. Grapheme units (`g2p`) tile the typed word and can attach curated alternates (`alts`) or cross-word voicing (`ctx`). Both flags default off and do not change `ipa()`. `respell(text, scheme)` spells that same reading for an English reader: hyphens from `syllabify`, every written accent (`accented_syllables`) in capitals, and `g2p` phones written from `phone_label`'s `say`. Copying a character and capitalizing a syllable go through proved kernel decisions. It does not change `ipa()`.
 
 ## Closeness
 

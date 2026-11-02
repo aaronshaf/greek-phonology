@@ -18,7 +18,9 @@
 // in y, so [eɪ] is "ay" and not "ayi". [u] ("oo") and [i] ("ee") after a vowel
 // letter are written "u" and "i", so αυ and αι read "au" and "ai". A geminate
 // phone that sits on a syllable break is written on both sides, so attic
-// θάλασσα is THA-las-sa.
+// θάλασσα is THA-las-sa. Every written accent is capitalized, so a host word
+// before an enclitic (ἄνθρωπός) has two capital syllables and an unaccented
+// enclitic or proclitic has none.
 //
 // Spaces and punctuation are copied, including comma, period, `;`, `·`, and
 // the Greek question mark. A character this library cannot read is copied.
@@ -130,23 +132,17 @@ fn is_greek_letter(c : Char) -> Bool {
 }
 
 ///|
-fn is_word_cont(c : Char) -> Bool {
-  is_greek_letter(c) || is_comb(c)
-}
-
-///|
-fn stress_index(word : String, n : Int32) -> Int32 {
-  match accent(word) {
-    Some((pos, _)) => {
-      let i = n - pos
-      if i >= 0 && i < n {
-        i
-      } else {
-        -1
-      }
-    }
-    None => -1
+fn accent_flags(word : String, n : Int32) -> Array[Int32] {
+  let flags : Array[Int32] = []
+  for _ in 0..<n {
+    flags.push(0)
   }
+  for i in accented_syllables(word) {
+    if i >= 0 && i < n {
+      flags[i] = 1
+    }
+  }
+  flags
 }
 
 ///|
@@ -252,18 +248,21 @@ fn place_phones(
 }
 
 ///|
-fn join_stressed(parts : Array[String], stress : Int32) -> String {
+fn join_stressed(parts : Array[String], flags : Array[Int32]) -> String {
   let sb = StringBuilder()
-  let mut any = false
+  let mut shown : Int32 = 0
   for i, p in parts {
     if p == "" {
       continue
     }
-    if any {
+    let before = @kernel.syllable_hyphens(shown)
+    let after = @kernel.syllable_hyphens(shown + 1)
+    if after > before {
       sb.write_char('-')
     }
-    any = true
-    if i == stress {
+    shown = shown + 1
+    let flag = if i >= 0 && i < flags.length() { flags[i] } else { 0 }
+    if @kernel.syllable_caps(flag) {
       sb.write_string(up_ascii(p))
     } else {
       sb.write_string(p)
@@ -284,14 +283,13 @@ fn spell_all(phones : Array[String]) -> String {
 ///|
 fn fallback_spell(
   phones : Array[String],
-  n : Int32,
-  stress : Int32,
+  flags : Array[Int32],
   word : String,
 ) -> String {
   let s = spell_all(phones)
   if s == "" {
     word
-  } else if n == 1 && stress == 0 {
+  } else if flags.length() == 1 && @kernel.syllable_caps(flags[0]) {
     up_ascii(s)
   } else {
     s
@@ -342,17 +340,17 @@ fn spell_from_units(
   units : Array[G2pUnit],
   phones : Array[String],
 ) -> String {
-  let stress = stress_index(word, syls.length())
+  let flags = accent_flags(word, syls.length())
   match aligned_parts(syls, units) {
     Some(parts) => {
-      let joined = join_stressed(parts, stress)
+      let joined = join_stressed(parts, flags)
       if joined == "" {
         word
       } else {
         joined
       }
     }
-    None => fallback_spell(phones, syls.length(), stress, word)
+    None => fallback_spell(phones, flags, word)
   }
 }
 
@@ -375,8 +373,9 @@ fn respell_word(word : String, scheme : String) -> String {
 
 ///|
 /// English-friendly pronunciation of `text` in `scheme`.
-/// Syllables are hyphenated and the accented syllable is in capitals.
-/// `respell("ἄρτος", "koine")` is `AR-tos`. Spaces and punctuation stay put.
+/// Syllables are hyphenated and every accented syllable is in capitals
+/// (none, one, or two). `respell("ἄρτος", "koine")` is `AR-tos`.
+/// Spaces and punctuation stay put.
 /// An unknown scheme returns "". Unknown characters are copied and do not throw.
 pub fn respell(text : String, scheme : String) -> String {
   if scheme_index(scheme) < 0 {
@@ -386,7 +385,7 @@ pub fn respell(text : String, scheme : String) -> String {
   let word = StringBuilder()
   let mut in_word = false
   for c in text {
-    if (in_word && is_word_cont(c)) || (!in_word && is_greek_letter(c)) {
+    if @kernel.respell_take(in_word, is_greek_letter(c), is_comb(c)) {
       word.write_char(c)
       in_word = true
     } else {
@@ -395,7 +394,7 @@ pub fn respell(text : String, scheme : String) -> String {
         word.reset()
         in_word = false
       }
-      sb.write_char(c)
+      sb.write_char(Int32::unsafe_to_char(@kernel.copy_code(c.to_int())))
     }
   }
   if in_word {
@@ -499,13 +498,13 @@ test "syllable joining shortens an offglide and keeps a consonant oo" {
   assert_eq(cat_spell("", "s"), "s")
   assert_eq(cat_spell("la", ""), "la")
   assert_eq(up_ascii("a1-b"), "A1-B")
-  assert_eq(join_stressed(["a", "", "tos"], 2), "a-TOS")
-  assert_eq(join_stressed(["", ""], -1), "")
-  assert_eq(stress_index("ἄρτος", 1), -1)
-  assert_eq(stress_index("τις", 1), -1)
-  assert_eq(fallback_spell([], 1, 0, "x"), "x")
-  assert_eq(fallback_spell(["a"], 1, 0, "α"), "A")
-  assert_eq(fallback_spell(["a", "o"], 2, 0, "αο"), "ao")
+  assert_eq(join_stressed(["a", "", "tos"], [0, 0, 1]), "a-TOS")
+  assert_eq(join_stressed(["an", "thro", "pos"], [1, 0, 1]), "AN-thro-POS")
+  assert_eq(join_stressed(["", ""], []), "")
+  assert_eq(accented_syllables("τις"), [])
+  assert_eq(fallback_spell([], [], "x"), "x")
+  assert_eq(fallback_spell(["a"], [1], "α"), "A")
+  assert_eq(fallback_spell(["a", "o"], [1, 0], "αο"), "ao")
 }
 
 ///|

@@ -6,6 +6,8 @@ pub fn accent(String) -> (Int32, String)?
 
 pub fn accent_ok(String) -> Bool?
 
+pub fn accented_syllables(String) -> Array[Int32]
+
 pub fn accentuate_last_vowel(String) -> String
 
 pub fn accentuate_phrase(String) -> String

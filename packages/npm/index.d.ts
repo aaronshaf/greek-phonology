@@ -286,9 +286,9 @@ export type CallResult =
 
 export function ipa(text: string, scheme: Scheme | string): string;
 /**
- * English-friendly pronunciation. Syllables are joined by hyphens and the
- * accented syllable is in capitals. `respell("ἄρτος", "koine")` is `"AR-tos"`.
- * Spaces and punctuation stay in place. An unknown scheme returns `""`.
+ * English-friendly pronunciation. Syllables are joined by hyphens and every
+ * accented syllable is in capitals (none, one, or two). `respell("ἄρτος", "koine")`
+ * is `"AR-tos"`. Spaces and punctuation stay in place. An unknown scheme returns `""`.
  */
 export function respell(text: string, scheme: Scheme | string): string;
 /** Units that tile `text`. `flags` is a comma list; `alts` and `ctx` are opt-in and default off. */

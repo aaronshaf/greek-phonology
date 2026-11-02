@@ -227,6 +227,7 @@ const TOOLS = [
   ["extract_consonant_clusters", "Consonant clusters at the start of words in a text.", "στρατος κτισις πλοιον"],
   ["lookup", "Looks a word up in the NT/LXX word list (ignores case and accents if needed).", "λογος"],
   ["ipa", "Greek text → IPA in a chosen pronunciation.", "εὐαγγέλιον τοῦ θεοῦ", SCHEME_OPTS],
+  ["respell", "English spelling of that reading. Hyphens split syllables, and each accented syllable is in capitals. Koine ἄρτος is AR-tos. A second accent is capitalized too.", "ἄνθρωπός τις", SCHEME_OPTS],
   ["detect", "Which pronunciation does this IPA sound like? (without the Greek text)", "e v a ŋ ɟ e l i o n"],
 ];
 const item = (lab, val, cls = "") => `<div class="it">${lab ? `<span class="lab">${esc(lab)}</span>` : ""}<span class="${cls}">${val}</span></div>`;

@@ -26,7 +26,23 @@ fn syl_marks(word : String) -> Array[(Array[Char], String)] {
 }
 
 ///|
+/// Syllable indexes from the start that carry an acute, grave, or circumflex.
+/// The phrase rules write 0, 1, or 2 of these. `accent` / `word` report the first.
+pub fn accented_syllables(word : String) -> Array[Int32] {
+  let sm = syl_marks(word)
+  let out : Array[Int32] = []
+  for i, x in sm {
+    let m = x.0
+    if m.contains(acute) || m.contains(grave) || m.contains(circ) {
+      out.push(i)
+    }
+  }
+  out
+}
+
+///|
 /// Written accent: (position from the end, 1 = ultima; kind), or None.
+/// This is the first accent. A second accent, when an enclitic follows, is in `accented_syllables`.
 pub fn accent(word : String) -> (Int32, String)? {
   let sm = syl_marks(word)
   for i, x in sm {

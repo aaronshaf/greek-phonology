@@ -161,3 +161,18 @@ predicate zero_except(a : FixedArray[Int], u : Int, n : Int) {
 predicate same_all(a : FixedArray[Int], b : FixedArray[Int], n : Int) {
   ∀ j : Int, (j < 0) || (n <= j) || (a[j] == b[j])
 }
+
+/// Whether respell consumes this code point into the current word.
+/// A Greek letter is always consumed. A combining mark is consumed only inside a word.
+/// Anything else (space, punctuation, an unknown character) is copied.
+fn respell_take_spec(in_word : Bool, greek : Bool, comb : Bool) -> Bool {
+  if greek {
+    true
+  } else {
+    if in_word {
+      comb
+    } else {
+      false
+    }
+  }
+}
