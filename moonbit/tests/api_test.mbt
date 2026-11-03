@@ -27,6 +27,22 @@ test "run_str commands 0, 1, 2, 4, 5 and 6" {
     "\"ανθρωπος\"",
   )
   assert_eq(@api.run_str(5, "ipa", "θεός\u{1}attic"), "\"tʰ e o s\"")
+  // arg2 keeps every \u{1} piece. Dropping the tail would score this as gracious.
+  assert_true(
+    @api.run_str(5, "phone_distance", "ð\u{1}d\u{1}\u{1}strict").contains(
+      "\"tier\":\"not-a-match\"",
+    ),
+  )
+  assert_true(
+    @api.run_str(5, "tolerance", "tʰ\u{1}attic\u{1}onset,").contains(
+      "\"weight\":0.004",
+    ),
+  )
+  assert_true(
+    @api.run_str(5, "tolerance_word", "θεός\u{1}attic\u{1}x e o s").contains(
+      "\"penalty\":0.004",
+    ),
+  )
   let g = @api.run_str(6, "θεός", "attic")
   assert_true(g.has_prefix("{\"v\":1,\"scheme\":\"attic\""))
   assert_true(g.contains("\"phones\":[\"tʰ\",\"e\",\"o\",\"s\"]"))

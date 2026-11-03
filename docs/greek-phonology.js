@@ -3209,8 +3209,8 @@ const _M0FP39aaronshaf17greek_2dphonology3lib10call__jsonN6recordS8461 = new _M0
 const _M0FP39aaronshaf17greek_2dphonology3lib10call__jsonN6recordS8462 = new _M0TPC16string10StringView("\u0001", 0, 1);
 const _M0FP39aaronshaf17greek_2dphonology3lib10call__jsonN6recordS8463 = new _M0TPC16string10StringView("\u0001", 0, 1);
 const _M0FP39aaronshaf17greek_2dphonology3lib10call__jsonN6recordS8464 = new _M0TPC16string10StringView("\u0001", 0, 1);
-const _M0FP39aaronshaf17greek_2dphonology3api8run__strN6recordS8536 = new _M0TPC16string10StringView("\u0001", 0, 1);
-const _M0FP39aaronshaf17greek_2dphonology3api8run__strN6recordS8537 = new _M0TPC16string10StringView("\u0001", 0, 1);
+const _M0FP39aaronshaf17greek_2dphonology3api8run__strN6recordS8540 = new _M0TPC16string10StringView("\u0001", 0, 1);
+const _M0FP39aaronshaf17greek_2dphonology3api8run__strN6recordS8541 = new _M0TPC16string10StringView("\u0001", 0, 1);
 function _M0MPC16string6String12unsafe__view(self, start, end) {
   return new _M0TPC16string10StringView(self, start, end);
 }
@@ -25476,6 +25476,26 @@ function _M0FP39aaronshaf17greek_2dphonology3api12utf8__encode(s) {
     }
   }
 }
+function _M0FP39aaronshaf17greek_2dphonology3api10join__tail(parts) {
+  if (parts.length <= 1) {
+    return "";
+  }
+  const sb = _M0MPB13StringBuilder21StringBuilder_2einner(8);
+  let i = 1;
+  while (true) {
+    if (i < parts.length) {
+      if (i > 1) {
+        _M0IPB13StringBuilderPB6Logger13write__string(sb, "\u0001");
+      }
+      _M0IPB13StringBuilderPB6Logger13write__string(sb, _M0MPC15array5Array2atGUicEE(parts, i));
+      i = i + 1 | 0;
+      continue;
+    } else {
+      break;
+    }
+  }
+  return sb.val;
+}
 function _M0FP39aaronshaf17greek_2dphonology3api8run__str(cmd, a0, a1) {
   switch (cmd) {
     case 0: {
@@ -25488,11 +25508,12 @@ function _M0FP39aaronshaf17greek_2dphonology3api8run__str(cmd, a0, a1) {
       return _M0FP39aaronshaf17greek_2dphonology3lib12lookup__json(a0);
     }
     case 5: {
-      const parts = _M0MPB4Iter9to__arrayGsE(_M0MPB4Iter3mapGRPC16string10StringViewsE(_M0MPC16string6String5split(a1, _M0FP39aaronshaf17greek_2dphonology3api8run__strN6recordS8536), (v) => _M0MPC16string10StringView9to__owned(v)));
-      return _M0FP39aaronshaf17greek_2dphonology3lib10call__json(a0, _M0MPC15array5Array2atGUicEE(parts, 0), parts.length > 1 ? _M0MPC15array5Array2atGUicEE(parts, 1) : "");
+      const parts = _M0MPB4Iter9to__arrayGsE(_M0MPB4Iter3mapGRPC16string10StringViewsE(_M0MPC16string6String5split(a1, _M0FP39aaronshaf17greek_2dphonology3api8run__strN6recordS8540), (v) => _M0MPC16string10StringView9to__owned(v)));
+      const arg = parts.length > 0 ? _M0MPC15array5Array2atGUicEE(parts, 0) : "";
+      return _M0FP39aaronshaf17greek_2dphonology3lib10call__json(a0, arg, _M0FP39aaronshaf17greek_2dphonology3api10join__tail(parts));
     }
     case 6: {
-      const parts$2 = _M0MPB4Iter9to__arrayGsE(_M0MPB4Iter3mapGRPC16string10StringViewsE(_M0MPC16string6String5split(a1, _M0FP39aaronshaf17greek_2dphonology3api8run__strN6recordS8537), (v) => _M0MPC16string10StringView9to__owned(v)));
+      const parts$2 = _M0MPB4Iter9to__arrayGsE(_M0MPB4Iter3mapGRPC16string10StringViewsE(_M0MPC16string6String5split(a1, _M0FP39aaronshaf17greek_2dphonology3api8run__strN6recordS8541), (v) => _M0MPC16string10StringView9to__owned(v)));
       const scheme = parts$2.length > 0 ? _M0MPC15array5Array2atGUicEE(parts$2, 0) : "";
       const flags = parts$2.length > 1 ? _M0MPC15array5Array2atGUicEE(parts$2, 1) : "";
       return _M0FP39aaronshaf17greek_2dphonology3lib16g2p__json__flags(a0, scheme, flags);

@@ -8,6 +8,69 @@ let inbuf : Array[Int32] = []
 let outbuf : Array[Int32] = []
 
 ///|
+/// One unsigned byte from linear memory. The host writes a blob there, then [in_fill] copies it.
+#cfg(target="wasm")
+extern "wasm" fn load_u8(addr : Int) -> Int =
+  #| (func (param i32) (result i32)
+  #|   local.get 0
+  #|   i32.load8_u)
+
+///|
+#cfg(target="wasm")
+extern "wasm" fn mem_grow(pages : Int) -> Int =
+  #| (func (param i32) (result i32)
+  #|   local.get 0
+  #|   memory.grow)
+
+///|
+/// Make `inbuf` exactly `n` zeros, before [in_stage], so filling does not allocate.
+pub fn in_prepare(n : Int) -> Unit {
+  inbuf.clear()
+  let mut i = 0
+  while i < n {
+    inbuf.push(0)
+    i = i + 1
+  }
+}
+
+///|
+/// Grow linear memory by `pages` and return the byte address of the new region.
+#cfg(target="wasm")
+pub fn in_stage(pages : Int) -> Int {
+  let old = mem_grow(pages)
+  if old < 0 {
+    -1
+  } else {
+    old * 65536
+  }
+}
+
+///|
+#cfg(not(target="wasm"))
+pub fn in_stage(pages : Int) -> Int {
+  ignore(pages)
+  0
+}
+
+///|
+/// Overwrite the first `n` prepared bytes of `inbuf` from linear memory at `addr`.
+#cfg(target="wasm")
+pub fn in_fill(addr : Int, n : Int) -> Unit {
+  let mut i = 0
+  while i < n {
+    inbuf[i] = load_u8(addr + i)
+    i = i + 1
+  }
+}
+
+///|
+#cfg(not(target="wasm"))
+pub fn in_fill(addr : Int, n : Int) -> Unit {
+  ignore(addr)
+  ignore(n)
+}
+
+///|
 pub fn in_clear() -> Unit {
   inbuf.clear()
 }
@@ -78,6 +141,24 @@ fn utf8_encode(s : String) -> Unit {
 }
 
 ///|
+/// Join `parts[1:]` with U+0001. One part (or none) yields "".
+fn join_tail(parts : Array[String]) -> String {
+  if parts.length() <= 1 {
+    return ""
+  }
+  let sb = StringBuilder()
+  let mut i = 1
+  while i < parts.length() {
+    if i > 1 {
+      sb.write_string("\u{1}")
+    }
+    sb.write_string(parts[i])
+    i = i + 1
+  }
+  sb.to_string()
+}
+
+///|
 /// cmd 0 detect(arg0 = ipa, arg1 = greek text, may be empty); 1 ipa(arg0 = text, arg1 = scheme); 2 word_json(arg0);
 /// 3 load_lexicon (raw bytes, via run only); 4 lookup_json(arg0); 5 call(name = arg0, arg1 = arg [\u{1} arg2]);
 /// 6 g2p_json(arg0 = text, arg1 = scheme [\u{1} flags]). Flags are a comma list; `alts` and `ctx` are opt-in.
@@ -87,17 +168,11 @@ pub fn run_str(cmd : Int32, a0 : String, a1 : String) -> String {
     1 => @lib.ipa(a0, a1)
     4 => @lib.lookup_json(a0)
     5 => {
-      // a1 = "argument\u{1}second argument"
+      // a1 = "argument\u{1}second argument". arg2 may itself contain \u{1}
+      // (phone_distance, tolerance, tolerance_word), so the tail is rejoined.
       let parts = a1.split("\u{1}").map(fn(v) { v.to_owned() }).collect()
-      @lib.call_json(
-        a0,
-        parts[0],
-        if parts.length() > 1 {
-          parts[1]
-        } else {
-          ""
-        },
-      )
+      let arg = if parts.length() > 0 { parts[0] } else { "" }
+      @lib.call_json(a0, arg, join_tail(parts))
     }
     6 => {
       let parts = a1.split("\u{1}").map(fn(v) { v.to_owned() }).collect()

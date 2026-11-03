@@ -28,7 +28,13 @@ pub fn hearing_credit_json(String, String, String, String) -> String
 
 pub fn in_clear() -> Unit
 
+pub fn in_fill(Int32, Int32) -> Unit
+
+pub fn in_prepare(Int32) -> Unit
+
 pub fn in_push(Int32) -> Unit
+
+pub fn in_stage(Int32) -> Int32
 
 pub fn ipa(String, String) -> String
 

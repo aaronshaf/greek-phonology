@@ -1,0 +1,16 @@
+jdk:
+  - openjdk17
+before_install:
+  - |
+    if [ -n "${ANDROID_HOME:-}" ] && [ ! -d "$ANDROID_HOME/platforms/android-35" ]; then
+      SM="$(command -v sdkmanager || true)"
+      if [ -z "$SM" ] && [ -x "$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager" ]; then
+        SM="$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager"
+      fi
+      if [ -n "$SM" ]; then
+        yes | "$SM" --licenses >/dev/null || true
+        "$SM" "platforms;android-35" "build-tools;35.0.0"
+      fi
+    fi
+install:
+  - cd kotlin && chmod +x ./gradlew && ./gradlew publishToMavenLocal --no-daemon -x test

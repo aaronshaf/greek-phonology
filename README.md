@@ -23,6 +23,35 @@ call("accentuate_verb", "λυομεν");         // "λύομεν"
 loadLexicon(); lookup("λογος").form;       // "λόγος"
 ```
 
+Android and JVM (Kotlin, Chicory). The library is an Android AAR, `minSdk` 26, compiled against API 35, and a plain JVM jar of the same classes. It runs the release wasm build. In `settings.gradle.kts`:
+
+```kotlin
+dependencyResolutionManagement {
+    repositories {
+        google()
+        mavenCentral()
+        maven { url = uri("https://jitpack.io") }
+    }
+}
+```
+
+```kotlin
+dependencies {
+    implementation("com.github.aaronshaf:greek-phonology:v0.5.0-android.1")
+}
+```
+
+```kotlin
+val greek = GreekPhonology.open()
+greek.ipa("ἐν ἀρχῇ ἦν ὁ λόγος", "koine")
+greek.respell("ἄρτος", "koine")                          // AR-tos
+greek.tolerance("tʰ", "attic", position = "onset").band  // lenient
+greek.toleranceWord("θεός", "attic", "x e o s").words[0].penalty
+greek.loadLexicon(); greek.lookup("λογος")?.form         // λόγος
+```
+
+A host that is not Android can depend on `com.github.aaronshaf:greek-phonology-jvm:v0.5.0-android.1`. On a JVM, opening the engine takes about 80 ms and `ipa` about 2 ms. `respell`, `word`, and `toleranceWord` take about 10–25 ms, and loading the word list takes about three minutes. Chicory is interpreting the wasm, including the string SIMD. If those need to be faster on a phone, build this same wasm with the NDK and call it through JNI. That native runtime is not in this tag.
+
 WebAssembly (browser, wasmtime, any host). The package ships `greek-phonology.wasm` (also exported as `wasmPath`). Strings go in and out one UTF-8 byte at a time, so you don't need a shared allocator. See `docs/app.js` for a 20-line wrapper:
 
 ```js
@@ -123,10 +152,11 @@ Parity tests compare the library with the original TypeScript (its outputs are f
 - `docs/` — the GitHub Pages playground (`index.html`, `app.js`) plus committed wasm, JS, and lexicon copies, and [RESEARCH.md](docs/RESEARCH.md).
 - `notes/` — working notes. The build does not read them.
 - `packages/npm/` — npm package source (`package.json`, `index.js`, `index.d.ts`). `moonbit/tools/build_npm.sh` copies the release JS, wasm, lexicon, `README.md`, and `LICENSE` in. Nothing here publishes to npm.
+- `kotlin/` — Android AAR and JVM jar. Chicory hosts `greek-phonology.wasm`. JitPack builds it from `jitpack.yml`.
 
 ## Versioning
 
-`moonbit/moon.mod` and the npm package `greek-phonology` use the same version number. The module version is 0.5.0. It has not been published to npm. Published npm releases are 0.1.0 (2026-10-22 18:08Z), 0.2.0 (2026-10-22 20:05Z), 0.3.2 (2026-10-27 19:48Z), and 0.4.0 (2026-11-02 21:59Z). See [CHANGELOG.md](CHANGELOG.md). This repository has no git tags. Creating tags is a separate push and is not done from documentation changes. The proved-goal count is not a version: `moon prove` on your machine prints whatever MoonBit and Z3 you installed.
+`moonbit/moon.mod` and the npm package `greek-phonology` use the same version number. The module version is 0.5.0. It has not been published to npm. Published npm releases are 0.1.0 (2026-10-22 18:08Z), 0.2.0 (2026-10-22 20:05Z), 0.3.2 (2026-10-27 19:48Z), and 0.4.0 (2026-11-02 21:59Z). See [CHANGELOG.md](CHANGELOG.md). The Android library is published from the git tag `v0.5.0-android.1`. npm releases are not tagged. The proved-goal count is not a version: `moon prove` on your machine prints whatever MoonBit and Z3 you installed.
 
 ## Check locally
 

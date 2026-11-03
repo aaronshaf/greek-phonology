@@ -5,7 +5,16 @@ import {
 options(
   link: {
     "wasm": {
-      "exports": [ "in_clear", "in_push", "run", "out_len", "out_get" ],
+      "exports": [
+        "in_clear",
+        "in_push",
+        "in_prepare",
+        "in_stage",
+        "in_fill",
+        "run",
+        "out_len",
+        "out_get",
+      ],
       "export-memory-name": "memory",
     },
     "wasm-gc": {
