@@ -5,7 +5,7 @@ plugins {
 }
 
 group = "com.github.aaronshaf"
-version = System.getenv("VERSION") ?: "0.5.0-android.1"
+version = System.getenv("VERSION") ?: "0.5.0-android.2"
 
 android {
     namespace = "com.github.aaronshaf.greekphonology"
@@ -46,17 +46,6 @@ dependencies {
     testImplementation("junit:junit:4.13.2")
 }
 
-tasks.register<Jar>("jvmJar") {
-    group = "build"
-    description = "Plain JVM jar of the library classes and the bundled wasm."
-    archiveBaseName.set("greek-phonology-jvm")
-    dependsOn("compileReleaseKotlin", "compileReleaseJavaWithJavac")
-    from(layout.buildDirectory.dir("tmp/kotlin-classes/release"))
-    from(layout.buildDirectory.dir("intermediates/javac/release/compileReleaseJavaWithJavac/classes"))
-    from(layout.projectDirectory.dir("src/main/resources"))
-    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
-}
-
 afterEvaluate {
     publishing {
         publications {
@@ -65,26 +54,6 @@ afterEvaluate {
                 groupId = "com.github.aaronshaf"
                 artifactId = "greek-phonology"
                 version = project.version.toString()
-            }
-            register<MavenPublication>("jvm") {
-                groupId = "com.github.aaronshaf"
-                artifactId = "greek-phonology-jvm"
-                version = project.version.toString()
-                artifact(tasks.named("jvmJar"))
-                pom {
-                    withXml {
-                        val deps = asNode().appendNode("dependencies")
-                        fun add(group: String, artifact: String, ver: String) {
-                            val node = deps.appendNode("dependency")
-                            node.appendNode("groupId", group)
-                            node.appendNode("artifactId", artifact)
-                            node.appendNode("version", ver)
-                        }
-                        add("com.dylibso.chicory", "runtime", "1.7.5")
-                        add("org.jetbrains.kotlinx", "kotlinx-serialization-json", "1.7.3")
-                        add("org.jetbrains.kotlin", "kotlin-stdlib", "2.0.21")
-                    }
-                }
             }
         }
     }
